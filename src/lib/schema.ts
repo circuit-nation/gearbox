@@ -38,7 +38,6 @@ export interface EventLinks {
 
 export interface Sport {
   $id: string;
-  id: string;
   name: string;
   logo: string;
   color: string;
@@ -58,7 +57,7 @@ export interface Event {
   location_id?: string; // Reference to event_locations collection (if using separate location collection)
   links_id?: string; // Reference to event_links collection (if using separate links collection)
   location_str: string; // Human-readable location string
-  sport: string; // Reference to Sport.$id
+  sport_id: string; // Reference to Sport.$id
   country_code: string;
   country: string;
   event_start_at: string; // ISO Date String

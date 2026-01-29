@@ -48,3 +48,9 @@ next-env.d.ts
 
 # os files
 .DS_Store
+
+# Data files
+*/data/
+
+# Script files
+*/scripts/
