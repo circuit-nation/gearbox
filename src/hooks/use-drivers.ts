@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Driver, CreateDriver } from "@/lib/schema";
+import { Id } from "../../convex/_generated/dataModel";
 
 interface ListResponse<T> {
   total: number;
@@ -64,7 +65,7 @@ export function useDrivers(
 }
 
 export function useDriver(id: string) {
-  const data = useQuery(api.drivers.get, id ? { id } : "skip");
+  const data = useQuery(api.drivers.get, id ? { id: id as Id<"drivers"> } : "skip");
   return { data: data as Driver | null | undefined, isLoading: id ? data === undefined : false };
 }
 
@@ -93,7 +94,7 @@ export function useDeleteDriver(options?: MutationOptions<{ success: boolean; id
     async (id: string) => {
       setIsPending(true);
       try {
-        const result = await mutation({ id } as any);
+        const result = await mutation({ id: id as Id<"drivers"> } as any);
         options?.onSuccess?.(result as { success: boolean; id: string });
         return result as { success: boolean; id: string };
       } catch (error) {

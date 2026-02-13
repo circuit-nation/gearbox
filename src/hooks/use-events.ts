@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
+import { Id } from "../../convex/_generated/dataModel";
 import { api } from "../../convex/_generated/api";
 import { Event, CreateEvent } from "@/lib/schema";
 
@@ -66,7 +67,7 @@ export function useEvents(
 }
 
 export function useEvent(id: string) {
-  const data = useQuery(api.events.get, id ? { id } : "skip");
+  const data = useQuery(api.events.get, id ? { id: id as Id<"events"> } : "skip");
   return { data: data as Event | null | undefined, isLoading: id ? data === undefined : false };
 }
 

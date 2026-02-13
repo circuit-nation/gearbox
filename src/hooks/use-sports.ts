@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
+import { Id } from "../../convex/_generated/dataModel";
 import { Sport, CreateSport } from "@/lib/schema";
 
 interface ListResponse<T> {
@@ -64,7 +65,7 @@ export function useSports(
 }
 
 export function useSport(id: string) {
-  const data = useQuery(api.sports.get, id ? { id } : "skip");
+  const data = useQuery(api.sports.get, id ? { id: id as Id<"sports"> } : "skip");
   return { data: data as Sport | null | undefined, isLoading: id ? data === undefined : false };
 }
 

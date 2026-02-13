@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Team, CreateTeam } from "@/lib/schema";
+import { Id } from "../../convex/_generated/dataModel";
 
 interface ListResponse<T> {
   total: number;
@@ -64,7 +65,7 @@ export function useTeams(
 }
 
 export function useTeam(id: string) {
-  const data = useQuery(api.teams.get, id ? { id } : "skip");
+  const data = useQuery(api.teams.get, id ? { id: id as Id<"teams"> } : "skip");
   return { data: data as Team | null | undefined, isLoading: id ? data === undefined : false };
 }
 
