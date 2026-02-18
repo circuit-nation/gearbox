@@ -51,7 +51,7 @@ export function useEvents(
   sortOrder?: "asc" | "desc",
   filterTitle?: string,
   filterType?: string,
-  filterLocation?: string
+  filterCircuitId?: string
 ) {
   const data = useQuery(api.events.list, {
     page,
@@ -60,7 +60,7 @@ export function useEvents(
     sortOrder,
     filterTitle,
     filterType,
-    filterLocation,
+    filterCircuitId,
   });
 
   return { data: data as ListResponse<Event> | undefined, isLoading: data === undefined };

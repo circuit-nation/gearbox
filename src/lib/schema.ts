@@ -9,7 +9,7 @@ export type SportsType =
   | "motogp"
   | "superbike"
   | "endurance"
-  | "off road"
+  | "off-road"
   | "nascar";
 
 export type EventType =
@@ -24,7 +24,7 @@ export type EventType =
   | "news"
   | "announcement"
   | "update"
-  | "watch party";
+  | "watch-party";
 
 export type Location = [number, number];
 
@@ -52,15 +52,37 @@ export interface Event {
   title: string;
   round: number;
   type: EventType;
-  location?: Location; // GPS coordinates [lat, long] - Optional
-  links_id?: string; // Reference to event_links collection (if using separate links collection)
-  location_str: string; // Human-readable location string
+  circuit_id: string; // Reference to Circuit.convexId
+  links_id?: string; // Reference to EventLinks.convexId (optional)
   sport_id: string; // Reference to Sport.convexId
-  country_code: string;
-  country: string;
   event_start_at: string; // ISO Date String
   event_end_at: string; // ISO Date String
   images?: string[];
+}
+
+export interface Circuit {
+  convexId: string;
+  id: string;
+  name: string;
+  location_str: string;
+  country: string;
+  country_code: string;
+  location?: Location; // [longitude, latitude]
+  sport_id: string; // Reference to Sport.convexId
+  image?: string;
+  logo?: string;
+  color?: string;
+  length_km?: number;
+  turns?: number;
+  laps?: number;
+  lap_record?: string;
+  lap_record_holder?: string;
+  lap_record_year?: number;
+  track_type?: "permanent" | "street" | "temporary" | "mixed";
+  direction?: "clockwise" | "counterclockwise";
+  year_opened?: number;
+  tags?: string[];
+  official_website?: string;
 }
 
 export interface Team {
@@ -95,9 +117,9 @@ export type CreateDriver = Omit<Driver, "convexId">;
  * Use these when you need to include expanded/resolved relationship data
  */
 export interface EventParsed extends Event {
-  location?: Location;
   links?: EventLinks;
   sportData?: Sport; // Resolved sport reference
+  circuitData?: Circuit; // Resolved circuit reference
 }
 
 export interface TeamParsed extends Team {
@@ -115,7 +137,4 @@ export interface DriverParsed extends Driver {
  * - Team.sport -> Sport.convexId (Many-to-One)
  * - Driver.sport -> Sport.convexId (Many-to-One)
  * - Event.links_id -> EventLinks.convexId (Many-to-One, Optional)
- *
- * For simple use cases, you can store location data directly in the location_str field
- * and skip creating separate location/links collections.
  */

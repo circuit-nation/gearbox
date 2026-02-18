@@ -3,15 +3,18 @@
 import { useState, useMemo, useEffect } from "react";
 import { useEvents, useCreateEvent, useDeleteEvent, useUpdateEvent } from "@/hooks/use-events";
 import { useSports } from "@/hooks/use-sports";
+import { useCircuitsByIds } from "@/hooks/use-circuits";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Loader2, Pencil } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { DatePicker } from "@/components/ui/date-picker";
+import { TimePicker } from "@/components/ui/time-picker";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { CreateEvent, EventType, Event } from "@/lib/schema";
+import { CreateEvent, EventType, Event, Circuit } from "@/lib/schema";
 import { format } from "date-fns";
 import { ColumnDef, SortingState } from "@tanstack/react-table";
 import { DataTable, createSortableHeader } from "./data-table";
@@ -29,7 +32,7 @@ const EVENT_TYPES: EventType[] = [
   "news",
   "announcement",
   "update",
-  "watch party",
+  "watch-party",
 ];
 
 export function EventsManager() {
@@ -45,27 +48,34 @@ export function EventsManager() {
   const [sorting, setSorting] = useState<SortingState>([{ id: "event_start_at", desc: false }]);
   const [filterTitle, setFilterTitle] = useState("");
   const [filterType, setFilterType] = useState("");
-  const [filterLocation, setFilterLocation] = useState("");
+  const [filterCircuitId, setFilterCircuitId] = useState("");
   
   // Debounced filter states
   const [debouncedFilterTitle, setDebouncedFilterTitle] = useState("");
   const [debouncedFilterType, setDebouncedFilterType] = useState("");
-  const [debouncedFilterLocation, setDebouncedFilterLocation] = useState("");
+  const [debouncedFilterCircuitId, setDebouncedFilterCircuitId] = useState("");
   
   const [formData, setFormData] = useState<CreateEvent>({
     id: "",
     title: "",
     round: 1,
     type: "race",
-    location_str: "",
+    circuit_id: "",
     sport_id: "",
-    country_code: "",
-    country: "",
     event_start_at: "",
     event_end_at: "",
     images: [],
   });
   const [editFormData, setEditFormData] = useState<Partial<Event>>({});
+
+  const [startDate, setStartDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [editStartDate, setEditStartDate] = useState("");
+  const [editStartTime, setEditStartTime] = useState("");
+  const [editEndDate, setEditEndDate] = useState("");
+  const [editEndTime, setEditEndTime] = useState("");
 
   // Debounce filter values (500ms delay)
   useEffect(() => {
@@ -84,10 +94,10 @@ export function EventsManager() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedFilterLocation(filterLocation);
+      setDebouncedFilterCircuitId(filterCircuitId);
     }, 500);
     return () => clearTimeout(timer);
-  }, [filterLocation]);
+  }, [filterCircuitId]);
 
   // Extract sorting values for API
   const sortBy = sorting.length > 0 ? sorting[0].id : undefined;
@@ -100,9 +110,21 @@ export function EventsManager() {
     sortOrder as "asc" | "desc" | undefined,
     debouncedFilterTitle || undefined,
     debouncedFilterType || undefined,
-    debouncedFilterLocation || undefined
+    debouncedFilterCircuitId || undefined
   );
   const { data: sportsData } = useSports(1, 100);
+  const circuitIds = useMemo(
+    () => Array.from(new Set((data?.documents || []).map((event) => event.circuit_id).filter(Boolean))),
+    [data]
+  );
+  const { data: circuitsData } = useCircuitsByIds(circuitIds);
+  const circuitById = useMemo(() => {
+    const map = new Map<string, Circuit>();
+    (circuitsData || []).forEach((circuit) => {
+      map.set(circuit.convexId, circuit);
+    });
+    return map;
+  }, [circuitsData]);
   const createEvent = useCreateEvent({
     onSuccess: () => {
       toast.success("Event created successfully!");
@@ -133,6 +155,10 @@ export function EventsManager() {
       setIsEditOpen(false);
       setEditingEvent(null);
       setEditFormData({});
+      setEditStartDate("");
+      setEditStartTime("");
+      setEditEndDate("");
+      setEditEndTime("");
     },
     onError: (error) => {
       toast.error(error.message);
@@ -145,19 +171,48 @@ export function EventsManager() {
       title: "",
       round: 1,
       type: "race",
-      location_str: "",
+      circuit_id: "",
       sport_id: "",
-      country_code: "",
-      country: "",
       event_start_at: "",
       event_end_at: "",
       images: [],
     });
+    setStartDate("");
+    setStartTime("");
+    setEndDate("");
+    setEndTime("");
+  };
+
+  const formatDateValue = (value?: string) =>
+    value ? format(new Date(value), "yyyy-MM-dd") : "";
+
+  const formatTimeValue = (value?: string) =>
+    value ? format(new Date(value), "HH:mm") : "";
+
+  const buildIsoDateTime = (date: string, time: string) => {
+    if (!date || !time) {
+      return "";
+    }
+    const [hours, minutes] = time.split(":").map(Number);
+    if (!Number.isFinite(hours) || !Number.isFinite(minutes)) {
+      return "";
+    }
+    const localDate = new Date(date);
+    localDate.setHours(hours, minutes, 0, 0);
+    return localDate.toISOString();
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    createEvent.mutate(formData);
+    const eventStartAt = buildIsoDateTime(startDate, startTime);
+    const eventEndAt = buildIsoDateTime(endDate, endTime);
+    const payload: CreateEvent = {
+      ...formData,
+      event_start_at: eventStartAt,
+      event_end_at: eventEndAt,
+      links_id: formData.links_id?.trim() ? formData.links_id : undefined,
+    };
+    createEvent.mutate(payload);
   };
 
   const handleEdit = (event: Event) => {
@@ -166,22 +221,32 @@ export function EventsManager() {
       title: event.title,
       round: event.round,
       type: event.type,
-      location_str: event.location_str,
+      circuit_id: event.circuit_id,
+      links_id: event.links_id,
       sport_id: event.sport_id,
-      country_code: event.country_code,
-      country: event.country,
-      event_start_at: event.event_start_at,
-      event_end_at: event.event_end_at,
       images: event.images,
-      location_id: event.location_id,
     });
+    setEditStartDate(formatDateValue(event.event_start_at));
+    setEditStartTime(formatTimeValue(event.event_start_at));
+    setEditEndDate(formatDateValue(event.event_end_at));
+    setEditEndTime(formatTimeValue(event.event_end_at));
     setIsEditOpen(true);
   };
 
   const handleEditSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (editingEvent) {
-      updateEvent.mutate({ id: editingEvent.convexId, data: editFormData });
+      const eventStartAt = buildIsoDateTime(editStartDate, editStartTime) || editingEvent.event_start_at;
+      const eventEndAt = buildIsoDateTime(editEndDate, editEndTime) || editingEvent.event_end_at;
+      updateEvent.mutate({
+        id: editingEvent.convexId,
+        data: {
+          ...editFormData,
+          event_start_at: eventStartAt,
+          event_end_at: eventEndAt,
+          links_id: editFormData.links_id?.trim() ? editFormData.links_id : undefined,
+        },
+      });
     }
   };
 
@@ -215,17 +280,12 @@ export function EventsManager() {
         cell: ({ row }) => <Badge variant="secondary">{row.original.type}</Badge>,
       },
       {
-        accessorKey: "location_str",
-        header: "Location",
-        cell: ({ row }) => (
-          <div>
-            {row.original.location_str}
-            <br />
-            <span className="text-xs text-muted-foreground">
-              {row.original.country} ({row.original.country_code})
-            </span>
-          </div>
-        ),
+        accessorKey: "circuit_id",
+        header: createSortableHeader("Country"),
+        cell: ({ row }) => {
+          const circuit = circuitById.get(row.original.circuit_id);
+          return <div className="text-xs">{circuit?.country || "Unknown"}</div>;
+        },
       },
       {
         accessorKey: "sport_id",
@@ -264,7 +324,7 @@ export function EventsManager() {
         ),
       },
     ],
-    [sportsData, deleteEvent.isPending]
+    [sportsData, deleteEvent.isPending, circuitById]
   );
 
   const tableData = useMemo(() => data?.documents || [], [data]);
@@ -290,10 +350,10 @@ export function EventsManager() {
         className="max-w-sm"
       />
       <Input
-        placeholder="Filter by location..."
-        value={filterLocation}
+        placeholder="Filter by circuit ID..."
+        value={filterCircuitId}
         onChange={(event) => {
-          setFilterLocation(event.target.value);
+          setFilterCircuitId(event.target.value);
           setPagination((prev) => ({ ...prev, pageIndex: 0 }));
         }}
         className="max-w-sm"
@@ -391,69 +451,74 @@ export function EventsManager() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="country">Country</Label>
+                  <Label htmlFor="circuit_id">Circuit ID</Label>
                   <Input
-                    id="country"
-                    value={formData.country}
-                    onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    placeholder="e.g., Monaco"
+                    id="circuit_id"
+                    value={formData.circuit_id}
+                    onChange={(e) => setFormData({ ...formData, circuit_id: e.target.value })}
+                    placeholder="Convex circuit document ID"
                     required
                   />
                 </div>
                 <div>
-                  <Label htmlFor="country_code">Country Code</Label>
+                  <Label htmlFor="links_id">Links ID (Optional)</Label>
                   <Input
-                    id="country_code"
-                    value={formData.country_code}
-                    onChange={(e) => setFormData({ ...formData, country_code: e.target.value })}
-                    placeholder="e.g., MC"
-                    required
+                    id="links_id"
+                    value={formData.links_id || ""}
+                    onChange={(e) => setFormData({ ...formData, links_id: e.target.value })}
+                    placeholder="Optional event_links document ID"
                   />
                 </div>
               </div>
 
-              <div>
-                <Label htmlFor="location_str">Location</Label>
-                <Input
-                  id="location_str"
-                  value={formData.location_str}
-                  onChange={(e) => setFormData({ ...formData, location_str: e.target.value })}
-                  placeholder="e.g., Circuit de Monaco"
+              <div className="grid grid-cols-2 gap-4">
+                <DatePicker
+                  id="event_start_date"
+                  label="Start Date"
+                  value={startDate}
+                  onChange={(value) => {
+                    setStartDate(value);
+                    const nextIso = buildIsoDateTime(value, startTime);
+                    setFormData((prev) => ({ ...prev, event_start_at: nextIso }));
+                  }}
+                  required
+                />
+                <TimePicker
+                  id="event_start_time"
+                  label="Start Time"
+                  value={startTime}
+                  onChange={(value) => {
+                    setStartTime(value);
+                    const nextIso = buildIsoDateTime(startDate, value);
+                    setFormData((prev) => ({ ...prev, event_start_at: nextIso }));
+                  }}
                   required
                 />
               </div>
 
-              <div>
-                <Label htmlFor="location_id">Location ID (Optional)</Label>
-                <Input
-                  id="location_id"
-                  value={formData.location_id || ""}
-                  onChange={(e) => setFormData({ ...formData, location_id: e.target.value })}
-                  placeholder="Optional: location document ID if using separate location collection"
-                />
-              </div>
-
               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="event_start_at">Start Date & Time</Label>
-                  <Input
-                    id="event_start_at"
-                    type="datetime-local"
-                    value={formData.event_start_at}
-                    onChange={(e) => setFormData({ ...formData, event_start_at: new Date(e.target.value).toISOString() })}
-                    required
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="event_end_at">End Date & Time</Label>
-                  <Input
-                    id="event_end_at"
-                    type="datetime-local"
-                    value={formData.event_end_at}
-                    onChange={(e) => setFormData({ ...formData, event_end_at: new Date(e.target.value).toISOString() })}
-                    required
-                  />
-                </div>
+                <DatePicker
+                  id="event_end_date"
+                  label="End Date"
+                  value={endDate}
+                  onChange={(value) => {
+                    setEndDate(value);
+                    const nextIso = buildIsoDateTime(value, endTime);
+                    setFormData((prev) => ({ ...prev, event_end_at: nextIso }));
+                  }}
+                  required
+                />
+                <TimePicker
+                  id="event_end_time"
+                  label="End Time"
+                  value={endTime}
+                  onChange={(value) => {
+                    setEndTime(value);
+                    const nextIso = buildIsoDateTime(endDate, value);
+                    setFormData((prev) => ({ ...prev, event_end_at: nextIso }));
+                  }}
+                  required
+                />
               </div>
 
               <div>
@@ -552,69 +617,74 @@ export function EventsManager() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="edit-country">Country</Label>
+                <Label htmlFor="edit-circuit_id">Circuit ID</Label>
                 <Input
-                  id="edit-country"
-                  value={editFormData.country || ""}
-                  onChange={(e) => setEditFormData({ ...editFormData, country: e.target.value })}
-                  placeholder="e.g., Monaco"
+                  id="edit-circuit_id"
+                  value={editFormData.circuit_id || ""}
+                  onChange={(e) => setEditFormData({ ...editFormData, circuit_id: e.target.value })}
+                  placeholder="Convex circuit document ID"
                   required
                 />
               </div>
               <div>
-                <Label htmlFor="edit-country_code">Country Code</Label>
+                <Label htmlFor="edit-links_id">Links ID (Optional)</Label>
                 <Input
-                  id="edit-country_code"
-                  value={editFormData.country_code || ""}
-                  onChange={(e) => setEditFormData({ ...editFormData, country_code: e.target.value })}
-                  placeholder="e.g., MC"
-                  required
+                  id="edit-links_id"
+                  value={editFormData.links_id || ""}
+                  onChange={(e) => setEditFormData({ ...editFormData, links_id: e.target.value })}
+                  placeholder="Optional event_links document ID"
                 />
               </div>
             </div>
 
-            <div>
-              <Label htmlFor="edit-location_str">Location</Label>
-              <Input
-                id="edit-location_str"
-                value={editFormData.location_str || ""}
-                onChange={(e) => setEditFormData({ ...editFormData, location_str: e.target.value })}
-                placeholder="e.g., Circuit de Monaco"
+            <div className="grid grid-cols-2 gap-4">
+              <DatePicker
+                id="edit-event_start_date"
+                label="Start Date"
+                value={editStartDate}
+                onChange={(value) => {
+                  setEditStartDate(value);
+                  const nextIso = buildIsoDateTime(value, editStartTime);
+                  setEditFormData((prev) => ({ ...prev, event_start_at: nextIso }));
+                }}
+                required
+              />
+              <TimePicker
+                id="edit-event_start_time"
+                label="Start Time"
+                value={editStartTime}
+                onChange={(value) => {
+                  setEditStartTime(value);
+                  const nextIso = buildIsoDateTime(editStartDate, value);
+                  setEditFormData((prev) => ({ ...prev, event_start_at: nextIso }));
+                }}
                 required
               />
             </div>
 
-            <div>
-              <Label htmlFor="edit-location_id">Location ID (Optional)</Label>
-              <Input
-                id="edit-location_id"
-                value={editFormData.location_id || ""}
-                onChange={(e) => setEditFormData({ ...editFormData, location_id: e.target.value })}
-                placeholder="Optional: location document ID if using separate location collection"
-              />
-            </div>
-
             <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="edit-event_start_at">Start Date & Time</Label>
-                <Input
-                  id="edit-event_start_at"
-                  type="datetime-local"
-                  value={editFormData.event_start_at ? new Date(editFormData.event_start_at).toISOString().slice(0, 16) : ""}
-                  onChange={(e) => setEditFormData({ ...editFormData, event_start_at: new Date(e.target.value).toISOString() })}
-                  required
-                />
-              </div>
-              <div>
-                <Label htmlFor="edit-event_end_at">End Date & Time</Label>
-                <Input
-                  id="edit-event_end_at"
-                  type="datetime-local"
-                  value={editFormData.event_end_at ? new Date(editFormData.event_end_at).toISOString().slice(0, 16) : ""}
-                  onChange={(e) => setEditFormData({ ...editFormData, event_end_at: new Date(e.target.value).toISOString() })}
-                  required
-                />
-              </div>
+              <DatePicker
+                id="edit-event_end_date"
+                label="End Date"
+                value={editEndDate}
+                onChange={(value) => {
+                  setEditEndDate(value);
+                  const nextIso = buildIsoDateTime(value, editEndTime);
+                  setEditFormData((prev) => ({ ...prev, event_end_at: nextIso }));
+                }}
+                required
+              />
+              <TimePicker
+                id="edit-event_end_time"
+                label="End Time"
+                value={editEndTime}
+                onChange={(value) => {
+                  setEditEndTime(value);
+                  const nextIso = buildIsoDateTime(editEndDate, value);
+                  setEditFormData((prev) => ({ ...prev, event_end_at: nextIso }));
+                }}
+                required
+              />
             </div>
 
             <div>

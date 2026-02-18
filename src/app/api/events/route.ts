@@ -13,7 +13,7 @@ import type { Id } from "../../../../convex/_generated/dataModel";
  * - sortOrder: (optional) "asc" or "desc" (default: "desc")
  * - filterTitle: (optional) filter by title (partial match)
  * - filterType: (optional) filter by type
- * - filterLocation: (optional) filter by location_str (partial match)
+ * - filterCircuitId: (optional) filter by circuit document ID
  */
 export async function GET(request: NextRequest) {
   try {
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     const sortOrder = rawSortOrder === "asc" || rawSortOrder === "desc" ? rawSortOrder : "desc";
     const filterTitle = searchParams.get("filterTitle");
     const filterType = searchParams.get("filterType");
-    const filterLocation = searchParams.get("filterLocation");
+    const filterCircuitId = searchParams.get("filterCircuitId");
 
     const client = getConvexClient();
 
@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
       sortOrder,
       filterTitle: filterTitle || undefined,
       filterType: filterType || undefined,
-      filterLocation: filterLocation || undefined,
+      filterCircuitId: filterCircuitId || undefined,
     });
 
     return NextResponse.json(documents);

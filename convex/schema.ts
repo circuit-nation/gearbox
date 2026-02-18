@@ -2,6 +2,7 @@ import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema({
+  // SPORTS
   sports: defineTable({
     name: v.string(),
     logo: v.string(),
@@ -23,6 +24,8 @@ export default defineSchema({
     .searchIndex("search_name", {
       searchField: "name",
     }),
+
+  // TEAMS
   teams: defineTable({
     id: v.string(),
     name: v.string(),
@@ -36,6 +39,8 @@ export default defineSchema({
     .searchIndex("search_name", {
       searchField: "name",
     }),
+
+  // DRIVERS
   drivers: defineTable({
     id: v.string(),
     name: v.string(),
@@ -48,6 +53,8 @@ export default defineSchema({
     .searchIndex("search_name", {
       searchField: "name",
     }),
+
+  // EVENTS LINKS
   event_links: defineTable({
     instagram: v.optional(v.string()),
     youtube: v.optional(v.string()),
@@ -55,6 +62,8 @@ export default defineSchema({
     x: v.optional(v.string()),
     sources: v.optional(v.array(v.string())),
   }),
+
+  // EVENTS
   events: defineTable({
     id: v.string(),
     title: v.string(),
@@ -88,6 +97,8 @@ export default defineSchema({
     .searchIndex("search_title", {
       searchField: "title",
     }),
+
+  // CIRCUITS
   circuits: defineTable({
     id: v.string(),
     name: v.string(),

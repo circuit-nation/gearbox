@@ -49,7 +49,7 @@ export const list = query({
     sortOrder: v.optional(v.union(v.literal("asc"), v.literal("desc"))),
     filterTitle: v.optional(v.string()),
     filterType: v.optional(v.string()),
-    filterLocation: v.optional(v.string()),
+    filterCircuitId: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const page = args.page ?? DEFAULT_PAGE;
@@ -66,9 +66,8 @@ export const list = query({
     if (args.filterType) {
       items = items.filter((event) => event.type === args.filterType);
     }
-    const locationFilter = normalizeFilter(args.filterLocation);
-    if (locationFilter) {
-      items = items.filter((event) => event.location_str.toLowerCase().includes(locationFilter));
+    if (args.filterCircuitId) {
+      items = items.filter((event) => event.circuit_id === args.filterCircuitId);
     }
 
     items.sort((a, b) => {
@@ -112,13 +111,9 @@ export const create = mutation({
       title: v.string(),
       round: v.number(),
       type: eventTypeValidator,
-      location: v.optional(v.array(v.number())),
-      location_id: v.optional(v.string()),
+      circuit_id: v.id("circuits"),
       links_id: v.optional(v.id("event_links")),
-      location_str: v.string(),
       sport_id: v.id("sports"),
-      country_code: v.string(),
-      country: v.string(),
       event_start_at: v.string(),
       event_end_at: v.string(),
       images: v.optional(v.array(v.string())),
@@ -139,13 +134,9 @@ export const update = mutation({
       title: v.optional(v.string()),
       round: v.optional(v.number()),
       type: v.optional(eventTypeValidator),
-      location: v.optional(v.array(v.number())),
-      location_id: v.optional(v.string()),
+      circuit_id: v.optional(v.id("circuits")),
       links_id: v.optional(v.id("event_links")),
-      location_str: v.optional(v.string()),
       sport_id: v.optional(v.id("sports")),
-      country_code: v.optional(v.string()),
-      country: v.optional(v.string()),
       event_start_at: v.optional(v.string()),
       event_end_at: v.optional(v.string()),
       images: v.optional(v.array(v.string())),

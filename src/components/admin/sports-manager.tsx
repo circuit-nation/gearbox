@@ -22,7 +22,7 @@ const SPORTS_TYPES: SportsType[] = [
   "motogp",
   "superbike",
   "endurance",
-  "off road",
+  "off-road",
   "nascar",
 ];
 
