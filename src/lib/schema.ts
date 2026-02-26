@@ -109,6 +109,7 @@ export interface Driver {
  */
 export type CreateSport = Omit<Sport, "convexId">;
 export type CreateEvent = Omit<Event, "convexId">;
+export type CreateCircuit = Omit<Circuit, "convexId">;
 export type CreateTeam = Omit<Team, "convexId">;
 export type CreateDriver = Omit<Driver, "convexId">;
 

@@ -1,111 +1,193 @@
+"use client";
+
 import Link from "next/link";
+import { format, startOfToday } from "date-fns";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Trophy, Calendar, Users, UserCircle, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { useCircuits } from "@/hooks/use-circuits";
+import { useDrivers } from "@/hooks/use-drivers";
+import { useEvents } from "@/hooks/use-events";
+import { useSports } from "@/hooks/use-sports";
+import { useTeams } from "@/hooks/use-teams";
+import {
+  Calendar,
+  FlagTriangleRight,
+  Trophy,
+  Users,
+  UserCircle,
+  ArrowRight,
+} from "lucide-react";
 
 export default function HomePage() {
-  const sections = [
+  const { data: sports } = useSports(1, 1);
+  const { data: events } = useEvents(1, 25, "event_start_at", "asc");
+  const { data: teams } = useTeams(1, 1);
+  const { data: drivers } = useDrivers(1, 1);
+  const { data: circuits } = useCircuits(1, 1);
+  const { data: recentCircuits } = useCircuits(1, 3, "_creationTime", "desc");
+  const upcomingEvents = (events?.documents || [])
+    .filter((event) => new Date(event.event_start_at) >= startOfToday())
+    .slice(0, 3);
+
+  const statCards = [
     {
       title: "Sports",
-      description: "Manage different motorsport categories",
+      value: sports?.total ?? "-",
+      description: "Active motorsport categories",
       icon: Trophy,
       href: "/sports",
-      color: "text-blue-500",
     },
     {
       title: "Events",
-      description: "Schedule and organize racing events",
+      value: events?.total ?? "-",
+      description: "Scheduled events",
       icon: Calendar,
       href: "/events",
-      color: "text-green-500",
     },
     {
       title: "Teams",
-      description: "Add and manage racing teams",
+      value: teams?.total ?? "-",
+      description: "Teams across all sports",
       icon: Users,
       href: "/teams",
-      color: "text-purple-500",
     },
     {
       title: "Drivers",
-      description: "Manage driver profiles",
+      value: drivers?.total ?? "-",
+      description: "Active driver profiles",
       icon: UserCircle,
       href: "/drivers",
-      color: "text-orange-500",
+    },
+    {
+      title: "Circuits",
+      value: circuits?.total ?? "-",
+      description: "Track database entries",
+      icon: FlagTriangleRight,
+      href: "/circuits",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto p-6 md:p-8 space-y-8">
-        <div className="space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight">Circuit Nation Admin</h1>
-          <p className="text-xl text-muted-foreground">
-            Manage your motorsport content and data
-          </p>
-        </div>
+    <div className="space-y-8">
+      <div className="space-y-2">
+        <h1 className="text-4xl font-bold tracking-tight">Circuit Nation Admin</h1>
+        <p className="text-lg text-muted-foreground">
+          Live overview of your motorsport catalog and scheduling.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sections.map((section) => {
-            const Icon = section.icon;
-            return (
-              <Link key={section.href} href={section.href}>
-                <Card className="h-full transition-all hover:shadow-lg hover:border-primary cursor-pointer">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg bg-muted ${section.color}`}>
-                          <Icon className="h-6 w-6" />
-                        </div>
-                        <div>
-                          <CardTitle>{section.title}</CardTitle>
-                          <CardDescription className="mt-1.5">
-                            {section.description}
-                          </CardDescription>
-                        </div>
-                      </div>
-                      <ArrowRight className="h-5 w-5 text-muted-foreground" />
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        {statCards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <Card key={card.title} className="relative overflow-hidden">
+              <CardHeader className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">
+                    {card.title}
+                  </CardTitle>
+                  <Icon className="h-4 w-4 text-muted-foreground" />
+                </div>
+                <div className="text-3xl font-semibold">{card.value}</div>
+                <CardDescription>{card.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <Link href={card.href}>
+                  <Button variant="ghost" size="sm" className="px-0">
+                    View {card.title}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Upcoming Events</CardTitle>
+            <CardDescription>Next race-weekend milestones</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {upcomingEvents.length ? (
+              upcomingEvents.map((event) => (
+                <div key={event.convexId} className="flex items-center justify-between gap-4">
+                  <div>
+                    <div className="font-medium">{event.title}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {format(new Date(event.event_start_at), "PPp")}
                     </div>
-                  </CardHeader>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
+                  </div>
+                  <Badge variant="secondary" className="capitalize">
+                    {event.type}
+                  </Badge>
+                </div>
+              ))
+            ) : (
+              <div className="text-sm text-muted-foreground">No upcoming events yet.</div>
+            )}
+            <Link href="/events">
+              <Button variant="outline" size="sm">
+                Manage events
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Quick Start</CardTitle>
-            <CardDescription>Get started with managing your content</CardDescription>
+            <CardTitle>Recently Added Circuits</CardTitle>
+            <CardDescription>Latest track updates</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex flex-col space-y-2">
-              <h3 className="font-semibold">1. Add Sports Categories</h3>
-              <p className="text-sm text-muted-foreground">
-                Start by adding the different motorsport categories like Formula 1, MotoGP, etc.
-              </p>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <h3 className="font-semibold">2. Create Teams</h3>
-              <p className="text-sm text-muted-foreground">
-                Add teams that compete in each sport category.
-              </p>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <h3 className="font-semibold">3. Add Drivers</h3>
-              <p className="text-sm text-muted-foreground">
-                Create driver profiles for all competitors.
-              </p>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <h3 className="font-semibold">4. Schedule Events</h3>
-              <p className="text-sm text-muted-foreground">
-                Create and manage racing events with full details.
-              </p>
-            </div>
+            {recentCircuits?.documents?.length ? (
+              recentCircuits.documents.map((circuit) => (
+                <div key={circuit.convexId} className="flex items-center justify-between">
+                  <div>
+                    <div className="font-medium">{circuit.name}</div>
+                    <div className="text-xs text-muted-foreground">{circuit.location_str}</div>
+                  </div>
+                  <Badge variant="secondary">{circuit.country_code}</Badge>
+                </div>
+              ))
+            ) : (
+              <div className="text-sm text-muted-foreground">No circuits available yet.</div>
+            )}
+            <Link href="/circuits">
+              <Button variant="outline" size="sm">
+                Manage circuits
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Quick Actions</CardTitle>
+          <CardDescription>Jump back into common workflows</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-wrap gap-3">
+          <Link href="/sports">
+            <Button variant="secondary">Add Sports</Button>
+          </Link>
+          <Link href="/circuits">
+            <Button variant="secondary">Add Circuits</Button>
+          </Link>
+          <Link href="/teams">
+            <Button variant="secondary">Add Teams</Button>
+          </Link>
+          <Link href="/drivers">
+            <Button variant="secondary">Add Drivers</Button>
+          </Link>
+          <Link href="/events">
+            <Button variant="secondary">Schedule Events</Button>
+          </Link>
+        </CardContent>
+      </Card>
     </div>
   );
 }
