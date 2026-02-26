@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Circuit } from "@/lib/schema";
 import { ColumnDef } from "@tanstack/react-table";
@@ -35,9 +34,6 @@ export function createCircuitsColumns({
       cell: ({ row }) => (
         <div className="space-y-1">
           <div>{row.original.country}</div>
-          <Badge variant="secondary" className="text-[10px]">
-            {row.original.country_code}
-          </Badge>
         </div>
       ),
     },
@@ -54,23 +50,6 @@ export function createCircuitsColumns({
         const sport = sports?.find((s) => s.convexId === row.original.sport_id);
         return sport?.name || "Unknown";
       },
-    },
-    {
-      accessorKey: "length_km",
-      header: createSortableHeader("Length (km)"),
-      cell: ({ row }) => (
-        <div className="text-xs">{row.original.length_km ? row.original.length_km.toFixed(2) : "-"}</div>
-      ),
-    },
-    {
-      accessorKey: "track_type",
-      header: "Track Type",
-      cell: ({ row }) => (
-        <Badge variant="secondary" className="capitalize">
-          {row.original.track_type || "n/a"}
-        </Badge>
-      ),
-      enableSorting: false,
     },
     {
       id: "actions",

@@ -5,7 +5,7 @@ import { SortingState } from "@tanstack/react-table";
 
 export const DEFAULT_PAGINATION = {
   pageIndex: 0,
-  pageSize: 10,
+  pageSize: 25,
 };
 
 export function useTableState(initialSorting: SortingState = []) {
