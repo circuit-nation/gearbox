@@ -1,48 +1,11 @@
-import { useCallback, useState } from "react";
-import { useMutation, useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
-import { Id } from "../../convex/_generated/dataModel";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { buildQuery, fetchJson, ListResponse } from "@/lib/api-client";
 import { Sport, CreateSport } from "@/lib/schema";
-
-interface ListResponse<T> {
-  total: number;
-  documents: T[];
-}
 
 type MutationOptions<TResult> = {
   onSuccess?: (data: TResult) => void;
   onError?: (error: Error) => void;
 };
-
-function useConvexMutation<TArgs, TResult>(
-  mutationRef: (args: TArgs) => Promise<TResult>,
-  options?: MutationOptions<TResult>,
-  mapArgs?: (args: TArgs) => unknown
-) {
-  const mutation = useMutation(mutationRef as any);
-  const [isPending, setIsPending] = useState(false);
-
-  const mutate = useCallback(
-    async (args: TArgs) => {
-      setIsPending(true);
-      try {
-        const payload = mapArgs ? mapArgs(args) : args;
-        const result = await mutation(payload as any);
-        options?.onSuccess?.(result as TResult);
-        return result as TResult;
-      } catch (error) {
-        const err = error instanceof Error ? error : new Error("Unknown error");
-        options?.onError?.(err);
-        throw err;
-      } finally {
-        setIsPending(false);
-      }
-    },
-    [mutation, options, mapArgs]
-  );
-
-  return { mutate, isPending };
-}
 
 export function useSports(
   page: number = 1,
@@ -52,59 +15,75 @@ export function useSports(
   filterName?: string,
   filterType?: string
 ) {
-  const data = useQuery(api.sports.list, {
-    page,
-    limit,
-    sortBy,
-    sortOrder,
-    filterName,
-    filterType,
+  const query = useQuery({
+    queryKey: ["sports", page, limit, sortBy, sortOrder, filterName, filterType],
+    queryFn: () =>
+      fetchJson<ListResponse<Sport>>(
+        `/api/sports${buildQuery({
+          page,
+          limit,
+          sortBy,
+          sortOrder,
+          filterName,
+          filterType,
+        })}`
+      ),
   });
 
-  return { data: data as ListResponse<Sport> | undefined, isLoading: data === undefined };
+  return { data: query.data, isLoading: query.isLoading };
 }
 
 export function useSport(id: string) {
-  const data = useQuery(api.sports.get, id ? { id: id as Id<"sports"> } : "skip");
-  return { data: data as Sport | null | undefined, isLoading: id ? data === undefined : false };
+  const query = useQuery({
+    queryKey: ["sports", "detail", id],
+    queryFn: () => fetchJson<Sport | null>(`/api/sports${buildQuery({ id })}`),
+    enabled: Boolean(id),
+  });
+
+  return {
+    data: query.data,
+    isLoading: Boolean(id) ? query.isLoading : false,
+  };
 }
 
 export function useCreateSport(options?: MutationOptions<Sport | null>) {
-  return useConvexMutation<CreateSport, Sport | null>(
-    api.sports.create as any,
-    options,
-    (data) => ({ data })
-  );
+  const mutation = useMutation({
+    mutationFn: (data: CreateSport) =>
+      fetchJson<Sport | null>("/api/sports", {
+        method: "POST",
+        body: data,
+      }),
+    onSuccess: options?.onSuccess,
+    onError: options?.onError,
+  });
+
+  return { mutate: mutation.mutateAsync, isPending: mutation.isPending };
 }
 
 export function useUpdateSport(options?: MutationOptions<Sport | null>) {
-  return useConvexMutation<{ id: string; data: Partial<Sport> }, Sport | null>(
-    api.sports.update as any,
-    options
-  );
+  const mutation = useMutation({
+    mutationFn: (payload: { id: string; data: Partial<Sport> }) =>
+      fetchJson<Sport | null>("/api/sports", {
+        method: "PUT",
+        body: { id: payload.id, ...payload.data },
+      }),
+    onSuccess: options?.onSuccess,
+    onError: options?.onError,
+  });
+
+  return { mutate: mutation.mutateAsync, isPending: mutation.isPending };
 }
 
 export function useDeleteSport(options?: MutationOptions<{ success: boolean; id: string }>) {
-  const mutation = useMutation(api.sports.remove as any);
-  const [isPending, setIsPending] = useState(false);
+  const mutation = useMutation({
+    mutationFn: (id: string) =>
+      fetchJson<{ success: boolean; id: string }>(
+        `/api/sports${buildQuery({ id })}`,
+        { method: "DELETE" }
+      ),
+    onSuccess: options?.onSuccess,
+    onError: options?.onError,
+  });
 
-  const mutate = useCallback(
-    async (id: string) => {
-      setIsPending(true);
-      try {
-        const result = await mutation({ id } as any);
-        options?.onSuccess?.(result as { success: boolean; id: string });
-        return result as { success: boolean; id: string };
-      } catch (error) {
-        const err = error instanceof Error ? error : new Error("Unknown error");
-        options?.onError?.(err);
-        throw err;
-      } finally {
-        setIsPending(false);
-      }
-    },
-    [mutation, options]
-  );
-
-  return { mutate, isPending };
+  return { mutate: mutation.mutateAsync, isPending: mutation.isPending };
 }

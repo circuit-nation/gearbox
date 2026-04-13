@@ -1,149 +1,127 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getConvexClient } from "@/lib/convex-server";
-import { api } from "../../../../convex/_generated/api";
-import type { Id } from "../../../../convex/_generated/dataModel";
+import { Types } from "mongoose";
+import { connectToDatabase } from "@/lib/mongodb";
+import { EventModel } from "@/lib/models";
+import { buildListResponse, toDocument, toDocuments } from "@/lib/mongo-helpers";
 
-/**
- * GET /api/events - Fetch all events or a single event by ID
- * Query params:
- * - id: (optional) document ID for single document fetch
- * - page: (optional) page number for pagination (default: 1)
- * - limit: (optional) items per page (default: 10)
- * - sortBy: (optional) field to sort by (default: "event_start_at")
- * - sortOrder: (optional) "asc" or "desc" (default: "desc")
- * - filterTitle: (optional) filter by title (partial match)
- * - filterType: (optional) filter by type
- * - filterCircuitId: (optional) filter by circuit document ID
- */
 export async function GET(request: NextRequest) {
   try {
+    await connectToDatabase();
+
     const searchParams = request.nextUrl.searchParams;
-    const documentId = searchParams.get("id");
-    const page = parseInt(searchParams.get("page") || "1");
-    const limit = parseInt(searchParams.get("limit") || "10");
+    const id = searchParams.get("id");
+    const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
+    const limit = Math.max(parseInt(searchParams.get("limit") || "10"), 1);
     const sortBy = searchParams.get("sortBy") || "event_start_at";
     const rawSortOrder = searchParams.get("sortOrder");
-    const sortOrder = rawSortOrder === "asc" || rawSortOrder === "desc" ? rawSortOrder : "desc";
+    const sortOrder = rawSortOrder === "asc" ? 1 : -1;
     const filterTitle = searchParams.get("filterTitle");
     const filterType = searchParams.get("filterType");
     const filterCircuitId = searchParams.get("filterCircuitId");
 
-    const client = getConvexClient();
-
-    // Fetch single document if ID is provided
-    if (documentId) {
-      const document = await client.query(api.events.get, {
-        id: documentId as Id<"events">,
-      });
-      return NextResponse.json(document);
+    if (id) {
+      if (!Types.ObjectId.isValid(id)) {
+        return NextResponse.json(null);
+      }
+      const document = await EventModel.findById(id).lean();
+      return NextResponse.json(toDocument(document as any));
     }
 
-    const documents = await client.query(api.events.list, {
-      page,
-      limit,
-      sortBy,
-      sortOrder,
-      filterTitle: filterTitle || undefined,
-      filterType: filterType || undefined,
-      filterCircuitId: filterCircuitId || undefined,
-    });
+    const query: Record<string, unknown> = {};
 
-    return NextResponse.json(documents);
+    if (filterTitle) {
+      query.title = { $regex: filterTitle, $options: "i" };
+    }
+
+    if (filterType) {
+      query.type = filterType;
+    }
+
+    if (filterCircuitId) {
+      query.circuit_id = filterCircuitId;
+    }
+
+    const [total, documents] = await Promise.all([
+      EventModel.countDocuments(query),
+      EventModel.find(query)
+        .sort({ [sortBy]: sortOrder })
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .lean(),
+    ]);
+
+    return NextResponse.json(
+      buildListResponse(total, toDocuments(documents as any[]))
+    );
   } catch (error: any) {
     console.error("GET Events API Error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to fetch events" },
-      { status: error.status || 500 }
+      { status: 500 }
     );
   }
 }
 
-/**
- * POST /api/events - Create a new event
- * Body should include event data matching the schema
- */
 export async function POST(request: NextRequest) {
   try {
+    await connectToDatabase();
     const data = await request.json();
 
-    const client = getConvexClient();
-
-    const document = await client.mutation(api.events.create, { data });
-
-    return NextResponse.json(document, { status: 201 });
+    const document = await EventModel.create(data);
+    return NextResponse.json(toDocument(document.toObject() as any), { status: 201 });
   } catch (error: any) {
     console.error("POST Events API Error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to create event" },
-      { status: error.code || 500 }
+      { status: 500 }
     );
   }
 }
 
-/**
- * PUT /api/events - Update an existing event
- * Body should include:
- * - id: document ID
- * - data: updated event data
- */
 export async function PUT(request: NextRequest) {
   try {
+    await connectToDatabase();
+
     const body = await request.json();
     const { id, ...data } = body;
 
-    if (!id) {
-      return NextResponse.json(
-        { error: "Document ID is required" },
-        { status: 400 }
-      );
+    if (!id || !Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
     }
 
-    const client = getConvexClient();
+    const document = await EventModel.findByIdAndUpdate(id, data, {
+      new: true,
+      runValidators: true,
+    }).lean();
 
-    const document = await client.mutation(api.events.update, {
-      id: id as Id<"events">,
-      data,
-    });
-
-    return NextResponse.json(document);
+    return NextResponse.json(toDocument(document as any));
   } catch (error: any) {
     console.error("PUT Events API Error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to update event" },
-      { status: error.code || 500 }
+      { status: 500 }
     );
   }
 }
 
-/**
- * DELETE /api/events - Delete an event
- * Query params:
- * - id: document ID
- */
 export async function DELETE(request: NextRequest) {
   try {
-    const searchParams = request.nextUrl.searchParams;
-    const documentId = searchParams.get("id");
+    await connectToDatabase();
 
-    if (!documentId) {
-      return NextResponse.json(
-        { error: "Document ID is required" },
-        { status: 400 }
-      );
+    const searchParams = request.nextUrl.searchParams;
+    const id = searchParams.get("id");
+
+    if (!id || !Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
     }
 
-    const client = getConvexClient();
-
-    await client.mutation(api.events.remove, {
-      id: documentId as Id<"events">,
-    });
-
-    return NextResponse.json({ success: true, id: documentId });
+    await EventModel.findByIdAndDelete(id);
+    return NextResponse.json({ success: true, id });
   } catch (error: any) {
     console.error("DELETE Events API Error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to delete event" },
-      { status: error.code || 500 }
+      { status: 500 }
     );
   }
 }

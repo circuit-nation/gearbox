@@ -25,7 +25,7 @@ const EVENT_TYPES: EventType[] = [
 ];
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -156,7 +156,7 @@ export function EventsCreateDialog({
                 </SelectTrigger>
                 <SelectContent>
                   {sports?.map((sport) => (
-                    <SelectItem key={sport.convexId} value={sport.convexId}>
+                    <SelectItem key={sport._id} value={sport._id}>
                       {sport.name}
                     </SelectItem>
                   ))}
@@ -172,7 +172,7 @@ export function EventsCreateDialog({
                 id="circuit_id"
                 value={formData.circuit_id}
                 onChange={(e) => setFormData({ ...formData, circuit_id: e.target.value })}
-                placeholder="Convex circuit document ID"
+                placeholder="Circuit document ID"
                 required
               />
             </div>
@@ -335,7 +335,7 @@ export function EventsEditDialog({
                 </SelectTrigger>
                 <SelectContent>
                   {sports?.map((sport) => (
-                    <SelectItem key={sport.convexId} value={sport.convexId}>
+                    <SelectItem key={sport._id} value={sport._id}>
                       {sport.name}
                     </SelectItem>
                   ))}
@@ -351,7 +351,7 @@ export function EventsEditDialog({
                 id="edit-circuit_id"
                 value={formData.circuit_id || ""}
                 onChange={(e) => setFormData({ ...formData, circuit_id: e.target.value })}
-                placeholder="Convex circuit document ID"
+                placeholder="Circuit document ID"
                 required
               />
             </div>

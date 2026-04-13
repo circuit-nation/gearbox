@@ -96,7 +96,7 @@ export function EventsManager() {
   const circuitById = useMemo(() => {
     const map = new Map<string, Circuit>();
     (circuitsData || []).forEach((circuit) => {
-      map.set(circuit.convexId, circuit);
+      map.set(circuit._id, circuit);
     });
     return map;
   }, [circuitsData]);
@@ -210,7 +210,7 @@ export function EventsManager() {
       const eventStartAt = buildIsoDateTime(editStartDate, editStartTime) || editingEvent.event_start_at;
       const eventEndAt = buildIsoDateTime(editEndDate, editEndTime) || editingEvent.event_end_at;
       updateEvent.mutate({
-        id: editingEvent.convexId,
+        id: editingEvent._id,
         data: {
           ...editFormData,
           event_start_at: eventStartAt,

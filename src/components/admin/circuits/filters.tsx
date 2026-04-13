@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -46,7 +46,7 @@ export function CircuitsFilters({
         <SelectContent>
           <SelectItem value="all">All sports</SelectItem>
           {sports?.map((sport) => (
-            <SelectItem key={sport.convexId} value={sport.convexId}>
+            <SelectItem key={sport._id} value={sport._id}>
               {sport.name}
             </SelectItem>
           ))}

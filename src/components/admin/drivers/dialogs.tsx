@@ -8,7 +8,7 @@ import { Loader2, Plus } from "lucide-react";
 import { CreateDriver, Driver } from "@/lib/schema";
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -82,7 +82,7 @@ export function DriversCreateDialog({
               </SelectTrigger>
               <SelectContent>
                 {sports?.map((sport) => (
-                  <SelectItem key={sport.convexId} value={sport.convexId}>
+                  <SelectItem key={sport._id} value={sport._id}>
                     {sport.name}
                   </SelectItem>
                 ))}
@@ -157,7 +157,7 @@ export function DriversEditDialog({
               </SelectTrigger>
               <SelectContent>
                 {sports?.map((sport) => (
-                  <SelectItem key={sport.convexId} value={sport.convexId}>
+                  <SelectItem key={sport._id} value={sport._id}>
                     {sport.name}
                   </SelectItem>
                 ))}

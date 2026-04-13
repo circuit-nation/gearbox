@@ -8,7 +8,7 @@ import { Loader2, Plus } from "lucide-react";
 import { CreateTeam, Team } from "@/lib/schema";
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -82,7 +82,7 @@ export function TeamsCreateDialog({
               </SelectTrigger>
               <SelectContent>
                 {sports?.map((sport) => (
-                  <SelectItem key={sport.convexId} value={sport.convexId}>
+                  <SelectItem key={sport._id} value={sport._id}>
                     {sport.name}
                   </SelectItem>
                 ))}
@@ -166,7 +166,7 @@ export function TeamsEditDialog({
               </SelectTrigger>
               <SelectContent>
                 {sports?.map((sport) => (
-                  <SelectItem key={sport.convexId} value={sport.convexId}>
+                  <SelectItem key={sport._id} value={sport._id}>
                     {sport.name}
                   </SelectItem>
                 ))}

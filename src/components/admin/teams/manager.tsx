@@ -111,7 +111,7 @@ export function TeamsManager() {
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (editingTeam) {
-      updateTeam.mutate({ id: editingTeam.convexId, data: editFormData });
+      updateTeam.mutate({ id: editingTeam._id, data: editFormData });
     }
   };
 

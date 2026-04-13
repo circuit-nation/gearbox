@@ -5,7 +5,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import { createSortableHeader } from "../data-table";
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -47,7 +47,7 @@ export function createCircuitsColumns({
       accessorKey: "sport_id",
       header: "Sport",
       cell: ({ row }) => {
-        const sport = sports?.find((s) => s.convexId === row.original.sport_id);
+        const sport = sports?.find((s) => s._id === row.original.sport_id);
         return sport?.name || "Unknown";
       },
     },
@@ -62,7 +62,7 @@ export function createCircuitsColumns({
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => onDelete(row.original.convexId)}
+            onClick={() => onDelete(row.original._id)}
             disabled={isDeleting}
           >
             <Trash2 className="h-4 w-4 text-destructive" />

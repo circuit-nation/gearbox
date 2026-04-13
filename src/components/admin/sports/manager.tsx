@@ -107,7 +107,7 @@ export function SportsManager() {
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (editingSport) {
-      updateSport.mutate({ id: editingSport.convexId, data: editFormData });
+      updateSport.mutate({ id: editingSport._id, data: editFormData });
     }
   };
 

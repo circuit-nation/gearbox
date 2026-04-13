@@ -166,7 +166,7 @@ export function CircuitsManager() {
     e.preventDefault();
     if (editingCircuit) {
       updateCircuit.mutate({
-        id: editingCircuit.convexId,
+        id: editingCircuit._id,
         data: {
           ...editFormData,
           image: editFormData.image?.trim() || undefined,

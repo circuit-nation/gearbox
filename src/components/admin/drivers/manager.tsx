@@ -108,7 +108,7 @@ export function DriversManager() {
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (editingDriver) {
-      updateDriver.mutate({ id: editingDriver.convexId, data: editFormData });
+      updateDriver.mutate({ id: editingDriver._id, data: editFormData });
     }
   };
 

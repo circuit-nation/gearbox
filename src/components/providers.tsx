@@ -2,7 +2,6 @@
 
 import { ReactNode } from "react";
 import { Toaster } from "sonner";
-import { ConvexClientProvider } from "@/components/convex-client-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,7 +20,7 @@ export function Providers({ children }: ProvidersProps) {
 				disableTransitionOnChange
 			>
 				<TooltipProvider>
-					<ConvexClientProvider>{children}</ConvexClientProvider>
+					{children}
 				</TooltipProvider>
 			</ThemeProvider>
 			<Toaster />

@@ -9,7 +9,7 @@ import { Circuit, CreateCircuit } from "@/lib/schema";
 import { DIRECTIONS, TRACK_TYPES, parseOptionalNumber } from "./form-utils";
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -117,7 +117,7 @@ export function CircuitsCreateDialog({
                 </SelectTrigger>
                 <SelectContent>
                   {sports?.map((sport) => (
-                    <SelectItem key={sport.convexId} value={sport.convexId}>
+                    <SelectItem key={sport._id} value={sport._id}>
                       {sport.name}
                     </SelectItem>
                   ))}
@@ -370,7 +370,7 @@ export function CircuitsEditDialog({
                 </SelectTrigger>
                 <SelectContent>
                   {sports?.map((sport) => (
-                    <SelectItem key={sport.convexId} value={sport.convexId}>
+                    <SelectItem key={sport._id} value={sport._id}>
                       {sport.name}
                     </SelectItem>
                   ))}

@@ -7,7 +7,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import { createSortableHeader } from "../data-table";
 
 type SportOption = {
-  convexId: string;
+  _id: string;
   name: string;
 };
 
@@ -40,7 +40,7 @@ export function createTeamsColumns({ sports, onEdit, onDelete, isDeleting }: Tea
       accessorKey: "sport",
       header: createSortableHeader("Sport"),
       cell: ({ row }) => {
-        const sport = sports?.find((s) => s.convexId === row.original.sport);
+        const sport = sports?.find((s) => s._id === row.original.sport);
         return sport?.name || "Unknown";
       },
     },
@@ -77,7 +77,7 @@ export function createTeamsColumns({ sports, onEdit, onDelete, isDeleting }: Tea
           <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
             <Pencil className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original.convexId)} disabled={isDeleting}>
+          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original._id)} disabled={isDeleting}>
             <Trash2 className="h-4 w-4 text-destructive" />
           </Button>
         </div>

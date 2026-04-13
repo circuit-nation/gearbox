@@ -63,7 +63,7 @@ export function createSportsColumns({ onEdit, onDelete, isDeleting }: SportsColu
           <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
             <Pencil className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original.convexId)} disabled={isDeleting}>
+          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original._id)} disabled={isDeleting}>
             <Trash2 className="h-4 w-4 text-destructive" />
           </Button>
         </div>

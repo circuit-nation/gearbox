@@ -29,7 +29,7 @@ export type EventType =
 export type Location = [number, number];
 
 export interface EventLinks {
-  convexId: string;
+  _id: string;
   instagram?: string;
   youtube?: string;
   discord?: string;
@@ -38,7 +38,7 @@ export interface EventLinks {
 }
 
 export interface Sport {
-  convexId: string;
+  _id: string;
   name: string;
   logo: string;
   color: string;
@@ -47,28 +47,28 @@ export interface Sport {
 }
 
 export interface Event {
-  convexId: string;
+  _id: string;
   id: string;
   title: string;
   round: number;
   type: EventType;
-  circuit_id: string; // Reference to Circuit.convexId
-  links_id?: string; // Reference to EventLinks.convexId (optional)
-  sport_id: string; // Reference to Sport.convexId
+  circuit_id: string; // Reference to Circuit._id
+  links_id?: string; // Reference to EventLinks._id (optional)
+  sport_id: string; // Reference to Sport._id
   event_start_at: string; // ISO Date String
   event_end_at: string; // ISO Date String
   images?: string[];
 }
 
 export interface Circuit {
-  convexId: string;
+  _id: string;
   id: string;
   name: string;
   location_str: string;
   country: string;
   country_code: string;
   location?: Location; // [longitude, latitude]
-  sport_id: string; // Reference to Sport.convexId
+  sport_id: string; // Reference to Sport._id
   image?: string;
   logo?: string;
   color?: string;
@@ -86,32 +86,32 @@ export interface Circuit {
 }
 
 export interface Team {
-  convexId: string;
+  _id: string;
   id: string;
   name: string;
   logo: string;
-  sport: string; // Reference to Sport.convexId
+  sport: string; // Reference to Sport._id
   tags?: string[];
   color?: string;
 }
 
 export interface Driver {
-  convexId: string;
+  _id: string;
   id: string;
   name: string;
   image: string;
-  sport: string; // Reference to Sport.convexId
+  sport: string; // Reference to Sport._id
   tags?: string[];
 }
 
 /**
  * Helper types for creating documents (without system fields)
  */
-export type CreateSport = Omit<Sport, "convexId">;
-export type CreateEvent = Omit<Event, "convexId">;
-export type CreateCircuit = Omit<Circuit, "convexId">;
-export type CreateTeam = Omit<Team, "convexId">;
-export type CreateDriver = Omit<Driver, "convexId">;
+export type CreateSport = Omit<Sport, "_id">;
+export type CreateEvent = Omit<Event, "_id">;
+export type CreateCircuit = Omit<Circuit, "_id">;
+export type CreateTeam = Omit<Team, "_id">;
+export type CreateDriver = Omit<Driver, "_id">;
 
 /**
  * Parsed versions with resolved relations
@@ -134,8 +134,8 @@ export interface DriverParsed extends Driver {
 /**
  * Relationship Notes:
  *
- * - Event.sport -> Sport.convexId (Many-to-One)
- * - Team.sport -> Sport.convexId (Many-to-One)
- * - Driver.sport -> Sport.convexId (Many-to-One)
- * - Event.links_id -> EventLinks.convexId (Many-to-One, Optional)
+ * - Event.sport -> Sport._id (Many-to-One)
+ * - Team.sport -> Sport._id (Many-to-One)
+ * - Driver.sport -> Sport._id (Many-to-One)
+ * - Event.links_id -> EventLinks._id (Many-to-One, Optional)
  */

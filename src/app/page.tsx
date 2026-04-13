@@ -114,7 +114,7 @@ export default function HomePage() {
           <CardContent className="space-y-4">
             {upcomingEvents.length ? (
               upcomingEvents.map((event) => (
-                <div key={event.convexId} className="flex items-center justify-between gap-4">
+                <div key={event._id} className="flex items-center justify-between gap-4">
                   <div>
                     <div className="font-medium">{event.title}</div>
                     <div className="text-xs text-muted-foreground">
@@ -145,7 +145,7 @@ export default function HomePage() {
           <CardContent className="space-y-4">
             {recentCircuits?.documents?.length ? (
               recentCircuits.documents.map((circuit) => (
-                <div key={circuit.convexId} className="flex items-center justify-between">
+                <div key={circuit._id} className="flex items-center justify-between">
                   <div>
                     <div className="font-medium">{circuit.name}</div>
                     <div className="text-xs text-muted-foreground">{circuit.location_str}</div>
