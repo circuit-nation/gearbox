@@ -16,7 +16,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Circuit Nation Admin",
-  description: "Admin dashboard for managing sports, events, teams, and drivers",
+  description: "Admin dashboard for managing sports, events, and drivers",
 };
 
 export default function RootLayout({

@@ -13,8 +13,7 @@ export function useEvents(
   sortBy?: string,
   sortOrder?: "asc" | "desc",
   filterTitle?: string,
-  filterType?: string,
-  filterCircuitId?: string
+  filterType?: string
 ) {
   const query = useQuery({
     queryKey: [
@@ -25,7 +24,6 @@ export function useEvents(
       sortOrder,
       filterTitle,
       filterType,
-      filterCircuitId,
     ],
     queryFn: () =>
       fetchJson<ListResponse<Event>>(
@@ -36,7 +34,6 @@ export function useEvents(
           sortOrder,
           filterTitle,
           filterType,
-          filterCircuitId,
         })}`
       ),
   });

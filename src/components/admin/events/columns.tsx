@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Circuit, Event } from "@/lib/schema";
+import { Event } from "@/lib/schema";
 import { ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { Pencil, Trash2 } from "lucide-react";
@@ -13,7 +13,6 @@ type SportOption = {
 
 type EventsColumnsProps = {
   sports?: SportOption[];
-  circuitById: Map<string, Circuit>;
   onEdit: (event: Event) => void;
   onDelete: (id: string) => void;
   isDeleting: boolean;
@@ -21,7 +20,6 @@ type EventsColumnsProps = {
 
 export function createEventsColumns({
   sports,
-  circuitById,
   onEdit,
   onDelete,
   isDeleting,
@@ -44,11 +42,8 @@ export function createEventsColumns({
     },
     {
       accessorKey: "circuit_id",
-      header: createSortableHeader("Country"),
-      cell: ({ row }) => {
-        const circuit = circuitById.get(row.original.circuit_id);
-        return <div className="text-xs">{circuit?.country || "Unknown"}</div>;
-      },
+      header: createSortableHeader("Circuit ID"),
+      cell: ({ row }) => <div className="text-xs">{row.original.circuit_id}</div>,
     },
     {
       accessorKey: "sport_id",

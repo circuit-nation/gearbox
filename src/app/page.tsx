@@ -5,16 +5,12 @@ import { format, startOfToday } from "date-fns";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useCircuits } from "@/hooks/use-circuits";
 import { useDrivers } from "@/hooks/use-drivers";
 import { useEvents } from "@/hooks/use-events";
 import { useSports } from "@/hooks/use-sports";
-import { useTeams } from "@/hooks/use-teams";
 import {
   Calendar,
-  FlagTriangleRight,
   Trophy,
-  Users,
   UserCircle,
   ArrowRight,
 } from "lucide-react";
@@ -22,10 +18,7 @@ import {
 export default function HomePage() {
   const { data: sports } = useSports(1, 1);
   const { data: events } = useEvents(1, 25, "event_start_at", "asc");
-  const { data: teams } = useTeams(1, 1);
   const { data: drivers } = useDrivers(1, 1);
-  const { data: circuits } = useCircuits(1, 1);
-  const { data: recentCircuits } = useCircuits(1, 3, "_creationTime", "desc");
   const upcomingEvents = (events?.documents || [])
     .filter((event) => new Date(event.event_start_at) >= startOfToday())
     .slice(0, 3);
@@ -46,25 +39,11 @@ export default function HomePage() {
       href: "/events",
     },
     {
-      title: "Teams",
-      value: teams?.total ?? "-",
-      description: "Teams across all sports",
-      icon: Users,
-      href: "/teams",
-    },
-    {
       title: "Drivers",
       value: drivers?.total ?? "-",
       description: "Active driver profiles",
       icon: UserCircle,
       href: "/drivers",
-    },
-    {
-      title: "Circuits",
-      value: circuits?.total ?? "-",
-      description: "Track database entries",
-      icon: FlagTriangleRight,
-      href: "/circuits",
     },
   ];
 
@@ -77,7 +56,7 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {statCards.map((card) => {
           const Icon = card.icon;
           return (
@@ -105,7 +84,7 @@ export default function HomePage() {
         })}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-1">
         <Card>
           <CardHeader>
             <CardTitle>Upcoming Events</CardTitle>
@@ -136,33 +115,6 @@ export default function HomePage() {
             </Link>
           </CardContent>
         </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Recently Added Circuits</CardTitle>
-            <CardDescription>Latest track updates</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {recentCircuits?.documents?.length ? (
-              recentCircuits.documents.map((circuit) => (
-                <div key={circuit._id} className="flex items-center justify-between">
-                  <div>
-                    <div className="font-medium">{circuit.name}</div>
-                    <div className="text-xs text-muted-foreground">{circuit.location_str}</div>
-                  </div>
-                  <Badge variant="secondary">{circuit.country_code}</Badge>
-                </div>
-              ))
-            ) : (
-              <div className="text-sm text-muted-foreground">No circuits available yet.</div>
-            )}
-            <Link href="/circuits">
-              <Button variant="outline" size="sm">
-                Manage circuits
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
       </div>
 
       <Card>
@@ -173,12 +125,6 @@ export default function HomePage() {
         <CardContent className="flex flex-wrap gap-3">
           <Link href="/sports">
             <Button variant="secondary">Add Sports</Button>
-          </Link>
-          <Link href="/circuits">
-            <Button variant="secondary">Add Circuits</Button>
-          </Link>
-          <Link href="/teams">
-            <Button variant="secondary">Add Teams</Button>
           </Link>
           <Link href="/drivers">
             <Button variant="secondary">Add Drivers</Button>

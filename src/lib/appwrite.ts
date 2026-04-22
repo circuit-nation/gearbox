@@ -40,7 +40,6 @@ export function getAppwriteAccount() {
 export const COLLECTIONS = {
   SPORTS: getEnvVar("APPWRITE_COLLECTION_SPORTS"),
   EVENTS: getEnvVar("APPWRITE_COLLECTION_EVENTS"),
-  TEAMS: getEnvVar("APPWRITE_COLLECTION_TEAMS"),
   DRIVERS: getEnvVar("APPWRITE_COLLECTION_DRIVERS"),
 } as const;
 

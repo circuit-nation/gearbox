@@ -20,11 +20,10 @@ import {
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { cn } from "@/lib/utils";
 import {
+  ArrowUpRight,
   Calendar,
-  FlagTriangleRight,
   LayoutDashboard,
   Trophy,
-  Users,
   UserCircle,
 } from "lucide-react";
 
@@ -32,9 +31,7 @@ const navItems = [
   { title: "Dashboard", href: "/", icon: LayoutDashboard },
   { title: "Sports", href: "/sports", icon: Trophy },
   { title: "Events", href: "/events", icon: Calendar },
-  { title: "Teams", href: "/teams", icon: Users },
   { title: "Drivers", href: "/drivers", icon: UserCircle },
-  { title: "Circuits", href: "/circuits", icon: FlagTriangleRight },
 ];
 
 type AppShellProps = {
@@ -59,7 +56,7 @@ export function AppShell({ children }: AppShellProps) {
                   return (
                     <SidebarMenuItem key={item.href}>
                       <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
-                        <Link href={item.href} className={cn("flex items-center gap-2")}> 
+                        <Link href={item.href} className={cn("flex items-center gap-2")}>
                           <Icon className="h-4 w-4" />
                           <span>{item.title}</span>
                         </Link>
@@ -72,6 +69,11 @@ export function AppShell({ children }: AppShellProps) {
           </SidebarGroup>
         </SidebarContent>
         <SidebarRail />
+        <SidebarFooter className="border-t text-xs text-muted-foreground">
+          <Link href="https://circuitnation.live" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-1 hover:underline hover:underline-offset-3">
+            Circuit Nation Admin <ArrowUpRight className="size-4" />
+          </Link>
+        </SidebarFooter>
       </Sidebar>
       <SidebarInset>
         <header className="flex items-center gap-2 border-b bg-background px-4 py-3">

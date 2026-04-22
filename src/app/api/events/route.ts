@@ -17,7 +17,6 @@ export async function GET(request: NextRequest) {
     const sortOrder = rawSortOrder === "asc" ? 1 : -1;
     const filterTitle = searchParams.get("filterTitle");
     const filterType = searchParams.get("filterType");
-    const filterCircuitId = searchParams.get("filterCircuitId");
 
     if (id) {
       if (!Types.ObjectId.isValid(id)) {
@@ -35,10 +34,6 @@ export async function GET(request: NextRequest) {
 
     if (filterType) {
       query.type = filterType;
-    }
-
-    if (filterCircuitId) {
-      query.circuit_id = filterCircuitId;
     }
 
     const [total, documents] = await Promise.all([
