@@ -27,11 +27,20 @@ import {
   UserCircle,
 } from "lucide-react";
 
-const navItems = [
-  { title: "Dashboard", href: "/", icon: LayoutDashboard },
-  { title: "Sports", href: "/sports", icon: Trophy },
-  { title: "Events", href: "/events", icon: Calendar },
-  { title: "Drivers", href: "/drivers", icon: UserCircle },
+const navGroups = [
+  {
+    label: "Circuit Nation",
+    items: [
+      { title: "Dashboard", href: "/", icon: LayoutDashboard, external: false },
+      { title: "Sports", href: "/sports", icon: Trophy, external: false },
+      { title: "Events", href: "/events", icon: Calendar, external: false },
+      { title: "Drivers", href: "/drivers", icon: UserCircle, external: false },
+    ],
+  },
+  {
+    label: "Tier Nation",
+    items: [{ title: "Website", href: "https://tiernation.live", icon: ArrowUpRight, external: true }],
+  },
 ];
 
 type AppShellProps = {
@@ -45,28 +54,35 @@ export function AppShell({ children }: AppShellProps) {
     <SidebarProvider defaultOpen>
       <Sidebar variant="floating" collapsible="icon">
         <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Navigation</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {navItems.map((item) => {
-                  const Icon = item.icon;
-                  const isActive = pathname === item.href;
+          {navGroups.map((group) => (
+            <SidebarGroup key={group.label}>
+              <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {group.items.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = !item.external && pathname === item.href;
 
-                  return (
-                    <SidebarMenuItem key={item.href}>
-                      <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
-                        <Link href={item.href} className={cn("flex items-center gap-2")}>
-                          <Icon className="h-4 w-4" />
-                          <span>{item.title}</span>
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+                    return (
+                      <SidebarMenuItem key={item.href}>
+                        <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
+                          <Link
+                            href={item.href}
+                            className={cn("flex items-center gap-2")}
+                            target={item.external ? "_blank" : undefined}
+                            rel={item.external ? "noopener noreferrer" : undefined}
+                          >
+                            <Icon className="h-4 w-4" />
+                            <span>{item.title}</span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    );
+                  })}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ))}
         </SidebarContent>
         <SidebarRail />
         <SidebarFooter className="border-t text-xs text-muted-foreground">
