@@ -16,6 +16,7 @@ import {
   SidebarRail,
   SidebarInset,
   SidebarTrigger,
+  useSidebar
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { cn } from "@/lib/utils";
@@ -48,10 +49,20 @@ type AppShellProps = {
 };
 
 export function AppShell({ children }: AppShellProps) {
-  const pathname = usePathname();
-
   return (
     <SidebarProvider defaultOpen>
+      <AppShellContent>{children}</AppShellContent>
+    </SidebarProvider>
+  );
+}
+
+function AppShellContent({ children }: AppShellProps) {
+  const pathname = usePathname();
+  const { state } = useSidebar();
+  // state: "expanded" | "collapsed"
+
+  return (
+    <>
       <Sidebar variant="floating" collapsible="icon">
         <SidebarContent>
           {navGroups.map((group) => (
@@ -87,7 +98,17 @@ export function AppShell({ children }: AppShellProps) {
         <SidebarRail />
         <SidebarFooter className="border-t text-xs text-muted-foreground">
           <Link href="https://circuitnation.live" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-1 hover:underline hover:underline-offset-3">
-            Circuit Nation Admin <ArrowUpRight className="size-4" />
+            {state === "expanded" ? (
+              <>
+                Visit Circuit Nation
+                <ArrowUpRight className="h-3 w-3" />
+              </>
+            ) : (
+              <>
+                CN
+                <ArrowUpRight className="h-4 w-4" />
+              </>
+            )}
           </Link>
         </SidebarFooter>
       </Sidebar>
@@ -103,6 +124,6 @@ export function AppShell({ children }: AppShellProps) {
           <div className="mx-auto w-full max-w-7xl">{children}</div>
         </div>
       </SidebarInset>
-    </SidebarProvider>
+    </>
   );
 }
