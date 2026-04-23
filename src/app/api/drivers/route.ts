@@ -12,11 +12,22 @@ export async function GET(request: NextRequest) {
     const id = searchParams.get("id");
     const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
     const limit = Math.max(parseInt(searchParams.get("limit") || "10"), 1);
-    const sortBy = searchParams.get("sortBy") || "createdAt";
+    const rawSortBy = searchParams.get("sortBy") || "createdAt";
+    const allowedSortFields = new Set([
+      "createdAt",
+      "updatedAt",
+      "name",
+      "id",
+      "sport",
+      "team",
+      "points",
+    ]);
+    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "createdAt";
     const rawSortOrder = searchParams.get("sortOrder");
     const sortOrder = rawSortOrder === "asc" ? 1 : -1;
     const filterName = searchParams.get("filterName");
     const filterSport = searchParams.get("filterSport");
+    const filterTeam = searchParams.get("filterTeam");
 
     if (id) {
       if (!Types.ObjectId.isValid(id)) {
@@ -34,6 +45,10 @@ export async function GET(request: NextRequest) {
 
     if (filterSport) {
       query.sport = filterSport;
+    }
+
+    if (filterTeam) {
+      query.team = { $regex: filterTeam, $options: "i" };
     }
 
     const [total, documents] = await Promise.all([
@@ -61,8 +76,13 @@ export async function POST(request: NextRequest) {
   try {
     await connectToDatabase();
     const data = await request.json();
+    const payload = {
+      ...data,
+      team: data?.team ?? "",
+      points: typeof data?.points === "number" ? data.points : 0,
+    };
 
-    const document = await DriverModel.create(data);
+    const document = await DriverModel.create(payload);
     return NextResponse.json(toDocument(document.toObject() as any), { status: 201 });
   } catch (error: any) {
     console.error("POST Drivers API Error:", error);

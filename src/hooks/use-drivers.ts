@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { buildQuery, fetchJson, ListResponse } from "@/lib/api-client";
 import { Driver, CreateDriver } from "@/lib/schema";
 
@@ -13,10 +13,11 @@ export function useDrivers(
   sortBy?: string,
   sortOrder?: "asc" | "desc",
   filterName?: string,
-  filterSport?: string
+  filterSport?: string,
+  filterTeam?: string
 ) {
   const query = useQuery({
-    queryKey: ["drivers", page, limit, sortBy, sortOrder, filterName, filterSport],
+    queryKey: ["drivers", page, limit, sortBy, sortOrder, filterName, filterSport, filterTeam],
     queryFn: () =>
       fetchJson<ListResponse<Driver>>(
         `/api/drivers${buildQuery({
@@ -26,6 +27,7 @@ export function useDrivers(
           sortOrder,
           filterName,
           filterSport,
+          filterTeam,
         })}`
       ),
   });
@@ -47,13 +49,18 @@ export function useDriver(id: string) {
 }
 
 export function useCreateDriver(options?: MutationOptions<Driver | null>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (data: CreateDriver) =>
       fetchJson<Driver | null>("/api/drivers", {
         method: "POST",
         body: data,
       }),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["drivers"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 
@@ -61,13 +68,18 @@ export function useCreateDriver(options?: MutationOptions<Driver | null>) {
 }
 
 export function useUpdateDriver(options?: MutationOptions<Driver | null>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (payload: { id: string; data: Partial<Driver> }) =>
       fetchJson<Driver | null>("/api/drivers", {
         method: "PUT",
         body: { id: payload.id, ...payload.data },
       }),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["drivers"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 
@@ -75,13 +87,18 @@ export function useUpdateDriver(options?: MutationOptions<Driver | null>) {
 }
 
 export function useDeleteDriver(options?: MutationOptions<{ success: boolean; id: string }>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (id: string) =>
       fetchJson<{ success: boolean; id: string }>(
         `/api/drivers${buildQuery({ id })}`,
         { method: "DELETE" }
       ),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["drivers"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 

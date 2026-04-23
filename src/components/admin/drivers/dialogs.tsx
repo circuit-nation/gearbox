@@ -100,6 +100,16 @@ export function DriversCreateDialog({
             />
           </div>
           <div>
+            <Label htmlFor="team">Team</Label>
+            <Input
+              id="team"
+              value={formData.team}
+              onChange={(e) => setFormData({ ...formData, team: e.target.value })}
+              placeholder="e.g., McLaren"
+              required
+            />
+          </div>
+          <div>
             <Label htmlFor="tags">Tags (comma-separated)</Label>
             <Input
               id="tags"
@@ -171,6 +181,16 @@ export function DriversEditDialog({
               value={formData.image || ""}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
               placeholder="https://..."
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="edit-team">Team</Label>
+            <Input
+              id="edit-team"
+              value={formData.team || ""}
+              onChange={(e) => setFormData({ ...formData, team: e.target.value })}
+              placeholder="e.g., McLaren"
               required
             />
           </div>

@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { buildQuery, fetchJson, ListResponse } from "@/lib/api-client";
 import { Sport, CreateSport } from "@/lib/schema";
 
@@ -47,13 +47,18 @@ export function useSport(id: string) {
 }
 
 export function useCreateSport(options?: MutationOptions<Sport | null>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (data: CreateSport) =>
       fetchJson<Sport | null>("/api/sports", {
         method: "POST",
         body: data,
       }),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["sports"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 
@@ -61,13 +66,18 @@ export function useCreateSport(options?: MutationOptions<Sport | null>) {
 }
 
 export function useUpdateSport(options?: MutationOptions<Sport | null>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (payload: { id: string; data: Partial<Sport> }) =>
       fetchJson<Sport | null>("/api/sports", {
         method: "PUT",
         body: { id: payload.id, ...payload.data },
       }),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["sports"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 
@@ -75,13 +85,18 @@ export function useUpdateSport(options?: MutationOptions<Sport | null>) {
 }
 
 export function useDeleteSport(options?: MutationOptions<{ success: boolean; id: string }>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (id: string) =>
       fetchJson<{ success: boolean; id: string }>(
         `/api/sports${buildQuery({ id })}`,
         { method: "DELETE" }
       ),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["sports"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 

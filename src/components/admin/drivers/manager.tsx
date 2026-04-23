@@ -27,11 +27,14 @@ export function DriversManager() {
   const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } = useTableState();
   const [filterName, setFilterName] = useState("");
   const [filterSport, setFilterSport] = useState("");
+  const [filterTeam, setFilterTeam] = useState("");
   const [formData, setFormData] = useState<CreateDriver>({
     id: "",
     name: "",
     image: "",
     sport: "",
+    team: "",
+    points: 0,
     tags: [],
   });
   const [editFormData, setEditFormData] = useState<Partial<Driver>>({});
@@ -42,7 +45,8 @@ export function DriversManager() {
     sortBy,
     sortOrder as "asc" | "desc" | undefined,
     filterName || undefined,
-    filterSport || undefined
+    filterSport || undefined,
+    filterTeam || undefined
   );
   const { data: sportsData } = useSports(1, 100);
   const createDriver = useCreateDriver({
@@ -85,6 +89,8 @@ export function DriversManager() {
       name: "",
       image: "",
       sport: "",
+      team: "",
+      points: 0,
       tags: [],
     });
   };
@@ -100,6 +106,7 @@ export function DriversManager() {
       name: driver.name,
       image: driver.image,
       sport: driver.sport,
+      team: driver.team,
       tags: driver.tags,
     });
     setIsEditOpen(true);
@@ -179,12 +186,17 @@ export function DriversManager() {
           <DriversFilters
             filterName={filterName}
             filterSport={filterSport}
+            filterTeam={filterTeam}
             onFilterNameChange={(value) => {
               setFilterName(value);
               resetPage();
             }}
             onFilterSportChange={(value) => {
               setFilterSport(value);
+              resetPage();
+            }}
+            onFilterTeamChange={(value) => {
+              setFilterTeam(value);
               resetPage();
             }}
           />

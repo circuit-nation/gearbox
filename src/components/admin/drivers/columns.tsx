@@ -50,6 +50,16 @@ export function createDriversColumns({
       },
     },
     {
+      accessorKey: "team",
+      header: createSortableHeader("Team"),
+      cell: ({ row }) => row.original.team || "Unassigned",
+    },
+    {
+      accessorKey: "points",
+      header: createSortableHeader("Points"),
+      cell: ({ row }) => <div className="font-medium">{row.original.points ?? 0}</div>,
+    },
+    {
       accessorKey: "tags",
       header: "Tags",
       cell: ({ row }) => (

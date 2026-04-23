@@ -44,6 +44,8 @@ const DriverSchema = new Schema(
     name: { type: String, required: true },
     image: { type: String, required: true },
     sport: { type: String, required: true },
+    team: { type: String, default: "" },
+    points: { type: Number, default: 0 },
     tags: [String],
   },
   { timestamps: true }

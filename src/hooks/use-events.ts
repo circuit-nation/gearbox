@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { buildQuery, fetchJson, ListResponse } from "@/lib/api-client";
 import { Event, CreateEvent } from "@/lib/schema";
 
@@ -55,13 +55,18 @@ export function useEvent(id: string) {
 }
 
 export function useCreateEvent(options?: MutationOptions<Event | null>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (data: CreateEvent) =>
       fetchJson<Event | null>("/api/events", {
         method: "POST",
         body: data,
       }),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 
@@ -69,13 +74,18 @@ export function useCreateEvent(options?: MutationOptions<Event | null>) {
 }
 
 export function useUpdateEvent(options?: MutationOptions<Event | null>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (payload: { id: string; data: Partial<Event> }) =>
       fetchJson<Event | null>("/api/events", {
         method: "PUT",
         body: { id: payload.id, ...payload.data },
       }),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 
@@ -83,13 +93,18 @@ export function useUpdateEvent(options?: MutationOptions<Event | null>) {
 }
 
 export function useDeleteEvent(options?: MutationOptions<{ success: boolean; id: string }>) {
+  const queryClient = useQueryClient();
+
   const mutation = useMutation({
     mutationFn: (id: string) =>
       fetchJson<{ success: boolean; id: string }>(
         `/api/events${buildQuery({ id })}`,
         { method: "DELETE" }
       ),
-    onSuccess: options?.onSuccess,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+      options?.onSuccess?.(data);
+    },
     onError: options?.onError,
   });
 

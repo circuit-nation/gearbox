@@ -24,6 +24,7 @@ import {
   ArrowUpRight,
   Calendar,
   LayoutDashboard,
+  ListOrdered,
   Trophy,
   UserCircle,
 } from "lucide-react";
@@ -36,6 +37,7 @@ const navGroups = [
       { title: "Sports", href: "/sports", icon: Trophy, external: false },
       { title: "Events", href: "/events", icon: Calendar, external: false },
       { title: "Drivers", href: "/drivers", icon: UserCircle, external: false },
+      { title: "Leaderboard", href: "/leaderboard", icon: ListOrdered, external: false },
     ],
   },
   {

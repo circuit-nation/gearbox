@@ -66,7 +66,20 @@ export interface Driver {
   name: string;
   image: string;
   sport: string; // Reference to Sport._id
+  team: string;
+  points: number;
   tags?: string[];
+}
+
+export interface DriverLeaderboardEntry extends Driver {
+  rank: number;
+}
+
+export interface TeamLeaderboardEntry {
+  team: string;
+  totalPoints: number;
+  driverCount: number;
+  rank: number;
 }
 
 /**

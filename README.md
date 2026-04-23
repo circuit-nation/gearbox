@@ -3,17 +3,17 @@
 ## TODO
 
 - Admin
-    - [] Provide separation based on apps (CN and TN)
+    - [ ] Provide separation based on apps (CN and TN)
 - Tier Nation
     - [ ] UI for managing lists and entities
     - [ ] S3 setup for uploading images of entites
     - [ ] create hooks, for using the TN APIs
 
 - Circuit Nation
-    - [ ] Only Events
+    - [x] Only Events
     - [ ] Simple leaderboard (F1 and MotoGP)
-    - [ ] Mongodb collections
-        - [ ] Sports
-        - [ ] Events
+    - [x] Mongodb collections
+        - [x] Sports
+        - [x] Events
     - [ ] Social Wall - Bento grid admin (check notes)
     - 
