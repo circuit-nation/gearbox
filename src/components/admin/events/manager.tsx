@@ -4,9 +4,8 @@ import { useState, useMemo, useEffect } from "react";
 import type { FormEvent } from "react";
 import { useEvents, useCreateEvent, useDeleteEvent, useUpdateEvent } from "@/hooks/use-events";
 import { useSports } from "@/hooks/use-sports";
-import { useCircuitsByIds } from "@/hooks/use-circuits";
 import { toast } from "sonner";
-import { CreateEvent, Event, Circuit } from "@/lib/schema";
+import { CreateEvent, Event } from "@/lib/schema";
 import { format } from "date-fns";
 import { DataTable } from "../data-table";
 import { ConfirmationDialog } from "../confirmation-dialog";
@@ -31,10 +30,8 @@ export function EventsManager() {
   ]);
   const [filterTitle, setFilterTitle] = useState("");
   const [filterType, setFilterType] = useState("");
-  const [filterCircuitId, setFilterCircuitId] = useState("");
   const [debouncedFilterTitle, setDebouncedFilterTitle] = useState("");
   const [debouncedFilterType, setDebouncedFilterType] = useState("");
-  const [debouncedFilterCircuitId, setDebouncedFilterCircuitId] = useState("");
   const [formData, setFormData] = useState<CreateEvent>({
     id: "",
     title: "",
@@ -71,35 +68,15 @@ export function EventsManager() {
     return () => clearTimeout(timer);
   }, [filterType]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedFilterCircuitId(filterCircuitId);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [filterCircuitId]);
-
   const { data, isLoading } = useEvents(
     pagination.pageIndex + 1,
     pagination.pageSize,
     sortBy,
     sortOrder as "asc" | "desc" | undefined,
     debouncedFilterTitle || undefined,
-    debouncedFilterType || undefined,
-    debouncedFilterCircuitId || undefined
+    debouncedFilterType || undefined
   );
   const { data: sportsData } = useSports(1, 100);
-  const circuitIds = useMemo(
-    () => Array.from(new Set((data?.documents || []).map((event) => event.circuit_id).filter(Boolean))),
-    [data]
-  );
-  const { data: circuitsData } = useCircuitsByIds(circuitIds);
-  const circuitById = useMemo(() => {
-    const map = new Map<string, Circuit>();
-    (circuitsData || []).forEach((circuit) => {
-      map.set(circuit._id, circuit);
-    });
-    return map;
-  }, [circuitsData]);
   const createEvent = useCreateEvent({
     onSuccess: () => {
       toast.success("Event created successfully!");
@@ -231,12 +208,11 @@ export function EventsManager() {
     () =>
       createEventsColumns({
         sports: sportsData?.documents,
-        circuitById,
         onEdit: handleEdit,
         onDelete: requestDelete,
         isDeleting: deleteEvent.isPending,
       }),
-    [sportsData, circuitById, deleteEvent.isPending, requestDelete]
+    [sportsData, deleteEvent.isPending, requestDelete]
   );
 
   const tableData = useMemo(() => data?.documents || [], [data]);
@@ -307,17 +283,12 @@ export function EventsManager() {
           <EventsFilters
             filterTitle={filterTitle}
             filterType={filterType}
-            filterCircuitId={filterCircuitId}
             onFilterTitleChange={(value) => {
               setFilterTitle(value);
               resetPage();
             }}
             onFilterTypeChange={(value) => {
               setFilterType(value);
-              resetPage();
-            }}
-            onFilterCircuitIdChange={(value) => {
-              setFilterCircuitId(value);
               resetPage();
             }}
           />
