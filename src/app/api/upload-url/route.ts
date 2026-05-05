@@ -10,7 +10,7 @@ import {
 } from "@/lib/image-upload";
 
 const s3 = new S3Client({
-  region: process.env.CN_AWS_REGION,
+  region: process.env.CN_AWS_S3_REGION,
   credentials: {
     accessKeyId: process.env.CN_AWS_ACCESS_KEY!,
     secretAccessKey: process.env.CN_AWS_SECRET_KEY!,
