@@ -11,7 +11,7 @@ const s3 = new S3Client({
 export async function deleteS3ObjectByKey(key: string) {
   await s3.send(
     new DeleteObjectCommand({
-      Bucket: process.env.S3_BUCKET!,
+      Bucket: process.env.CN_S3_BUCKET!,
       Key: key,
     })
   );

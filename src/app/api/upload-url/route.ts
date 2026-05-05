@@ -45,7 +45,7 @@ export async function GET(req: Request) {
     const fileName = `${folder}/${objectName}_${timestamp}.${extension}`;
 
     const command = new PutObjectCommand({
-      Bucket: process.env.S3_BUCKET!,
+      Bucket: process.env.CN_S3_BUCKET!,
       Key: fileName,
       ContentType: contentType,
     });

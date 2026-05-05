@@ -27,7 +27,7 @@ export async function GET(req: Request) {
     }
 
     const command = new GetObjectCommand({
-      Bucket: process.env.S3_BUCKET!,
+      Bucket: process.env.CN_S3_BUCKET!,
       Key: key,
     });
 
