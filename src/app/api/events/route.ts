@@ -3,6 +3,8 @@ import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
 import { EventModel } from "@/lib/models";
 import { buildListResponse, toDocument, toDocuments } from "@/lib/mongo-helpers";
+import { storedValueToS3Key } from "@/lib/image-storage";
+import { deleteS3ObjectByKey } from "@/lib/s3-server";
 
 export async function GET(request: NextRequest) {
   try {
@@ -109,6 +111,22 @@ export async function DELETE(request: NextRequest) {
     if (!id || !Types.ObjectId.isValid(id)) {
       return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
     }
+
+    const existingEvent = await EventModel.findById(id).lean();
+
+    if (!existingEvent) {
+      return NextResponse.json({ error: "Event not found" }, { status: 404 });
+    }
+
+    const imageKeys: string[] = Array.from(
+      new Set(
+        (existingEvent.images || [])
+          .map((image: unknown) => storedValueToS3Key(String(image || "")))
+          .filter((key: string | null): key is string => Boolean(key))
+      )
+    );
+
+    await Promise.all(imageKeys.map((key: string) => deleteS3ObjectByKey(key)));
 
     await EventModel.findByIdAndDelete(id);
     return NextResponse.json({ success: true, id });

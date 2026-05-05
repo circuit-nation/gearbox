@@ -3,6 +3,8 @@ import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
 import { DriverModel } from "@/lib/models";
 import { buildListResponse, toDocument, toDocuments } from "@/lib/mongo-helpers";
+import { storedValueToS3Key } from "@/lib/image-storage";
+import { deleteS3ObjectByKey } from "@/lib/s3-server";
 
 export async function GET(request: NextRequest) {
   try {
@@ -128,6 +130,17 @@ export async function DELETE(request: NextRequest) {
 
     if (!id || !Types.ObjectId.isValid(id)) {
       return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
+    }
+
+    const existingDriver = await DriverModel.findById(id).lean();
+
+    if (!existingDriver) {
+      return NextResponse.json({ error: "Driver not found" }, { status: 404 });
+    }
+
+    const imageKey = storedValueToS3Key(String(existingDriver.image || ""));
+    if (imageKey) {
+      await deleteS3ObjectByKey(imageKey);
     }
 
     await DriverModel.findByIdAndDelete(id);

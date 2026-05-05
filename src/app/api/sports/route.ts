@@ -3,6 +3,8 @@ import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
 import { SportModel } from "@/lib/models";
 import { buildListResponse, toDocument, toDocuments } from "@/lib/mongo-helpers";
+import { storedValueToS3Key } from "@/lib/image-storage";
+import { deleteS3ObjectByKey } from "@/lib/s3-server";
 
 export async function GET(request: NextRequest) {
   try {
@@ -108,6 +110,17 @@ export async function DELETE(request: NextRequest) {
 
     if (!id || !Types.ObjectId.isValid(id)) {
       return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
+    }
+
+    const existingSport = await SportModel.findById(id).lean();
+
+    if (!existingSport) {
+      return NextResponse.json({ error: "Sport not found" }, { status: 404 });
+    }
+
+    const logoKey = storedValueToS3Key(String(existingSport.logo || ""));
+    if (logoKey) {
+      await deleteS3ObjectByKey(logoKey);
     }
 
     await SportModel.findByIdAndDelete(id);

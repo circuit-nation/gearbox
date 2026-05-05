@@ -1,11 +1,15 @@
-import type { Dispatch, FormEvent, SetStateAction } from "react";
+import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useImageUpload } from "@/hooks/use-image-upload";
+import { ALLOWED_IMAGE_EXTENSIONS } from "@/lib/image-upload";
 import { Loader2, Plus } from "lucide-react";
 import { CreateDriver, Driver } from "@/lib/schema";
+import { ResolvedImagePreview } from "../resolved-image-preview";
 
 type SportOption = {
   _id: string;
@@ -41,6 +45,36 @@ export function DriversCreateDialog({
   sports,
   isSubmitting,
 }: DriversCreateDialogProps) {
+  const { uploadImage, isUploading } = useImageUpload();
+  const [imageInputMode, setImageInputMode] = useState<"url" | "upload">("url");
+  const [uploadError, setUploadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!open) {
+      setImageInputMode("url");
+      setUploadError(null);
+    }
+  }, [open]);
+
+  const handleImageUpload = async (file?: File) => {
+    if (!file) {
+      return;
+    }
+
+    setUploadError(null);
+
+    try {
+      const imageUrl = await uploadImage({
+        file,
+        folder: "drivers",
+        entityName: formData.name || formData.id || "driver",
+      });
+      setFormData((prev) => ({ ...prev, image: imageUrl }));
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : "Failed to upload image.");
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
@@ -90,13 +124,46 @@ export function DriversCreateDialog({
             </Select>
           </div>
           <div>
-            <Label htmlFor="image">Image URL</Label>
-            <Input
-              id="image"
+            <Label htmlFor="image">Image URL or S3 Key</Label>
+            <Tabs
+              value={imageInputMode}
+              onValueChange={(value) => setImageInputMode(value as "url" | "upload")}
+              className="mt-2"
+            >
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="url">URL</TabsTrigger>
+                <TabsTrigger value="upload">Upload</TabsTrigger>
+              </TabsList>
+              <TabsContent value="url" className="mt-2">
+                <Input
+                  id="image"
+                  value={formData.image}
+                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  placeholder="https://... or s3://drivers/..."
+                  required={imageInputMode === "url"}
+                />
+              </TabsContent>
+              <TabsContent value="upload" className="mt-2 space-y-2">
+                <Input
+                  id="image-upload"
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.svg,.webp"
+                  onChange={(e) => {
+                    void handleImageUpload(e.target.files?.[0]);
+                    e.currentTarget.value = "";
+                  }}
+                  disabled={isUploading}
+                />
+                <p className="text-xs text-muted-foreground">
+                  Allowed: {ALLOWED_IMAGE_EXTENSIONS.join(", ")}. Max size: 10MB.
+                </p>
+              </TabsContent>
+            </Tabs>
+            {uploadError && <p className="text-sm text-destructive mt-2">{uploadError}</p>}
+            <ResolvedImagePreview
               value={formData.image}
-              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              placeholder="https://..."
-              required
+              alt={`${formData.name || "Driver"} preview`}
+              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
             />
           </div>
           <div>
@@ -123,8 +190,8 @@ export function DriversCreateDialog({
               placeholder="champion, dutch"
             />
           </div>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          <Button type="submit" className="w-full" disabled={isSubmitting || isUploading}>
+            {(isSubmitting || isUploading) && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Create Driver
           </Button>
         </form>
@@ -175,13 +242,18 @@ export function DriversEditDialog({
             </Select>
           </div>
           <div>
-            <Label htmlFor="edit-image">Image URL</Label>
+            <Label htmlFor="edit-image">Image URL or S3 Key</Label>
             <Input
               id="edit-image"
               value={formData.image || ""}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              placeholder="https://..."
+              placeholder="https://... or s3://drivers/..."
               required
+            />
+            <ResolvedImagePreview
+              value={formData.image}
+              alt={`${formData.name || "Driver"} preview`}
+              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
             />
           </div>
           <div>

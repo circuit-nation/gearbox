@@ -97,7 +97,10 @@ export function DriversManager() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createDriver.mutate(formData);
+    createDriver.mutate({
+      ...formData,
+      image: formData.image.trim(),
+    });
   };
 
   const handleEdit = (driver: Driver) => {
@@ -115,7 +118,13 @@ export function DriversManager() {
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (editingDriver) {
-      updateDriver.mutate({ id: editingDriver._id, data: editFormData });
+      updateDriver.mutate({
+        id: editingDriver._id,
+        data: {
+          ...editFormData,
+          image: editFormData.image?.trim(),
+        },
+      });
     }
   };
 

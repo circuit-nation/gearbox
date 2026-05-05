@@ -89,7 +89,10 @@ export function SportsManager() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createSport.mutate(formData);
+    createSport.mutate({
+      ...formData,
+      logo: formData.logo.trim(),
+    });
   };
 
   const handleEdit = (sport: Sport) => {
@@ -107,7 +110,13 @@ export function SportsManager() {
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (editingSport) {
-      updateSport.mutate({ id: editingSport._id, data: editFormData });
+      updateSport.mutate({
+        id: editingSport._id,
+        data: {
+          ...editFormData,
+          logo: editFormData.logo?.trim(),
+        },
+      });
     }
   };
 

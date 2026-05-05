@@ -159,6 +159,7 @@ export function EventsManager() {
       event_start_at: eventStartAt,
       event_end_at: eventEndAt,
       links_id: formData.links_id?.trim() ? formData.links_id : undefined,
+      images: formData.images?.map((image) => image.trim()).filter(Boolean) || [],
     };
     createEvent.mutate(payload);
   };
@@ -193,6 +194,7 @@ export function EventsManager() {
           event_start_at: eventStartAt,
           event_end_at: eventEndAt,
           links_id: editFormData.links_id?.trim() ? editFormData.links_id : undefined,
+          images: editFormData.images?.map((image) => image.trim()).filter(Boolean),
         },
       });
     }

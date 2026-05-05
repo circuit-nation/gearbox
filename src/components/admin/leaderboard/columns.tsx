@@ -1,10 +1,10 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { TeamLeaderboardEntry } from "@/lib/schema";
 import { ColumnDef } from "@tanstack/react-table";
 import { PlusCircle } from "lucide-react";
 import { DriverLeaderboardEntry } from "@/hooks/use-leaderboard";
 import { createSortableHeader } from "../data-table";
+import { ImageValueAvatar } from "../image-value-avatar";
 
 type SportOption = {
   _id: string;
@@ -33,10 +33,11 @@ export function createDriverLeaderboardColumns({
       header: createSortableHeader("Driver"),
       cell: ({ row }) => (
         <div className="flex items-center gap-3">
-          <Avatar>
-            <AvatarImage src={row.original.image} alt={row.original.name} />
-            <AvatarFallback>{row.original.name.substring(0, 2).toUpperCase()}</AvatarFallback>
-          </Avatar>
+          <ImageValueAvatar
+            value={row.original.image}
+            alt={row.original.name}
+            fallback={row.original.name.substring(0, 2).toUpperCase()}
+          />
           <span className="font-medium">{row.original.name}</span>
         </div>
       ),

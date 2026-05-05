@@ -4,7 +4,7 @@ import { Sport } from "@/lib/schema";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil, Trash2 } from "lucide-react";
 import { createSortableHeader } from "../data-table";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ImageValueAvatar } from "../image-value-avatar";
 
 type SportsColumnsProps = {
   onEdit: (sport: Sport) => void;
@@ -18,10 +18,12 @@ export function createSportsColumns({ onEdit, onDelete, isDeleting }: SportsColu
       accessorKey: "logo",
       header: "Logo",
       cell: ({ row }) => (
-        <Avatar className="h-8 w-8">
-          <AvatarImage src={row.original.logo} alt={row.original.name} />
-          <AvatarFallback>{row.original.name.charAt(0)}</AvatarFallback>
-        </Avatar>
+        <ImageValueAvatar
+          value={row.original.logo}
+          alt={row.original.name}
+          fallback={row.original.name.charAt(0)}
+          className="h-8 w-8"
+        />
       ),
       enableSorting: false,
     },

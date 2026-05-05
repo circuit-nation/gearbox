@@ -1,11 +1,15 @@
-import type { Dispatch, FormEvent, SetStateAction } from "react";
+import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useImageUpload } from "@/hooks/use-image-upload";
+import { ALLOWED_IMAGE_EXTENSIONS } from "@/lib/image-upload";
 import { Loader2, Plus } from "lucide-react";
 import { CreateSport, Sport, SportsType } from "@/lib/schema";
+import { ResolvedImagePreview } from "../resolved-image-preview";
 
 const SPORTS_TYPES: SportsType[] = [
   "formula",
@@ -44,6 +48,36 @@ export function SportsCreateDialog({
   onSubmit,
   isSubmitting,
 }: SportsCreateDialogProps) {
+  const { uploadImage, isUploading } = useImageUpload();
+  const [logoInputMode, setLogoInputMode] = useState<"url" | "upload">("url");
+  const [uploadError, setUploadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!open) {
+      setLogoInputMode("url");
+      setUploadError(null);
+    }
+  }, [open]);
+
+  const handleLogoUpload = async (file?: File) => {
+    if (!file) {
+      return;
+    }
+
+    setUploadError(null);
+
+    try {
+      const logoUrl = await uploadImage({
+        file,
+        folder: "sports",
+        entityName: formData.name || "sport",
+      });
+      setFormData((prev) => ({ ...prev, logo: logoUrl }));
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : "Failed to upload image.");
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
@@ -86,13 +120,46 @@ export function SportsCreateDialog({
             </Select>
           </div>
           <div>
-            <Label htmlFor="logo">Logo URL</Label>
-            <Input
-              id="logo"
+            <Label htmlFor="logo">Logo URL or S3 Key</Label>
+            <Tabs
+              value={logoInputMode}
+              onValueChange={(value) => setLogoInputMode(value as "url" | "upload")}
+              className="mt-2"
+            >
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="url">URL</TabsTrigger>
+                <TabsTrigger value="upload">Upload</TabsTrigger>
+              </TabsList>
+              <TabsContent value="url" className="mt-2">
+                <Input
+                  id="logo"
+                  value={formData.logo}
+                  onChange={(e) => setFormData({ ...formData, logo: e.target.value })}
+                  placeholder="https://... or s3://sports/..."
+                  required={logoInputMode === "url"}
+                />
+              </TabsContent>
+              <TabsContent value="upload" className="mt-2 space-y-2">
+                <Input
+                  id="logo-upload"
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.svg,.webp"
+                  onChange={(e) => {
+                    void handleLogoUpload(e.target.files?.[0]);
+                    e.currentTarget.value = "";
+                  }}
+                  disabled={isUploading}
+                />
+                <p className="text-xs text-muted-foreground">
+                  Allowed: {ALLOWED_IMAGE_EXTENSIONS.join(", ")}. Max size: 10MB.
+                </p>
+              </TabsContent>
+            </Tabs>
+            {uploadError && <p className="text-sm text-destructive mt-2">{uploadError}</p>}
+            <ResolvedImagePreview
               value={formData.logo}
-              onChange={(e) => setFormData({ ...formData, logo: e.target.value })}
-              placeholder="https://..."
-              required
+              alt={`${formData.name || "Sport"} preview`}
+              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
             />
           </div>
           <div>
@@ -118,8 +185,8 @@ export function SportsCreateDialog({
               placeholder="racing, motorsport"
             />
           </div>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          <Button type="submit" className="w-full" disabled={isSubmitting || isUploading}>
+            {(isSubmitting || isUploading) && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Create Sport
           </Button>
         </form>
@@ -172,13 +239,18 @@ export function SportsEditDialog({
             </Select>
           </div>
           <div>
-            <Label htmlFor="edit-logo">Logo URL</Label>
+            <Label htmlFor="edit-logo">Logo URL or S3 Key</Label>
             <Input
               id="edit-logo"
               value={formData.logo || ""}
               onChange={(e) => setFormData({ ...formData, logo: e.target.value })}
-              placeholder="https://..."
+              placeholder="https://... or s3://sports/..."
               required
+            />
+            <ResolvedImagePreview
+              value={formData.logo}
+              alt={`${formData.name || "Sport"} preview`}
+              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
             />
           </div>
           <div>

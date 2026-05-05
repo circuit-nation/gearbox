@@ -1,10 +1,10 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Driver } from "@/lib/schema";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil, Trash2 } from "lucide-react";
 import { createSortableHeader } from "../data-table";
+import { ImageValueAvatar } from "../image-value-avatar";
 
 type SportOption = {
   _id: string;
@@ -29,10 +29,11 @@ export function createDriversColumns({
       accessorKey: "image",
       header: "Image",
       cell: ({ row }) => (
-        <Avatar>
-          <AvatarImage src={row.original.image} alt={row.original.name} />
-          <AvatarFallback>{row.original.name.substring(0, 2).toUpperCase()}</AvatarFallback>
-        </Avatar>
+        <ImageValueAvatar
+          value={row.original.image}
+          alt={row.original.name}
+          fallback={row.original.name.substring(0, 2).toUpperCase()}
+        />
       ),
       enableSorting: false,
     },

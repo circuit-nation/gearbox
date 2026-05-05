@@ -8,7 +8,7 @@ const EventLinksSchema = new Schema(
     x: String,
     sources: [String],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const SportSchema = new Schema(
@@ -19,7 +19,7 @@ const SportSchema = new Schema(
     type: { type: String, required: true },
     tags: [String],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const EventSchema = new Schema(
@@ -33,9 +33,9 @@ const EventSchema = new Schema(
     sport_id: { type: String, required: true },
     event_start_at: { type: String, required: true },
     event_end_at: { type: String, required: true },
-    images: [String],
+    images: [String], //can include s3 keys
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const DriverSchema = new Schema(
@@ -48,7 +48,7 @@ const DriverSchema = new Schema(
     points: { type: Number, default: 0 },
     tags: [String],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const EventLinksModel =
