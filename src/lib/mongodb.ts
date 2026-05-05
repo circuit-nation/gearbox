@@ -10,11 +10,11 @@ declare global {
   var mongoose: MongooseCache | undefined;
 }
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.CN_MONGODB_URI;
 
 export async function connectToDatabase() {
   if (!MONGODB_URI) {
-    throw new Error("Missing environment variable: MONGODB_URI");
+    throw new Error("Missing environment variable: CN_MONGODB_URI");
   }
 
   if (!global.mongoose) {
