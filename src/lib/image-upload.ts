@@ -1,4 +1,10 @@
-export const ALLOWED_UPLOAD_FOLDERS = ["drivers", "events", "sports"] as const;
+export const ALLOWED_UPLOAD_FOLDERS = [
+  "drivers",
+  "events",
+  "sports",
+  "tier_nation/entities",
+  "tier_nation/lists",
+] as const;
 export type UploadFolder = (typeof ALLOWED_UPLOAD_FOLDERS)[number];
 
 export const ALLOWED_IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "svg", "webp"] as const;

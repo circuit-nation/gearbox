@@ -23,7 +23,9 @@ type GetImageUrlResponse = {
 };
 
 async function fetchSignedImageUrl(key: string) {
-  const response = await fetch(`/api/get-image-url?key=${encodeURIComponent(key)}`);
+  const response = await fetch(`/api/get-image-url?key=${encodeURIComponent(key)}`, {
+    credentials: "include",
+  });
   const payload = (await response.json()) as GetImageUrlResponse;
 
   if (!response.ok || !payload.url) {
@@ -65,7 +67,8 @@ export function useImageUpload() {
 
     try {
       const uploadUrlResponse = await fetch(
-        `/api/upload-url?contentType=${encodeURIComponent(file.type)}&extension=${encodeURIComponent(extension)}&folder=${encodeURIComponent(folder)}&name=${encodeURIComponent(entityName)}`
+        `/api/upload-url?contentType=${encodeURIComponent(file.type)}&extension=${encodeURIComponent(extension)}&folder=${encodeURIComponent(folder)}&name=${encodeURIComponent(entityName)}`,
+        { credentials: "include" }
       );
       const uploadUrlPayload = (await uploadUrlResponse.json()) as UploadUrlResponse;
 

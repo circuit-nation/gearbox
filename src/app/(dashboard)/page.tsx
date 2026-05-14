@@ -13,6 +13,7 @@ import {
   Trophy,
   UserCircle,
   ArrowRight,
+  Layers,
 } from "lucide-react";
 
 export default function HomePage() {
@@ -131,6 +132,12 @@ export default function HomePage() {
           </Link>
           <Link href="/events">
             <Button variant="secondary">Schedule Events</Button>
+          </Link>
+          <Link href="/tier-nation/lists">
+            <Button variant="secondary">
+              <Layers className="mr-2 h-4 w-4" />
+              Tier Nation lists
+            </Button>
           </Link>
         </CardContent>
       </Card>

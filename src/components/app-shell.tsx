@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -19,12 +19,16 @@ import {
   useSidebar
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
   ArrowUpRight,
   Calendar,
   LayoutDashboard,
+  Layers,
   ListOrdered,
+  LogOut,
+  Package,
   Trophy,
   UserCircle,
 } from "lucide-react";
@@ -42,7 +46,11 @@ const navGroups = [
   },
   {
     label: "Tier Nation",
-    items: [{ title: "Website", href: "https://tiernation.live", icon: ArrowUpRight, external: true }],
+    items: [
+      { title: "Lists", href: "/tier-nation/lists", icon: Layers, external: false },
+      { title: "Entities", href: "/tier-nation/entities", icon: Package, external: false },
+      { title: "Website", href: "https://tiernation.live", icon: ArrowUpRight, external: true },
+    ],
   },
 ];
 
@@ -60,8 +68,14 @@ export function AppShell({ children }: AppShellProps) {
 
 function AppShellContent({ children }: AppShellProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const { state } = useSidebar();
-  // state: "expanded" | "collapsed"
+
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
+    router.replace("/login");
+    router.refresh();
+  }
 
   return (
     <>
@@ -74,7 +88,11 @@ function AppShellContent({ children }: AppShellProps) {
                 <SidebarMenu>
                   {group.items.map((item) => {
                     const Icon = item.icon;
-                    const isActive = !item.external && pathname === item.href;
+                    const isActive =
+                      !item.external &&
+                      (item.href === "/"
+                        ? pathname === "/"
+                        : pathname === item.href || pathname.startsWith(`${item.href}/`));
 
                     return (
                       <SidebarMenuItem key={item.href}>
@@ -118,7 +136,11 @@ function AppShellContent({ children }: AppShellProps) {
         <header className="flex items-center gap-2 border-b bg-background px-4 py-3">
           <SidebarTrigger />
           <div className="text-sm font-semibold tracking-tight">Circuit Nation Admin</div>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-2">
+            <Button type="button" variant="outline" size="sm" onClick={handleLogout}>
+              <LogOut className="mr-2 h-4 w-4" />
+              Log out
+            </Button>
             <ModeToggle />
           </div>
         </header>

@@ -63,3 +63,40 @@ export const EventModel =
 
 export const DriverModel =
   mongoose.models.Driver || mongoose.model("Driver", DriverSchema, "drivers");
+
+const TierNationListSubmissionSchema = new Schema(
+  {
+    listId: { type: String, required: true, index: true, unique: true },
+    name: { type: String, required: true },
+    /** Same convention as drivers/events: `s3://…` or external URL. */
+    coverImage: { type: String, default: null },
+  },
+  { timestamps: true },
+);
+
+const TierNationEntitySubmissionSchema = new Schema(
+  {
+    /** Tier list UUID when attached; null for standalone pool. */
+    listId: { type: String, default: null, index: true },
+    name: { type: String, required: true },
+    team: { type: String, default: "" },
+    tags: [String],
+    description: { type: String, default: "" },
+    /** Same convention as drivers: `s3://…` or external URL. */
+    image: { type: String, default: null },
+    source: { type: String, enum: ["standalone", "list"], required: true },
+  },
+  { timestamps: true },
+);
+
+export const TierNationListSubmissionModel =
+  mongoose.models.TierNationListSubmission ||
+  mongoose.model("TierNationListSubmission", TierNationListSubmissionSchema, "tier_nation_list_submissions");
+
+export const TierNationEntitySubmissionModel =
+  mongoose.models.TierNationEntitySubmission ||
+  mongoose.model(
+    "TierNationEntitySubmission",
+    TierNationEntitySubmissionSchema,
+    "tier_nation_entity_submissions"
+  );
