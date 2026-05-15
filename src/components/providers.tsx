@@ -7,23 +7,16 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 type ProvidersProps = {
-	children: ReactNode;
+  children: ReactNode;
 };
 
 export function Providers({ children }: ProvidersProps) {
-	return (
-		<QueryProvider>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="system"
-				enableSystem
-				disableTransitionOnChange
-			>
-				<TooltipProvider>
-					{children}
-				</TooltipProvider>
-			</ThemeProvider>
-			<Toaster />
-		</QueryProvider>
-	);
+  return (
+    <QueryProvider>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <TooltipProvider>{children}</TooltipProvider>
+      </ThemeProvider>
+      <Toaster />
+    </QueryProvider>
+  );
 }

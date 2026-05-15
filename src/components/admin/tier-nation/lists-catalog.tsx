@@ -4,8 +4,8 @@ import { useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { DataTable } from "@/components/admin/data-table";
-import { ConfirmationDialog } from "@/components/admin/confirmation-dialog";
+import { DataTable } from "@/components/shared/data-table";
+import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useDeleteDialogState, useTableState } from "@/components/admin/manager-state";
 import { useArchiveTierList, useDeleteTierList } from "@/hooks/use-tn-admin";
 import { useTierNationPublicLists } from "@/hooks/use-tn-catalog";
@@ -37,13 +37,8 @@ export function TierNationListsCatalog() {
         ? listTable.pagination.pageIndex * limit + lists.length
         : (listTable.pagination.pageIndex + 2) * limit;
 
-  const {
-    deleteConfirmOpen,
-    setDeleteConfirmOpen,
-    deleteTargetId,
-    requestDelete,
-    clearDelete,
-  } = useDeleteDialogState<string>();
+  const { deleteConfirmOpen, setDeleteConfirmOpen, deleteTargetId, requestDelete, clearDelete } =
+    useDeleteDialogState<string>();
 
   const {
     deleteConfirmOpen: hardDeleteOpen,
@@ -133,8 +128,8 @@ export function TierNationListsCatalog() {
         <CardHeader>
           <CardTitle>Tier lists</CardTitle>
           <CardDescription>
-            Public API <code className="text-xs">GET /lists</code> (proxied). Pagination is server-backed; sorting
-            applies to the current page.
+            Browse and manage Tier Nation lists. Pagination is server-backed and sorting applies to
+            the current page.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -175,7 +170,7 @@ export function TierNationListsCatalog() {
         open={hardDeleteOpen}
         onOpenChange={setHardDeleteOpen}
         title="Delete this list permanently?"
-        description="DELETE /admin/lists/:id — cannot be undone."
+        description="This permanently removes the list and cannot be undone."
         confirmText="Delete permanently"
         onConfirm={() => {
           if (hardDeleteTargetId) {

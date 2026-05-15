@@ -3,15 +3,9 @@
 import { useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { DataTable } from "@/components/admin/data-table";
-import { ConfirmationDialog } from "@/components/admin/confirmation-dialog";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { DataTable } from "@/components/shared/data-table";
+import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useDeleteDialogState, useTableState } from "@/components/admin/manager-state";
 import {
   useTierNationCatalogEntityRows,
@@ -38,13 +32,8 @@ export function TierNationEntitiesCatalog() {
   const [editingEntity, setEditingEntity] = useState<CatalogEntityRow | null>(null);
   const entityTable = useTableState([{ id: "name", desc: false }]);
 
-  const {
-    deleteConfirmOpen,
-    setDeleteConfirmOpen,
-    deleteTargetId,
-    requestDelete,
-    clearDelete,
-  } = useDeleteDialogState<string>();
+  const { deleteConfirmOpen, setDeleteConfirmOpen, deleteTargetId, requestDelete, clearDelete } =
+    useDeleteDialogState<string>();
 
   const deleteEntity = useDeleteEntity({
     onSuccess: () => {
@@ -58,32 +47,28 @@ export function TierNationEntitiesCatalog() {
     },
   });
 
-  const listsQuery = useTierNationPublicLists(
-    ENTITY_SOURCE_PAGE,
-    ENTITY_SOURCE_LIMIT,
-  );
+  const listsQuery = useTierNationPublicLists(ENTITY_SOURCE_PAGE, ENTITY_SOURCE_LIMIT);
   const lists = listsQuery.data?.lists ?? [];
 
-  const { rows: entityRows, isLoading: entitiesLoading } =
-    useTierNationCatalogEntityRows(
-      lists,
-      Boolean(listsQuery.isSuccess && lists.length > 0),
-    );
+  const { rows: entityRows, isLoading: entitiesLoading } = useTierNationCatalogEntityRows(
+    lists,
+    Boolean(listsQuery.isSuccess && lists.length > 0)
+  );
 
   const sortedEntities = useMemo(
     () =>
       sortData(
         entityRows as unknown as Record<string, unknown>[],
         entityTable.sortBy,
-        entityTable.sortOrder as "asc" | "desc" | undefined,
+        entityTable.sortOrder as "asc" | "desc" | undefined
       ) as CatalogEntityRow[],
-    [entityRows, entityTable.sortBy, entityTable.sortOrder],
+    [entityRows, entityTable.sortBy, entityTable.sortOrder]
   );
 
   const entityPage = paginate(
     sortedEntities,
     entityTable.pagination.pageIndex,
-    entityTable.pagination.pageSize,
+    entityTable.pagination.pageSize
   );
 
   const entityColumns = useMemo(
@@ -93,20 +78,15 @@ export function TierNationEntitiesCatalog() {
         onDelete: (row) => requestDelete(row.id),
         pendingEntityId: deleteEntity.isPending ? deleteTargetId : null,
       }),
-    [requestDelete, deleteEntity.isPending, deleteTargetId],
+    [requestDelete, deleteEntity.isPending, deleteTargetId]
   );
 
-  const invalidateCatalog = () =>
-    queryClient.invalidateQueries({ queryKey: ["tier-nation"] });
+  const invalidateCatalog = () => queryClient.invalidateQueries({ queryKey: ["tier-nation"] });
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-2">
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={() => setEntityDialogOpen(true)}
-        >
+        <Button type="button" variant="secondary" onClick={() => setEntityDialogOpen(true)}>
           <Plus className="mr-2 h-4 w-4" />
           New entities
         </Button>
@@ -127,9 +107,9 @@ export function TierNationEntitiesCatalog() {
       <Card>
         <CardHeader>
           <CardTitle>Entities</CardTitle>
-        <CardDescription>
-          Aggregated from public list detail. Edit or delete via admin PATCH/DELETE.
-        </CardDescription>
+          <CardDescription>
+            Browse entities from the current catalog and manage them from one place.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <DataTable
@@ -173,7 +153,7 @@ export function TierNationEntitiesCatalog() {
         open={deleteConfirmOpen}
         onOpenChange={setDeleteConfirmOpen}
         title="Delete this entity permanently?"
-        description="DELETE /admin/entities/:id — removes the entity globally."
+        description="This removes the entity everywhere it is used."
         confirmText="Delete"
         onConfirm={() => {
           if (deleteTargetId) {

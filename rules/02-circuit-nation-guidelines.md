@@ -53,8 +53,9 @@ if (!MONGODB_URI) {
 }
 
 // Cache the connection across hot-reloads in development
-const cached: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null } =
-  (global as any).__mongoose ?? { conn: null, promise: null };
+const cached: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null } = (
+  global as any
+).__mongoose ?? { conn: null, promise: null };
 
 (global as any).__mongoose = cached;
 
@@ -88,7 +89,7 @@ export interface IChampionshipEntry extends Document {
   type: ChampionshipType;
   year: number;
   sport: Types.ObjectId;
-  entity: Types.ObjectId;   // ref to Driver or Team depending on type
+  entity: Types.ObjectId; // ref to Driver or Team depending on type
   points: number;
   position: number;
   wins: number;
@@ -98,14 +99,14 @@ export interface IChampionshipEntry extends Document {
 
 const ChampionshipEntrySchema = new Schema<IChampionshipEntry>(
   {
-    type:     { type: String, enum: ["driver", "team"], required: true },
-    year:     { type: Number, required: true },
-    sport:    { type: Schema.Types.ObjectId, ref: "Sport", required: true },
-    entity:   { type: Schema.Types.ObjectId, required: true, refPath: "entityModel" },
-    points:   { type: Number, default: 0 },
+    type: { type: String, enum: ["driver", "team"], required: true },
+    year: { type: Number, required: true },
+    sport: { type: Schema.Types.ObjectId, ref: "Sport", required: true },
+    entity: { type: Schema.Types.ObjectId, required: true, refPath: "entityModel" },
+    points: { type: Number, default: 0 },
     position: { type: Number, default: 0 },
-    wins:     { type: Number, default: 0 },
-    podiums:  { type: Number, default: 0 },
+    wins: { type: Number, default: 0 },
+    podiums: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
@@ -113,8 +114,9 @@ const ChampionshipEntrySchema = new Schema<IChampionshipEntry>(
 ChampionshipEntrySchema.index({ type: 1, year: 1, sport: 1 }, { unique: false });
 ChampionshipEntrySchema.index({ type: 1, year: 1, sport: 1, entity: 1 }, { unique: true });
 
-export const ChampionshipEntry = models.ChampionshipEntry
-  ?? model<IChampionshipEntry>("ChampionshipEntry", ChampionshipEntrySchema);
+export const ChampionshipEntry =
+  models.ChampionshipEntry ??
+  model<IChampionshipEntry>("ChampionshipEntry", ChampionshipEntrySchema);
 ```
 
 ---
@@ -172,11 +174,11 @@ export async function GET(request: NextRequest) {
     await connectDB();
 
     const { searchParams } = new URL(request.url);
-    const year  = searchParams.get("year");
+    const year = searchParams.get("year");
     const sport = searchParams.get("sport");
 
     const filter: Record<string, unknown> = {};
-    if (year)  filter.year  = parseInt(year);
+    if (year) filter.year = parseInt(year);
     if (sport) filter.sport = sport;
 
     const events = await Event.find(filter)
@@ -199,7 +201,10 @@ export async function POST(request: NextRequest) {
 
     const parsed = eventSchema.safeParse(body);
     if (!parsed.success) {
-      return NextResponse.json({ error: "Invalid data.", issues: parsed.error.issues }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid data.", issues: parsed.error.issues },
+        { status: 400 }
+      );
     }
 
     const event = await Event.create(parsed.data);
@@ -306,13 +311,13 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
 export const cnApi = {
   events: {
-    list:   (filters?: { year?: number; sport?: string }) => {
+    list: (filters?: { year?: number; sport?: string }) => {
       const params = new URLSearchParams();
-      if (filters?.year)  params.set("year", String(filters.year));
+      if (filters?.year) params.set("year", String(filters.year));
       if (filters?.sport) params.set("sport", filters.sport);
       return request<Event[]>(`/events?${params}`);
     },
-    get:    (id: string) => request<Event>(`/events/${id}`),
+    get: (id: string) => request<Event>(`/events/${id}`),
     create: (data: Partial<Event>) =>
       request<Event>("/events", { method: "POST", body: JSON.stringify(data) }),
     update: (id: string, data: Partial<Event>) =>
@@ -321,9 +326,9 @@ export const cnApi = {
   },
 
   drivers: {
-    list:   (filters?: { sport?: string; team?: string }) =>
+    list: (filters?: { sport?: string; team?: string }) =>
       request<Driver[]>(`/drivers?${new URLSearchParams(filters as any)}`),
-    get:    (id: string) => request<Driver>(`/drivers/${id}`),
+    get: (id: string) => request<Driver>(`/drivers/${id}`),
     create: (data: Partial<Driver>) =>
       request<Driver>("/drivers", { method: "POST", body: JSON.stringify(data) }),
     update: (id: string, data: Partial<Driver>) =>
@@ -332,8 +337,8 @@ export const cnApi = {
   },
 
   teams: {
-    list:   () => request<Team[]>("/teams"),
-    get:    (id: string) => request<Team>(`/teams/${id}`),
+    list: () => request<Team[]>("/teams"),
+    get: (id: string) => request<Team>(`/teams/${id}`),
     create: (data: Partial<Team>) =>
       request<Team>("/teams", { method: "POST", body: JSON.stringify(data) }),
     update: (id: string, data: Partial<Team>) =>
@@ -342,8 +347,8 @@ export const cnApi = {
   },
 
   sports: {
-    list:   () => request<Sport[]>("/sports"),
-    get:    (id: string) => request<Sport>(`/sports/${id}`),
+    list: () => request<Sport[]>("/sports"),
+    get: (id: string) => request<Sport>(`/sports/${id}`),
     create: (data: Partial<Sport>) =>
       request<Sport>("/sports", { method: "POST", body: JSON.stringify(data) }),
     update: (id: string, data: Partial<Sport>) =>
@@ -357,9 +362,15 @@ export const cnApi = {
     teams: (year: number, sportId: string) =>
       request<ChampionshipEntry[]>(`/championship/teams?year=${year}&sport=${sportId}`),
     upsertDriver: (data: Partial<ChampionshipEntry>) =>
-      request<ChampionshipEntry>("/championship/drivers", { method: "POST", body: JSON.stringify(data) }),
+      request<ChampionshipEntry>("/championship/drivers", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
     upsertTeam: (data: Partial<ChampionshipEntry>) =>
-      request<ChampionshipEntry>("/championship/teams", { method: "POST", body: JSON.stringify(data) }),
+      request<ChampionshipEntry>("/championship/teams", {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
   },
 };
 ```
@@ -378,26 +389,26 @@ import { cnApi } from "./api";
 export const cnKeys = {
   all: ["cn"] as const,
   events: {
-    all:    () => [...cnKeys.all, "events"] as const,
-    list:   (f?: object) => [...cnKeys.events.all(), "list", f] as const,
+    all: () => [...cnKeys.all, "events"] as const,
+    list: (f?: object) => [...cnKeys.events.all(), "list", f] as const,
     detail: (id: string) => [...cnKeys.events.all(), id] as const,
   },
   drivers: {
-    all:          () => [...cnKeys.all, "drivers"] as const,
-    list:         (f?: object) => [...cnKeys.drivers.all(), "list", f] as const,
-    detail:       (id: string) => [...cnKeys.drivers.all(), id] as const,
+    all: () => [...cnKeys.all, "drivers"] as const,
+    list: (f?: object) => [...cnKeys.drivers.all(), "list", f] as const,
+    detail: (id: string) => [...cnKeys.drivers.all(), id] as const,
     championship: (year: number, sport: string) =>
       [...cnKeys.drivers.all(), "championship", year, sport] as const,
   },
   teams: {
-    all:          () => [...cnKeys.all, "teams"] as const,
-    list:         () => [...cnKeys.teams.all(), "list"] as const,
-    detail:       (id: string) => [...cnKeys.teams.all(), id] as const,
+    all: () => [...cnKeys.all, "teams"] as const,
+    list: () => [...cnKeys.teams.all(), "list"] as const,
+    detail: (id: string) => [...cnKeys.teams.all(), id] as const,
     championship: (year: number, sport: string) =>
       [...cnKeys.teams.all(), "championship", year, sport] as const,
   },
   sports: {
-    all:  () => [...cnKeys.all, "sports"] as const,
+    all: () => [...cnKeys.all, "sports"] as const,
     list: () => [...cnKeys.sports.all(), "list"] as const,
   },
 };
@@ -408,7 +419,11 @@ export const useEvents = (filters?: { year?: number; sport?: string }) =>
   useQuery({ queryKey: cnKeys.events.list(filters), queryFn: () => cnApi.events.list(filters) });
 
 export const useEvent = (id: string) =>
-  useQuery({ queryKey: cnKeys.events.detail(id), queryFn: () => cnApi.events.get(id), enabled: !!id });
+  useQuery({
+    queryKey: cnKeys.events.detail(id),
+    queryFn: () => cnApi.events.get(id),
+    enabled: !!id,
+  });
 
 export const useCreateEvent = () => {
   const qc = useQueryClient();
@@ -473,7 +488,7 @@ export async function GET(request: NextRequest) {
   try {
     await connectDB();
     const { searchParams } = new URL(request.url);
-    const year    = parseInt(searchParams.get("year") ?? String(new Date().getFullYear()));
+    const year = parseInt(searchParams.get("year") ?? String(new Date().getFullYear()));
     const sportId = searchParams.get("sport");
 
     if (!sportId) return NextResponse.json({ error: "Sport is required." }, { status: 400 });
@@ -529,8 +544,8 @@ const driverColumns: ColumnDef<ChampionshipEntry>[] = [
       return `${d.firstName} ${d.lastName}`;
     },
   },
-  { accessorKey: "points",  header: "Points" },
-  { accessorKey: "wins",    header: "Wins" },
+  { accessorKey: "points", header: "Points" },
+  { accessorKey: "wins", header: "Wins" },
   { accessorKey: "podiums", header: "Podiums" },
 ];
 
@@ -553,47 +568,53 @@ import { z } from "zod/v4";
 
 export const sportSchema = z.object({
   name: z.string().min(1, "Name is required").max(100),
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/, "Slug must be lowercase with hyphens only"),
+  slug: z
+    .string()
+    .min(1)
+    .regex(/^[a-z0-9-]+$/, "Slug must be lowercase with hyphens only"),
 });
 
 export const eventSchema = z.object({
-  name:     z.string().min(1, "Event name is required").max(200),
-  sport:    z.string().min(1, "Sport is required"),
-  date:     z.coerce.date(),
-  endDate:  z.coerce.date().optional(),
+  name: z.string().min(1, "Event name is required").max(200),
+  sport: z.string().min(1, "Sport is required"),
+  date: z.coerce.date(),
+  endDate: z.coerce.date().optional(),
   location: z.string().optional(),
-  status:   z.enum(["upcoming", "ongoing", "completed", "cancelled"]).default("upcoming"),
-  year:     z.number().int().min(2000).max(2100),
+  status: z.enum(["upcoming", "ongoing", "completed", "cancelled"]).default("upcoming"),
+  year: z.number().int().min(2000).max(2100),
 });
 
 export const teamSchema = z.object({
-  name:     z.string().min(1).max(150),
-  slug:     z.string().min(1).regex(/^[a-z0-9-]+$/),
-  sport:    z.string().min(1),
-  logoUrl:  z.string().url().optional(),
-  country:  z.string().optional(),
+  name: z.string().min(1).max(150),
+  slug: z
+    .string()
+    .min(1)
+    .regex(/^[a-z0-9-]+$/),
+  sport: z.string().min(1),
+  logoUrl: z.string().url().optional(),
+  country: z.string().optional(),
   isActive: z.boolean().default(true),
 });
 
 export const driverSchema = z.object({
-  firstName:   z.string().min(1).max(100),
-  lastName:    z.string().min(1).max(100),
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
   nationality: z.string().optional(),
-  team:        z.string().min(1, "Team is required"),
-  sport:       z.string().min(1, "Sport is required"),
-  number:      z.number().int().min(0).max(999).optional(),
-  imageUrl:    z.string().url().optional(),
-  isActive:    z.boolean().default(true),
+  team: z.string().min(1, "Team is required"),
+  sport: z.string().min(1, "Sport is required"),
+  number: z.number().int().min(0).max(999).optional(),
+  imageUrl: z.string().url().optional(),
+  isActive: z.boolean().default(true),
 });
 
 export const championshipEntrySchema = z.object({
-  type:     z.enum(["driver", "team"]),
-  year:     z.number().int(),
-  sport:    z.string().min(1),
-  entity:   z.string().min(1),
-  points:   z.number().int().min(0).default(0),
+  type: z.enum(["driver", "team"]),
+  year: z.number().int(),
+  sport: z.string().min(1),
+  entity: z.string().min(1),
+  points: z.number().int().min(0).default(0),
   position: z.number().int().min(1).default(1),
-  wins:     z.number().int().min(0).default(0),
-  podiums:  z.number().int().min(0).default(0),
+  wins: z.number().int().min(0).default(0),
+  podiums: z.number().int().min(0).default(0),
 });
 ```

@@ -37,6 +37,7 @@ Admin Shell (Layout, Auth, Nav)
 ```
 
 **Golden rules:**
+
 - Each domain has its own API client, hooks, types, and components — they never share data-fetching logic.
 - The shell (sidebar, topbar, auth) is shared infrastructure.
 - No domain-specific logic bleeds into the shell.
@@ -47,11 +48,13 @@ Admin Shell (Layout, Auth, Nav)
 ## Design Principles
 
 ### Clarity Over Information Density
+
 - Show only what the admin needs to act on — not everything that exists in the database.
 - Use progressive disclosure: summary → detail on demand.
 - Tables show the most actionable columns first; hide auxiliary data behind an expandable row or a sheet/dialog.
 
 ### Consistent Visual Language
+
 - All destructive actions (delete, deactivate) use `variant="destructive"`.
 - All primary CTA buttons are `variant="default"`.
 - Secondary/cancel actions are `variant="outline"` or `variant="ghost"`.
@@ -60,14 +63,15 @@ Admin Shell (Layout, Auth, Nav)
 ```tsx
 // lib/badge-variants.ts — single source of truth for status colors
 export const STATUS_VARIANTS = {
-  active:    "bg-emerald-500/15 text-emerald-700 border-emerald-300",
-  inactive:  "bg-slate-500/15 text-slate-600 border-slate-300",
-  pending:   "bg-amber-500/15 text-amber-700 border-amber-300",
+  active: "bg-emerald-500/15 text-emerald-700 border-emerald-300",
+  inactive: "bg-slate-500/15 text-slate-600 border-slate-300",
+  pending: "bg-amber-500/15 text-amber-700 border-amber-300",
   cancelled: "bg-red-500/15 text-red-700 border-red-300",
 } as const;
 ```
 
 ### No Technical Jargon in the UI
+
 - ❌ `Error 401: Unauthorized from https://api.tiernation.io/v2/entities`
 - ✅ `You don't have permission to view this. Please contact support.`
 - ❌ `MongoDB ObjectId: 6847fa...`
@@ -146,7 +150,7 @@ import { Topbar } from "@/components/shared/topbar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen overflow-hidden bg-background">
+    <div className="bg-background flex h-screen overflow-hidden">
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden">
         <Topbar />
@@ -167,17 +171,17 @@ export const NAV_ITEMS = [
   {
     label: "Circuit Nation",
     items: [
-      { label: "Events",  href: "/circuit-nation/events",  icon: CalendarDays },
+      { label: "Events", href: "/circuit-nation/events", icon: CalendarDays },
       { label: "Drivers", href: "/circuit-nation/drivers", icon: Users },
-      { label: "Sports",  href: "/circuit-nation/sports",  icon: Trophy },
-      { label: "Teams",   href: "/circuit-nation/teams",   icon: Layers },
+      { label: "Sports", href: "/circuit-nation/sports", icon: Trophy },
+      { label: "Teams", href: "/circuit-nation/teams", icon: Layers },
     ],
   },
   {
     label: "Tier Nation",
     items: [
       { label: "Entities", href: "/tier-nation/entities", icon: Tag },
-      { label: "Lists",    href: "/tier-nation/lists",    icon: List },
+      { label: "Lists", href: "/tier-nation/lists", icon: List },
     ],
   },
 ];
@@ -200,9 +204,7 @@ export function PageHeader({ title, description, action }: PageHeaderProps) {
     <div className="mb-6 flex items-start justify-between">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-        {description && (
-          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
-        )}
+        {description && <p className="text-muted-foreground mt-1 text-sm">{description}</p>}
       </div>
       {action && <div>{action}</div>}
     </div>
@@ -230,7 +232,7 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 1000 * 60 * 5,        // 5 minutes
+            staleTime: 1000 * 60 * 5, // 5 minutes
             retry: 1,
             refetchOnWindowFocus: false,
           },
@@ -363,7 +365,12 @@ import {
 } from "@tanstack/react-table";
 import { useState } from "react";
 import {
-  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -438,7 +445,10 @@ export function DataTable<TData, TValue>({
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center text-muted-foreground">
+                <TableCell
+                  colSpan={columns.length}
+                  className="text-muted-foreground h-24 text-center"
+                >
                   No results found.
                 </TableCell>
               </TableRow>
@@ -454,23 +464,43 @@ export function DataTable<TData, TValue>({
 function TablePagination({ table }: { table: ReturnType<typeof useReactTable<any>> }) {
   return (
     <div className="flex items-center justify-between px-1">
-      <p className="text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-sm">
         {table.getFilteredRowModel().rows.length} result(s)
       </p>
       <div className="flex items-center gap-1">
-        <Button variant="ghost" size="icon" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => table.setPageIndex(0)}
+          disabled={!table.getCanPreviousPage()}
+        >
           <ChevronsLeft className="h-4 w-4" />
         </Button>
-        <Button variant="ghost" size="icon" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
           <ChevronLeft className="h-4 w-4" />
         </Button>
         <span className="px-2 text-sm">
           Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
         </span>
-        <Button variant="ghost" size="icon" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
           <ChevronRight className="h-4 w-4" />
         </Button>
-        <Button variant="ghost" size="icon" onClick={() => table.setPageIndex(table.getPageCount() - 1)} disabled={!table.getCanNextPage()}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+          disabled={!table.getCanNextPage()}
+        >
           <ChevronsRight className="h-4 w-4" />
         </Button>
       </div>
@@ -489,8 +519,11 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem,
-  DropdownMenuSeparator, DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { format } from "date-fns";
@@ -611,6 +644,7 @@ export default function EventsPage() {
 ### Never Modify Files in `/components/ui`
 
 These are auto-generated by shadcn CLI. Treat them as read-only. Customization happens through:
+
 - **Composition** — wrap them in your own component.
 - **CSS variables** — override design tokens in `globals.css`.
 - **Variants** — use `class-variance-authority` (CVA) in your wrapper.
@@ -627,11 +661,16 @@ interface StatusBadgeProps {
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {
-  const variant = STATUS_VARIANTS[status as keyof typeof STATUS_VARIANTS]
-    ?? STATUS_VARIANTS.inactive;
+  const variant =
+    STATUS_VARIANTS[status as keyof typeof STATUS_VARIANTS] ?? STATUS_VARIANTS.inactive;
 
   return (
-    <span className={cn("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium", variant)}>
+    <span
+      className={cn(
+        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",
+        variant
+      )}
+    >
       {status.charAt(0).toUpperCase() + status.slice(1)}
     </span>
   );
@@ -643,9 +682,14 @@ export function StatusBadge({ status }: StatusBadgeProps) {
 ```tsx
 // components/shared/confirm-dialog.tsx
 import {
-  AlertDialog, AlertDialogAction, AlertDialogCancel,
-  AlertDialogContent, AlertDialogDescription, AlertDialogFooter,
-  AlertDialogHeader, AlertDialogTitle,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
 interface ConfirmDialogProps {
@@ -658,9 +702,12 @@ interface ConfirmDialogProps {
 }
 
 export function ConfirmDialog({
-  open, onOpenChange, title = "Are you sure?",
+  open,
+  onOpenChange,
+  title = "Are you sure?",
   description = "This action cannot be undone.",
-  onConfirm, loading,
+  onConfirm,
+  loading,
 }: ConfirmDialogProps) {
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
@@ -698,7 +745,7 @@ export function SkeletonTable({ rows = 5, columns = 4 }: { rows?: number; column
       <div className="rounded-md border">
         <div className="border-b px-4 py-3">
           {Array.from({ length: columns }).map((_, i) => (
-            <Skeleton key={i} className="mb-0 inline-block h-4 w-24 mr-6" />
+            <Skeleton key={i} className="mr-6 mb-0 inline-block h-4 w-24" />
           ))}
         </div>
         {Array.from({ length: rows }).map((_, i) => (
@@ -787,9 +834,22 @@ export function cn(...inputs: Parameters<typeof clsx>) {
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod/v4";  // zod v4 import
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { z } from "zod/v4"; // zod v4 import
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useCreateEvent } from "@/lib/circuit-nation/queries";
@@ -904,13 +964,14 @@ const { data, isLoading, isError } = useEvents();
 
 if (isLoading) return <SkeletonTable rows={8} columns={5} />;
 
-if (isError) return (
-  <EmptyState
-    icon={AlertCircle}
-    title="Something went wrong"
-    description="We couldn't load the events. Please refresh the page."
-  />
-);
+if (isError)
+  return (
+    <EmptyState
+      icon={AlertCircle}
+      title="Something went wrong"
+      description="We couldn't load the events. Please refresh the page."
+    />
+  );
 ```
 
 ### Empty State Component
@@ -929,11 +990,9 @@ interface EmptyStateProps {
 export function EmptyState({ icon: Icon, title, description, action }: EmptyStateProps) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <Icon className="mb-4 h-10 w-10 text-muted-foreground/50" />
+      <Icon className="text-muted-foreground/50 mb-4 h-10 w-10" />
       <h3 className="text-base font-semibold">{title}</h3>
-      {description && (
-        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
-      )}
+      {description && <p className="text-muted-foreground mt-1 text-sm">{description}</p>}
       {action && <div className="mt-4">{action}</div>}
     </div>
   );

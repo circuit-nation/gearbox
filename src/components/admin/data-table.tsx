@@ -1,10 +1,21 @@
 "use client";
 
-import { useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowUpDown, ChevronRight, ChevronLeft } from "lucide-react";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/components/ui/table";
 import {
   useReactTable,
   getCoreRowModel,
@@ -102,7 +113,7 @@ export function DataTable<TData>({
 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="text-sm text-muted-foreground">
+          <div className="text-muted-foreground text-sm">
             Showing {pagination.pageIndex * pagination.pageSize + 1} to{" "}
             {Math.min((pagination.pageIndex + 1) * pagination.pageSize, totalCount)} of {totalCount}{" "}
             results
@@ -161,13 +172,23 @@ export function DataTable<TData>({
 }
 
 export function createSortableHeader(label: string) {
-  return ({ column }: { column: any }) => (
-    <Button
-      variant="ghost"
-      onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-    >
-      {label}
-      <ArrowUpDown className="ml-2 h-4 w-4" />
-    </Button>
-  );
+  function SortableHeader({
+    column,
+  }: {
+    column: {
+      toggleSorting: (isDesc: boolean) => void;
+      getIsSorted: () => false | "asc" | "desc";
+    };
+  }) {
+    return (
+      <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        {label}
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    );
+  }
+
+  SortableHeader.displayName = `SortableHeader(${label})`;
+
+  return SortableHeader;
 }

@@ -6,18 +6,18 @@ This document outlines request and response schemas for the HTTP API, aligned wi
 
 **Prefix:** Most JSON APIs live under **`/api/v1`**. The process health check is **`GET /health`** (no version prefix).
 
-| Method   | Path                                             | Auth                                |
-| -------- | ------------------------------------------------ | ----------------------------------- |
-| `POST`   | `/api/v1/admin/lists`                            | HTTP Basic (admin)                  |
-| `POST`   | `/api/v1/admin/entities`                         | HTTP Basic                          |
-| `POST`   | `/api/v1/admin/lists/:listId/entities`           | HTTP Basic                          |
-| `PATCH`  | `/api/v1/admin/lists/:listId/entities/order`     | HTTP Basic                          |
-| `DELETE` | `/api/v1/admin/lists/:listId/entities/:entityId` | HTTP Basic                          |
-| `PATCH`  | `/api/v1/admin/lists/:listId/archive`            | HTTP Basic                          |
-| `PATCH`  | `/api/v1/admin/lists/:listId`                    | HTTP Basic                          |
-| `DELETE` | `/api/v1/admin/lists/:listId`                    | HTTP Basic                          |
-| `PATCH`  | `/api/v1/admin/entities/:id`                     | HTTP Basic                          |
-| `DELETE` | `/api/v1/admin/entities/:id`                     | HTTP Basic                          |
+| Method   | Path                                             | Auth               |
+| -------- | ------------------------------------------------ | ------------------ |
+| `POST`   | `/api/v1/admin/lists`                            | HTTP Basic (admin) |
+| `POST`   | `/api/v1/admin/entities`                         | HTTP Basic         |
+| `POST`   | `/api/v1/admin/lists/:listId/entities`           | HTTP Basic         |
+| `PATCH`  | `/api/v1/admin/lists/:listId/entities/order`     | HTTP Basic         |
+| `DELETE` | `/api/v1/admin/lists/:listId/entities/:entityId` | HTTP Basic         |
+| `PATCH`  | `/api/v1/admin/lists/:listId/archive`            | HTTP Basic         |
+| `PATCH`  | `/api/v1/admin/lists/:listId`                    | HTTP Basic         |
+| `DELETE` | `/api/v1/admin/lists/:listId`                    | HTTP Basic         |
+| `PATCH`  | `/api/v1/admin/entities/:id`                     | HTTP Basic         |
+| `DELETE` | `/api/v1/admin/entities/:id`                     | HTTP Basic         |
 
 **Bearer JWT:** Send `Authorization: Bearer <access_token>`.
 

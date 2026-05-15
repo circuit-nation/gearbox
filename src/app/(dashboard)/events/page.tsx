@@ -1,15 +1,10 @@
-"use client";
-
 import { EventsManager } from "@/components/admin/events/manager";
-import { PageHeader } from "@/components/page-header";
+import { PageHeader } from "@/components/shared/page-header";
 
 export default function EventsPage() {
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Events Management"
-        description="Schedule and manage racing events"
-      />
+      <PageHeader title="Events Management" description="Schedule and manage racing events" />
       <EventsManager />
     </div>
   );

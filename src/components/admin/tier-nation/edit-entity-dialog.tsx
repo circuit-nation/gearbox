@@ -110,7 +110,7 @@ export function EditEntityDialog({
       <DialogContent className="overflow-y-auto sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Edit entity</DialogTitle>
-          <DialogDescription>PATCH /admin/entities/:id</DialogDescription>
+          <DialogDescription>Update entity details and save your changes.</DialogDescription>
         </DialogHeader>
         <form className="space-y-4" onSubmit={onSubmit}>
           <div className="space-y-2">

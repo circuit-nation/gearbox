@@ -1,7 +1,5 @@
-"use client";
-
 import { LeaderboardManager } from "@/components/admin/leaderboard/manager";
-import { PageHeader } from "@/components/page-header";
+import { PageHeader } from "@/components/shared/page-header";
 
 export default function LeaderboardPage() {
   return (

@@ -23,6 +23,7 @@
 Tier Nation has its own backend API that lives outside this admin dashboard. The admin dashboard communicates with it over HTTP using environment-configured base URLs. There is **no direct database access** from this project for Tier Nation data — all operations go through the Tier Nation API.
 
 The two primary resources are:
+
 - **Entities** — individual items managed in Tier Nation.
 - **Lists** — curated ordered collections of entities.
 
@@ -62,8 +63,8 @@ Next.js API routes act as a secure proxy. The client never knows the Tier Nation
 ```
 
 ### Tier Nation HTTP Client (Server-Side Only)
-For authorization, the Tier Nation uses the [require-dashboard-session](/Users/pranavtripathi/Documents/circuit-nation/admin/src/lib/auth/require-dashboard-session.ts)
 
+For authorization, the Tier Nation uses the [require-dashboard-session](/Users/pranavtripathi/Documents/circuit-nation/admin/src/lib/auth/require-dashboard-session.ts)
 
 ---
 
@@ -94,9 +95,9 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
 export const tnApi = {
   entities: {
-    list:   (search?: string) =>
+    list: (search?: string) =>
       request<Entity[]>(`/entities${search ? `?search=${encodeURIComponent(search)}` : ""}`),
-    get:    (id: string) => request<Entity>(`/entities/${id}`),
+    get: (id: string) => request<Entity>(`/entities/${id}`),
     create: (data: Partial<Entity>) =>
       request<Entity>("/entities", { method: "POST", body: JSON.stringify(data) }),
     update: (id: string, data: Partial<Entity>) =>
@@ -105,8 +106,8 @@ export const tnApi = {
   },
 
   lists: {
-    list:   () => request<TierList[]>("/lists"),
-    get:    (id: string) => request<TierList>(`/lists/${id}`),
+    list: () => request<TierList[]>("/lists"),
+    get: (id: string) => request<TierList>(`/lists/${id}`),
     create: (data: Partial<TierList>) =>
       request<TierList>("/lists", { method: "POST", body: JSON.stringify(data) }),
     update: (id: string, data: Partial<TierList>) =>
@@ -114,14 +115,16 @@ export const tnApi = {
     delete: (id: string) => request<{ success: boolean }>(`/lists/${id}`, { method: "DELETE" }),
 
     // Entities within a list
-    getEntities:    (listId: string) => request<Entity[]>(`/lists/${listId}/entities`),
-    addEntity:      (listId: string, entityId: string) =>
+    getEntities: (listId: string) => request<Entity[]>(`/lists/${listId}/entities`),
+    addEntity: (listId: string, entityId: string) =>
       request<TierList>(`/lists/${listId}/entities`, {
-        method: "POST", body: JSON.stringify({ entityId }),
+        method: "POST",
+        body: JSON.stringify({ entityId }),
       }),
-    removeEntity:   (listId: string, entityId: string) =>
+    removeEntity: (listId: string, entityId: string) =>
       request<{ success: boolean }>(`/lists/${listId}/entities`, {
-        method: "DELETE", body: JSON.stringify({ entityId }),
+        method: "DELETE",
+        body: JSON.stringify({ entityId }),
       }),
   },
 };
@@ -139,14 +142,14 @@ import { tnApi } from "./api";
 export const tnKeys = {
   all: ["tn"] as const,
   entities: {
-    all:    () => [...tnKeys.all, "entities"] as const,
-    list:   (search?: string) => [...tnKeys.entities.all(), "list", search] as const,
+    all: () => [...tnKeys.all, "entities"] as const,
+    list: (search?: string) => [...tnKeys.entities.all(), "list", search] as const,
     detail: (id: string) => [...tnKeys.entities.all(), id] as const,
   },
   lists: {
-    all:      () => [...tnKeys.all, "lists"] as const,
-    list:     () => [...tnKeys.lists.all(), "list"] as const,
-    detail:   (id: string) => [...tnKeys.lists.all(), id] as const,
+    all: () => [...tnKeys.all, "lists"] as const,
+    list: () => [...tnKeys.lists.all(), "list"] as const,
+    detail: (id: string) => [...tnKeys.lists.all(), id] as const,
     entities: (id: string) => [...tnKeys.lists.all(), id, "entities"] as const,
   },
 };
@@ -157,7 +160,11 @@ export const useEntities = (search?: string) =>
   useQuery({ queryKey: tnKeys.entities.list(search), queryFn: () => tnApi.entities.list(search) });
 
 export const useEntity = (id: string) =>
-  useQuery({ queryKey: tnKeys.entities.detail(id), queryFn: () => tnApi.entities.get(id), enabled: !!id });
+  useQuery({
+    queryKey: tnKeys.entities.detail(id),
+    queryFn: () => tnApi.entities.get(id),
+    enabled: !!id,
+  });
 
 export const useCreateEntity = () => {
   const qc = useQueryClient();
@@ -193,7 +200,11 @@ export const useLists = () =>
   useQuery({ queryKey: tnKeys.lists.list(), queryFn: tnApi.lists.list });
 
 export const useList = (id: string) =>
-  useQuery({ queryKey: tnKeys.lists.detail(id), queryFn: () => tnApi.lists.get(id), enabled: !!id });
+  useQuery({
+    queryKey: tnKeys.lists.detail(id),
+    queryFn: () => tnApi.lists.get(id),
+    enabled: !!id,
+  });
 
 export const useListEntities = (listId: string) =>
   useQuery({
@@ -337,13 +348,13 @@ export default function EntitiesPage() {
 
 ## Error Handling Rules
 
-| Situation | What the admin sees | What is logged |
-|---|---|---|
-| TN API returns 401 | "You don't have permission to perform this action." | `[TierNation] PATCH /entities/123 → 401` |
-| TN API returns 500 | "Something went wrong. Please try again." | Full response body in `console.error` |
-| Network timeout | "Unable to connect. Check your connection." | Error stack |
-| Validation fails | Form field errors from Zod | — |
-| Entity not found (404) | "This item no longer exists." | `console.warn` |
+| Situation              | What the admin sees                                 | What is logged                           |
+| ---------------------- | --------------------------------------------------- | ---------------------------------------- |
+| TN API returns 401     | "You don't have permission to perform this action." | `[TierNation] PATCH /entities/123 → 401` |
+| TN API returns 500     | "Something went wrong. Please try again."           | Full response body in `console.error`    |
+| Network timeout        | "Unable to connect. Check your connection."         | Error stack                              |
+| Validation fails       | Form field errors from Zod                          | —                                        |
+| Entity not found (404) | "This item no longer exists."                       | `console.warn`                           |
 
 - **Never** put the TN API base URL in any error message, toast, or console output that could be read by the admin in the browser.
 - **Always** use the proxy pattern — the admin only ever sees `/api/tier-nation/*` in Network DevTools.

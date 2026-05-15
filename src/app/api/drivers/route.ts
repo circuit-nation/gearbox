@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
-import { DriverModel } from "@/lib/models";
-import { buildListResponse, toDocument, toDocuments } from "@/lib/mongo-helpers";
+import { DriverModel } from "@/lib/models/core.models";
+import { buildListResponse, toDocument, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
 import { storedValueToS3Key } from "@/lib/image-storage";
 import { deleteS3ObjectByKey } from "@/lib/s3-server";
+import { driverSchema } from "@/lib/circuit-nation/validators";
+import { buildSort, isValidObjectId, parsePagination } from "@/lib/circuit-nation/route-helpers";
+import type { Driver } from "@/lib/circuit-nation/types";
 
 export async function GET(request: NextRequest) {
   try {
@@ -12,130 +14,131 @@ export async function GET(request: NextRequest) {
 
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get("id");
-    const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
-    const limit = Math.max(parseInt(searchParams.get("limit") || "10"), 1);
-    const rawSortBy = searchParams.get("sortBy") || "createdAt";
-    const allowedSortFields = new Set([
-      "createdAt",
-      "updatedAt",
-      "name",
-      "id",
-      "sport",
-      "team",
-      "points",
-    ]);
-    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "createdAt";
-    const rawSortOrder = searchParams.get("sortOrder");
-    const sortOrder = rawSortOrder === "asc" ? 1 : -1;
+    const { page, limit, sortBy: rawSortBy, sortOrder } = parsePagination(searchParams);
     const filterName = searchParams.get("filterName");
     const filterSport = searchParams.get("filterSport");
     const filterTeam = searchParams.get("filterTeam");
 
     if (id) {
-      if (!Types.ObjectId.isValid(id)) {
-        return NextResponse.json(null);
+      if (!isValidObjectId(id)) {
+        return NextResponse.json({ error: "Invalid driver id." }, { status: 400 });
       }
+
       const document = await DriverModel.findById(id).lean();
-      return NextResponse.json(toDocument(document as any));
+      if (!document) {
+        return NextResponse.json({ error: "Driver not found." }, { status: 404 });
+      }
+
+      return NextResponse.json({
+        data: toDocument<Driver>(document as DocWithId),
+      });
     }
 
-    const query: Record<string, unknown> = {};
+    const allowedSortFields = new Set([
+      "createdAt",
+      "updatedAt",
+      "name",
+      "sport_id",
+      "team_id",
+      "points",
+    ]);
+    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "createdAt";
 
+    const query: Record<string, unknown> = {};
     if (filterName) {
       query.name = { $regex: filterName, $options: "i" };
     }
-
-    if (filterSport) {
-      query.sport = filterSport;
+    if (filterSport && isValidObjectId(filterSport)) {
+      query.sport_id = filterSport;
     }
-
-    if (filterTeam) {
-      query.team = { $regex: filterTeam, $options: "i" };
+    if (filterTeam && isValidObjectId(filterTeam)) {
+      query.team_id = filterTeam;
     }
 
     const [total, documents] = await Promise.all([
       DriverModel.countDocuments(query),
       DriverModel.find(query)
-        .sort({ [sortBy]: sortOrder })
+        .sort(buildSort(sortBy, sortOrder))
         .skip((page - 1) * limit)
         .limit(limit)
         .lean(),
     ]);
 
-    return NextResponse.json(
-      buildListResponse(total, toDocuments(documents as any[]))
-    );
-  } catch (error: any) {
-    console.error("GET Drivers API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to fetch drivers" },
-      { status: 500 }
-    );
+    return NextResponse.json({
+      data: buildListResponse(total, toDocuments<Driver>(documents as DocWithId[])),
+    });
+  } catch (error) {
+    console.error("[drivers:GET]", error);
+    return NextResponse.json({ error: "Failed to fetch drivers." }, { status: 500 });
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     await connectToDatabase();
-    const data = await request.json();
-    const payload = {
-      ...data,
-      team: data?.team ?? "",
-      points: typeof data?.points === "number" ? data.points : 0,
-    };
+    const payload = await request.json();
+    const parsed = driverSchema.safeParse(payload);
 
-    const document = await DriverModel.create(payload);
-    return NextResponse.json(toDocument(document.toObject() as any), { status: 201 });
-  } catch (error: any) {
-    console.error("POST Drivers API Error:", error);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid driver payload." }, { status: 400 });
+    }
+
+    const document = await DriverModel.create(parsed.data);
     return NextResponse.json(
-      { error: error.message || "Failed to create driver" },
-      { status: 500 }
+      { data: toDocument<Driver>(document.toObject() as DocWithId) },
+      { status: 201 }
     );
+  } catch (error) {
+    console.error("[drivers:POST]", error);
+    return NextResponse.json({ error: "Failed to create driver." }, { status: 500 });
   }
 }
 
 export async function PUT(request: NextRequest) {
   try {
     await connectToDatabase();
-
-    const body = await request.json();
+    const body = (await request.json()) as Partial<Driver> & { id?: string };
     const { id, ...data } = body;
 
-    if (!id || !Types.ObjectId.isValid(id)) {
-      return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid driver id." }, { status: 400 });
     }
 
-    const document = await DriverModel.findByIdAndUpdate(id, data, {
+    const parsed = driverSchema.partial().safeParse(data);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid driver payload." }, { status: 400 });
+    }
+
+    const document = await DriverModel.findByIdAndUpdate(id, parsed.data, {
       new: true,
       runValidators: true,
     }).lean();
 
-    return NextResponse.json(toDocument(document as any));
-  } catch (error: any) {
-    console.error("PUT Drivers API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to update driver" },
-      { status: 500 }
-    );
+    if (!document) {
+      return NextResponse.json({ error: "Driver not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      data: toDocument<Driver>(document as DocWithId),
+    });
+  } catch (error) {
+    console.error("[drivers:PUT]", error);
+    return NextResponse.json({ error: "Failed to update driver." }, { status: 500 });
   }
 }
 
 export async function DELETE(request: NextRequest) {
   try {
     await connectToDatabase();
+    const id = request.nextUrl.searchParams.get("id");
 
-    const searchParams = request.nextUrl.searchParams;
-    const id = searchParams.get("id");
-
-    if (!id || !Types.ObjectId.isValid(id)) {
-      return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid driver id." }, { status: 400 });
     }
 
     const existingDriver = await DriverModel.findById(id).lean();
-
     if (!existingDriver) {
-      return NextResponse.json({ error: "Driver not found" }, { status: 404 });
+      return NextResponse.json({ error: "Driver not found." }, { status: 404 });
     }
 
     const imageKey = storedValueToS3Key(String(existingDriver.image || ""));
@@ -144,12 +147,9 @@ export async function DELETE(request: NextRequest) {
     }
 
     await DriverModel.findByIdAndDelete(id);
-    return NextResponse.json({ success: true, id });
-  } catch (error: any) {
-    console.error("DELETE Drivers API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to delete driver" },
-      { status: 500 }
-    );
+    return NextResponse.json({ data: { success: true, id } });
+  } catch (error) {
+    console.error("[drivers:DELETE]", error);
+    return NextResponse.json({ error: "Failed to delete driver." }, { status: 500 });
   }
 }

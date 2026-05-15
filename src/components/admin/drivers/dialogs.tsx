@@ -1,20 +1,30 @@
 import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useImageUpload } from "@/hooks/use-image-upload";
 import { ALLOWED_IMAGE_EXTENSIONS } from "@/lib/image-upload";
 import { Loader2, Plus } from "lucide-react";
-import { CreateDriver, Driver } from "@/lib/schema";
+import { CreateDriver, Driver } from "@/lib/circuit-nation/types";
 import { ResolvedImagePreview } from "../resolved-image-preview";
 
-type SportOption = {
-  _id: string;
-  name: string;
-};
+type SportOption = { _id: string; name: string };
+type TeamOption = { _id: string; name: string; sport_id: string };
 
 type DriversCreateDialogProps = {
   open: boolean;
@@ -23,6 +33,7 @@ type DriversCreateDialogProps = {
   setFormData: Dispatch<SetStateAction<CreateDriver>>;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   sports?: SportOption[];
+  teams?: TeamOption[];
   isSubmitting: boolean;
 };
 
@@ -33,6 +44,7 @@ type DriversEditDialogProps = {
   setFormData: Dispatch<SetStateAction<Partial<Driver>>>;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   sports?: SportOption[];
+  teams?: TeamOption[];
   isSubmitting: boolean;
 };
 
@@ -43,8 +55,10 @@ export function DriversCreateDialog({
   setFormData,
   onSubmit,
   sports,
+  teams,
   isSubmitting,
 }: DriversCreateDialogProps) {
+  const filteredTeams = teams?.filter((team) => team.sport_id === formData.sport_id) ?? [];
   const { uploadImage, isUploading } = useImageUpload();
   const [imageInputMode, setImageInputMode] = useState<"url" | "upload">("url");
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -67,7 +81,7 @@ export function DriversCreateDialog({
       const imageUrl = await uploadImage({
         file,
         folder: "drivers",
-        entityName: formData.name || formData.id || "driver",
+        entityName: formData.name || "driver",
       });
       setFormData((prev) => ({ ...prev, image: imageUrl }));
     } catch (error) {
@@ -89,16 +103,6 @@ export function DriversCreateDialog({
         </DialogHeader>
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
-            <Label htmlFor="id">ID</Label>
-            <Input
-              id="id"
-              value={formData.id}
-              onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-              placeholder="e.g., max-verstappen"
-              required
-            />
-          </div>
-          <div>
             <Label htmlFor="name">Name</Label>
             <Input
               id="name"
@@ -109,8 +113,13 @@ export function DriversCreateDialog({
             />
           </div>
           <div>
-            <Label htmlFor="sport">Sport</Label>
-            <Select value={formData.sport} onValueChange={(value) => setFormData({ ...formData, sport: value })}>
+            <Label htmlFor="sport_id">Sport</Label>
+            <Select
+              value={formData.sport_id}
+              onValueChange={(value) =>
+                setFormData({ ...formData, sport_id: value, team_id: null })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a sport" />
               </SelectTrigger>
@@ -154,27 +163,38 @@ export function DriversCreateDialog({
                   }}
                   disabled={isUploading}
                 />
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Allowed: {ALLOWED_IMAGE_EXTENSIONS.join(", ")}. Max size: 10MB.
                 </p>
               </TabsContent>
             </Tabs>
-            {uploadError && <p className="text-sm text-destructive mt-2">{uploadError}</p>}
+            {uploadError && <p className="text-destructive mt-2 text-sm">{uploadError}</p>}
             <ResolvedImagePreview
               value={formData.image}
               alt={`${formData.name || "Driver"} preview`}
-              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
+              className="bg-muted/20 mt-2 h-32 w-32 overflow-hidden rounded-md border"
             />
           </div>
           <div>
-            <Label htmlFor="team">Team</Label>
-            <Input
-              id="team"
-              value={formData.team}
-              onChange={(e) => setFormData({ ...formData, team: e.target.value })}
-              placeholder="e.g., McLaren"
-              required
-            />
+            <Label htmlFor="team_id">Team</Label>
+            <Select
+              value={formData.team_id || "none"}
+              onValueChange={(value) =>
+                setFormData({ ...formData, team_id: value === "none" ? null : value })
+              }
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a team (optional)" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">Unassigned</SelectItem>
+                {filteredTeams.map((team) => (
+                  <SelectItem key={team._id} value={team._id}>
+                    {team.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div>
             <Label htmlFor="tags">Tags (comma-separated)</Label>
@@ -184,7 +204,10 @@ export function DriversCreateDialog({
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean),
+                  tags: e.target.value
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean),
                 })
               }
               placeholder="champion, dutch"
@@ -207,8 +230,10 @@ export function DriversEditDialog({
   setFormData,
   onSubmit,
   sports,
+  teams,
   isSubmitting,
 }: DriversEditDialogProps) {
+  const filteredTeams = teams?.filter((team) => team.sport_id === formData.sport_id) ?? [];
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
@@ -227,8 +252,13 @@ export function DriversEditDialog({
             />
           </div>
           <div>
-            <Label htmlFor="edit-sport">Sport</Label>
-            <Select value={formData.sport} onValueChange={(value) => setFormData({ ...formData, sport: value })}>
+            <Label htmlFor="edit-sport_id">Sport</Label>
+            <Select
+              value={formData.sport_id}
+              onValueChange={(value) =>
+                setFormData({ ...formData, sport_id: value, team_id: null })
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a sport" />
               </SelectTrigger>
@@ -253,18 +283,29 @@ export function DriversEditDialog({
             <ResolvedImagePreview
               value={formData.image}
               alt={`${formData.name || "Driver"} preview`}
-              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
+              className="bg-muted/20 mt-2 h-32 w-32 overflow-hidden rounded-md border"
             />
           </div>
           <div>
-            <Label htmlFor="edit-team">Team</Label>
-            <Input
-              id="edit-team"
-              value={formData.team || ""}
-              onChange={(e) => setFormData({ ...formData, team: e.target.value })}
-              placeholder="e.g., McLaren"
-              required
-            />
+            <Label htmlFor="edit-team_id">Team</Label>
+            <Select
+              value={formData.team_id || "none"}
+              onValueChange={(value) =>
+                setFormData({ ...formData, team_id: value === "none" ? null : value })
+              }
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select a team (optional)" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">Unassigned</SelectItem>
+                {filteredTeams.map((team) => (
+                  <SelectItem key={team._id} value={team._id}>
+                    {team.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div>
             <Label htmlFor="edit-tags">Tags (comma-separated)</Label>
@@ -274,7 +315,10 @@ export function DriversEditDialog({
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean),
+                  tags: e.target.value
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean),
                 })
               }
               placeholder="champion, dutch"

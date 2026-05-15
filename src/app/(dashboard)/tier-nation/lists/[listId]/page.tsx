@@ -1,15 +1,9 @@
-"use client";
-
 import { TierNationListDetailManager } from "@/components/admin/tier-nation/list-detail-manager";
-import { useParams } from "next/navigation";
+type PageProps = {
+  params: Promise<{ listId: string }>;
+};
 
-export default function TierNationListDetailPage() {
-  const params = useParams();
-  const listId = typeof params.listId === "string" ? params.listId : "";
-
-  if (!listId) {
-    return <div className="text-sm text-muted-foreground">Missing list id.</div>;
-  }
-
+export default async function TierNationListDetailPage({ params }: PageProps) {
+  const { listId } = await params;
   return <TierNationListDetailManager listId={listId} />;
 }

@@ -16,7 +16,7 @@ import {
   SidebarRail,
   SidebarInset,
   SidebarTrigger,
-  useSidebar
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "@/components/ui/button";
@@ -28,10 +28,13 @@ import {
   Layers,
   ListOrdered,
   LogOut,
+  MapPin,
   Package,
+  Shield,
   Trophy,
   UserCircle,
 } from "lucide-react";
+import { tnApi } from "@/lib/tier-nation/api";
 
 const navGroups = [
   {
@@ -39,6 +42,8 @@ const navGroups = [
     items: [
       { title: "Dashboard", href: "/", icon: LayoutDashboard, external: false },
       { title: "Sports", href: "/sports", icon: Trophy, external: false },
+      { title: "Teams", href: "/teams", icon: Shield, external: false },
+      { title: "Circuits", href: "/circuits", icon: MapPin, external: false },
       { title: "Events", href: "/events", icon: Calendar, external: false },
       { title: "Drivers", href: "/drivers", icon: UserCircle, external: false },
       { title: "Leaderboard", href: "/leaderboard", icon: ListOrdered, external: false },
@@ -72,7 +77,7 @@ function AppShellContent({ children }: AppShellProps) {
   const { state } = useSidebar();
 
   async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
+    await tnApi.auth.logout();
     router.replace("/login");
     router.refresh();
   }
@@ -116,8 +121,13 @@ function AppShellContent({ children }: AppShellProps) {
           ))}
         </SidebarContent>
         <SidebarRail />
-        <SidebarFooter className="border-t text-xs text-muted-foreground">
-          <Link href="https://circuitnation.live" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-1 hover:underline hover:underline-offset-3">
+        <SidebarFooter className="text-muted-foreground border-t text-xs">
+          <Link
+            href="https://circuitnation.live"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-row items-center gap-1 hover:underline hover:underline-offset-3"
+          >
             {state === "expanded" ? (
               <>
                 Visit Circuit Nation
@@ -133,7 +143,7 @@ function AppShellContent({ children }: AppShellProps) {
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex items-center gap-2 border-b bg-background px-4 py-3">
+        <header className="bg-background flex items-center gap-2 border-b px-4 py-3">
           <SidebarTrigger />
           <div className="text-sm font-semibold tracking-tight">Circuit Nation Admin</div>
           <div className="ml-auto flex items-center gap-2">

@@ -18,11 +18,11 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
       {
         method: "PATCH",
         body: bodyText,
-      },
+      }
     );
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Proxy failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:admin:list:entities-order]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
   }
 }

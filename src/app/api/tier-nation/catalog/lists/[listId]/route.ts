@@ -15,10 +15,12 @@ export async function GET(request: NextRequest, context: RouteContext) {
     if (!listId || listId.includes("/") || listId.includes("..")) {
       return NextResponse.json({ error: "Invalid list id" }, { status: 400 });
     }
-    const upstream = await tierNationPublicFetch(`/lists/${encodeURIComponent(listId)}`, { method: "GET" });
+    const upstream = await tierNationPublicFetch(`/lists/${encodeURIComponent(listId)}`, {
+      method: "GET",
+    });
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Catalog request failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:catalog:list-detail]", e);
+    return NextResponse.json({ error: "Unable to load Tier Nation list." }, { status: 503 });
   }
 }

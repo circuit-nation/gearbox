@@ -4,35 +4,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { toast } from "sonner";
-import {
-  ArrowLeft,
-  Copy,
-  ListOrdered,
-  Pencil,
-  Plus,
-  RefreshCw,
-  Trash2,
-  Unlink,
-} from "lucide-react";
+import { ArrowLeft, Copy, ListOrdered, Pencil, Plus, RefreshCw, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { DataTable, createSortableHeader } from "@/components/admin/data-table";
-import {
-  useDeleteDialogState,
-  useTableState,
-} from "@/components/admin/manager-state";
-import { ConfirmationDialog } from "@/components/admin/confirmation-dialog";
+import { DataTable } from "@/components/shared/data-table";
+import { useDeleteDialogState, useTableState } from "@/components/admin/manager-state";
+import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useTierNationListDetail } from "@/hooks/use-tn-catalog";
 import {
   useArchiveTierList,
@@ -44,9 +25,9 @@ import { CreateEntitiesDialog } from "@/components/admin/tier-nation/create-enti
 import { EditListDialog } from "@/components/admin/tier-nation/edit-list-dialog";
 import { EditEntityDialog } from "@/components/admin/tier-nation/edit-entity-dialog";
 import type { PublicTierListEntity } from "@/lib/tier-nation/types";
-import { ImageValueAvatar } from "@/components/admin/image-value-avatar";
 import { useResolvedImageUrl } from "@/hooks/use-image-upload";
 import Image from "next/image";
+import { createListDetailColumns } from "@/components/admin/tier-nation/list-detail-columns";
 
 function paginate<T>(rows: T[], pageIndex: number, pageSize: number) {
   const start = pageIndex * pageSize;
@@ -62,7 +43,7 @@ function compareCell(a: unknown, b: unknown) {
 function sortData<T extends Record<string, unknown>>(
   rows: T[],
   sortBy: string | undefined,
-  sortOrder: "asc" | "desc" | undefined,
+  sortOrder: "asc" | "desc" | undefined
 ) {
   if (!sortBy) return rows;
   const mult = sortOrder === "asc" ? 1 : -1;
@@ -73,13 +54,10 @@ type ListDetailManagerProps = {
   listId: string;
 };
 
-export function TierNationListDetailManager({
-  listId,
-}: ListDetailManagerProps) {
+export function TierNationListDetailManager({ listId }: ListDetailManagerProps) {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const { data, isLoading, isError, error, refetch } =
-    useTierNationListDetail(listId);
+  const { data, isLoading, isError, error, refetch } = useTierNationListDetail(listId);
   const [entityDialogOpen, setEntityDialogOpen] = useState(false);
   const [editListOpen, setEditListOpen] = useState(false);
   const [editingEntity, setEditingEntity] = useState<PublicTierListEntity | null>(null);
@@ -160,116 +138,38 @@ export function TierNationListDetailManager({
       sortData(
         entities as unknown as Record<string, unknown>[],
         entityTable.sortBy,
-        entityTable.sortOrder as "asc" | "desc" | undefined,
+        entityTable.sortOrder as "asc" | "desc" | undefined
       ) as PublicTierListEntity[],
-    [entities, entityTable.sortBy, entityTable.sortOrder],
+    [entities, entityTable.sortBy, entityTable.sortOrder]
   );
   const entityPage = useMemo(
     () =>
-      paginate(
-        sortedEntities,
-        entityTable.pagination.pageIndex,
-        entityTable.pagination.pageSize,
-      ),
-    [
-      sortedEntities,
-      entityTable.pagination.pageIndex,
-      entityTable.pagination.pageSize,
-    ],
+      paginate(sortedEntities, entityTable.pagination.pageIndex, entityTable.pagination.pageSize),
+    [sortedEntities, entityTable.pagination.pageIndex, entityTable.pagination.pageSize]
   );
 
-  const entityColumns = useMemo<ColumnDef<PublicTierListEntity>[]>(
-    () => [
-      {
-        accessorKey: "name",
-        header: createSortableHeader("Name"),
-        cell: ({ row }) => (
-          <div className="flex items-center gap-2">
-            {row.original.imageUrl ? (
-              <ImageValueAvatar
-                value={row.original.imageUrl}
-                alt={row.original.name}
-                fallback={row.original.name.slice(0, 2).toUpperCase()}
-                className="h-8 w-8"
-              />
-            ) : null}
-            <span className="font-medium">{row.original.name}</span>
-          </div>
-        ),
-      },
-      {
-        accessorKey: "team",
-        header: createSortableHeader("Team"),
-        cell: ({ row }) => row.original.team || "—",
-      },
-      {
-        accessorKey: "id",
-        header: "Id",
-        cell: ({ row }) => (
-          <code className="text-xs text-muted-foreground">{row.original.id}</code>
-        ),
-        enableSorting: false,
-      },
-      {
-        accessorKey: "tags",
-        header: "Tags",
-        cell: ({ row }) => (
-          <span className="text-xs text-muted-foreground">
-            {row.original.tags?.length ? row.original.tags.join(", ") : "—"}
-          </span>
-        ),
-        enableSorting: false,
-      },
-      {
-        id: "actions",
-        header: "",
-        cell: ({ row }) => (
-          <div className="flex justify-end gap-2">
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => setEditingEntity(row.original)}
-            >
-              <Pencil className="h-4 w-4" />
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              disabled={
-                removeFromList.isPending && removeEntityId === row.original.id
-              }
-              onClick={() => requestRemoveEntity(row.original.id)}
-              title="Remove from this list"
-            >
-              <Unlink className="h-4 w-4" />
-            </Button>
-          </div>
-        ),
-        enableSorting: false,
-      },
-    ],
-    [
-      removeFromList.isPending,
-      removeEntityId,
-      requestRemoveEntity,
-    ],
+  const entityColumns = useMemo(
+    () =>
+      createListDetailColumns({
+        onEdit: setEditingEntity,
+        onRemove: requestRemoveEntity,
+        pendingEntityId: removeEntityId,
+        isRemoving: removeFromList.isPending,
+      }),
+    [removeEntityId, removeFromList.isPending, requestRemoveEntity]
   );
 
   const cover = data?.coverImage?.trim();
   const { url, isLoading: isCoverLoading } = useResolvedImageUrl(cover);
 
   if (isLoading) {
-    return <div className="text-sm text-muted-foreground">Loading list…</div>;
+    return <div className="text-muted-foreground text-sm">Loading list…</div>;
   }
 
   if (isError || !data) {
     return (
       <div className="space-y-4">
-        <p className="text-sm text-destructive">
-          {error?.message || "List not found."}
-        </p>
+        <p className="text-destructive text-sm">{error?.message || "List not found."}</p>
         <Button variant="outline" asChild>
           <Link href="/tier-nation/lists">Back to catalog</Link>
         </Button>
@@ -324,18 +224,10 @@ export function TierNationListDetailManager({
           <ListOrdered className="mr-2 h-4 w-4" />
           Save entity order
         </Button>
-        <Button
-          type="button"
-          variant="destructive"
-          onClick={() => requestArchive(listId)}
-        >
+        <Button type="button" variant="destructive" onClick={() => requestArchive(listId)}>
           Archive list…
         </Button>
-        <Button
-          type="button"
-          variant="destructive"
-          onClick={() => requestHardDelete(listId)}
-        >
+        <Button type="button" variant="destructive" onClick={() => requestHardDelete(listId)}>
           <Trash2 className="mr-2 h-4 w-4" />
           Delete list…
         </Button>
@@ -355,11 +247,9 @@ export function TierNationListDetailManager({
             )}
             <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/80" />
 
-            <div className="absolute bottom-0 left-0 right-0 space-y-1 p-4 text-white">
+            <div className="absolute right-0 bottom-0 left-0 space-y-1 p-4 text-white">
               <h1 className="text-3xl font-bold tracking-tight">{data.name}</h1>
-              <p className="text-sm text-white/70">
-                {data.description || "No description."}
-              </p>
+              <p className="text-sm text-white/70">{data.description || "No description."}</p>
             </div>
           </div>
         ) : (
@@ -368,23 +258,19 @@ export function TierNationListDetailManager({
 
         <div className="space-y-2 pt-3">
           {!cover && (
-            <p className="text-muted-foreground">
-              {data.description || "No description."}
-            </p>
+            <p className="text-muted-foreground">{data.description || "No description."}</p>
           )}
           <div className="flex flex-wrap gap-2">
             <Badge variant={data.isVisible ? "secondary" : "outline"}>
               {data.isVisible ? "Visible" : "Hidden"}
             </Badge>
-            <Badge variant="outline">
-              {data.isLocked ? "Locked" : "Unlocked"}
-            </Badge>
+            <Badge variant="outline">{data.isLocked ? "Locked" : "Unlocked"}</Badge>
           </div>
 
-          <div className="space-y-1 text-sm text-muted-foreground">
+          <div className="text-muted-foreground space-y-1 text-sm">
             <div>
-              <span className="font-medium text-foreground">Id:</span>{" "}
-              <code className="rounded bg-muted px-1">{data.id}</code>
+              <span className="text-foreground font-medium">Id:</span>{" "}
+              <code className="bg-muted rounded px-1">{data.id}</code>
               <Button
                 size="icon-sm"
                 variant="ghost"
@@ -395,13 +281,9 @@ export function TierNationListDetailManager({
               </Button>
             </div>
 
-            {data.startTime ? (
-              <div>Starts: {format(new Date(data.startTime), "PPp")}</div>
-            ) : null}
+            {data.startTime ? <div>Starts: {format(new Date(data.startTime), "PPp")}</div> : null}
 
-            {data.endTime ? (
-              <div>Ends: {format(new Date(data.endTime), "PPp")}</div>
-            ) : null}
+            {data.endTime ? <div>Ends: {format(new Date(data.endTime), "PPp")}</div> : null}
           </div>
         </div>
       </div>
@@ -412,9 +294,7 @@ export function TierNationListDetailManager({
         <CardHeader>
           <CardTitle>Entities on this list</CardTitle>
           <CardDescription>
-            Public catalog data with admin actions: PATCH entity, remove link (DELETE
-            /admin/lists/:listId/entities/:entityId), PATCH order for the current sorted
-            order.
+            Review entities linked to this list, update details, and manage list membership.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -435,18 +315,14 @@ export function TierNationListDetailManager({
         open={entityDialogOpen}
         onOpenChange={setEntityDialogOpen}
         defaultListId={listId}
-        onSuccess={() =>
-          queryClient.invalidateQueries({ queryKey: ["tier-nation"] })
-        }
+        onSuccess={() => queryClient.invalidateQueries({ queryKey: ["tier-nation"] })}
       />
 
       <EditListDialog
         open={editListOpen}
         onOpenChange={setEditListOpen}
         list={data}
-        onSaved={() =>
-          queryClient.invalidateQueries({ queryKey: ["tier-nation"] })
-        }
+        onSaved={() => queryClient.invalidateQueries({ queryKey: ["tier-nation"] })}
       />
 
       {editingEntity ? (
@@ -463,9 +339,7 @@ export function TierNationListDetailManager({
             tags: editingEntity.tags,
             imageUrl: editingEntity.imageUrl,
           }}
-          onSaved={() =>
-            queryClient.invalidateQueries({ queryKey: ["tier-nation"] })
-          }
+          onSaved={() => queryClient.invalidateQueries({ queryKey: ["tier-nation"] })}
         />
       ) : null}
 
@@ -473,7 +347,7 @@ export function TierNationListDetailManager({
         open={archiveConfirmOpen}
         onOpenChange={setArchiveConfirmOpen}
         title="Archive this list?"
-        description="Soft-delete via PATCH /admin/lists/:id/archive."
+        description="This hides the list from active catalog usage until restored."
         confirmText="Archive"
         onConfirm={() => {
           if (archiveTargetId) {
@@ -487,7 +361,7 @@ export function TierNationListDetailManager({
         open={hardDeleteOpen}
         onOpenChange={setHardDeleteOpen}
         title="Delete this list permanently?"
-        description="DELETE /admin/lists/:id — cannot be undone."
+        description="This permanently removes the list and cannot be undone."
         confirmText="Delete permanently"
         onConfirm={() => {
           const id = hardDeleteTargetId ?? listId;
@@ -500,7 +374,7 @@ export function TierNationListDetailManager({
         open={removeEntityOpen}
         onOpenChange={setRemoveEntityOpen}
         title="Remove entity from this list?"
-        description="DELETE /admin/lists/:listId/entities/:entityId — the entity record may still exist."
+        description="This removes the entity from this list only."
         confirmText="Remove"
         onConfirm={() => {
           if (removeEntityId) {

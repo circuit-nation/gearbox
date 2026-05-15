@@ -1,10 +1,11 @@
 import { SignJWT, jwtVerify } from "jose";
+import { ENV, IS_PRODUCTION } from "@/config/config";
 import { ADMIN_SESSION_COOKIE } from "./constants";
 
 const SESSION_MAX_AGE_SEC = 60 * 60 * 24 * 7;
 
 function tryGetEncodedSecret(): Uint8Array | null {
-  const raw = process.env.ADMIN_SESSION_SECRET;
+  const raw = ENV.ADMIN_SESSION_SECRET;
   if (!raw || raw.length < 16) {
     return null;
   }
@@ -41,7 +42,7 @@ export async function verifyAdminSessionToken(token: string | undefined | null) 
 }
 
 export function adminSessionCookieOptions() {
-  const secure = process.env.NODE_ENV === "production";
+  const secure = IS_PRODUCTION;
   return {
     name: ADMIN_SESSION_COOKIE,
     httpOnly: true as const,

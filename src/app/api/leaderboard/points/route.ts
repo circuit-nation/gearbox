@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Types } from "mongoose";
+import { DriverLeaderboardModel } from "@/lib/models/leaderboard.models";
 import { connectToDatabase } from "@/lib/mongodb";
-import { DriverModel } from "@/lib/models";
-import { toDocument } from "@/lib/mongo-helpers";
+import { serializeDriverLeaderboardEntry } from "@/lib/circuit-nation/leaderboard-serializer";
+import { isValidObjectId } from "@/lib/circuit-nation/route-helpers";
+import type { DriverLeaderboardEntry } from "@/lib/circuit-nation/types";
 
 type UpdateMode = "add" | "set";
 
@@ -14,44 +15,60 @@ export async function PUT(request: NextRequest) {
   try {
     await connectToDatabase();
 
-    const body = await request.json();
-    const id = body?.id;
-    const mode = body?.mode;
-    const value = Number(body?.value);
+    const body = (await request.json()) as {
+      id?: string;
+      mode?: string;
+      value?: number;
+    };
 
-    if (!id || !Types.ObjectId.isValid(id)) {
-      return NextResponse.json({ error: "Valid driver id is required" }, { status: 400 });
+    const id = body.id;
+    const mode = body.mode;
+    const value = Number(body.value);
+
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
     }
-
-    if (!isValidMode(mode)) {
-      return NextResponse.json({ error: "mode must be either 'add' or 'set'" }, { status: 400 });
+    if (!mode || !isValidMode(mode)) {
+      return NextResponse.json({ error: "Invalid points update mode." }, { status: 400 });
     }
-
     if (!Number.isFinite(value)) {
-      return NextResponse.json({ error: "value must be a valid number" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid points value." }, { status: 400 });
     }
 
-    const existing = await DriverModel.findById(id).lean();
-
+    const existing = await DriverLeaderboardModel.findById(id).lean();
     if (!existing) {
-      return NextResponse.json({ error: "Driver not found" }, { status: 404 });
+      return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
     }
 
-    const currentPoints = typeof existing.points === "number" ? existing.points : 0;
+    const currentPoints =
+      typeof existing.stats === "object" && existing.stats && "points" in existing.stats
+        ? Number(existing.stats.points || 0)
+        : 0;
     const nextPoints = mode === "add" ? currentPoints + value : value;
 
-    const document = await DriverModel.findByIdAndUpdate(
+    const document = await DriverLeaderboardModel.findByIdAndUpdate(
       id,
-      { points: nextPoints },
+      { "stats.points": nextPoints },
       { new: true, runValidators: true }
-    ).lean();
+    )
+      .populate([
+        { path: "driver_id", select: "name image" },
+        { path: "team_id", select: "name" },
+        { path: "sport_id", select: "name" },
+      ])
+      .lean();
 
-    return NextResponse.json(toDocument(document as any));
-  } catch (error: any) {
-    console.error("PUT Leaderboard Points API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to update driver points" },
-      { status: 500 }
-    );
+    if (!document) {
+      return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      data: serializeDriverLeaderboardEntry(
+        document as Record<string, unknown>
+      ) as DriverLeaderboardEntry,
+    });
+  } catch (error) {
+    console.error("[leaderboard:points:PUT]", error);
+    return NextResponse.json({ error: "Failed to update driver points." }, { status: 500 });
   }
 }

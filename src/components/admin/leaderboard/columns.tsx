@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { TeamLeaderboardEntry } from "@/lib/schema";
+import { DriverLeaderboardEntry, TeamLeaderboardEntry } from "@/lib/circuit-nation/types";
 import { ColumnDef } from "@tanstack/react-table";
-import { PlusCircle } from "lucide-react";
-import { DriverLeaderboardEntry } from "@/hooks/use-leaderboard";
-import { createSortableHeader } from "../data-table";
+import { Pencil, PlusCircle, Trash2 } from "lucide-react";
+import { createSortableHeader } from "@/components/shared/data-table";
 import { ImageValueAvatar } from "../image-value-avatar";
 
 type SportOption = {
@@ -13,13 +12,25 @@ type SportOption = {
 
 type DriverLeaderboardColumnsProps = {
   sports?: SportOption[];
+  onEdit: (entry: DriverLeaderboardEntry) => void;
+  onDelete: (id: string) => void;
   onManagePoints: (driver: DriverLeaderboardEntry) => void;
+  isDeleting: boolean;
   isUpdatingPoints: boolean;
+};
+
+type TeamLeaderboardColumnsProps = {
+  onEdit: (entry: TeamLeaderboardEntry) => void;
+  onDelete: (id: string) => void;
+  isDeleting: boolean;
 };
 
 export function createDriverLeaderboardColumns({
   sports,
+  onEdit,
+  onDelete,
   onManagePoints,
+  isDeleting,
   isUpdatingPoints,
 }: DriverLeaderboardColumnsProps): ColumnDef<DriverLeaderboardEntry>[] {
   return [
@@ -48,39 +59,60 @@ export function createDriverLeaderboardColumns({
       cell: ({ row }) => row.original.team || "Unassigned",
     },
     {
-      accessorKey: "sport",
+      accessorKey: "sport_id",
       header: createSortableHeader("Sport"),
       cell: ({ row }) => {
-        const sport = sports?.find((item) => item._id === row.original.sport);
+        const sport = sports?.find((item) => item._id === row.original.sport_id);
         return sport?.name || "Unknown";
       },
     },
     {
       accessorKey: "points",
       header: createSortableHeader("Points"),
-      cell: ({ row }) => <div className="font-semibold">{row.original.points ?? 0}</div>,
+      cell: ({ row }) => (
+        <div className="font-semibold">
+          {row.original.stats?.points ?? row.original.points ?? 0}
+        </div>
+      ),
     },
     {
       id: "actions",
       header: "Actions",
       enableSorting: false,
       cell: ({ row }) => (
-        <Button
-          variant="outline"
-          size="sm"
-          className="gap-2"
-          onClick={() => onManagePoints(row.original)}
-          disabled={isUpdatingPoints}
-        >
-          <PlusCircle className="h-4 w-4" />
-          Manage Points
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2"
+            onClick={() => onManagePoints(row.original)}
+            disabled={isUpdatingPoints}
+          >
+            <PlusCircle className="h-4 w-4" />
+            Points
+          </Button>
+          <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
+            <Pencil className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onDelete(row.original._id)}
+            disabled={isDeleting}
+          >
+            <Trash2 className="text-destructive h-4 w-4" />
+          </Button>
+        </div>
       ),
     },
   ];
 }
 
-export function createTeamLeaderboardColumns(): ColumnDef<TeamLeaderboardEntry>[] {
+export function createTeamLeaderboardColumns({
+  onEdit,
+  onDelete,
+  isDeleting,
+}: TeamLeaderboardColumnsProps): ColumnDef<TeamLeaderboardEntry>[] {
   return [
     {
       accessorKey: "rank",
@@ -100,7 +132,31 @@ export function createTeamLeaderboardColumns(): ColumnDef<TeamLeaderboardEntry>[
     {
       accessorKey: "totalPoints",
       header: createSortableHeader("Points"),
-      cell: ({ row }) => <div className="font-semibold">{row.original.totalPoints}</div>,
+      cell: ({ row }) => (
+        <div className="font-semibold">
+          {row.original.stats?.points ?? row.original.totalPoints ?? 0}
+        </div>
+      ),
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div className="flex gap-2">
+          <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
+            <Pencil className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onDelete(row.original._id)}
+            disabled={isDeleting}
+          >
+            <Trash2 className="text-destructive h-4 w-4" />
+          </Button>
+        </div>
+      ),
     },
   ];
 }

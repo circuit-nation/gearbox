@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ENV } from "@/config/config";
 import { timingSafeStringEqual } from "@/lib/auth/secret-compare";
 import { adminSessionCookieOptions, signAdminSessionToken } from "@/lib/auth/session";
 
@@ -8,8 +9,8 @@ export async function POST(request: Request) {
     const username = body.username ?? "";
     const password = body.password ?? "";
 
-    const expectedUser = process.env.TIER_NATION_ADMIN_USERNAME ?? "";
-    const expectedPass = process.env.TIER_NATION_ADMIN_PASSWORD ?? "";
+    const expectedUser = ENV.TIER_NATION_ADMIN_USERNAME ?? "";
+    const expectedPass = ENV.TIER_NATION_ADMIN_PASSWORD ?? "";
 
     if (!expectedUser || !expectedPass) {
       return NextResponse.json(
@@ -18,13 +19,16 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!timingSafeStringEqual(expectedUser, username) || !timingSafeStringEqual(expectedPass, password)) {
+    if (
+      !timingSafeStringEqual(expectedUser, username) ||
+      !timingSafeStringEqual(expectedPass, password)
+    ) {
       return NextResponse.json({ error: "Invalid username or password." }, { status: 401 });
     }
 
     const token = await signAdminSessionToken();
     const opts = adminSessionCookieOptions();
-    const response = NextResponse.json({ ok: true });
+    const response = NextResponse.json({ data: { ok: true } });
     response.cookies.set(opts.name, token, {
       httpOnly: opts.httpOnly,
       sameSite: opts.sameSite,
@@ -34,7 +38,7 @@ export async function POST(request: Request) {
     });
     return response;
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Login failed";
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error("[auth:login]", e);
+    return NextResponse.json({ error: "Login failed. Please try again." }, { status: 500 });
   }
 }

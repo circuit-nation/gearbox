@@ -4,9 +4,9 @@ import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { useSports, useCreateSport, useDeleteSport, useUpdateSport } from "@/hooks/use-sports";
 import { toast } from "sonner";
-import { CreateSport, Sport } from "@/lib/schema";
-import { DataTable } from "../data-table";
-import { ConfirmationDialog } from "../confirmation-dialog";
+import { CreateSport, Sport } from "@/lib/circuit-nation/types";
+import { DataTable } from "@/components/shared/data-table";
+import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useDeleteDialogState, useTableState } from "../manager-state";
 import { createSportsColumns } from "./columns";
 import { SportsFilters } from "./filters";
@@ -16,14 +16,10 @@ export function SportsManager() {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editingSport, setEditingSport] = useState<Sport | null>(null);
-  const {
-    deleteConfirmOpen,
-    setDeleteConfirmOpen,
-    deleteTargetId,
-    requestDelete,
-    clearDelete,
-  } = useDeleteDialogState<string>();
-  const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } = useTableState();
+  const { deleteConfirmOpen, setDeleteConfirmOpen, deleteTargetId, requestDelete, clearDelete } =
+    useDeleteDialogState<string>();
+  const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } =
+    useTableState();
   const [filterName, setFilterName] = useState("");
   const [filterType, setFilterType] = useState("");
   const [formData, setFormData] = useState<CreateSport>({
@@ -49,8 +45,8 @@ export function SportsManager() {
       setIsOpen(false);
       resetForm();
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to create sport. Please try again.");
     },
   });
 
@@ -59,8 +55,8 @@ export function SportsManager() {
       toast.success("Sport deleted successfully!");
       clearDelete();
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to delete sport. Please try again.");
       clearDelete();
     },
   });
@@ -72,8 +68,8 @@ export function SportsManager() {
       setEditingSport(null);
       setEditFormData({});
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to update sport. Please try again.");
     },
   });
 

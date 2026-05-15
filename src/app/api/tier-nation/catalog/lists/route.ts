@@ -10,12 +10,15 @@ export async function GET(request: NextRequest) {
   }
   try {
     const page = Math.max(parseInt(request.nextUrl.searchParams.get("page") || "1", 10), 1);
-    const limit = Math.min(Math.max(parseInt(request.nextUrl.searchParams.get("limit") || "25", 10), 1), 100);
+    const limit = Math.min(
+      Math.max(parseInt(request.nextUrl.searchParams.get("limit") || "25", 10), 1),
+      100
+    );
     const qs = new URLSearchParams({ page: String(page), limit: String(limit) }).toString();
     const upstream = await tierNationPublicFetch(`/lists?${qs}`, { method: "GET" });
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Catalog request failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:catalog:lists]", e);
+    return NextResponse.json({ error: "Unable to load Tier Nation lists." }, { status: 503 });
   }
 }

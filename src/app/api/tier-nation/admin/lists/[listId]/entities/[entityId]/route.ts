@@ -14,11 +14,11 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
     const { listId, entityId } = await context.params;
     const upstream = await tierNationAdminFetch(
       `/admin/lists/${encodeURIComponent(listId)}/entities/${encodeURIComponent(entityId)}`,
-      { method: "DELETE" },
+      { method: "DELETE" }
     );
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Proxy failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:admin:list:entity:delete]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
   }
 }

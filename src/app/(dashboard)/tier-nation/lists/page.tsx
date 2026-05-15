@@ -1,6 +1,4 @@
-"use client";
-
-import { PageHeader } from "@/components/page-header";
+import { PageHeader } from "@/components/shared/page-header";
 import { TierNationListsCatalog } from "@/components/admin/tier-nation/lists-catalog";
 
 export default function TierNationListsPage() {

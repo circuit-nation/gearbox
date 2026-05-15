@@ -4,36 +4,70 @@ import { useState, useMemo, useEffect } from "react";
 import type { FormEvent } from "react";
 import { useEvents, useCreateEvent, useDeleteEvent, useUpdateEvent } from "@/hooks/use-events";
 import { useSports } from "@/hooks/use-sports";
+import { useCircuits } from "@/hooks/use-circuits";
 import { toast } from "sonner";
-import { CreateEvent, Event } from "@/lib/schema";
+import { CreateEvent, Event, EventLinks } from "@/lib/circuit-nation/types";
 import { format } from "date-fns";
-import { DataTable } from "../data-table";
-import { ConfirmationDialog } from "../confirmation-dialog";
+import { DataTable } from "@/components/shared/data-table";
+import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useDeleteDialogState, useTableState } from "../manager-state";
 import { createEventsColumns } from "./columns";
 import { EventsFilters } from "./filters";
 import { EventsCreateDialog, EventsEditDialog } from "./dialogs";
 
+type EventLinksForm = Omit<EventLinks, "_id">;
+
+function hasLinkValues(links: EventLinksForm) {
+  return Boolean(
+    links.instagram?.trim() ||
+    links.youtube?.trim() ||
+    links.discord?.trim() ||
+    links.x?.trim() ||
+    links.sources?.some((source) => source.trim())
+  );
+}
+
+function buildLinksPayload(links: EventLinksForm): EventLinksForm | undefined {
+  if (!hasLinkValues(links)) {
+    return undefined;
+  }
+
+  return {
+    instagram: links.instagram?.trim() || undefined,
+    youtube: links.youtube?.trim() || undefined,
+    discord: links.discord?.trim() || undefined,
+    x: links.x?.trim() || undefined,
+    sources: links.sources?.map((source) => source.trim()).filter(Boolean),
+  };
+}
+
+function linksFromEvent(event?: Event | null): EventLinksForm {
+  if (!event?.links) {
+    return {};
+  }
+
+  return {
+    instagram: event.links.instagram,
+    youtube: event.links.youtube,
+    discord: event.links.discord,
+    x: event.links.x,
+    sources: event.links.sources,
+  };
+}
+
 export function EventsManager() {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
-  const {
-    deleteConfirmOpen,
-    setDeleteConfirmOpen,
-    deleteTargetId,
-    requestDelete,
-    clearDelete,
-  } = useDeleteDialogState<string>();
-  const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } = useTableState([
-    { id: "event_start_at", desc: false },
-  ]);
+  const { deleteConfirmOpen, setDeleteConfirmOpen, deleteTargetId, requestDelete, clearDelete } =
+    useDeleteDialogState<string>();
+  const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } =
+    useTableState([{ id: "event_start_at", desc: false }]);
   const [filterTitle, setFilterTitle] = useState("");
   const [filterType, setFilterType] = useState("");
   const [debouncedFilterTitle, setDebouncedFilterTitle] = useState("");
   const [debouncedFilterType, setDebouncedFilterType] = useState("");
   const [formData, setFormData] = useState<CreateEvent>({
-    id: "",
     title: "",
     round: 1,
     type: "race",
@@ -43,7 +77,9 @@ export function EventsManager() {
     event_end_at: "",
     images: [],
   });
+  const [linksForm, setLinksForm] = useState<EventLinksForm>({});
   const [editFormData, setEditFormData] = useState<Partial<Event>>({});
+  const [editLinksForm, setEditLinksForm] = useState<EventLinksForm>({});
 
   const [startDate, setStartDate] = useState("");
   const [startTime, setStartTime] = useState("");
@@ -77,14 +113,15 @@ export function EventsManager() {
     debouncedFilterType || undefined
   );
   const { data: sportsData } = useSports(1, 100);
+  const { data: circuitsData } = useCircuits(1, 200);
   const createEvent = useCreateEvent({
     onSuccess: () => {
       toast.success("Event created successfully!");
       setIsOpen(false);
       resetForm();
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to create event. Please try again.");
     },
   });
 
@@ -93,8 +130,8 @@ export function EventsManager() {
       toast.success("Event deleted successfully!");
       clearDelete();
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to delete event. Please try again.");
       clearDelete();
     },
   });
@@ -105,19 +142,19 @@ export function EventsManager() {
       setIsEditOpen(false);
       setEditingEvent(null);
       setEditFormData({});
+      setEditLinksForm({});
       setEditStartDate("");
       setEditStartTime("");
       setEditEndDate("");
       setEditEndTime("");
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to update event. Please try again.");
     },
   });
 
   const resetForm = () => {
     setFormData({
-      id: "",
       title: "",
       round: 1,
       type: "race",
@@ -127,6 +164,7 @@ export function EventsManager() {
       event_end_at: "",
       images: [],
     });
+    setLinksForm({});
     setStartDate("");
     setStartTime("");
     setEndDate("");
@@ -154,12 +192,13 @@ export function EventsManager() {
     e.preventDefault();
     const eventStartAt = buildIsoDateTime(startDate, startTime);
     const eventEndAt = buildIsoDateTime(endDate, endTime);
+    const links = buildLinksPayload(linksForm);
     const payload: CreateEvent = {
       ...formData,
       event_start_at: eventStartAt,
       event_end_at: eventEndAt,
-      links_id: formData.links_id?.trim() ? formData.links_id : undefined,
       images: formData.images?.map((image) => image.trim()).filter(Boolean) || [],
+      ...(links ? { links } : {}),
     };
     createEvent.mutate(payload);
   };
@@ -171,10 +210,10 @@ export function EventsManager() {
       round: event.round,
       type: event.type,
       circuit_id: event.circuit_id,
-      links_id: event.links_id,
       sport_id: event.sport_id,
       images: event.images,
     });
+    setEditLinksForm(linksFromEvent(event));
     setEditStartDate(formatDateValue(event.event_start_at));
     setEditStartTime(formatTimeValue(event.event_start_at));
     setEditEndDate(formatDateValue(event.event_end_at));
@@ -185,16 +224,18 @@ export function EventsManager() {
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (editingEvent) {
-      const eventStartAt = buildIsoDateTime(editStartDate, editStartTime) || editingEvent.event_start_at;
+      const eventStartAt =
+        buildIsoDateTime(editStartDate, editStartTime) || editingEvent.event_start_at;
       const eventEndAt = buildIsoDateTime(editEndDate, editEndTime) || editingEvent.event_end_at;
+      const links = buildLinksPayload(editLinksForm);
       updateEvent.mutate({
         id: editingEvent._id,
         data: {
           ...editFormData,
           event_start_at: eventStartAt,
           event_end_at: eventEndAt,
-          links_id: editFormData.links_id?.trim() ? editFormData.links_id : undefined,
           images: editFormData.images?.map((image) => image.trim()).filter(Boolean),
+          ...(links ? { links } : {}),
         },
       });
     }
@@ -227,8 +268,11 @@ export function EventsManager() {
           onOpenChange={setIsOpen}
           formData={formData}
           setFormData={setFormData}
+          linksForm={linksForm}
+          setLinksForm={setLinksForm}
           onSubmit={handleSubmit}
           sports={sportsData?.documents}
+          circuits={circuitsData?.documents}
           isSubmitting={createEvent.isPending}
           startDate={startDate}
           startTime={startTime}
@@ -247,8 +291,11 @@ export function EventsManager() {
         onOpenChange={setIsEditOpen}
         formData={editFormData}
         setFormData={setEditFormData}
+        linksForm={editLinksForm}
+        setLinksForm={setEditLinksForm}
         onSubmit={handleEditSubmit}
         sports={sportsData?.documents}
+        circuits={circuitsData?.documents}
         isSubmitting={updateEvent.isPending}
         startDate={editStartDate}
         startTime={editStartTime}

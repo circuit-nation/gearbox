@@ -39,12 +39,7 @@ type EditListDialogProps = {
   onSaved?: () => void;
 };
 
-export function EditListDialog({
-  open,
-  onOpenChange,
-  list,
-  onSaved,
-}: EditListDialogProps) {
+export function EditListDialog({ open, onOpenChange, list, onSaved }: EditListDialogProps) {
   const { uploadImage, isUploading } = useImageUpload();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -132,7 +127,7 @@ export function EditListDialog({
         <DialogHeader>
           <DialogTitle>Edit tier list</DialogTitle>
           <DialogDescription>
-            PATCH /admin/lists/:id — tier labels are preserved from the current list unless changed upstream.
+            Update list details. Existing tier labels are preserved unless changed explicitly.
           </DialogDescription>
         </DialogHeader>
         <form className="space-y-4" onSubmit={onSubmit}>

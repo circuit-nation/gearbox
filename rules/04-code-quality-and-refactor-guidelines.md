@@ -24,6 +24,7 @@
 ## Why Refactor
 
 Poorly distributed code leads to:
+
 - **Duplicated logic** — the same fetch call or utility written in 3 places, each slightly different.
 - **Untraceable bugs** — when a fix in one place doesn't fix it everywhere.
 - **Impossible testing** — components that do too much can't be unit-tested cleanly.
@@ -98,31 +99,31 @@ import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname  = dirname(__filename);
-const compat     = new FlatCompat({ baseDirectory: __dirname });
+const __dirname = dirname(__filename);
+const compat = new FlatCompat({ baseDirectory: __dirname });
 
 export default [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
       // ── Correctness ────────────────────────────────────────────────
-      "no-console":                ["warn", { allow: ["error", "warn"] }],
-      "no-debugger":               "error",
-      "no-unused-vars":            "off",            // handled by TypeScript
+      "no-console": ["warn", { allow: ["error", "warn"] }],
+      "no-debugger": "error",
+      "no-unused-vars": "off", // handled by TypeScript
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/no-explicit-any": "error",
 
       // ── React ──────────────────────────────────────────────────────
-      "react/self-closing-comp":   "warn",
+      "react/self-closing-comp": "warn",
       "react/jsx-no-useless-fragment": "warn",
 
       // ── Imports ────────────────────────────────────────────────────
-      "import/no-duplicates":      "error",
+      "import/no-duplicates": "error",
 
       // ── Code style ─────────────────────────────────────────────────
-      "prefer-const":              "error",
-      "no-var":                    "error",
-      "object-shorthand":          "warn",
+      "prefer-const": "error",
+      "no-var": "error",
+      "object-shorthand": "warn",
     },
   },
   {
@@ -149,7 +150,7 @@ Address in this order — high impact, low risk first.
 // ❌ Before — fetch in component
 useEffect(() => {
   fetch("/api/circuit-nation/events")
-    .then(r => r.json())
+    .then((r) => r.json())
     .then(setEvents);
 }, []);
 
@@ -207,13 +208,13 @@ function EventsPage() { ... }
 ```ts
 // lib/constants.ts
 export const EVENT_STATUS = {
-  UPCOMING:  "upcoming",
-  ONGOING:   "ongoing",
+  UPCOMING: "upcoming",
+  ONGOING: "ongoing",
   COMPLETED: "completed",
   CANCELLED: "cancelled",
 } as const;
 
-export type EventStatus = typeof EVENT_STATUS[keyof typeof EVENT_STATUS];
+export type EventStatus = (typeof EVENT_STATUS)[keyof typeof EVENT_STATUS];
 ```
 
 ---
@@ -244,20 +245,26 @@ export default function DriversPage() {
 
   useEffect(() => {
     fetch("/api/circuit-nation/drivers")
-      .then(r => r.json())
-      .then(d => { setDrivers(d); setLoading(false); });
+      .then((r) => r.json())
+      .then((d) => {
+        setDrivers(d);
+        setLoading(false);
+      });
   }, []);
 
   const columns = [
     { accessorKey: "firstName", header: "First Name" },
-    { accessorKey: "lastName",  header: "Last Name" },
+    { accessorKey: "lastName", header: "Last Name" },
     {
       id: "actions",
       cell: ({ row }) => (
-        <button onClick={() => {
-          fetch(`/api/circuit-nation/drivers/${row.original._id}`, { method: "DELETE" })
-            .then(() => setDrivers(prev => prev.filter(d => d._id !== row.original._id)));
-        }}>
+        <button
+          onClick={() => {
+            fetch(`/api/circuit-nation/drivers/${row.original._id}`, { method: "DELETE" }).then(
+              () => setDrivers((prev) => prev.filter((d) => d._id !== row.original._id))
+            );
+          }}
+        >
           Delete
         </button>
       ),
@@ -309,7 +316,9 @@ export default function DriversPage() {
   return (
     <>
       <PageHeader title="Drivers" />
-      {isLoading ? <SkeletonTable rows={8} columns={5} /> : (
+      {isLoading ? (
+        <SkeletonTable rows={8} columns={5} />
+      ) : (
         <DataTable columns={columns} data={drivers ?? []} searchKey="lastName" />
       )}
       <ConfirmDialog
@@ -330,14 +339,14 @@ export default function DriversPage() {
 
 ### Naming
 
-| Thing | Convention | Example |
-|---|---|---|
-| React components | kebab-case | `events-table`, `create-driver-dialog` |
-| Hooks | camelCase with `use` prefix | `useEvents`, `useDeleteDriver` |
-| Types/interfaces | PascalCase | `Driver`, `ChampionshipEntry` |
-| Constants | SCREAMING_SNAKE_CASE | `EVENT_STATUS`, `BASE_URL` |
-| Files (components) | kebab-case | `events-columns.tsx`, `create-event-dialog.tsx` |
-| Files (utilities) | kebab-case | `api.ts`, `validators.ts`, `badge-variants.ts` |
+| Thing              | Convention                  | Example                                         |
+| ------------------ | --------------------------- | ----------------------------------------------- |
+| React components   | kebab-case                  | `events-table`, `create-driver-dialog`          |
+| Hooks              | camelCase with `use` prefix | `useEvents`, `useDeleteDriver`                  |
+| Types/interfaces   | PascalCase                  | `Driver`, `ChampionshipEntry`                   |
+| Constants          | SCREAMING_SNAKE_CASE        | `EVENT_STATUS`, `BASE_URL`                      |
+| Files (components) | kebab-case                  | `events-columns.tsx`, `create-event-dialog.tsx` |
+| Files (utilities)  | kebab-case                  | `api.ts`, `validators.ts`, `badge-variants.ts`  |
 
 ### Function Rules
 
@@ -362,8 +371,8 @@ const label = isLoading ? "Loading..." : isError ? "Error" : data ? data.name : 
 // ✅ Readable
 function getLabel() {
   if (isLoading) return "Loading...";
-  if (isError)   return "Error";
-  if (data)      return data.name;
+  if (isError) return "Error";
+  if (data) return data.name;
   return "Empty";
 }
 const label = getLabel();
@@ -387,15 +396,15 @@ export default function EventsPage() { ... }
 
 ## File & Function Length Limits
 
-| File type | Max lines | Action if exceeded |
-|---|---|---|
-| Page component | 100 | Extract components and handlers |
-| Shared component | 200 | Split into sub-components |
-| Column definition file | 150 | Split by resource |
-| API client (`api.ts`) | 200 | Split by resource |
-| Query hooks file | 250 | Split by resource |
-| Validators file | 150 | Split by domain |
-| Route handler | 80 | Extract service functions |
+| File type              | Max lines | Action if exceeded              |
+| ---------------------- | --------- | ------------------------------- |
+| Page component         | 100       | Extract components and handlers |
+| Shared component       | 200       | Split into sub-components       |
+| Column definition file | 150       | Split by resource               |
+| API client (`api.ts`)  | 200       | Split by resource               |
+| Query hooks file       | 250       | Split by resource               |
+| Validators file        | 150       | Split by domain                 |
+| Route handler          | 80        | Extract service functions       |
 
 ---
 
@@ -467,7 +476,11 @@ describe("eventSchema", () => {
 
   it("rejects invalid status", () => {
     const result = eventSchema.safeParse({
-      name: "Test", sport: "id", date: "2025-05-01", year: 2025, status: "unknown",
+      name: "Test",
+      sport: "id",
+      date: "2025-05-01",
+      year: 2025,
+      status: "unknown",
     });
     expect(result.success).toBe(false);
   });
@@ -568,11 +581,12 @@ import { DataTable } from "../data-table";
 import { ColumnDef } from "@tanstack/react-table";
 import { describe, it, expect } from "vitest";
 
-interface Row { id: string; name: string; }
+interface Row {
+  id: string;
+  name: string;
+}
 
-const columns: ColumnDef<Row>[] = [
-  { accessorKey: "name", header: "Name" },
-];
+const columns: ColumnDef<Row>[] = [{ accessorKey: "name", header: "Name" }];
 
 const data: Row[] = [
   { id: "1", name: "Monaco Grand Prix" },
@@ -628,22 +642,25 @@ describe("CreateEventDialog", () => {
 
   it("submits form with valid data", async () => {
     const user = userEvent.setup();
-    render(
-      <CreateEventDialog open={true} onOpenChange={onOpenChange} />,
-      { wrapper: createWrapper() }
-    );
+    render(<CreateEventDialog open={true} onOpenChange={onOpenChange} />, {
+      wrapper: createWrapper(),
+    });
 
     await user.type(screen.getByLabelText("Event Name"), "Monaco Grand Prix");
     await user.click(screen.getByRole("button", { name: "Create Event" }));
 
     await waitFor(() => {
-      expect(mockCreate).toHaveBeenCalledWith(expect.objectContaining({ name: "Monaco Grand Prix" }));
+      expect(mockCreate).toHaveBeenCalledWith(
+        expect.objectContaining({ name: "Monaco Grand Prix" })
+      );
     });
   });
 
   it("shows validation error for empty name", async () => {
     const user = userEvent.setup();
-    render(<CreateEventDialog open={true} onOpenChange={onOpenChange} />, { wrapper: createWrapper() });
+    render(<CreateEventDialog open={true} onOpenChange={onOpenChange} />, {
+      wrapper: createWrapper(),
+    });
 
     await user.click(screen.getByRole("button", { name: "Create Event" }));
     expect(await screen.findByText("Name is required")).toBeInTheDocument();
@@ -715,15 +732,15 @@ test.describe("Events page", () => {
 
 ## Testing Conventions
 
-| Rule | Rationale |
-|---|---|
-| Test behaviour, not implementation | Tests survive refactors |
-| Use `getByRole` and `getByLabelText` over `getByTestId` | Mirrors accessibility, more resilient |
-| One `describe` block per component | Keeps failures easy to locate |
-| Mock at the network boundary, not inside components | Tests actual component logic |
-| Never test implementation details (state variables, internal functions) | Brittle |
-| Test happy path + at least one error path per feature | Minimum meaningful coverage |
-| Don't mock what you own — mock what you don't (fetch, env vars) | Avoids false confidence |
+| Rule                                                                    | Rationale                             |
+| ----------------------------------------------------------------------- | ------------------------------------- |
+| Test behaviour, not implementation                                      | Tests survive refactors               |
+| Use `getByRole` and `getByLabelText` over `getByTestId`                 | Mirrors accessibility, more resilient |
+| One `describe` block per component                                      | Keeps failures easy to locate         |
+| Mock at the network boundary, not inside components                     | Tests actual component logic          |
+| Never test implementation details (state variables, internal functions) | Brittle                               |
+| Test happy path + at least one error path per feature                   | Minimum meaningful coverage           |
+| Don't mock what you own — mock what you don't (fetch, env vars)         | Avoids false confidence               |
 
 ---
 

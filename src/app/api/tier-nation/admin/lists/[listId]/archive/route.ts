@@ -12,12 +12,15 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
   }
   try {
     const { listId } = await context.params;
-    const upstream = await tierNationAdminFetch(`/admin/lists/${encodeURIComponent(listId)}/archive`, {
-      method: "PATCH",
-    });
+    const upstream = await tierNationAdminFetch(
+      `/admin/lists/${encodeURIComponent(listId)}/archive`,
+      {
+        method: "PATCH",
+      }
+    );
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Proxy failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:admin:list:archive]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
   }
 }

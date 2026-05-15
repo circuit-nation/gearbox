@@ -5,7 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ImageValueAvatar } from "@/components/admin/image-value-avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { createSortableHeader } from "@/components/admin/data-table";
+import { createSortableHeader } from "@/components/shared/data-table";
 import type { CatalogEntityRow } from "@/hooks/use-tn-catalog";
 import type { PublicTierListSummary } from "@/lib/tier-nation/types";
 import { format } from "date-fns";
@@ -73,9 +73,7 @@ export function createTierNationListColumns(options: {
     {
       accessorKey: "id",
       header: createSortableHeader("UUID"),
-      cell: ({ row }) => (
-        <code className="text-xs text-muted-foreground">{row.original.id}</code>
-      ),
+      cell: ({ row }) => <code className="text-muted-foreground text-xs">{row.original.id}</code>,
     },
     {
       accessorKey: "isVisible",
@@ -91,7 +89,7 @@ export function createTierNationListColumns(options: {
       header: createSortableHeader("Created"),
       cell: ({ row }) =>
         row.original.createdAt ? (
-          <span className="text-sm text-muted-foreground">
+          <span className="text-muted-foreground text-sm">
             {format(new Date(row.original.createdAt), "PPp")}
           </span>
         ) : (
@@ -111,7 +109,9 @@ export function createTierNationListColumns(options: {
           <Button
             variant="destructive"
             size="sm"
-            disabled={options.archivedIds.has(row.original.id) || options.archivingId === row.original.id}
+            disabled={
+              options.archivedIds.has(row.original.id) || options.archivingId === row.original.id
+            }
             onClick={() => options.onArchive(row.original.id)}
           >
             <Archive className="h-4 w-4" />
@@ -175,7 +175,7 @@ export function createTierNationEntityColumns(options?: {
       cell: ({ row }) => (
         <Link
           href={`/tier-nation/lists/${row.original.listId}`}
-          className="text-sm text-primary hover:underline"
+          className="text-primary text-sm hover:underline"
         >
           {row.original.listName}
         </Link>
@@ -184,14 +184,14 @@ export function createTierNationEntityColumns(options?: {
     {
       accessorKey: "id",
       header: "Entity id",
-      cell: ({ row }) => <code className="text-xs text-muted-foreground">{row.original.id}</code>,
+      cell: ({ row }) => <code className="text-muted-foreground text-xs">{row.original.id}</code>,
       enableSorting: false,
     },
     {
       accessorKey: "tags",
       header: "Tags",
       cell: ({ row }) => (
-        <span className="text-xs text-muted-foreground">
+        <span className="text-muted-foreground text-xs">
           {row.original.tags?.length ? row.original.tags.join(", ") : "—"}
         </span>
       ),

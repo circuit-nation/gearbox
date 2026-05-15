@@ -4,10 +4,11 @@ import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { useDrivers, useCreateDriver, useDeleteDriver, useUpdateDriver } from "@/hooks/use-drivers";
 import { useSports } from "@/hooks/use-sports";
+import { useTeams } from "@/hooks/use-teams";
 import { toast } from "sonner";
-import { CreateDriver, Driver } from "@/lib/schema";
-import { DataTable } from "../data-table";
-import { ConfirmationDialog } from "../confirmation-dialog";
+import { CreateDriver, Driver } from "@/lib/circuit-nation/types";
+import { DataTable } from "@/components/shared/data-table";
+import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useDeleteDialogState, useTableState } from "../manager-state";
 import { createDriversColumns } from "./columns";
 import { DriversFilters } from "./filters";
@@ -17,24 +18,18 @@ export function DriversManager() {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editingDriver, setEditingDriver] = useState<Driver | null>(null);
-  const {
-    deleteConfirmOpen,
-    setDeleteConfirmOpen,
-    deleteTargetId,
-    requestDelete,
-    clearDelete,
-  } = useDeleteDialogState<string>();
-  const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } = useTableState();
+  const { deleteConfirmOpen, setDeleteConfirmOpen, deleteTargetId, requestDelete, clearDelete } =
+    useDeleteDialogState<string>();
+  const { pagination, setPagination, sorting, setSorting, resetPage, sortBy, sortOrder } =
+    useTableState();
   const [filterName, setFilterName] = useState("");
   const [filterSport, setFilterSport] = useState("");
   const [filterTeam, setFilterTeam] = useState("");
   const [formData, setFormData] = useState<CreateDriver>({
-    id: "",
     name: "",
     image: "",
-    sport: "",
-    team: "",
-    points: 0,
+    sport_id: "",
+    team_id: null,
     tags: [],
   });
   const [editFormData, setEditFormData] = useState<Partial<Driver>>({});
@@ -49,15 +44,15 @@ export function DriversManager() {
     filterTeam || undefined
   );
   const { data: sportsData } = useSports(1, 100);
+  const { data: teamsData } = useTeams(1, 200);
+
   const createDriver = useCreateDriver({
     onSuccess: () => {
       toast.success("Driver created successfully!");
       setIsOpen(false);
       resetForm();
     },
-    onError: (error) => {
-      toast.error(error.message);
-    },
+    onError: () => toast.error("Unable to create driver. Please try again."),
   });
 
   const deleteDriver = useDeleteDriver({
@@ -65,8 +60,8 @@ export function DriversManager() {
       toast.success("Driver deleted successfully!");
       clearDelete();
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Unable to delete driver. Please try again.");
       clearDelete();
     },
   });
@@ -78,29 +73,16 @@ export function DriversManager() {
       setEditingDriver(null);
       setEditFormData({});
     },
-    onError: (error) => {
-      toast.error(error.message);
-    },
+    onError: () => toast.error("Unable to update driver. Please try again."),
   });
 
   const resetForm = () => {
-    setFormData({
-      id: "",
-      name: "",
-      image: "",
-      sport: "",
-      team: "",
-      points: 0,
-      tags: [],
-    });
+    setFormData({ name: "", image: "", sport_id: "", team_id: null, tags: [] });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createDriver.mutate({
-      ...formData,
-      image: formData.image.trim(),
-    });
+    createDriver.mutate({ ...formData, image: formData.image.trim() });
   };
 
   const handleEdit = (driver: Driver) => {
@@ -108,8 +90,8 @@ export function DriversManager() {
     setEditFormData({
       name: driver.name,
       image: driver.image,
-      sport: driver.sport,
-      team: driver.team,
+      sport_id: driver.sport_id,
+      team_id: driver.team_id,
       tags: driver.tags,
     });
     setIsEditOpen(true);
@@ -120,17 +102,8 @@ export function DriversManager() {
     if (editingDriver) {
       updateDriver.mutate({
         id: editingDriver._id,
-        data: {
-          ...editFormData,
-          image: editFormData.image?.trim(),
-        },
+        data: { ...editFormData, image: editFormData.image?.trim() },
       });
-    }
-  };
-
-  const handleDeleteConfirm = () => {
-    if (deleteTargetId) {
-      deleteDriver.mutate(deleteTargetId);
     }
   };
 
@@ -138,14 +111,13 @@ export function DriversManager() {
     () =>
       createDriversColumns({
         sports: sportsData?.documents,
+        teams: teamsData?.documents,
         onEdit: handleEdit,
         onDelete: requestDelete,
         isDeleting: deleteDriver.isPending,
       }),
-    [sportsData, deleteDriver.isPending, requestDelete]
+    [sportsData, teamsData, deleteDriver.isPending, requestDelete]
   );
-
-  const tableData = useMemo(() => data?.documents || [], [data]);
 
   return (
     <div className="space-y-4">
@@ -157,6 +129,7 @@ export function DriversManager() {
           setFormData={setFormData}
           onSubmit={handleSubmit}
           sports={sportsData?.documents}
+          teams={teamsData?.documents}
           isSubmitting={createDriver.isPending}
         />
       </div>
@@ -168,13 +141,14 @@ export function DriversManager() {
         setFormData={setEditFormData}
         onSubmit={handleEditSubmit}
         sports={sportsData?.documents}
+        teams={teamsData?.documents}
         isSubmitting={updateDriver.isPending}
       />
 
       <ConfirmationDialog
         open={deleteConfirmOpen}
         onOpenChange={setDeleteConfirmOpen}
-        onConfirm={handleDeleteConfirm}
+        onConfirm={() => deleteTargetId && deleteDriver.mutate(deleteTargetId)}
         title="Delete Driver"
         description="Are you sure you want to delete this driver? This action cannot be undone."
         confirmText="Delete"
@@ -183,7 +157,7 @@ export function DriversManager() {
       />
 
       <DataTable
-        data={tableData}
+        data={data?.documents || []}
         columns={columns}
         sorting={sorting}
         onSortingChange={setSorting}
@@ -196,6 +170,8 @@ export function DriversManager() {
             filterName={filterName}
             filterSport={filterSport}
             filterTeam={filterTeam}
+            sports={sportsData?.documents}
+            teams={teamsData?.documents}
             onFilterNameChange={(value) => {
               setFilterName(value);
               resetPage();

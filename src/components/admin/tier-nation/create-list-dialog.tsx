@@ -25,7 +25,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { Badge } from "@/components/ui/badge";
 
 type CreateListDialogProps = {
   open: boolean;
@@ -33,11 +32,7 @@ type CreateListDialogProps = {
   onCreated: (list: TierListResponse) => void;
 };
 
-export function CreateListDialog({
-  open,
-  onOpenChange,
-  onCreated,
-}: CreateListDialogProps) {
+export function CreateListDialog({ open, onOpenChange, onCreated }: CreateListDialogProps) {
   const { uploadImage, isUploading } = useImageUpload();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -188,28 +183,16 @@ export function CreateListDialog({
           </div>
           <div className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2">
-              <Switch
-                id="dlg-locked"
-                checked={isLocked}
-                onCheckedChange={setIsLocked}
-              />
+              <Switch id="dlg-locked" checked={isLocked} onCheckedChange={setIsLocked} />
               <Label htmlFor="dlg-locked">Locked</Label>
             </div>
             <div className="flex items-center gap-2">
-              <Switch
-                id="dlg-visible"
-                checked={isVisible}
-                onCheckedChange={setIsVisible}
-              />
+              <Switch id="dlg-visible" checked={isVisible} onCheckedChange={setIsVisible} />
               <Label htmlFor="dlg-visible">Visible</Label>
             </div>
           </div>
           <DialogFooter>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => onOpenChange(false)}
-            >
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
               Cancel
             </Button>
             <Button type="submit" disabled={createList.isPending}>

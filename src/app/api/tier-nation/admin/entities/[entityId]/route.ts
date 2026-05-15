@@ -19,8 +19,8 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
     });
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Proxy failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:admin:entity:patch]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
   }
 }
 
@@ -36,7 +36,7 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
     });
     return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Proxy failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:admin:entity:delete]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
   }
 }

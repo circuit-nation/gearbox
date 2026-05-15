@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
-import { SportModel } from "@/lib/models";
-import { buildListResponse, toDocument, toDocuments } from "@/lib/mongo-helpers";
+import { SportModel } from "@/lib/models/core.models";
+import { buildListResponse, toDocument, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
 import { storedValueToS3Key } from "@/lib/image-storage";
 import { deleteS3ObjectByKey } from "@/lib/s3-server";
+import { buildSort } from "@/lib/circuit-nation/route-helpers";
+import { sportSchema } from "@/lib/circuit-nation/validators";
+import type { Sport } from "@/lib/circuit-nation/types";
 
 export async function GET(request: NextRequest) {
   try {
@@ -12,28 +15,30 @@ export async function GET(request: NextRequest) {
 
     const searchParams = request.nextUrl.searchParams;
     const id = searchParams.get("id");
-    const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
-    const limit = Math.max(parseInt(searchParams.get("limit") || "10"), 1);
+    const page = Math.max(parseInt(searchParams.get("page") || "1", 10), 1);
+    const limit = Math.max(parseInt(searchParams.get("limit") || "10", 10), 1);
     const sortBy = searchParams.get("sortBy") || "createdAt";
-    const rawSortOrder = searchParams.get("sortOrder");
-    const sortOrder = rawSortOrder === "asc" ? 1 : -1;
+    const sortOrder = searchParams.get("sortOrder") === "asc" ? 1 : -1;
     const filterName = searchParams.get("filterName");
     const filterType = searchParams.get("filterType");
 
     if (id) {
       if (!Types.ObjectId.isValid(id)) {
-        return NextResponse.json(null);
+        return NextResponse.json({ error: "Invalid sport id." }, { status: 400 });
       }
       const document = await SportModel.findById(id).lean();
-      return NextResponse.json(toDocument(document as any));
+      if (!document) {
+        return NextResponse.json({ error: "Sport not found." }, { status: 404 });
+      }
+      return NextResponse.json({
+        data: toDocument<Sport>(document as DocWithId),
+      });
     }
 
     const query: Record<string, unknown> = {};
-
     if (filterName) {
       query.name = { $regex: filterName, $options: "i" };
     }
-
     if (filterType) {
       query.type = filterType;
     }
@@ -41,81 +46,87 @@ export async function GET(request: NextRequest) {
     const [total, documents] = await Promise.all([
       SportModel.countDocuments(query),
       SportModel.find(query)
-        .sort({ [sortBy]: sortOrder })
+        .sort(buildSort(sortBy, sortOrder as 1 | -1))
         .skip((page - 1) * limit)
         .limit(limit)
         .lean(),
     ]);
 
-    return NextResponse.json(
-      buildListResponse(total, toDocuments(documents as any[]))
-    );
-  } catch (error: any) {
-    console.error("GET Sports API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to fetch sports" },
-      { status: 500 }
-    );
+    return NextResponse.json({
+      data: buildListResponse(total, toDocuments<Sport>(documents as DocWithId[])),
+    });
+  } catch (error) {
+    console.error("[sports:GET]", error);
+    return NextResponse.json({ error: "Failed to fetch sports." }, { status: 500 });
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
     await connectToDatabase();
-    const data = await request.json();
+    const payload = await request.json();
+    const parsed = sportSchema.safeParse(payload);
 
-    const document = await SportModel.create(data);
-    return NextResponse.json(toDocument(document.toObject() as any), { status: 201 });
-  } catch (error: any) {
-    console.error("POST Sports API Error:", error);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid sport payload." }, { status: 400 });
+    }
+
+    const document = await SportModel.create(parsed.data);
     return NextResponse.json(
-      { error: error.message || "Failed to create sport" },
-      { status: 500 }
+      { data: toDocument<Sport>(document.toObject() as DocWithId) },
+      { status: 201 }
     );
+  } catch (error) {
+    console.error("[sports:POST]", error);
+    return NextResponse.json({ error: "Failed to create sport." }, { status: 500 });
   }
 }
 
 export async function PUT(request: NextRequest) {
   try {
     await connectToDatabase();
-
-    const body = await request.json();
+    const body = (await request.json()) as Partial<Sport> & { id?: string };
     const { id, ...data } = body;
 
     if (!id || !Types.ObjectId.isValid(id)) {
-      return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid sport id." }, { status: 400 });
     }
 
-    const document = await SportModel.findByIdAndUpdate(id, data, {
+    const parsed = sportSchema.partial().safeParse(data);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid sport payload." }, { status: 400 });
+    }
+
+    const document = await SportModel.findByIdAndUpdate(id, parsed.data, {
       new: true,
       runValidators: true,
     }).lean();
 
-    return NextResponse.json(toDocument(document as any));
-  } catch (error: any) {
-    console.error("PUT Sports API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to update sport" },
-      { status: 500 }
-    );
+    if (!document) {
+      return NextResponse.json({ error: "Sport not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      data: toDocument<Sport>(document as DocWithId),
+    });
+  } catch (error) {
+    console.error("[sports:PUT]", error);
+    return NextResponse.json({ error: "Failed to update sport." }, { status: 500 });
   }
 }
 
 export async function DELETE(request: NextRequest) {
   try {
     await connectToDatabase();
-
-    const searchParams = request.nextUrl.searchParams;
-    const id = searchParams.get("id");
+    const id = request.nextUrl.searchParams.get("id");
 
     if (!id || !Types.ObjectId.isValid(id)) {
-      return NextResponse.json({ error: "Document ID is required" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid sport id." }, { status: 400 });
     }
 
     const existingSport = await SportModel.findById(id).lean();
-
     if (!existingSport) {
-      return NextResponse.json({ error: "Sport not found" }, { status: 404 });
+      return NextResponse.json({ error: "Sport not found." }, { status: 404 });
     }
 
     const logoKey = storedValueToS3Key(String(existingSport.logo || ""));
@@ -124,12 +135,9 @@ export async function DELETE(request: NextRequest) {
     }
 
     await SportModel.findByIdAndDelete(id);
-    return NextResponse.json({ success: true, id });
-  } catch (error: any) {
-    console.error("DELETE Sports API Error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to delete sport" },
-      { status: 500 }
-    );
+    return NextResponse.json({ data: { success: true, id } });
+  } catch (error) {
+    console.error("[sports:DELETE]", error);
+    return NextResponse.json({ error: "Failed to delete sport." }, { status: 500 });
   }
 }

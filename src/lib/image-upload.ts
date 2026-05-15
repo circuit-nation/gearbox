@@ -2,6 +2,8 @@ export const ALLOWED_UPLOAD_FOLDERS = [
   "drivers",
   "events",
   "sports",
+  "teams",
+  "circuits",
   "tier_nation/entities",
   "tier_nation/lists",
 ] as const;
@@ -31,7 +33,8 @@ export function isAllowedImageExtension(extension: string) {
 }
 
 export function isAllowedMimeTypeForExtension(extension: string, mimeType: string) {
-  const allowedMimeTypes = MIME_TYPE_BY_EXTENSION[extension as (typeof ALLOWED_IMAGE_EXTENSIONS)[number]] || [];
+  const allowedMimeTypes =
+    MIME_TYPE_BY_EXTENSION[extension as (typeof ALLOWED_IMAGE_EXTENSIONS)[number]] || [];
   return allowedMimeTypes.includes(mimeType.toLowerCase());
 }
 
@@ -48,4 +51,3 @@ export function sanitizeObjectName(raw: string | null | undefined) {
 export function isAllowedUploadFolder(folder: string | null | undefined): folder is UploadFolder {
   return ALLOWED_UPLOAD_FOLDERS.includes(folder as UploadFolder);
 }
-

@@ -1,11 +1,12 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { tnApi } from "@/lib/tier-nation/api";
 
 export function LoginForm() {
   const router = useRouter();
@@ -15,38 +16,16 @@ export function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const res = await fetch("/api/auth/session", { credentials: "include" });
-      const data = (await res.json()) as { authenticated?: boolean };
-      if (!cancelled && data.authenticated) {
-        router.replace(searchParams.get("from") || "/");
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [router, searchParams]);
-
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
     setPending(true);
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-      const data = (await res.json()) as { error?: string };
-      if (!res.ok) {
-        setError(data.error || "Login failed");
-        return;
-      }
+      await tnApi.auth.login({ username, password });
       router.replace(searchParams.get("from") || "/");
       router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Login failed");
     } finally {
       setPending(false);
     }
@@ -83,7 +62,7 @@ export function LoginForm() {
               required
             />
           </div>
-          {error ? <p className="text-sm text-destructive">{error}</p> : null}
+          {error ? <p className="text-destructive text-sm">{error}</p> : null}
           <Button type="submit" className="w-full" disabled={pending}>
             {pending ? "Signing in…" : "Sign in"}
           </Button>

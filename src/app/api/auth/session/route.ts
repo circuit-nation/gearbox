@@ -5,5 +5,5 @@ import { ADMIN_SESSION_COOKIE } from "@/lib/auth/constants";
 export async function GET(request: NextRequest) {
   const token = request.cookies.get(ADMIN_SESSION_COOKIE)?.value ?? null;
   const session = await verifyAdminSessionToken(token);
-  return NextResponse.json({ authenticated: Boolean(session) });
+  return NextResponse.json({ data: { authenticated: Boolean(session) } });
 }

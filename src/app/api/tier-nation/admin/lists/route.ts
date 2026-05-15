@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireDashboardSession } from "@/lib/auth/require-dashboard-session";
 import { tierNationAdminFetch } from "@/lib/tier-nation/upstream";
 import { persistTierNationListSubmission } from "@/lib/tier-nation/persist-to-db";
+import { nextResponseFromUpstream } from "@/lib/tier-nation/proxy-response";
 
 export async function POST(request: NextRequest) {
   const unauthorized = await requireDashboardSession(request);
@@ -14,25 +15,21 @@ export async function POST(request: NextRequest) {
       method: "POST",
       body: bodyText,
     });
-    const text = await upstream.text();
-    const contentType = upstream.headers.get("content-type") || "application/json";
+    const text = await upstream.clone().text();
 
     if (upstream.status === 201) {
       try {
         const created = JSON.parse(text) as { id: string; name?: string };
         const req = JSON.parse(bodyText) as Record<string, unknown>;
         await persistTierNationListSubmission(req, created);
-      } catch {
-        // Ignore JSON / persistence errors; client still receives upstream body.
+      } catch (e) {
+        console.error("[tier-nation:admin:lists:create]", e);
       }
     }
 
-    return new NextResponse(text, {
-      status: upstream.status,
-      headers: { "content-type": contentType },
-    });
+    return nextResponseFromUpstream(upstream);
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Proxy failed";
-    return NextResponse.json({ error: message }, { status: 503 });
+    console.error("[tier-nation:admin:lists:create]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
   }
 }
