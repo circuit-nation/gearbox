@@ -1,115 +1,177 @@
 import { NextRequest, NextResponse } from "next/server";
-import type { PipelineStage } from "mongoose";
+import { TeamLeaderboardModel } from "@/lib/models/leaderboard.models";
 import { connectToDatabase } from "@/lib/mongodb";
-import { DriverModel } from "@/lib/models";
 import { buildListResponse } from "@/lib/mongo-helpers";
+import { serializeTeamLeaderboardEntry } from "@/lib/circuit-nation/leaderboard-serializer";
+import { teamLeaderboardSchema } from "@/lib/circuit-nation/validators";
+import {
+  buildSort,
+  isValidObjectId,
+  parsePagination,
+  parseYear,
+} from "@/lib/circuit-nation/route-helpers";
+import type { TeamLeaderboardEntry } from "@/lib/circuit-nation/types";
 
-type TeamLeaderboardDocument = {
-  team: string;
-  totalPoints: number;
-  driverCount: number;
-  rank: number;
-};
+const populateFields = [
+  { path: "team_id", select: "name logo" },
+  { path: "sport_id", select: "name" },
+];
 
 export async function GET(request: NextRequest) {
   try {
     await connectToDatabase();
 
     const searchParams = request.nextUrl.searchParams;
-    const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
-    const limit = Math.max(parseInt(searchParams.get("limit") || "10"), 1);
-    const rawSortBy = searchParams.get("sortBy") || "totalPoints";
-    const rawSortOrder = searchParams.get("sortOrder");
+    const id = searchParams.get("id");
+    const { page, limit, sortBy: rawSortBy, sortOrder } = parsePagination(searchParams);
+    const filterYear = parseYear(searchParams);
     const filterSport = searchParams.get("filterSport");
     const filterTeam = searchParams.get("filterTeam");
 
-    const sortOrder = rawSortOrder === "asc" ? 1 : -1;
-    const allowedSortFields = new Set(["totalPoints", "team", "driverCount"]);
-    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "totalPoints";
+    if (id) {
+      if (!isValidObjectId(id)) {
+        return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
+      }
 
-    const query: Record<string, unknown> = {};
+      const document = await TeamLeaderboardModel.findById(id).populate(populateFields).lean();
+      if (!document) {
+        return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+      }
 
-    if (filterSport) {
-      query.sport = filterSport;
-    }
-
-    const sortStage: Record<string, 1 | -1> =
-      sortBy === "team"
-        ? { team: sortOrder, totalPoints: -1 }
-        : sortBy === "driverCount"
-          ? { driverCount: sortOrder, totalPoints: -1, team: 1 }
-          : { totalPoints: sortOrder, team: 1 };
-
-    const pipeline: PipelineStage[] = [
-      { $match: query },
-      {
-        $addFields: {
-          pointsNormalized: { $ifNull: ["$points", 0] },
-          teamNormalized: {
-            $let: {
-              vars: {
-                trimmedTeam: {
-                  $trim: {
-                    input: { $ifNull: ["$team", ""] },
-                  },
-                },
-              },
-              in: {
-                $cond: [{ $eq: ["$$trimmedTeam", ""] }, "Unassigned", "$$trimmedTeam"],
-              },
-            },
-          },
-        },
-      },
-      {
-        $group: {
-          _id: "$teamNormalized",
-          totalPoints: { $sum: "$pointsNormalized" },
-          driverCount: { $sum: 1 },
-        },
-      },
-      {
-        $project: {
-          _id: 0,
-          team: "$_id",
-          totalPoints: 1,
-          driverCount: 1,
-        },
-      },
-    ];
-
-    if (filterTeam) {
-      pipeline.push({
-        $match: { team: { $regex: filterTeam, $options: "i" } },
+      return NextResponse.json({
+        data: serializeTeamLeaderboardEntry(document as Record<string, unknown>),
       });
     }
 
-    pipeline.push({ $sort: sortStage });
-    pipeline.push({
-      $facet: {
-        meta: [{ $count: "total" }],
-        documents: [{ $skip: (page - 1) * limit }, { $limit: limit }],
-      },
-    });
+    const allowedSortFields = new Set(["rank", "totalPoints", "year", "createdAt"]);
+    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "rank";
+    const sortField =
+      sortBy === "totalPoints" ? "stats.points" : sortBy === "rank" ? "stats.rank" : sortBy;
 
-    const [result] = await DriverModel.aggregate(pipeline);
-    const total = result?.meta?.[0]?.total || 0;
-    const rankOffset = (page - 1) * limit;
+    const query: Record<string, unknown> = { year: filterYear };
+    if (filterSport && isValidObjectId(filterSport)) {
+      query.sport_id = filterSport;
+    }
 
-    const documents: TeamLeaderboardDocument[] = (result?.documents || []).map(
-      (document: Record<string, unknown>, index: number) => ({
-        team: String(document.team || "Unassigned"),
-        totalPoints: Number(document.totalPoints || 0),
-        driverCount: Number(document.driverCount || 0),
-        rank: rankOffset + index + 1,
-      })
-    );
+    let documents = await TeamLeaderboardModel.find(query)
+      .populate(populateFields)
+      .sort(buildSort(sortField, sortOrder))
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .lean();
 
-    return NextResponse.json(buildListResponse(total, documents));
-  } catch (error: any) {
-    console.error("GET Leaderboard Teams API Error:", error);
+    if (filterTeam) {
+      const normalized = filterTeam.toLowerCase();
+      documents = documents.filter((document) => {
+        const team = document.team_id as { name?: string } | null;
+        return team?.name?.toLowerCase().includes(normalized);
+      });
+    }
+
+    const total = filterTeam ? documents.length : await TeamLeaderboardModel.countDocuments(query);
+
+    const serialized = documents
+      .map((document) => serializeTeamLeaderboardEntry(document as Record<string, unknown>))
+      .filter((document) => document !== null) as TeamLeaderboardEntry[];
+
+    return NextResponse.json({ data: buildListResponse(total, serialized) });
+  } catch (error) {
+    console.error("[leaderboard:teams:GET]", error);
+    return NextResponse.json({ error: "Failed to fetch team leaderboard." }, { status: 500 });
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    await connectToDatabase();
+    const payload = await request.json();
+    const parsed = teamLeaderboardSchema.safeParse(payload);
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid team leaderboard payload." }, { status: 400 });
+    }
+
+    const document = await TeamLeaderboardModel.create(parsed.data);
+    const populated = await TeamLeaderboardModel.findById(document._id)
+      .populate(populateFields)
+      .lean();
+
     return NextResponse.json(
-      { error: error.message || "Failed to fetch team leaderboard" },
+      {
+        data: serializeTeamLeaderboardEntry(
+          (populated ?? document.toObject()) as Record<string, unknown>
+        ),
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error("[leaderboard:teams:POST]", error);
+    return NextResponse.json(
+      { error: "Failed to create team leaderboard entry." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    await connectToDatabase();
+    const body = (await request.json()) as Record<string, unknown> & {
+      id?: string;
+    };
+    const { id, ...data } = body;
+
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
+    }
+
+    const parsed = teamLeaderboardSchema.partial().safeParse(data);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid team leaderboard payload." }, { status: 400 });
+    }
+
+    const document = await TeamLeaderboardModel.findByIdAndUpdate(id, parsed.data, {
+      new: true,
+      runValidators: true,
+    })
+      .populate(populateFields)
+      .lean();
+
+    if (!document) {
+      return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      data: serializeTeamLeaderboardEntry(document as Record<string, unknown>),
+    });
+  } catch (error) {
+    console.error("[leaderboard:teams:PUT]", error);
+    return NextResponse.json(
+      { error: "Failed to update team leaderboard entry." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    await connectToDatabase();
+    const id = request.nextUrl.searchParams.get("id");
+
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
+    }
+
+    const document = await TeamLeaderboardModel.findByIdAndDelete(id);
+    if (!document) {
+      return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({ data: { success: true, id } });
+  } catch (error) {
+    console.error("[leaderboard:teams:DELETE]", error);
+    return NextResponse.json(
+      { error: "Failed to delete team leaderboard entry." },
       { status: 500 }
     );
   }

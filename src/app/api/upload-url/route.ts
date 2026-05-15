@@ -1,5 +1,6 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { ENV } from "@/config/config";
 import {
   ALLOWED_IMAGE_EXTENSIONS,
   isAllowedImageExtension,
@@ -9,11 +10,20 @@ import {
   sanitizeObjectName,
 } from "@/lib/image-upload";
 
+if (
+  !ENV.CN_AWS_S3_REGION ||
+  !ENV.CN_AWS_ACCESS_KEY ||
+  !ENV.CN_AWS_SECRET_KEY ||
+  !ENV.CN_S3_BUCKET
+) {
+  throw new Error("S3 server configuration is incomplete.");
+}
+
 const s3 = new S3Client({
-  region: process.env.CN_AWS_S3_REGION,
+  region: ENV.CN_AWS_S3_REGION,
   credentials: {
-    accessKeyId: process.env.CN_AWS_ACCESS_KEY!,
-    secretAccessKey: process.env.CN_AWS_SECRET_KEY!,
+    accessKeyId: ENV.CN_AWS_ACCESS_KEY,
+    secretAccessKey: ENV.CN_AWS_SECRET_KEY,
   },
 });
 
@@ -45,7 +55,7 @@ export async function GET(req: Request) {
     const fileName = `${folder}/${objectName}_${timestamp}.${extension}`;
 
     const command = new PutObjectCommand({
-      Bucket: process.env.CN_S3_BUCKET!,
+      Bucket: ENV.CN_S3_BUCKET,
       Key: fileName,
       ContentType: contentType,
     });
@@ -53,8 +63,10 @@ export async function GET(req: Request) {
     const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 60 });
 
     return Response.json({
-      uploadUrl,
-      key: fileName,
+      data: {
+        uploadUrl,
+        key: fileName,
+      },
     });
   } catch (error) {
     console.error("Failed to generate upload URL", error);

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ENV } from "@/config/config";
 
 type MongooseCache = {
   conn: typeof mongoose | null;
@@ -6,15 +7,14 @@ type MongooseCache = {
 };
 
 declare global {
-  // eslint-disable-next-line no-var
   var mongoose: MongooseCache | undefined;
 }
 
-const MONGODB_URI = process.env.CN_MONGODB_URI;
+const MONGODB_URI = ENV.CN_MONGODB_URI;
 
 export async function connectToDatabase() {
   if (!MONGODB_URI) {
-    throw new Error("Missing environment variable: CN_MONGODB_URI");
+    throw new Error("MongoDB is not configured.");
   }
 
   if (!global.mongoose) {

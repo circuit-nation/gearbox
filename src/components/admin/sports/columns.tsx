@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sport } from "@/lib/schema";
+import { Sport } from "@/lib/circuit-nation/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil, Trash2 } from "lucide-react";
-import { createSortableHeader } from "../data-table";
+import { createSortableHeader } from "@/components/shared/data-table";
 import { ImageValueAvatar } from "../image-value-avatar";
 
 type SportsColumnsProps = {
@@ -12,7 +12,11 @@ type SportsColumnsProps = {
   isDeleting: boolean;
 };
 
-export function createSportsColumns({ onEdit, onDelete, isDeleting }: SportsColumnsProps): ColumnDef<Sport>[] {
+export function createSportsColumns({
+  onEdit,
+  onDelete,
+  isDeleting,
+}: SportsColumnsProps): ColumnDef<Sport>[] {
   return [
     {
       accessorKey: "logo",
@@ -65,8 +69,13 @@ export function createSportsColumns({ onEdit, onDelete, isDeleting }: SportsColu
           <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
             <Pencil className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original._id)} disabled={isDeleting}>
-            <Trash2 className="h-4 w-4 text-destructive" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onDelete(row.original._id)}
+            disabled={isDeleting}
+          >
+            <Trash2 className="text-destructive h-4 w-4" />
           </Button>
         </div>
       ),

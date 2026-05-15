@@ -1,18 +1,17 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Driver } from "@/lib/schema";
+import { Driver } from "@/lib/circuit-nation/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil, Trash2 } from "lucide-react";
-import { createSortableHeader } from "../data-table";
+import { createSortableHeader } from "@/components/shared/data-table";
 import { ImageValueAvatar } from "../image-value-avatar";
 
-type SportOption = {
-  _id: string;
-  name: string;
-};
+type SportOption = { _id: string; name: string };
+type TeamOption = { _id: string; name: string };
 
 type DriversColumnsProps = {
   sports?: SportOption[];
+  teams?: TeamOption[];
   onEdit: (driver: Driver) => void;
   onDelete: (id: string) => void;
   isDeleting: boolean;
@@ -20,6 +19,7 @@ type DriversColumnsProps = {
 
 export function createDriversColumns({
   sports,
+  teams,
   onEdit,
   onDelete,
   isDeleting,
@@ -43,17 +43,17 @@ export function createDriversColumns({
       cell: ({ row }) => <div className="font-medium">{row.original.name}</div>,
     },
     {
-      accessorKey: "sport",
+      accessorKey: "sport_id",
       header: createSortableHeader("Sport"),
-      cell: ({ row }) => {
-        const sport = sports?.find((s) => s._id === row.original.sport);
-        return sport?.name || "Unknown";
-      },
+      cell: ({ row }) => sports?.find((s) => s._id === row.original.sport_id)?.name || "Unknown",
     },
     {
-      accessorKey: "team",
+      accessorKey: "team_id",
       header: createSortableHeader("Team"),
-      cell: ({ row }) => row.original.team || "Unassigned",
+      cell: ({ row }) => {
+        if (!row.original.team_id) return "Unassigned";
+        return teams?.find((t) => t._id === row.original.team_id)?.name || "Unknown";
+      },
     },
     {
       accessorKey: "points",
@@ -82,8 +82,13 @@ export function createDriversColumns({
           <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
             <Pencil className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original._id)} disabled={isDeleting}>
-            <Trash2 className="h-4 w-4 text-destructive" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onDelete(row.original._id)}
+            disabled={isDeleting}
+          >
+            <Trash2 className="text-destructive h-4 w-4" />
           </Button>
         </div>
       ),

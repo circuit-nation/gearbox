@@ -15,4 +15,3 @@ export function storedValueToS3Key(value: string | null | undefined) {
 
   return isStoredS3Value(value) ? value.slice(S3_VALUE_PREFIX.length) : null;
 }
-

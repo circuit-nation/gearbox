@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { toStoredS3Value } from "@/lib/image-storage";
+import { cnApi } from "@/lib/circuit-nation/api";
+import { toStoredS3Value, isStoredS3Value, storedValueToS3Key } from "@/lib/image-storage";
 import {
   ALLOWED_IMAGE_EXTENSIONS,
   MAX_IMAGE_SIZE_BYTES,
@@ -9,28 +10,9 @@ import {
   isAllowedMimeTypeForExtension,
   normalizeExtension,
 } from "@/lib/image-upload";
-import { isStoredS3Value, storedValueToS3Key } from "@/lib/image-storage";
-
-type UploadUrlResponse = {
-  uploadUrl?: string;
-  key?: string;
-  error?: string;
-};
-
-type GetImageUrlResponse = {
-  url?: string;
-  error?: string;
-};
 
 async function fetchSignedImageUrl(key: string) {
-  const response = await fetch(`/api/get-image-url?key=${encodeURIComponent(key)}`);
-  const payload = (await response.json()) as GetImageUrlResponse;
-
-  if (!response.ok || !payload.url) {
-    throw new Error(payload.error || "Failed to resolve image URL.");
-  }
-
-  return payload.url;
+  return cnApi.images.getSignedUrl(key);
 }
 
 export function useImageUpload() {
@@ -48,9 +30,7 @@ export function useImageUpload() {
     const extension = normalizeExtension(file.name.includes(".") ? file.name.split(".").pop() : "");
 
     if (!isAllowedImageExtension(extension)) {
-      throw new Error(
-        `Unsupported file type. Allowed: ${ALLOWED_IMAGE_EXTENSIONS.join(", ")}.`
-      );
+      throw new Error(`Unsupported file type. Allowed: ${ALLOWED_IMAGE_EXTENSIONS.join(", ")}.`);
     }
 
     if (!isAllowedMimeTypeForExtension(extension, file.type || "")) {
@@ -64,26 +44,14 @@ export function useImageUpload() {
     setIsUploading(true);
 
     try {
-      const uploadUrlResponse = await fetch(
-        `/api/upload-url?contentType=${encodeURIComponent(file.type)}&extension=${encodeURIComponent(extension)}&folder=${encodeURIComponent(folder)}&name=${encodeURIComponent(entityName)}`
-      );
-      const uploadUrlPayload = (await uploadUrlResponse.json()) as UploadUrlResponse;
-
-      if (!uploadUrlResponse.ok || !uploadUrlPayload.uploadUrl || !uploadUrlPayload.key) {
-        throw new Error(uploadUrlPayload.error || "Failed to get upload URL.");
-      }
-
-      const uploadResponse = await fetch(uploadUrlPayload.uploadUrl, {
-        method: "PUT",
-        headers: {
-          "Content-Type": file.type || "image/jpeg",
-        },
-        body: file,
+      const uploadUrlPayload = await cnApi.images.getUploadUrl({
+        contentType: file.type,
+        extension,
+        folder,
+        name: entityName,
       });
 
-      if (!uploadResponse.ok) {
-        throw new Error("Failed to upload image.");
-      }
+      await cnApi.images.uploadToSignedUrl(uploadUrlPayload.uploadUrl, file);
 
       return toStoredS3Value(uploadUrlPayload.key);
     } finally {

@@ -1,10 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Event } from "@/lib/schema";
+import { Event } from "@/lib/circuit-nation/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { format } from "date-fns";
 import { Pencil, Trash2 } from "lucide-react";
-import { createSortableHeader } from "../data-table";
+import { createSortableHeader } from "@/components/shared/data-table";
 
 type SportOption = {
   _id: string;
@@ -56,7 +56,9 @@ export function createEventsColumns({
     {
       accessorKey: "event_start_at",
       header: createSortableHeader("Start Date"),
-      cell: ({ row }) => <div className="text-xs">{format(new Date(row.original.event_start_at), "PPp")}</div>,
+      cell: ({ row }) => (
+        <div className="text-xs">{format(new Date(row.original.event_start_at), "PPp")}</div>
+      ),
     },
     {
       id: "actions",
@@ -66,8 +68,13 @@ export function createEventsColumns({
           <Button variant="ghost" size="icon" onClick={() => onEdit(row.original)}>
             <Pencil className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={() => onDelete(row.original._id)} disabled={isDeleting}>
-            <Trash2 className="h-4 w-4 text-destructive" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onDelete(row.original._id)}
+            disabled={isDeleting}
+          >
+            <Trash2 className="text-destructive h-4 w-4" />
           </Button>
         </div>
       ),

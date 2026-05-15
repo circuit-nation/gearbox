@@ -1,14 +1,26 @@
-import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
+import { useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useImageUpload } from "@/hooks/use-image-upload";
 import { ALLOWED_IMAGE_EXTENSIONS } from "@/lib/image-upload";
 import { Loader2, Plus } from "lucide-react";
-import { CreateSport, Sport, SportsType } from "@/lib/schema";
+import { CreateSport, Sport, SportsType } from "@/lib/circuit-nation/types";
 import { ResolvedImagePreview } from "../resolved-image-preview";
 
 const SPORTS_TYPES: SportsType[] = [
@@ -52,12 +64,13 @@ export function SportsCreateDialog({
   const [logoInputMode, setLogoInputMode] = useState<"url" | "upload">("url");
   const [uploadError, setUploadError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!open) {
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
       setLogoInputMode("url");
       setUploadError(null);
     }
-  }, [open]);
+    onOpenChange(nextOpen);
+  };
 
   const handleLogoUpload = async (file?: File) => {
     if (!file) {
@@ -79,7 +92,7 @@ export function SportsCreateDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
@@ -150,16 +163,16 @@ export function SportsCreateDialog({
                   }}
                   disabled={isUploading}
                 />
-                <p className="text-xs text-muted-foreground">
+                <p className="text-muted-foreground text-xs">
                   Allowed: {ALLOWED_IMAGE_EXTENSIONS.join(", ")}. Max size: 10MB.
                 </p>
               </TabsContent>
             </Tabs>
-            {uploadError && <p className="text-sm text-destructive mt-2">{uploadError}</p>}
+            {uploadError && <p className="text-destructive mt-2 text-sm">{uploadError}</p>}
             <ResolvedImagePreview
               value={formData.logo}
               alt={`${formData.name || "Sport"} preview`}
-              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
+              className="bg-muted/20 mt-2 h-32 w-32 overflow-hidden rounded-md border"
             />
           </div>
           <div>
@@ -179,7 +192,10 @@ export function SportsCreateDialog({
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean),
+                  tags: e.target.value
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean),
                 })
               }
               placeholder="racing, motorsport"
@@ -250,7 +266,7 @@ export function SportsEditDialog({
             <ResolvedImagePreview
               value={formData.logo}
               alt={`${formData.name || "Sport"} preview`}
-              className="mt-2 h-32 w-32 overflow-hidden rounded-md border bg-muted/20"
+              className="bg-muted/20 mt-2 h-32 w-32 overflow-hidden rounded-md border"
             />
           </div>
           <div>
@@ -270,7 +286,10 @@ export function SportsEditDialog({
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  tags: e.target.value.split(",").map((t) => t.trim()).filter(Boolean),
+                  tags: e.target.value
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean),
                 })
               }
               placeholder="racing, motorsport"

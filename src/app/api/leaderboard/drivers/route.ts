@@ -1,111 +1,184 @@
 import { NextRequest, NextResponse } from "next/server";
+import { DriverLeaderboardModel } from "@/lib/models/leaderboard.models";
 import { connectToDatabase } from "@/lib/mongodb";
-import { DriverModel } from "@/lib/models";
 import { buildListResponse } from "@/lib/mongo-helpers";
+import { serializeDriverLeaderboardEntry } from "@/lib/circuit-nation/leaderboard-serializer";
+import { driverLeaderboardSchema } from "@/lib/circuit-nation/validators";
+import {
+  buildSort,
+  isValidObjectId,
+  parsePagination,
+  parseYear,
+} from "@/lib/circuit-nation/route-helpers";
+import type { DriverLeaderboardEntry } from "@/lib/circuit-nation/types";
 
-type DriverLeaderboardDocument = {
-  _id: string;
-  id: string;
-  name: string;
-  image: string;
-  sport: string;
-  tags?: string[];
-  team: string;
-  points: number;
-  rank: number;
-};
+const populateFields = [
+  { path: "driver_id", select: "name image" },
+  { path: "team_id", select: "name" },
+  { path: "sport_id", select: "name" },
+];
 
 export async function GET(request: NextRequest) {
   try {
     await connectToDatabase();
 
     const searchParams = request.nextUrl.searchParams;
-    const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
-    const limit = Math.max(parseInt(searchParams.get("limit") || "10"), 1);
-    const rawSortBy = searchParams.get("sortBy") || "points";
-    const rawSortOrder = searchParams.get("sortOrder");
+    const id = searchParams.get("id");
+    const { page, limit, sortBy: rawSortBy, sortOrder } = parsePagination(searchParams);
+    const filterYear = parseYear(searchParams);
     const filterName = searchParams.get("filterName");
     const filterSport = searchParams.get("filterSport");
     const filterTeam = searchParams.get("filterTeam");
 
-    const sortOrder = rawSortOrder === "asc" ? 1 : -1;
-    const allowedSortFields = new Set(["points", "name", "team"]);
-    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "points";
+    if (id) {
+      if (!isValidObjectId(id)) {
+        return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
+      }
 
-    const query: Record<string, unknown> = {};
+      const document = await DriverLeaderboardModel.findById(id).populate(populateFields).lean();
+      if (!document) {
+        return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+      }
+
+      return NextResponse.json({
+        data: serializeDriverLeaderboardEntry(document as Record<string, unknown>),
+      });
+    }
+
+    const allowedSortFields = new Set(["rank", "points", "year", "createdAt"]);
+    const sortBy = allowedSortFields.has(rawSortBy) ? rawSortBy : "rank";
+    const sortField =
+      sortBy === "points" ? "stats.points" : sortBy === "rank" ? "stats.rank" : sortBy;
+
+    const query: Record<string, unknown> = { year: filterYear };
+    if (filterSport && isValidObjectId(filterSport)) {
+      query.sport_id = filterSport;
+    }
+    if (filterTeam && isValidObjectId(filterTeam)) {
+      query.team_id = filterTeam;
+    }
+
+    let documents = await DriverLeaderboardModel.find(query)
+      .populate(populateFields)
+      .sort(buildSort(sortField, sortOrder))
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .lean();
 
     if (filterName) {
-      query.name = { $regex: filterName, $options: "i" };
+      const normalized = filterName.toLowerCase();
+      documents = documents.filter((document) => {
+        const driver = document.driver_id as { name?: string } | null;
+        return driver?.name?.toLowerCase().includes(normalized);
+      });
     }
 
-    if (filterSport) {
-      query.sport = filterSport;
+    const total = filterName
+      ? documents.length
+      : await DriverLeaderboardModel.countDocuments(query);
+
+    const serialized = documents
+      .map((document) => serializeDriverLeaderboardEntry(document as Record<string, unknown>))
+      .filter((document) => document !== null) as DriverLeaderboardEntry[];
+
+    return NextResponse.json({ data: buildListResponse(total, serialized) });
+  } catch (error) {
+    console.error("[leaderboard:drivers:GET]", error);
+    return NextResponse.json({ error: "Failed to fetch driver leaderboard." }, { status: 500 });
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    await connectToDatabase();
+    const payload = await request.json();
+    const parsed = driverLeaderboardSchema.safeParse(payload);
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid driver leaderboard payload." }, { status: 400 });
     }
 
-    if (filterTeam) {
-      query.team = { $regex: filterTeam, $options: "i" };
-    }
+    const document = await DriverLeaderboardModel.create(parsed.data);
+    const populated = await DriverLeaderboardModel.findById(document._id)
+      .populate(populateFields)
+      .lean();
 
-    const sortStage: Record<string, 1 | -1> =
-      sortBy === "name"
-        ? { name: sortOrder, points: -1 }
-        : sortBy === "team"
-          ? { teamNormalized: sortOrder, pointsNormalized: -1, name: 1 }
-          : { pointsNormalized: sortOrder, name: 1 };
-
-    const [result] = await DriverModel.aggregate([
-      { $match: query },
-      {
-        $addFields: {
-          pointsNormalized: { $ifNull: ["$points", 0] },
-          teamNormalized: { $ifNull: ["$team", ""] },
-        },
-      },
-      { $sort: sortStage },
-      {
-        $facet: {
-          meta: [{ $count: "total" }],
-          documents: [
-            { $skip: (page - 1) * limit },
-            { $limit: limit },
-            {
-              $project: {
-                _id: 1,
-                id: 1,
-                name: 1,
-                image: 1,
-                sport: 1,
-                tags: 1,
-                team: "$teamNormalized",
-                points: "$pointsNormalized",
-              },
-            },
-          ],
-        },
-      },
-    ]);
-
-    const total = result?.meta?.[0]?.total || 0;
-    const rankOffset = (page - 1) * limit;
-    const documents: DriverLeaderboardDocument[] = (result?.documents || []).map(
-      (document: Record<string, unknown>, index: number) => ({
-        _id: String(document._id),
-        id: String(document.id || ""),
-        name: String(document.name || ""),
-        image: String(document.image || ""),
-        sport: String(document.sport || ""),
-        tags: (document.tags as string[] | undefined) || [],
-        team: String(document.team || ""),
-        points: Number(document.points || 0),
-        rank: rankOffset + index + 1,
-      })
-    );
-
-    return NextResponse.json(buildListResponse(total, documents));
-  } catch (error: any) {
-    console.error("GET Leaderboard Drivers API Error:", error);
     return NextResponse.json(
-      { error: error.message || "Failed to fetch driver leaderboard" },
+      {
+        data: serializeDriverLeaderboardEntry(
+          (populated ?? document.toObject()) as Record<string, unknown>
+        ),
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error("[leaderboard:drivers:POST]", error);
+    return NextResponse.json(
+      { error: "Failed to create driver leaderboard entry." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PUT(request: NextRequest) {
+  try {
+    await connectToDatabase();
+    const body = (await request.json()) as Record<string, unknown> & {
+      id?: string;
+    };
+    const { id, ...data } = body;
+
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
+    }
+
+    const parsed = driverLeaderboardSchema.partial().safeParse(data);
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Invalid driver leaderboard payload." }, { status: 400 });
+    }
+
+    const document = await DriverLeaderboardModel.findByIdAndUpdate(id, parsed.data, {
+      new: true,
+      runValidators: true,
+    })
+      .populate(populateFields)
+      .lean();
+
+    if (!document) {
+      return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      data: serializeDriverLeaderboardEntry(document as Record<string, unknown>),
+    });
+  } catch (error) {
+    console.error("[leaderboard:drivers:PUT]", error);
+    return NextResponse.json(
+      { error: "Failed to update driver leaderboard entry." },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    await connectToDatabase();
+    const id = request.nextUrl.searchParams.get("id");
+
+    if (!id || !isValidObjectId(id)) {
+      return NextResponse.json({ error: "Invalid leaderboard entry id." }, { status: 400 });
+    }
+
+    const document = await DriverLeaderboardModel.findByIdAndDelete(id);
+    if (!document) {
+      return NextResponse.json({ error: "Leaderboard entry not found." }, { status: 404 });
+    }
+
+    return NextResponse.json({ data: { success: true, id } });
+  } catch (error) {
+    console.error("[leaderboard:drivers:DELETE]", error);
+    return NextResponse.json(
+      { error: "Failed to delete driver leaderboard entry." },
       { status: 500 }
     );
   }
