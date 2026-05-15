@@ -7,7 +7,6 @@ type MongooseCache = {
 };
 
 declare global {
-   
   var mongoose: MongooseCache | undefined;
 }
 

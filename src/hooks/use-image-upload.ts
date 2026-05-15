@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { cnApi } from "@/lib/circuit-nation/api";
-import { toStoredS3Value , isStoredS3Value, storedValueToS3Key } from "@/lib/image-storage";
+import { toStoredS3Value, isStoredS3Value, storedValueToS3Key } from "@/lib/image-storage";
 import {
   ALLOWED_IMAGE_EXTENSIONS,
   MAX_IMAGE_SIZE_BYTES,
