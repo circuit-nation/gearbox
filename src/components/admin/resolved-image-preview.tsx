@@ -2,7 +2,7 @@
 
 import { useResolvedImageUrl } from "@/hooks/use-image-upload";
 import { Loader2 } from "lucide-react";
-import { Image } from "next/image";
+import Image from "next/image";
 
 type ResolvedImagePreviewProps = {
   value?: string;
