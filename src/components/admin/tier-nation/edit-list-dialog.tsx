@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { FormEvent } from "react";
 import { toast } from "sonner";
 import { useUpdateTierList } from "@/hooks/use-tn-admin";
@@ -49,8 +49,7 @@ export function EditListDialog({ open, onOpenChange, list, onSaved }: EditListDi
   const [isLocked, setIsLocked] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    if (!open) return;
+  const syncFormFromList = () => {
     setName(list.name ?? "");
     setDescription(list.description ?? "");
     setCoverStored(list.coverImage?.trim() ?? "");
@@ -58,7 +57,14 @@ export function EditListDialog({ open, onOpenChange, list, onSaved }: EditListDi
     setEndTime(list.endTime ? toDatetimeLocalValue(new Date(list.endTime)) : "");
     setIsLocked(Boolean(list.isLocked));
     setIsVisible(list.isVisible !== false);
-  }, [open, list]);
+  };
+
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (nextOpen) {
+      syncFormFromList();
+    }
+    onOpenChange(nextOpen);
+  };
 
   const updateList = useUpdateTierList({
     onSuccess: () => {
@@ -122,7 +128,7 @@ export function EditListDialog({ open, onOpenChange, list, onSaved }: EditListDi
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogContent className="overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Edit tier list</DialogTitle>

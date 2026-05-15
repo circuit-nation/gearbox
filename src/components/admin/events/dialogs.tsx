@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
+import { useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import { DatePicker } from "@/components/ui/date-picker";
 import {
@@ -192,12 +192,13 @@ export function EventsCreateDialog({
   const filteredCircuits =
     circuits?.filter((circuit) => circuit.sport_id === formData.sport_id) ?? [];
 
-  useEffect(() => {
-    if (!open) {
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
       setImagesInputMode("url");
       setUploadError(null);
     }
-  }, [open]);
+    onOpenChange(nextOpen);
+  };
 
   const handleImageUpload = async (files: FileList | null) => {
     if (!files?.length) {
@@ -228,7 +229,7 @@ export function EventsCreateDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button>
           <Plus className="mr-2 h-4 w-4" />

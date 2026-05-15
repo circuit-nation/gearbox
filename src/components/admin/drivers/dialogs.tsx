@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
+import { useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -63,12 +63,13 @@ export function DriversCreateDialog({
   const [imageInputMode, setImageInputMode] = useState<"url" | "upload">("url");
   const [uploadError, setUploadError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!open) {
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
       setImageInputMode("url");
       setUploadError(null);
     }
-  }, [open]);
+    onOpenChange(nextOpen);
+  };
 
   const handleImageUpload = async (file?: File) => {
     if (!file) {
@@ -90,7 +91,7 @@ export function DriversCreateDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button>
           <Plus className="mr-2 h-4 w-4" />

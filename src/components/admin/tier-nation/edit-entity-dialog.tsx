@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { FormEvent } from "react";
 import { toast } from "sonner";
 import { useUpdateEntity } from "@/hooks/use-tn-admin";
@@ -43,14 +43,20 @@ export function EditEntityDialog({
   const [tags, setTags] = useState("");
   const [imageStored, setImageStored] = useState("");
 
-  useEffect(() => {
-    if (!open) return;
+  const syncFormFromInitial = () => {
     setName(initial.name ?? "");
     setDescription(initial.description ?? "");
     setTeam(initial.team ?? "");
     setTags((initial.tags ?? []).join(", "));
     setImageStored(initial.imageUrl?.trim() ?? "");
-  }, [open, initial]);
+  };
+
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (nextOpen) {
+      syncFormFromInitial();
+    }
+    onOpenChange(nextOpen);
+  };
 
   const updateEntity = useUpdateEntity({
     onSuccess: () => {
@@ -106,7 +112,7 @@ export function EditEntityDialog({
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogContent className="overflow-y-auto sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Edit entity</DialogTitle>

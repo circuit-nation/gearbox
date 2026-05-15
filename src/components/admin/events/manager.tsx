@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import type { FormEvent } from "react";
 import { useEvents, useCreateEvent, useDeleteEvent, useUpdateEvent } from "@/hooks/use-events";
 import { useSports } from "@/hooks/use-sports";
@@ -203,7 +203,7 @@ export function EventsManager() {
     createEvent.mutate(payload);
   };
 
-  const handleEdit = (event: Event) => {
+  const handleEdit = useCallback((event: Event) => {
     setEditingEvent(event);
     setEditFormData({
       title: event.title,
@@ -219,7 +219,7 @@ export function EventsManager() {
     setEditEndDate(formatDateValue(event.event_end_at));
     setEditEndTime(formatTimeValue(event.event_end_at));
     setIsEditOpen(true);
-  };
+  }, []);
 
   const handleEditSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -255,7 +255,7 @@ export function EventsManager() {
         onDelete: requestDelete,
         isDeleting: deleteEvent.isPending,
       }),
-    [sportsData, deleteEvent.isPending, requestDelete]
+    [sportsData, deleteEvent.isPending, requestDelete, handleEdit]
   );
 
   const tableData = useMemo(() => data?.documents || [], [data]);

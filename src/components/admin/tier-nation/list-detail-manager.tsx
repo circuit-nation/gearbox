@@ -132,16 +132,14 @@ export function TierNationListDetailManager({ listId }: ListDetailManagerProps) 
     onError: (e) => toast.error(e.message),
   });
 
-  const entities = data?.entities ?? [];
-  const sortedEntities = useMemo(
-    () =>
-      sortData(
-        entities as unknown as Record<string, unknown>[],
-        entityTable.sortBy,
-        entityTable.sortOrder as "asc" | "desc" | undefined
-      ) as PublicTierListEntity[],
-    [entities, entityTable.sortBy, entityTable.sortOrder]
-  );
+  const sortedEntities = useMemo(() => {
+    const entities = data?.entities ?? [];
+    return sortData(
+      entities as unknown as Record<string, unknown>[],
+      entityTable.sortBy,
+      entityTable.sortOrder as "asc" | "desc" | undefined
+    ) as PublicTierListEntity[];
+  }, [data?.entities, entityTable.sortBy, entityTable.sortOrder]);
   const entityPage = useMemo(
     () =>
       paginate(sortedEntities, entityTable.pagination.pageIndex, entityTable.pagination.pageSize),

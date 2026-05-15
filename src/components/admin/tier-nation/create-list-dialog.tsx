@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { FormEvent } from "react";
 import { toast } from "sonner";
 import { useCreateTierList } from "@/hooks/use-tn-admin";
@@ -42,8 +42,8 @@ export function CreateListDialog({ open, onOpenChange, onCreated }: CreateListDi
   const [isLocked, setIsLocked] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    if (!open) {
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
       setName("");
       setDescription("");
       setCoverStored("");
@@ -52,7 +52,8 @@ export function CreateListDialog({ open, onOpenChange, onCreated }: CreateListDi
       setIsLocked(false);
       setIsVisible(true);
     }
-  }, [open]);
+    onOpenChange(nextOpen);
+  };
 
   const createList = useCreateTierList({
     onSuccess: (data) => {
@@ -115,7 +116,7 @@ export function CreateListDialog({ open, onOpenChange, onCreated }: CreateListDi
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogContent className="overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Create tier list</DialogTitle>

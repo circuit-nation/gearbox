@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Dispatch, FormEvent, SetStateAction } from "react";
 import { toast } from "sonner";
 import { useAddEntitiesToList, useCreateStandaloneEntities } from "@/hooks/use-tn-admin";
@@ -84,15 +84,16 @@ export function CreateEntitiesDialog({
   const [standaloneRows, setStandaloneRows] = useState<EntityFormRow[]>([emptyEntityRow()]);
   const [listRows, setListRows] = useState<EntityFormRow[]>([emptyEntityRow()]);
 
-  useEffect(() => {
-    if (!open) {
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
       setListId("");
       setStandaloneRows([emptyEntityRow()]);
       setListRows([emptyEntityRow()]);
     } else if (defaultListId) {
       setListId(defaultListId);
     }
-  }, [open, defaultListId]);
+    onOpenChange(nextOpen);
+  };
 
   const createStandalone = useCreateStandaloneEntities({
     onSuccess: () => {
@@ -257,7 +258,7 @@ export function CreateEntitiesDialog({
   const pending = createStandalone.isPending || addToList.isPending;
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <DialogTitle>Create entities</DialogTitle>

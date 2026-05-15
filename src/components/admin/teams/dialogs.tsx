@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
+import { useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -58,12 +58,13 @@ export function TeamsCreateDialog({
   const [logoInputMode, setLogoInputMode] = useState<"url" | "upload">("url");
   const [uploadError, setUploadError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!open) {
+  const handleDialogOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
       setLogoInputMode("url");
       setUploadError(null);
     }
-  }, [open]);
+    onOpenChange(nextOpen);
+  };
 
   const handleLogoUpload = async (file?: File) => {
     if (!file) return;
@@ -81,7 +82,7 @@ export function TeamsCreateDialog({
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button>
           <Plus className="mr-2 h-4 w-4" />

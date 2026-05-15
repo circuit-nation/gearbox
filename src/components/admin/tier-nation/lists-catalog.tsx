@@ -28,7 +28,7 @@ export function TierNationListsCatalog() {
   const limit = listTable.pagination.pageSize;
 
   const listsQuery = useTierNationPublicLists(page, limit);
-  const lists = listsQuery.data?.lists ?? [];
+  const lists = useMemo(() => listsQuery.data?.lists ?? [], [listsQuery.data?.lists]);
   const totalFromApi = listsQuery.data?.total;
   const totalCount =
     totalFromApi != null

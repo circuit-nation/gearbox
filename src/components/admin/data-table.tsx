@@ -48,6 +48,7 @@ export function DataTable<TData>({
   isLoading = false,
   filterComponent,
 }: DataTableProps<TData>) {
+  // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Table returns non-memoizable helpers
   const table = useReactTable({
     data,
     columns,
