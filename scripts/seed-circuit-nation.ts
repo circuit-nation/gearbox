@@ -11,8 +11,9 @@ import {
 } from "@/lib/circuit-nation/validators";
 import type { SportsType } from "@/lib/circuit-nation/types";
 
-config({ path: path.resolve(process.cwd(), ".env") });
-config({ path: path.resolve(process.cwd(), ".env.local") });
+// config({ path: path.resolve(process.cwd(), ".env") });
+// config({ path: path.resolve(process.cwd(), ".env.local") });
+config({ path: path.resolve(process.cwd(), ".env.production") });
 
 const DATA_DIR = path.resolve(process.cwd(), "src/data");
 

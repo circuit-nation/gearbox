@@ -66,6 +66,7 @@ export async function GET(req: Request) {
       data: {
         uploadUrl,
         key: fileName,
+        bucket: ENV.CN_S3_BUCKET,
       },
     });
   } catch (error) {

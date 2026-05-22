@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { EventModel } from "@/lib/models/core.models";
 import { buildListResponse, toDocument, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
-import { storedValueToS3Key } from "@/lib/image-storage";
-import { deleteS3ObjectByKey } from "@/lib/s3-server";
+import { ENV } from "@/config/config";
+import { parseStoredS3Value } from "@/lib/image-storage";
+import { deleteS3Object } from "@/lib/s3-server";
 import { eventSchema } from "@/lib/circuit-nation/validators";
 import {
   deleteEventLinks,
@@ -191,15 +192,16 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Event not found." }, { status: 404 });
     }
 
-    const imageKeys = Array.from(
-      new Set(
+    const imageLocations = Array.from(
+      new Map(
         ((existingEvent.images || []) as string[])
-          .map((image) => storedValueToS3Key(image))
-          .filter((key): key is string => Boolean(key))
-      )
+          .map((image) => parseStoredS3Value(image, ENV.CN_S3_BUCKET))
+          .filter((location): location is NonNullable<typeof location> => Boolean(location))
+          .map((location) => [`${location.bucket}/${location.key}`, location] as const)
+      ).values()
     );
 
-    await Promise.all(imageKeys.map((key) => deleteS3ObjectByKey(key)));
+    await Promise.all(imageLocations.map((location) => deleteS3Object(location)));
     await EventModel.findByIdAndDelete(id);
     await deleteEventLinks(existingEvent.links_id ? String(existingEvent.links_id) : null);
 

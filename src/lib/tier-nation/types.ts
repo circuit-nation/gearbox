@@ -58,8 +58,15 @@ export type AdminEntitiesBody = {
   entities: AdminEntityInput[];
 };
 
+export type LinkEntitiesToListBody = {
+  entityIds: string[];
+};
+
+export type AdminAddToListBody = AdminEntitiesBody | LinkEntitiesToListBody;
+
 export type MessageResponse = {
   message: string;
+  skippedEntityIds?: string[];
 };
 
 /** PATCH /admin/entities/:id — all fields optional. */
@@ -113,7 +120,7 @@ export type PublicListsResponse = {
   total?: number;
 };
 
-/** Entity as returned on `GET /lists/:id`. */
+/** Entity as returned on `GET /lists/:id` and `GET /admin/entities`. */
 export type PublicTierListEntity = {
   id: string;
   name: string;
@@ -121,6 +128,11 @@ export type PublicTierListEntity = {
   team?: string;
   tags?: string[];
   imageUrl?: string;
+};
+
+export type AdminEntitiesListResponse = {
+  entities: PublicTierListEntity[];
+  total: number;
 };
 
 /** Public `GET /lists/:id` — list plus nested entities. */

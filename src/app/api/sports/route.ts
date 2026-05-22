@@ -3,8 +3,9 @@ import { Types } from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
 import { SportModel } from "@/lib/models/core.models";
 import { buildListResponse, toDocument, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
-import { storedValueToS3Key } from "@/lib/image-storage";
-import { deleteS3ObjectByKey } from "@/lib/s3-server";
+import { ENV } from "@/config/config";
+import { parseStoredS3Value } from "@/lib/image-storage";
+import { deleteS3Object } from "@/lib/s3-server";
 import { buildSort } from "@/lib/circuit-nation/route-helpers";
 import { sportSchema } from "@/lib/circuit-nation/validators";
 import type { Sport } from "@/lib/circuit-nation/types";
@@ -129,9 +130,9 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Sport not found." }, { status: 404 });
     }
 
-    const logoKey = storedValueToS3Key(String(existingSport.logo || ""));
-    if (logoKey) {
-      await deleteS3ObjectByKey(logoKey);
+    const logoLocation = parseStoredS3Value(String(existingSport.logo || ""), ENV.CN_S3_BUCKET);
+    if (logoLocation) {
+      await deleteS3Object(logoLocation);
     }
 
     await SportModel.findByIdAndDelete(id);

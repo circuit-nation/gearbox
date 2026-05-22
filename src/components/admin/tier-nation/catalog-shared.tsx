@@ -6,7 +6,7 @@ import { ImageValueAvatar } from "@/components/admin/image-value-avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { createSortableHeader } from "@/components/shared/data-table";
-import type { CatalogEntityRow } from "@/hooks/use-tn-catalog";
+import type { PublicTierListEntity } from "@/lib/tier-nation/types";
 import type { PublicTierListSummary } from "@/lib/tier-nation/types";
 import { format } from "date-fns";
 import { Archive, ExternalLink, Pencil, Trash2 } from "lucide-react";
@@ -138,10 +138,10 @@ export function createTierNationListColumns(options: {
 }
 
 export function createTierNationEntityColumns(options?: {
-  onEdit?: (row: CatalogEntityRow) => void;
-  onDelete?: (row: CatalogEntityRow) => void;
+  onEdit?: (row: PublicTierListEntity) => void;
+  onDelete?: (row: PublicTierListEntity) => void;
   pendingEntityId?: string | null;
-}): ColumnDef<CatalogEntityRow>[] {
+}): ColumnDef<PublicTierListEntity>[] {
   return [
     {
       id: "image",
@@ -168,18 +168,6 @@ export function createTierNationEntityColumns(options?: {
       accessorKey: "team",
       header: createSortableHeader("Team"),
       cell: ({ row }) => row.original.team || "—",
-    },
-    {
-      accessorKey: "listName",
-      header: createSortableHeader("List"),
-      cell: ({ row }) => (
-        <Link
-          href={`/tier-nation/lists/${row.original.listId}`}
-          className="text-primary text-sm hover:underline"
-        >
-          {row.original.listName}
-        </Link>
-      ),
     },
     {
       accessorKey: "id",
@@ -227,7 +215,7 @@ export function createTierNationEntityColumns(options?: {
               </div>
             ),
             enableSorting: false,
-          } satisfies ColumnDef<CatalogEntityRow>,
+          } satisfies ColumnDef<PublicTierListEntity>,
         ]
       : []),
   ];

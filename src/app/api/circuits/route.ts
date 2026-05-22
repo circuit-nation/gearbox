@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { CircuitModel } from "@/lib/models/core.models";
 import { buildListResponse, toDocument, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
-import { storedValueToS3Key } from "@/lib/image-storage";
-import { deleteS3ObjectByKey } from "@/lib/s3-server";
+import { ENV } from "@/config/config";
+import { parseStoredS3Value } from "@/lib/image-storage";
+import { deleteS3Object } from "@/lib/s3-server";
 import { circuitSchema } from "@/lib/circuit-nation/validators";
 import { buildSort, isValidObjectId, parsePagination } from "@/lib/circuit-nation/route-helpers";
 import type { Circuit } from "@/lib/circuit-nation/types";
@@ -131,9 +132,12 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Circuit not found." }, { status: 404 });
     }
 
-    const imageKey = storedValueToS3Key(String(existingCircuit.image || ""));
-    if (imageKey) {
-      await deleteS3ObjectByKey(imageKey);
+    const imageLocation = parseStoredS3Value(
+      String(existingCircuit.image || ""),
+      ENV.CN_S3_BUCKET
+    );
+    if (imageLocation) {
+      await deleteS3Object(imageLocation);
     }
 
     await CircuitModel.findByIdAndDelete(id);

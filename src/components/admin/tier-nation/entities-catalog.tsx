@@ -7,12 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { DataTable } from "@/components/shared/data-table";
 import { ConfirmationDialog } from "@/components/shared/confirm-dialog";
 import { useDeleteDialogState, useTableState } from "@/components/admin/manager-state";
-import {
-  useTierNationCatalogEntityRows,
-  useTierNationPublicLists,
-  type CatalogEntityRow,
-} from "@/hooks/use-tn-catalog";
-import { useDeleteEntity } from "@/hooks/use-tn-admin";
+import { useAdminEntitiesList, useDeleteEntity } from "@/hooks/use-tn-admin";
 import { CreateEntitiesDialog } from "@/components/admin/tier-nation/create-entities-dialog";
 import { EditEntityDialog } from "@/components/admin/tier-nation/edit-entity-dialog";
 import { Plus, RefreshCw } from "lucide-react";
@@ -21,15 +16,16 @@ import {
   paginate,
   sortData,
 } from "@/components/admin/tier-nation/catalog-shared";
+import type { PublicTierListEntity } from "@/lib/tier-nation/types";
 import { toast } from "sonner";
 
-const ENTITY_SOURCE_PAGE = 1;
-const ENTITY_SOURCE_LIMIT = 100;
+const ENTITY_LIST_PAGE = 1;
+const ENTITY_LIST_LIMIT = 500;
 
 export function TierNationEntitiesCatalog() {
   const queryClient = useQueryClient();
   const [entityDialogOpen, setEntityDialogOpen] = useState(false);
-  const [editingEntity, setEditingEntity] = useState<CatalogEntityRow | null>(null);
+  const [editingEntity, setEditingEntity] = useState<PublicTierListEntity | null>(null);
   const entityTable = useTableState([{ id: "name", desc: false }]);
 
   const { deleteConfirmOpen, setDeleteConfirmOpen, deleteTargetId, requestDelete, clearDelete } =
@@ -47,13 +43,8 @@ export function TierNationEntitiesCatalog() {
     },
   });
 
-  const listsQuery = useTierNationPublicLists(ENTITY_SOURCE_PAGE, ENTITY_SOURCE_LIMIT);
-  const lists = listsQuery.data?.lists ?? [];
-
-  const { rows: entityRows, isLoading: entitiesLoading } = useTierNationCatalogEntityRows(
-    lists,
-    Boolean(listsQuery.isSuccess && lists.length > 0)
-  );
+  const entitiesQuery = useAdminEntitiesList(ENTITY_LIST_PAGE, ENTITY_LIST_LIMIT);
+  const entityRows = entitiesQuery.data?.entities ?? [];
 
   const sortedEntities = useMemo(
     () =>
@@ -61,7 +52,7 @@ export function TierNationEntitiesCatalog() {
         entityRows as unknown as Record<string, unknown>[],
         entityTable.sortBy,
         entityTable.sortOrder as "asc" | "desc" | undefined
-      ) as CatalogEntityRow[],
+      ) as PublicTierListEntity[],
     [entityRows, entityTable.sortBy, entityTable.sortOrder]
   );
 
@@ -95,10 +86,10 @@ export function TierNationEntitiesCatalog() {
           variant="outline"
           size="sm"
           onClick={() => invalidateCatalog()}
-          disabled={listsQuery.isFetching || entitiesLoading}
+          disabled={entitiesQuery.isFetching}
         >
           <RefreshCw
-            className={`mr-2 h-4 w-4 ${listsQuery.isFetching || entitiesLoading ? "animate-spin" : ""}`}
+            className={`mr-2 h-4 w-4 ${entitiesQuery.isFetching ? "animate-spin" : ""}`}
           />
           Refresh
         </Button>
@@ -108,7 +99,7 @@ export function TierNationEntitiesCatalog() {
         <CardHeader>
           <CardTitle>Entities</CardTitle>
           <CardDescription>
-            Browse entities from the current catalog and manage them from one place.
+            All entities in Tier Nation, including those not attached to any list.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -120,7 +111,7 @@ export function TierNationEntitiesCatalog() {
             pagination={entityTable.pagination}
             onPaginationChange={entityTable.setPagination}
             totalCount={sortedEntities.length}
-            isLoading={listsQuery.isLoading || entitiesLoading}
+            isLoading={entitiesQuery.isLoading}
           />
         </CardContent>
       </Card>

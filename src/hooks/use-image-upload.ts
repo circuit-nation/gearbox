@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { cnApi } from "@/lib/circuit-nation/api";
-import { toStoredS3Value, isStoredS3Value, storedValueToS3Key } from "@/lib/image-storage";
+import { toStoredS3Value, isStoredS3Value } from "@/lib/image-storage";
 import {
   ALLOWED_IMAGE_EXTENSIONS,
   MAX_IMAGE_SIZE_BYTES,
@@ -11,8 +11,8 @@ import {
   normalizeExtension,
 } from "@/lib/image-upload";
 
-async function fetchSignedImageUrl(key: string) {
-  return cnApi.images.getSignedUrl(key);
+async function fetchSignedImageUrl(value: string) {
+  return cnApi.images.getSignedUrl(value);
 }
 
 export function useImageUpload() {
@@ -53,7 +53,7 @@ export function useImageUpload() {
 
       await cnApi.images.uploadToSignedUrl(uploadUrlPayload.uploadUrl, file);
 
-      return toStoredS3Value(uploadUrlPayload.key);
+      return toStoredS3Value(uploadUrlPayload.bucket, uploadUrlPayload.key);
     } finally {
       setIsUploading(false);
     }
@@ -63,12 +63,11 @@ export function useImageUpload() {
 }
 
 export function useResolvedImageUrl(value: string | null | undefined) {
-  const key = storedValueToS3Key(value);
-  const shouldResolve = isStoredS3Value(value) && Boolean(key);
+  const shouldResolve = isStoredS3Value(value) && Boolean(value?.trim());
 
   const query = useQuery({
-    queryKey: ["resolved-image-url", key],
-    queryFn: () => fetchSignedImageUrl(key as string),
+    queryKey: ["resolved-image-url", value],
+    queryFn: () => fetchSignedImageUrl(value as string),
     enabled: shouldResolve,
     staleTime: 1000 * 60 * 50, // 50m, below signed URL expiry.
   });

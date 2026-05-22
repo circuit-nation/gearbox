@@ -1,7 +1,10 @@
 import { ENV } from "@/config/config";
 import type {
+  AdminAddToListBody,
   AdminEntitiesBody,
+  AdminEntitiesListResponse,
   EntityAdminResponse,
+  LinkEntitiesToListBody,
   MessageResponse,
   PublicListDetail,
   PublicListsResponse,
@@ -89,7 +92,12 @@ export const tnApi = {
           method: "PATCH",
           body,
         }),
-      addEntities: (listId: string, body: AdminEntitiesBody) =>
+      addEntities: (listId: string, body: AdminAddToListBody) =>
+        request<MessageResponse>(`/api/tier-nation/admin/lists/${listId}/entities`, {
+          method: "POST",
+          body,
+        }),
+      linkEntities: (listId: string, body: LinkEntitiesToListBody) =>
         request<MessageResponse>(`/api/tier-nation/admin/lists/${listId}/entities`, {
           method: "POST",
           body,
@@ -103,6 +111,10 @@ export const tnApi = {
         ),
     },
     entities: {
+      list: (page = 1, limit = 100, search?: string) =>
+        request<AdminEntitiesListResponse>(
+          withQuery("/api/tier-nation/admin/entities", { page, limit, search })
+        ),
       createStandalone: (body: AdminEntitiesBody) =>
         request<MessageResponse>("/api/tier-nation/admin/entities", { method: "POST", body }),
       update: (entityId: string, body: UpdateEntityRequest) =>

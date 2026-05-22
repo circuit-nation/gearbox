@@ -1,7 +1,7 @@
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { ENV } from "@/config/config";
-import { storedValueToS3Key } from "@/lib/image-storage";
+import { parseStoredS3Value } from "@/lib/image-storage";
 
 if (
   !ENV.CN_AWS_S3_REGION ||
@@ -27,15 +27,17 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const keyParam = searchParams.get("key");
     const value = searchParams.get("value");
-    const key = keyParam || storedValueToS3Key(value);
+    const location =
+      (value ? parseStoredS3Value(value, ENV.CN_S3_BUCKET) : null) ??
+      (keyParam ? { bucket: ENV.CN_S3_BUCKET, key: keyParam } : null);
 
-    if (!key) {
-      return Response.json({ error: "Image key is required." }, { status: 400 });
+    if (!location?.bucket || !location.key) {
+      return Response.json({ error: "Image location is required." }, { status: 400 });
     }
 
     const command = new GetObjectCommand({
-      Bucket: ENV.CN_S3_BUCKET,
-      Key: key,
+      Bucket: location.bucket,
+      Key: location.key,
     });
 
     const url = await getSignedUrl(s3, command, { expiresIn: EXPIRES_IN });

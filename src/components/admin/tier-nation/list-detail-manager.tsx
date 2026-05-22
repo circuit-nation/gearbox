@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { toast } from "sonner";
-import { ArrowLeft, Copy, ListOrdered, Pencil, Plus, RefreshCw, Trash2 } from "lucide-react";
+import { ArrowLeft, Copy, Link2, ListOrdered, Pencil, Plus, RefreshCw, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,6 +21,7 @@ import {
   useRemoveEntityFromList,
   useReorderListEntities,
 } from "@/hooks/use-tn-admin";
+import { AddExistingEntitiesDialog } from "@/components/admin/tier-nation/add-existing-entities-dialog";
 import { CreateEntitiesDialog } from "@/components/admin/tier-nation/create-entities-dialog";
 import { EditListDialog } from "@/components/admin/tier-nation/edit-list-dialog";
 import { EditEntityDialog } from "@/components/admin/tier-nation/edit-entity-dialog";
@@ -59,6 +60,7 @@ export function TierNationListDetailManager({ listId }: ListDetailManagerProps) 
   const queryClient = useQueryClient();
   const { data, isLoading, isError, error, refetch } = useTierNationListDetail(listId);
   const [entityDialogOpen, setEntityDialogOpen] = useState(false);
+  const [addExistingOpen, setAddExistingOpen] = useState(false);
   const [editListOpen, setEditListOpen] = useState(false);
   const [editingEntity, setEditingEntity] = useState<PublicTierListEntity | null>(null);
 
@@ -200,7 +202,11 @@ export function TierNationListDetailManager({ listId }: ListDetailManagerProps) 
         </Button>
         <Button type="button" onClick={() => setEntityDialogOpen(true)}>
           <Plus className="mr-2 h-4 w-4" />
-          Add entities
+          Create entities
+        </Button>
+        <Button type="button" variant="secondary" onClick={() => setAddExistingOpen(true)}>
+          <Link2 className="mr-2 h-4 w-4" />
+          Add existing
         </Button>
         <Button
           type="button"
@@ -316,6 +322,14 @@ export function TierNationListDetailManager({ listId }: ListDetailManagerProps) 
         onSuccess={() => queryClient.invalidateQueries({ queryKey: ["tier-nation"] })}
       />
 
+      <AddExistingEntitiesDialog
+        open={addExistingOpen}
+        onOpenChange={setAddExistingOpen}
+        listId={listId}
+        excludeEntityIds={sortedEntities.map((e) => e.id)}
+        onSuccess={() => queryClient.invalidateQueries({ queryKey: ["tier-nation"] })}
+      />
+
       <EditListDialog
         open={editListOpen}
         onOpenChange={setEditListOpen}
@@ -359,7 +373,7 @@ export function TierNationListDetailManager({ listId }: ListDetailManagerProps) 
         open={hardDeleteOpen}
         onOpenChange={setHardDeleteOpen}
         title="Delete this list permanently?"
-        description="This permanently removes the list and cannot be undone."
+        description="This permanently removes the list, its memberships, and list-scoped votes and submissions. Entities are not deleted and can be added to other lists."
         confirmText="Delete permanently"
         onConfirm={() => {
           const id = hardDeleteTargetId ?? listId;

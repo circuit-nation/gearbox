@@ -3,6 +3,7 @@ import { tnApi } from "@/lib/tier-nation/api";
 import type {
   AdminEntitiesBody,
   EntityAdminResponse,
+  LinkEntitiesToListBody,
   MessageResponse,
   PublicListDetail,
   PublicListsResponse,
@@ -39,6 +40,8 @@ export const tnKeys = {
   },
   admin: {
     all: () => [...tnKeys.all, "admin"] as const,
+    entities: (page: number, limit: number, search?: string) =>
+      [...tnKeys.admin.all(), "entities", page, limit, search ?? ""] as const,
   },
 };
 
@@ -59,10 +62,18 @@ export function useTierNationListDetail(id: string) {
   });
 }
 
+/** @deprecated Prefer PublicTierListEntity from useAdminEntitiesList */
 export type CatalogEntityRow = PublicTierListEntity & {
   listId: string;
   listName: string;
 };
+
+export function useAdminEntitiesList(page = 1, limit = 100, search?: string) {
+  return useQuery({
+    queryKey: tnKeys.admin.entities(page, limit, search),
+    queryFn: () => tnApi.admin.entities.list(page, limit, search),
+  });
+}
 
 export function useTierNationCatalogEntityRows(
   lists: PublicTierListSummary[] | undefined,
@@ -125,6 +136,19 @@ export function useAddEntitiesToList(
   const mutation = useMutation({
     mutationFn: (payload: { listId: string; body: AdminEntitiesBody }) =>
       tnApi.admin.lists.addEntities(payload.listId, payload.body),
+    onSuccess: (data, variables) => options?.onSuccess?.(data, variables),
+    onError: options?.onError,
+  });
+
+  return { mutate: mutation.mutateAsync, isPending: mutation.isPending };
+}
+
+export function useLinkEntitiesToList(
+  options?: MutationOptions<MessageResponse, { listId: string; body: LinkEntitiesToListBody }>
+) {
+  const mutation = useMutation({
+    mutationFn: (payload: { listId: string; body: LinkEntitiesToListBody }) =>
+      tnApi.admin.lists.linkEntities(payload.listId, payload.body),
     onSuccess: (data, variables) => options?.onSuccess?.(data, variables),
     onError: options?.onError,
   });

@@ -15,7 +15,10 @@ export function toTierNationImageField(value: string | undefined | null): string
  * Persist like drivers: keep `s3://` when the UI used our upload flow; bare object keys get `s3://` prefixed.
  * External `http(s)` URLs are stored unchanged.
  */
-export function normalizeStoredImageForDb(value: string | undefined | null): string | null {
+export function normalizeStoredImageForDb(
+  value: string | undefined | null,
+  defaultBucket: string
+): string | null {
   const trimmed = value?.trim();
   if (!trimmed) {
     return null;
@@ -26,5 +29,5 @@ export function normalizeStoredImageForDb(value: string | undefined | null): str
   if (/^https?:\/\//i.test(trimmed)) {
     return trimmed;
   }
-  return toStoredS3Value(trimmed);
+  return toStoredS3Value(defaultBucket, trimmed);
 }

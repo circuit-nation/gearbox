@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { TeamModel } from "@/lib/models/core.models";
 import { buildListResponse, toDocument, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
-import { storedValueToS3Key } from "@/lib/image-storage";
-import { deleteS3ObjectByKey } from "@/lib/s3-server";
+import { ENV } from "@/config/config";
+import { parseStoredS3Value } from "@/lib/image-storage";
+import { deleteS3Object } from "@/lib/s3-server";
 import { teamSchema } from "@/lib/circuit-nation/validators";
 import { buildSort, isValidObjectId, parsePagination } from "@/lib/circuit-nation/route-helpers";
 import type { Team } from "@/lib/circuit-nation/types";
@@ -125,9 +126,9 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "Team not found." }, { status: 404 });
     }
 
-    const logoKey = storedValueToS3Key(String(existingTeam.logo || ""));
-    if (logoKey) {
-      await deleteS3ObjectByKey(logoKey);
+    const logoLocation = parseStoredS3Value(String(existingTeam.logo || ""), ENV.CN_S3_BUCKET);
+    if (logoLocation) {
+      await deleteS3Object(logoLocation);
     }
 
     await TeamModel.findByIdAndDelete(id);

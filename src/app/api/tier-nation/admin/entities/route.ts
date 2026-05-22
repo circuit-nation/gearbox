@@ -4,6 +4,21 @@ import { tierNationAdminFetch } from "@/lib/tier-nation/upstream";
 import { persistTierNationEntitySubmissions } from "@/lib/tier-nation/persist-to-db";
 import { nextResponseFromUpstream } from "@/lib/tier-nation/proxy-response";
 
+export async function GET(request: NextRequest) {
+  const unauthorized = await requireDashboardSession(request);
+  if (unauthorized) {
+    return unauthorized;
+  }
+  try {
+    const search = request.nextUrl.search;
+    const upstream = await tierNationAdminFetch(`/admin/entities${search}`, { method: "GET" });
+    return nextResponseFromUpstream(upstream);
+  } catch (e) {
+    console.error("[tier-nation:admin:entities:list]", e);
+    return NextResponse.json({ error: "Tier Nation service is unavailable." }, { status: 503 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   const unauthorized = await requireDashboardSession(request);
   if (unauthorized) {

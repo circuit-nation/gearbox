@@ -28,6 +28,7 @@ type RequestOptions = Omit<RequestInit, "body"> & {
 type UploadUrlResponse = {
   uploadUrl?: string;
   key?: string;
+  bucket?: string;
   error?: string;
 };
 
@@ -244,9 +245,9 @@ export const cnApi = {
       }),
   },
   images: {
-    getSignedUrl: async (key: string) => {
+    getSignedUrl: async (value: string) => {
       const payload = await request<SignedImageUrlResponse>(
-        withQuery("/api/get-image-url", { key })
+        withQuery("/api/get-image-url", { value })
       );
       if (!payload.url) {
         throw new Error(payload.error ?? "Failed to resolve image URL.");
@@ -260,10 +261,10 @@ export const cnApi = {
       name: string;
     }) => {
       const payload = await request<UploadUrlResponse>(withQuery("/api/upload-url", params));
-      if (!payload.uploadUrl || !payload.key) {
+      if (!payload.uploadUrl || !payload.key || !payload.bucket) {
         throw new Error(payload.error ?? "Failed to get upload URL.");
       }
-      return payload as { uploadUrl: string; key: string };
+      return payload as { uploadUrl: string; key: string; bucket: string };
     },
     uploadToSignedUrl,
   },
