@@ -127,6 +127,24 @@ function EventLinksFields({
         />
       </div>
       <div>
+        <Label htmlFor={`${idPrefix}-watch-url`}>Watch URL</Label>
+        <Input
+          id={`${idPrefix}-watch-url`}
+          value={linksForm.watch_url || ""}
+          onChange={(e) => setLinksForm((prev) => ({ ...prev, watch_url: e.target.value }))}
+          placeholder="https://..."
+        />
+      </div>
+      <div>
+        <Label htmlFor={`${idPrefix}-watch-label`}>Watch Label</Label>
+        <Input
+          id={`${idPrefix}-watch-label`}
+          value={linksForm.watch_label || ""}
+          onChange={(e) => setLinksForm((prev) => ({ ...prev, watch_label: e.target.value }))}
+          placeholder="Watch live"
+        />
+      </div>
+      <div>
         <Label htmlFor={`${idPrefix}-discord`}>Discord</Label>
         <Input
           id={`${idPrefix}-discord`}

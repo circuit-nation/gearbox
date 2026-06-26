@@ -21,6 +21,8 @@ function hasLinkValues(links: EventLinksForm) {
   return Boolean(
     links.instagram?.trim() ||
     links.youtube?.trim() ||
+    links.watch_url?.trim() ||
+    links.watch_label?.trim() ||
     links.discord?.trim() ||
     links.x?.trim() ||
     links.sources?.some((source) => source.trim())
@@ -35,6 +37,8 @@ function buildLinksPayload(links: EventLinksForm): EventLinksForm | undefined {
   return {
     instagram: links.instagram?.trim() || undefined,
     youtube: links.youtube?.trim() || undefined,
+    watch_url: links.watch_url?.trim() || undefined,
+    watch_label: links.watch_label?.trim() || undefined,
     discord: links.discord?.trim() || undefined,
     x: links.x?.trim() || undefined,
     sources: links.sources?.map((source) => source.trim()).filter(Boolean),
@@ -49,6 +53,8 @@ function linksFromEvent(event?: Event | null): EventLinksForm {
   return {
     instagram: event.links.instagram,
     youtube: event.links.youtube,
+    watch_url: event.links.watch_url,
+    watch_label: event.links.watch_label,
     discord: event.links.discord,
     x: event.links.x,
     sources: event.links.sources,

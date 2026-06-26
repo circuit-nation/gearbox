@@ -4,6 +4,8 @@ const EventLinksSchema = new Schema(
   {
     instagram: String,
     youtube: String,
+    watch_url: String,
+    watch_label: String,
     discord: String,
     x: String,
     sources: [String],

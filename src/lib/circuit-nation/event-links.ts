@@ -7,6 +7,8 @@ import { eventLinksSchema } from "@/lib/circuit-nation/validators";
 type EventLinksInput = {
   instagram?: string;
   youtube?: string;
+  watch_url?: string;
+  watch_label?: string;
   discord?: string;
   x?: string;
   sources?: string[];
@@ -20,6 +22,8 @@ function hasLinkValues(links?: EventLinksInput | null) {
   return Boolean(
     links.instagram?.trim() ||
     links.youtube?.trim() ||
+    links.watch_url?.trim() ||
+    links.watch_label?.trim() ||
     links.discord?.trim() ||
     links.x?.trim() ||
     links.sources?.some((source) => source.trim())
