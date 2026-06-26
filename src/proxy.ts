@@ -22,16 +22,20 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const EXACT_PUBLIC_CLIENT_API_PATHS = ["/api/articles"];
   const PUBLIC_CLIENT_API_PREFIXES = [
     "/api/youtube/videos",
     "/youtube/videos",
-    "/api/articles",
     "/api/events/upcoming",
     "/api/events/locations",
     "/api/social-wall",
+    "/api/internal/articles/sync",
   ];
 
-  if (PUBLIC_CLIENT_API_PREFIXES.some((p) => pathname === p || pathname.startsWith(p + "/"))) {
+  if (
+    EXACT_PUBLIC_CLIENT_API_PATHS.includes(pathname) ||
+    PUBLIC_CLIENT_API_PREFIXES.some((p) => pathname === p || pathname.startsWith(p + "/"))
+  ) {
     return NextResponse.next();
   }
 
