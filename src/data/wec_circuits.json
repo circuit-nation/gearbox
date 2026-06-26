@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Autodromo Enzo e Dino Ferrari",
+    "location_str": "Autodromo Enzo e Dino Ferrari, Imola, Italy",
+    "country": "Italy",
+    "country_code": "IT",
+    "latitude": 44.3419,
+    "longitude": 11.7133
+  },
+  {
+    "name": "Circuit de la Sarthe",
+    "location_str": "Circuit de la Sarthe, Le Mans, France",
+    "country": "France",
+    "country_code": "FR",
+    "latitude": 47.9563,
+    "longitude": 0.2106
+  },
+  {
+    "name": "Fuji Speedway",
+    "location_str": "Fuji Speedway, Oyama, Japan",
+    "country": "Japan",
+    "country_code": "JP",
+    "latitude": 35.3717,
+    "longitude": 138.9278
+  },
+  {
+    "name": "Circuit de Spa-Francorchamps",
+    "location_str": "Circuit de Spa-Francorchamps, Stavelot, Belgium",
+    "country": "Belgium",
+    "country_code": "BE",
+    "latitude": 50.4372,
+    "longitude": 5.9714
+  },
+  {
+    "name": "Autódromo José Carlos Pace",
+    "location_str": "Autódromo José Carlos Pace, São Paulo, Brazil",
+    "country": "Brazil",
+    "country_code": "BR",
+    "latitude": -23.7036,
+    "longitude": -46.6997
+  },
+  {
+    "name": "Circuit of the Americas",
+    "location_str": "Circuit of the Americas, Austin, TX, USA",
+    "country": "United States",
+    "country_code": "US",
+    "latitude": 30.1328,
+    "longitude": -97.6411
+  },
+  {
+    "name": "Lusail International Circuit",
+    "location_str": "Lusail International Circuit, Lusail, Qatar",
+    "country": "Qatar",
+    "country_code": "QA",
+    "latitude": 25.49,
+    "longitude": 51.4542
+  },
+  {
+    "name": "Bahrain International Circuit",
+    "location_str": "Bahrain International Circuit, Sakhir, Bahrain",
+    "country": "Bahrain",
+    "country_code": "BH",
+    "latitude": 26.0325,
+    "longitude": 50.5106
+  }
+]

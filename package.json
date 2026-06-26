@@ -14,6 +14,7 @@
     "seed:reset": "tsx scripts/seed-circuit-nation.ts --reset",
     "seed:social-wall": "tsx scripts/seed-social-wall-slots.ts",
     "seed:events": "tsx scripts/seed-events.ts",
+    "seed:wec-circuits": "tsx scripts/seed-wec-circuits.ts",
     "upload:driver-images": "tsx scripts/upload-driver-images.ts",
     "test": "tsx --test src/lib/**/*.test.ts",
     "test:watch": "tsx --test --watch src/lib/**/*.test.ts"
