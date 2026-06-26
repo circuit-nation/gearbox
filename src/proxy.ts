@@ -22,6 +22,19 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const PUBLIC_CLIENT_API_PREFIXES = [
+    "/api/youtube/videos",
+    "/youtube/videos",
+    "/api/articles",
+    "/api/events/upcoming",
+    "/api/events/locations",
+    "/api/social-wall",
+  ];
+
+  if (PUBLIC_CLIENT_API_PREFIXES.some((p) => pathname === p || pathname.startsWith(p + "/"))) {
+    return NextResponse.next();
+  }
+
   const token = request.cookies.get(ADMIN_SESSION_COOKIE)?.value;
   const session = await verifyAdminSessionToken(token);
 
