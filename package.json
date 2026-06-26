@@ -12,7 +12,9 @@
     "format:check": "prettier --check .",
     "seed": "tsx scripts/seed-circuit-nation.ts",
     "seed:reset": "tsx scripts/seed-circuit-nation.ts --reset",
-    "upload:driver-images": "tsx scripts/upload-driver-images.ts"
+    "upload:driver-images": "tsx scripts/upload-driver-images.ts",
+    "test": "tsx --test src/lib/youtube/**/*.test.ts",
+    "test:watch": "tsx --test --watch src/lib/youtube/**/*.test.ts"
   },
   "packageManager": "pnpm@10.17.1",
   "dependencies": {
@@ -48,6 +50,7 @@
     "react-day-picker": "^9.13.0",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.1",
+    "rss-parser": "^3.13.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.3.5"
