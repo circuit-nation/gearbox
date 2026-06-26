@@ -12,6 +12,7 @@
     "format:check": "prettier --check .",
     "seed": "tsx scripts/seed-circuit-nation.ts",
     "seed:reset": "tsx scripts/seed-circuit-nation.ts --reset",
+    "seed:social-wall": "tsx scripts/seed-social-wall-slots.ts",
     "upload:driver-images": "tsx scripts/upload-driver-images.ts",
     "test": "tsx --test src/lib/youtube/**/*.test.ts",
     "test:watch": "tsx --test --watch src/lib/youtube/**/*.test.ts"
