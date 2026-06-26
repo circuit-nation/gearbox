@@ -68,14 +68,8 @@ export function resolveSportId(
   return sportId;
 }
 
-const BUILD_CIRCUIT_ALIASES: Record<string, string> = {
-  "Jeddah Corniche Circuit": "Jeddah Circuit",
-  "Madrid Street Circuit (IFEMA)": "Madring Street Circuit",
-};
-
 function resolveCircuitLookupName(sport_type: SportsType, circuit_name: string): string {
-  const trimmed = circuit_name.trim();
-  const aliased = BUILD_CIRCUIT_ALIASES[trimmed] ?? resolveCircuitName(trimmed);
+  const aliased = resolveCircuitName(circuit_name.trim());
 
   if (sport_type === "motogp" && aliased === "Lusail International Circuit") {
     return "Losail International Circuit";
