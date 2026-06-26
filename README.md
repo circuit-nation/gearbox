@@ -10,6 +10,15 @@ Copy `.env.example` to `.env.local` for local development. Production values are
 | `CRON_SECRET` | Bearer token for `POST /api/internal/articles/sync`; must match the secret used by the Netlify scheduled function |
 | `SUBSTACK_RSS_URL` | RSS feed URL for article sync (defaults to `https://circuitnation.substack.com/feed` when unset) |
 
+## Events seed pipeline
+
+1. `pnpm seed:wec-circuits` — WEC circuits (requires endurance sport in DB)
+2. `pnpm build:events` — generates `src/data/events.json` from source files
+3. `pnpm seed:events` — loads events into MongoDB
+
+Source files: `f1_events.json`, `motogp_events.json`, `wec_events.json`.
+Internal refs API: `GET /api/internal/seed-refs` (Bearer CRON_SECRET).
+
 ## Scheduled RSS sync
 
 Articles are synced from Substack on a Netlify cron schedule (`0 */12 * * *`, every 12 hours UTC). The scheduled function at `netlify/functions/scheduled-rss-sync.ts` calls `POST /api/internal/articles/sync` on the deployed site URL using `CRON_SECRET`. Scheduled functions run only on published production deploys.
