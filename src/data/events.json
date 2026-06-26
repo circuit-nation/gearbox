@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "title": "Canadian GP",
+      "round": 7,
+      "type": "race",
+      "sport_id": "REPLACE_WITH_SPORT_OBJECT_ID",
+      "circuit_id": "REPLACE_WITH_CIRCUIT_OBJECT_ID",
+      "event_start_at": "2026-06-12T00:00:00.000Z",
+      "event_end_at": "2026-06-14T23:59:59.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV",
+        "youtube": "https://www.youtube.com/watch?v=example"
+      }
+    }
+  ]
+}
