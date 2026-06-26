@@ -1,0 +1,122 @@
+[
+  {
+    "id": "wec-2026-rd01-imola",
+    "title": "6 Hours of Imola",
+    "round": 1,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Autodromo Enzo e Dino Ferrari",
+    "event_start_at_local": "2026-04-17T10:15:00",
+    "event_end_at_local": "2026-04-19T22:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd02-spa",
+    "title": "6 Hours of Spa-Francorchamps",
+    "round": 2,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Circuit de Spa-Francorchamps",
+    "event_start_at_local": "2026-05-07T11:00:00",
+    "event_end_at_local": "2026-05-09T22:00:00",
+    "timezone": "Europe/Brussels",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd03-le-mans",
+    "title": "24 Hours of Le Mans",
+    "round": 3,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Circuit de la Sarthe",
+    "event_start_at_local": "2026-06-10T14:00:00",
+    "event_end_at_local": "2026-06-14T18:00:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd04-sao-paulo",
+    "title": "6 Hours of São Paulo",
+    "round": 4,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-07-10T09:00:00",
+    "event_end_at_local": "2026-07-12T20:00:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd05-cota",
+    "title": "Lone Star Le Mans",
+    "round": 5,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-09-04T09:30:00",
+    "event_end_at_local": "2026-09-06T20:00:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd06-fuji",
+    "title": "6 Hours of Fuji",
+    "round": 6,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Fuji Speedway",
+    "event_start_at_local": "2026-09-25T08:15:00",
+    "event_end_at_local": "2026-09-27T20:00:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd07-qatar",
+    "title": "Qatar 1812 km",
+    "round": 7,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Lusail International Circuit",
+    "event_start_at_local": "2026-10-22T11:30:00",
+    "event_end_at_local": "2026-10-25T00:00:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  },
+  {
+    "id": "wec-2026-rd08-bahrain",
+    "title": "8 Hours of Bahrain",
+    "round": 8,
+    "type": "race",
+    "sport_type": "endurance",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-11-05T11:00:00",
+    "event_end_at_local": "2026-11-07T23:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://www.fiawec.com/en/live",
+      "watch_label": "Watch on WEC TV"
+    }
+  }
+]
