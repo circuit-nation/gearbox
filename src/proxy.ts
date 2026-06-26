@@ -30,6 +30,7 @@ export async function proxy(request: NextRequest) {
     "/api/events/locations",
     "/api/social-wall",
     "/api/internal/articles/sync",
+    "/api/internal/seed-refs",
   ];
 
   if (
