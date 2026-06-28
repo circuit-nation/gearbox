@@ -10,6 +10,7 @@ import {
   teamSchema,
 } from "@/lib/circuit-nation/validators";
 import type { SportsType } from "@/lib/circuit-nation/types";
+import { MOTOGP_TEAM_TAG_TO_LEGACY_ID } from "@/lib/circuit-nation/motogp-team-map";
 
 // config({ path: path.resolve(process.cwd(), ".env") });
 // config({ path: path.resolve(process.cwd(), ".env.local") });
@@ -25,6 +26,7 @@ const LEGACY_SPORT_TYPE: Record<string, SportsType> = {
 
 /** circuits.json: indices 0–22 are MotoGP, 23+ are Formula 1 */
 const MOTOGP_CIRCUIT_MAX_INDEX = 22;
+const LEGACY_MOTOGP_SPORT = "jd7f4fekhc8chxr1mt4vvjex5h812qea";
 
 type RawSport = {
   name: string;
@@ -213,7 +215,12 @@ async function main() {
     }
 
     const sportTeams = teamsRaw.filter((team) => team.sport === raw.sport);
-    const teamLegacyId = raw.tags?.[0] ? findTeamLegacyId(raw.tags[0], sportTeams) : null;
+    const teamTag = raw.tags?.[0];
+    const teamLegacyId = teamTag
+      ? raw.sport === LEGACY_MOTOGP_SPORT
+        ? (MOTOGP_TEAM_TAG_TO_LEGACY_ID[teamTag] ?? null)
+        : findTeamLegacyId(teamTag, sportTeams)
+      : null;
     const team_id = teamLegacyId ? teamIdByLegacy.get(teamLegacyId) : null;
 
     const image = driverImageByKey.get(normalizeKey(raw.name)) ?? raw.image;

@@ -6,6 +6,7 @@ import { ENV } from "@/config/config";
 import { parseStoredS3Value } from "@/lib/image-storage";
 import { deleteS3Object } from "@/lib/s3-server";
 import { teamSchema } from "@/lib/circuit-nation/validators";
+import { validateTeamSportReference } from "@/lib/circuit-nation/reference-validation";
 import { buildSort, isValidObjectId, parsePagination } from "@/lib/circuit-nation/route-helpers";
 import type { Team } from "@/lib/circuit-nation/types";
 
@@ -70,6 +71,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid team payload." }, { status: 400 });
     }
 
+    const referenceCheck = await validateTeamSportReference(parsed.data.sport_id);
+    if (!referenceCheck.ok) {
+      return NextResponse.json({ error: referenceCheck.error }, { status: 400 });
+    }
+
     const document = await TeamModel.create(parsed.data);
     return NextResponse.json(
       { data: toDocument<Team>(document.toObject() as DocWithId) },
@@ -96,8 +102,19 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "Invalid team payload." }, { status: 400 });
     }
 
+    const existingTeam = await TeamModel.findById(id).lean();
+    if (!existingTeam) {
+      return NextResponse.json({ error: "Team not found." }, { status: 404 });
+    }
+
+    const sport_id = parsed.data.sport_id ?? existingTeam.sport_id.toString();
+    const referenceCheck = await validateTeamSportReference(sport_id);
+    if (!referenceCheck.ok) {
+      return NextResponse.json({ error: referenceCheck.error }, { status: 400 });
+    }
+
     const document = await TeamModel.findByIdAndUpdate(id, parsed.data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     }).lean();
 

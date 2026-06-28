@@ -45,7 +45,7 @@ export async function syncEventLinks(
 
   if (linksId && Types.ObjectId.isValid(linksId)) {
     const updated = await EventLinksModel.findByIdAndUpdate(linksId, parsed.data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     }).lean();
 

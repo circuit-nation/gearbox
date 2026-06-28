@@ -68,7 +68,7 @@ export async function PUT(
     const updated = await SocialWallSlotModel.findOneAndUpdate(
       { slotId },
       { $set: update },
-      { new: true, upsert: true, setDefaultsOnInsert: true }
+      { returnDocument: "after", upsert: true, setDefaultsOnInsert: true }
     ).lean();
 
     return NextResponse.json({

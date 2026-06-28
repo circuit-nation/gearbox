@@ -17,6 +17,7 @@
     "seed:wec-circuits": "tsx scripts/seed-wec-circuits.ts",
     "build:events": "tsx --env-file=.env.local --env-file=.env.production scripts/build-events-json.ts",
     "upload:driver-images": "tsx scripts/upload-driver-images.ts",
+    "repair:duplicate-sports": "tsx scripts/repair-duplicate-sports.ts",
     "test": "tsx --test src/lib/**/*.test.ts",
     "test:watch": "tsx --test --watch src/lib/**/*.test.ts"
   },

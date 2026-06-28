@@ -23,7 +23,7 @@ export function createArticlesColumns({
       header: createSortableHeader("Title"),
       cell: ({ row }) => (
         <div className="max-w-md">
-          <div className="font-medium">{row.original.title}</div>
+          <div className="font-medium line-clamp-1">{row.original.title}</div>
           <a
             href={row.original.url}
             target="_blank"

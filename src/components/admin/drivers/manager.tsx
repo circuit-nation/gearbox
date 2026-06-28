@@ -178,6 +178,7 @@ export function DriversManager() {
             }}
             onFilterSportChange={(value) => {
               setFilterSport(value);
+              setFilterTeam("");
               resetPage();
             }}
             onFilterTeamChange={(value) => {

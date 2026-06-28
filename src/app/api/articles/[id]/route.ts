@@ -41,7 +41,7 @@ export async function PATCH(
     const updated = await ArticleModel.findByIdAndUpdate(
       id,
       { $set: { status: parsed.data.status } },
-      { new: true }
+      { returnDocument: "after" }
     ).lean();
 
     if (!updated) {

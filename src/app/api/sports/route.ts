@@ -99,7 +99,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const document = await SportModel.findByIdAndUpdate(id, parsed.data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     }).lean();
 

@@ -6,6 +6,7 @@ import { ENV } from "@/config/config";
 import { parseStoredS3Value } from "@/lib/image-storage";
 import { deleteS3Object } from "@/lib/s3-server";
 import { driverSchema } from "@/lib/circuit-nation/validators";
+import { validateDriverReferences } from "@/lib/circuit-nation/reference-validation";
 import { buildSort, isValidObjectId, parsePagination } from "@/lib/circuit-nation/route-helpers";
 import type { Driver } from "@/lib/circuit-nation/types";
 
@@ -84,6 +85,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid driver payload." }, { status: 400 });
     }
 
+    const referenceCheck = await validateDriverReferences(
+      parsed.data.sport_id,
+      parsed.data.team_id
+    );
+    if (!referenceCheck.ok) {
+      return NextResponse.json({ error: referenceCheck.error }, { status: 400 });
+    }
+
     const document = await DriverModel.create(parsed.data);
     return NextResponse.json(
       { data: toDocument<Driver>(document.toObject() as DocWithId) },
@@ -110,8 +119,24 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "Invalid driver payload." }, { status: 400 });
     }
 
+    const existingDriver = await DriverModel.findById(id).lean();
+    if (!existingDriver) {
+      return NextResponse.json({ error: "Driver not found." }, { status: 404 });
+    }
+
+    const sport_id = parsed.data.sport_id ?? existingDriver.sport_id.toString();
+    const team_id =
+      parsed.data.team_id !== undefined
+        ? parsed.data.team_id
+        : existingDriver.team_id?.toString() ?? null;
+
+    const referenceCheck = await validateDriverReferences(sport_id, team_id);
+    if (!referenceCheck.ok) {
+      return NextResponse.json({ error: referenceCheck.error }, { status: 400 });
+    }
+
     const document = await DriverModel.findByIdAndUpdate(id, parsed.data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     }).lean();
 

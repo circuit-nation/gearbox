@@ -131,7 +131,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const document = await TeamLeaderboardModel.findByIdAndUpdate(id, parsed.data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     })
       .populate(populateFields)
