@@ -5,6 +5,7 @@ import { verifyAdminSessionToken } from "@/lib/auth/session";
 import { connectToDatabase } from "@/lib/mongodb";
 import { ArticleModel } from "@/lib/models/article.models";
 import { buildListResponse, toDocuments, type DocWithId } from "@/lib/mongo-helpers";
+import { parseVideoLimit } from "@/lib/youtube/parse-limit";
 
 export type Article = {
   _id: string;
@@ -22,17 +23,25 @@ export async function GET(request: NextRequest) {
   const clientAuthError = verifyClientToken(request);
 
   if (!clientAuthError) {
-    const limit = Math.min(Number(request.nextUrl.searchParams.get("limit") ?? 5), 20);
-    await connectToDatabase();
+    try {
+      const limit = parseVideoLimit(request.nextUrl.searchParams.get("limit"), {
+        defaultLimit: 5,
+        maxLimit: 20,
+      });
+      await connectToDatabase();
 
-    const data = toDocuments<Article>(
-      (await ArticleModel.find({ status: "published" })
-        .sort({ publishedAt: -1 })
-        .limit(limit)
-        .lean()) as DocWithId[]
-    );
+      const data = toDocuments<Article>(
+        (await ArticleModel.find({ status: "published" })
+          .sort({ publishedAt: -1 })
+          .limit(limit)
+          .lean()) as DocWithId[]
+      );
 
-    return NextResponse.json({ data });
+      return NextResponse.json({ data });
+    } catch (error) {
+      console.error("[articles:GET:public]", error);
+      return NextResponse.json({ error: "Failed to fetch articles" }, { status: 500 });
+    }
   }
 
   const sessionToken = request.cookies.get(ADMIN_SESSION_COOKIE)?.value;
