@@ -103,6 +103,7 @@ export const driverSchema = z.object({
 });
 
 export const eventSchema = z.object({
+  seed_key: z.string().min(1).optional(),
   title: z.string().min(1),
   round: z.number().int(),
   type: eventTypeSchema,

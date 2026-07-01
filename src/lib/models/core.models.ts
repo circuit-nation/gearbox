@@ -91,6 +91,7 @@ const DriverSchema = new Schema(
 
 const EventSchema = new Schema(
   {
+    seed_key: { type: String, sparse: true, unique: true },
     title: { type: String, required: true },
     round: { type: Number, required: true },
     type: { type: String, required: true },

@@ -72,11 +72,7 @@ async function findExistingEvent(raw: RawEvent) {
     return null;
   }
 
-  return EventModel.findOne({
-    title: raw.seed_key,
-    round: raw.round,
-    sport_id: raw.sport_id,
-  }).lean();
+  return EventModel.findOne({ seed_key: raw.seed_key }).lean();
 }
 
 async function main() {
@@ -98,6 +94,7 @@ async function main() {
     await assertReferenceExists(CircuitModel, raw.circuit_id, "circuit_id", raw.title);
 
     const parsed = eventSchema.safeParse({
+      seed_key: raw.seed_key,
       title: raw.title,
       round: raw.round,
       type: raw.type,
@@ -112,7 +109,7 @@ async function main() {
       throw new Error(`Invalid event "${raw.title}": ${parsed.error.message}`);
     }
 
-    const { links, ...eventData } = parsed.data;
+    const { links, seed_key, ...eventData } = parsed.data;
     const existing = await findExistingEvent(raw);
     const linksId = await syncEventLinks(
       existing?.links_id ? String(existing.links_id) : null,
@@ -125,6 +122,7 @@ async function main() {
         {
           ...eventData,
           title: raw.title,
+          ...(seed_key ? { seed_key } : {}),
           links_id: linksId,
         },
         { runValidators: true }
@@ -136,6 +134,7 @@ async function main() {
 
     await EventModel.create({
       ...eventData,
+      ...(seed_key ? { seed_key } : {}),
       links_id: linksId,
     });
     created += 1;

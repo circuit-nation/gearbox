@@ -82,6 +82,7 @@ export interface Driver {
 
 export interface Event {
   _id: string;
+  seed_key?: string;
   title: string;
   round: number;
   type: EventType;
