@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Chang International Circuit",
+    "location_str": "Chang International Circuit, Buriram, Thailand",
+    "country": "Thailand",
+    "country_code": "TH",
+    "location": [102.0864, 14.9541]
+  },
+  {
+    "name": "Autódromo José Carlos Pace",
+    "location_str": "Autódromo José Carlos Pace, São Paulo, Brazil",
+    "country": "Brazil",
+    "country_code": "BR",
+    "location": [-46.6997, -23.7036]
+  },
+  {
+    "name": "Circuit of the Americas",
+    "location_str": "Circuit of the Americas, Austin, TX, USA",
+    "country": "United States",
+    "country_code": "US",
+    "location": [-97.6411, 30.1328]
+  },
+  {
+    "name": "Losail International Circuit",
+    "location_str": "Losail International Circuit, Lusail, Qatar",
+    "country": "Qatar",
+    "country_code": "QA",
+    "location": [51.4542, 25.49]
+  },
+  {
+    "name": "Circuito de Jerez-Ángel Nieto",
+    "location_str": "Circuito de Jerez-Ángel Nieto, Jerez de la Frontera, Spain",
+    "country": "Spain",
+    "country_code": "ES",
+    "location": [-6.0884, 36.7083]
+  },
+  {
+    "name": "Le Mans Bugatti Circuit",
+    "location_str": "Le Mans Bugatti Circuit, Le Mans, France",
+    "country": "France",
+    "country_code": "FR",
+    "location": [0.208, 47.9567]
+  },
+  {
+    "name": "Circuit de Barcelona-Catalunya",
+    "location_str": "Circuit de Barcelona-Catalunya, Montmeló, Spain",
+    "country": "Spain",
+    "country_code": "ES",
+    "location": [2.2585, 41.5697]
+  },
+  {
+    "name": "Mugello Circuit",
+    "location_str": "Mugello Circuit, Scarperia e San Piero, Italy",
+    "country": "Italy",
+    "country_code": "IT",
+    "location": [12.6711, 43.9933]
+  },
+  {
+    "name": "Automotodrom Brno",
+    "location_str": "Automotodrom Brno, Brno, Czech Republic",
+    "country": "Czech Republic",
+    "country_code": "CZ",
+    "location": [17.7806, 49.6486]
+  },
+  {
+    "name": "TT Circuit Assen",
+    "location_str": "TT Circuit Assen, Assen, Netherlands",
+    "country": "Netherlands",
+    "country_code": "NL",
+    "location": [6.5153, 52.9561]
+  },
+  {
+    "name": "Sachsenring",
+    "location_str": "Sachsenring, Hohenstein-Ernstthal, Germany",
+    "country": "Germany",
+    "country_code": "DE",
+    "location": [12.1917, 50.7933]
+  },
+  {
+    "name": "Silverstone Circuit",
+    "location_str": "Silverstone Circuit, Silverstone, United Kingdom",
+    "country": "Great Britain",
+    "country_code": "GB",
+    "location": [-1.0169, 52.0786]
+  },
+  {
+    "name": "MotorLand Aragón",
+    "location_str": "MotorLand Aragón, Alcañiz, Spain",
+    "country": "Spain",
+    "country_code": "ES",
+    "location": [-0.7836, 41.47]
+  },
+  {
+    "name": "Misano World Circuit Marco Simoncelli",
+    "location_str": "Misano World Circuit Marco Simoncelli, Misano Adriatico, Italy",
+    "country": "San Marino",
+    "country_code": "SM",
+    "location": [12.6889, 43.9633]
+  },
+  {
+    "name": "Red Bull Ring",
+    "location_str": "Red Bull Ring, Spielberg, Austria",
+    "country": "Austria",
+    "country_code": "AT",
+    "location": [14.7647, 47.2197]
+  },
+  {
+    "name": "Balaton Park Circuit",
+    "location_str": "Balaton Park Circuit, Balatonfőkajár, Hungary",
+    "country": "Hungary",
+    "country_code": "HU",
+    "location": [17.2489, 46.7636]
+  },
+  {
+    "name": "Twin Ring Motegi",
+    "location_str": "Twin Ring Motegi, Motegi, Japan",
+    "country": "Japan",
+    "country_code": "JP",
+    "location": [140.2181, 36.5367]
+  },
+  {
+    "name": "Pertamina Mandalika International Street Circuit",
+    "location_str": "Pertamina Mandalika International Street Circuit, Mandalika, Indonesia",
+    "country": "Indonesia",
+    "country_code": "ID",
+    "location": [116.2831, -8.7887]
+  },
+  {
+    "name": "Phillip Island Grand Prix Circuit",
+    "location_str": "Phillip Island Grand Prix Circuit, Phillip Island, Australia",
+    "country": "Australia",
+    "country_code": "AU",
+    "location": [145.1381, -38.5097]
+  },
+  {
+    "name": "Sepang International Circuit",
+    "location_str": "Sepang International Circuit, Sepang, Malaysia",
+    "country": "Malaysia",
+    "country_code": "MY",
+    "location": [101.7381, 2.7608]
+  },
+  {
+    "name": "Circuit Ricardo Tormo",
+    "location_str": "Circuit Ricardo Tormo, Cheste, Spain",
+    "country": "Spain",
+    "country_code": "ES",
+    "location": [-0.3161, 39.4889]
+  },
+  {
+    "name": "Autódromo Internacional do Algarve",
+    "location_str": "Autódromo Internacional do Algarve, Portimão, Portugal",
+    "country": "Portugal",
+    "country_code": "PT",
+    "location": [-8.626, 37.227]
+  },
+  {
+    "name": "Bahrain International Circuit",
+    "location_str": "Bahrain International Circuit, Sakhir, Bahrain",
+    "country": "Bahrain",
+    "country_code": "BH",
+    "location": [50.5106, 26.0325]
+  },
+  {
+    "name": "Albert Park Circuit",
+    "location_str": "Albert Park Circuit, Melbourne, Australia",
+    "country": "Australia",
+    "country_code": "AU",
+    "location": [144.968, -37.8497]
+  },
+  {
+    "name": "Shanghai International Circuit",
+    "location_str": "Shanghai International Circuit, Shanghai, China",
+    "country": "China",
+    "country_code": "CN",
+    "location": [121.22, 31.3389]
+  },
+  {
+    "name": "Suzuka International Racing Course",
+    "location_str": "Suzuka International Racing Course, Suzuka, Japan",
+    "country": "Japan",
+    "country_code": "JP",
+    "location": [136.5408, 34.8431]
+  },
+  {
+    "name": "Jeddah Corniche Circuit",
+    "location_str": "Jeddah Corniche Circuit, Jeddah, Saudi Arabia",
+    "country": "Saudi Arabia",
+    "country_code": "SA",
+    "location": [39.1044, 21.6319]
+  },
+  {
+    "name": "Miami International Autodrome",
+    "location_str": "Miami International Autodrome, Miami Gardens, FL, USA",
+    "country": "United States",
+    "country_code": "US",
+    "location": [-80.2389, 25.9581]
+  },
+  {
+    "name": "Circuit Gilles Villeneuve",
+    "location_str": "Circuit Gilles Villeneuve, Montreal, Canada",
+    "country": "Canada",
+    "country_code": "CA",
+    "location": [-73.5228, 45.5]
+  },
+  {
+    "name": "Circuit de Monaco",
+    "location_str": "Circuit de Monaco, Monte Carlo, Monaco",
+    "country": "Monaco",
+    "country_code": "MC",
+    "location": [7.4206, 43.7347]
+  },
+  {
+    "name": "Red Bull Ring",
+    "location_str": "Red Bull Ring, Spielberg, Austria",
+    "country": "Austria",
+    "country_code": "AT",
+    "location": [14.7647, 47.2197]
+  },
+  {
+    "name": "Silverstone Circuit",
+    "location_str": "Silverstone Circuit, Silverstone, United Kingdom",
+    "country": "Great Britain",
+    "country_code": "GB",
+    "location": [-1.0169, 52.0786]
+  },
+  {
+    "name": "Circuit de Spa-Francorchamps",
+    "location_str": "Circuit de Spa-Francorchamps, Stavelot, Belgium",
+    "country": "Belgium",
+    "country_code": "BE",
+    "location": [5.9714, 50.4372]
+  },
+  {
+    "name": "Hungaroring",
+    "location_str": "Hungaroring, Mogyoród, Hungary",
+    "country": "Hungary",
+    "country_code": "HU",
+    "location": [19.2486, 47.5789]
+  },
+  {
+    "name": "Circuit Zandvoort",
+    "location_str": "Circuit Zandvoort, Zandvoort, Netherlands",
+    "country": "Netherlands",
+    "country_code": "NL",
+    "location": [4.5409, 52.3888]
+  },
+  {
+    "name": "Autodromo Nazionale di Monza",
+    "location_str": "Autodromo Nazionale di Monza, Monza, Italy",
+    "country": "Italy",
+    "country_code": "IT",
+    "location": [9.2811, 45.6156]
+  },
+  {
+    "name": "Madrid Street Circuit (IFEMA)",
+    "location_str": "Madrid Street Circuit (IFEMA), Madrid, Spain",
+    "country": "Spain",
+    "country_code": "ES",
+    "location": [-3.6787, 40.4637]
+  },
+  {
+    "name": "Baku City Circuit",
+    "location_str": "Baku City Circuit, Baku, Azerbaijan",
+    "country": "Azerbaijan",
+    "country_code": "AZ",
+    "location": [49.8533, 40.3725]
+  },
+  {
+    "name": "Marina Bay Street Circuit",
+    "location_str": "Marina Bay Street Circuit, Singapore",
+    "country": "Singapore",
+    "country_code": "SG",
+    "location": [103.864, 1.2914]
+  },
+  {
+    "name": "Circuit of the Americas",
+    "location_str": "Circuit of the Americas, Austin, TX, USA",
+    "country": "United States",
+    "country_code": "US",
+    "location": [-97.6411, 30.1328]
+  },
+  {
+    "name": "Autódromo Hermanos Rodríguez",
+    "location_str": "Autódromo Hermanos Rodríguez, Mexico City, Mexico",
+    "country": "Mexico",
+    "country_code": "MX",
+    "location": [-99.0907, 19.4042]
+  },
+  {
+    "name": "Autódromo José Carlos Pace",
+    "location_str": "Autódromo José Carlos Pace, São Paulo, Brazil",
+    "country": "Brazil",
+    "country_code": "BR",
+    "location": [-46.6997, -23.7036]
+  },
+  {
+    "name": "Las Vegas Street Circuit",
+    "location_str": "Las Vegas Street Circuit, Las Vegas, NV, USA",
+    "country": "United States",
+    "country_code": "US",
+    "location": [-115.1728, 36.1147]
+  },
+  {
+    "name": "Lusail International Circuit",
+    "location_str": "Lusail International Circuit, Lusail, Qatar",
+    "country": "Qatar",
+    "country_code": "QA",
+    "location": [51.4542, 25.49]
+  },
+  {
+    "name": "Yas Marina Circuit",
+    "location_str": "Yas Marina Circuit, Abu Dhabi, UAE",
+    "country": "United Arab Emirates",
+    "country_code": "AE",
+    "location": [54.6031, 24.4672]
+  }
+]

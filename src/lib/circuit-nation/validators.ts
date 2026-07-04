@@ -54,6 +54,8 @@ export const leaderboardStatsSchema = z.object({
 export const eventLinksSchema = z.object({
   instagram: z.string().optional(),
   youtube: z.string().optional(),
+  watch_url: z.string().optional(),
+  watch_label: z.string().optional(),
   discord: z.string().optional(),
   x: z.string().optional(),
   sources: z.array(z.string()).optional(),
@@ -101,6 +103,7 @@ export const driverSchema = z.object({
 });
 
 export const eventSchema = z.object({
+  seed_key: z.string().min(1).optional(),
   title: z.string().min(1),
   round: z.number().int(),
   type: eventTypeSchema,

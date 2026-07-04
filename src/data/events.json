@@ -1,0 +1,3798 @@
+{
+  "events": [
+    {
+      "seed_key": "f1-2026-testing-barcelona-day1",
+      "title": "Pre-Season Testing Barcelona - Day 1",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-01-26T08:00:00.000Z",
+      "event_end_at": "2026-01-26T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-barcelona-day2",
+      "title": "Pre-Season Testing Barcelona - Day 2",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-01-27T08:00:00.000Z",
+      "event_end_at": "2026-01-27T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-barcelona-day3",
+      "title": "Pre-Season Testing Barcelona - Day 3",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-01-28T08:00:00.000Z",
+      "event_end_at": "2026-01-28T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-barcelona-day4",
+      "title": "Pre-Season Testing Barcelona - Day 4",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-01-29T08:00:00.000Z",
+      "event_end_at": "2026-01-29T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-barcelona-day5",
+      "title": "Pre-Season Testing Barcelona - Day 5",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-01-30T08:00:00.000Z",
+      "event_end_at": "2026-01-30T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-bahrain-1-day1",
+      "title": "Pre-Season Testing 1 - Day 1",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-02-11T00:00:00.000Z",
+      "event_end_at": "2026-02-12T00:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-bahrain-1-day2",
+      "title": "Pre-Season Testing 1 - Day 2",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-02-12T00:00:00.000Z",
+      "event_end_at": "2026-02-13T00:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-bahrain-1-day3",
+      "title": "Pre-Season Testing 1 - Day 3",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-02-13T00:00:00.000Z",
+      "event_end_at": "2026-02-14T00:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-bahrain-2-day1",
+      "title": "Pre-Season Testing 2 - Day 1",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-02-18T00:00:00.000Z",
+      "event_end_at": "2026-02-19T00:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-bahrain-2-day2",
+      "title": "Pre-Season Testing 2 - Day 2",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-02-19T00:00:00.000Z",
+      "event_end_at": "2026-02-20T00:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-testing-bahrain-2-day3",
+      "title": "Pre-Season Testing 2 - Day 3",
+      "round": 0,
+      "type": "test",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-02-20T00:00:00.000Z",
+      "event_end_at": "2026-02-21T00:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd01-australia-fp1",
+      "title": "Australian Grand Prix - Free Practice 1",
+      "round": 1,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff08",
+      "event_start_at": "2026-03-06T01:30:00.000Z",
+      "event_end_at": "2026-03-06T02:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd01-australia-fp2",
+      "title": "Australian Grand Prix - Free Practice 2",
+      "round": 1,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff08",
+      "event_start_at": "2026-03-06T05:00:00.000Z",
+      "event_end_at": "2026-03-06T06:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd01-australia-fp3",
+      "title": "Australian Grand Prix - Free Practice 3",
+      "round": 1,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff08",
+      "event_start_at": "2026-03-07T01:30:00.000Z",
+      "event_end_at": "2026-03-07T02:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd01-australia-qualifying",
+      "title": "Australian Grand Prix - Qualifying",
+      "round": 1,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff08",
+      "event_start_at": "2026-03-07T05:00:00.000Z",
+      "event_end_at": "2026-03-07T06:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd01-australia-race",
+      "title": "Australian Grand Prix - Race",
+      "round": 1,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff08",
+      "event_start_at": "2026-03-08T04:00:00.000Z",
+      "event_end_at": "2026-03-08T06:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd02-china-fp1",
+      "title": "Chinese Grand Prix - Free Practice 1",
+      "round": 2,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff0c",
+      "event_start_at": "2026-03-13T03:30:00.000Z",
+      "event_end_at": "2026-03-13T04:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd02-china-sprint-qualifying",
+      "title": "Chinese Grand Prix - Sprint Qualifying",
+      "round": 2,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff0c",
+      "event_start_at": "2026-03-13T07:30:00.000Z",
+      "event_end_at": "2026-03-13T08:14:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd02-china-sprint",
+      "title": "Chinese Grand Prix - Sprint",
+      "round": 2,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff0c",
+      "event_start_at": "2026-03-14T03:00:00.000Z",
+      "event_end_at": "2026-03-14T04:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd02-china-qualifying",
+      "title": "Chinese Grand Prix - Qualifying",
+      "round": 2,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff0c",
+      "event_start_at": "2026-03-14T07:00:00.000Z",
+      "event_end_at": "2026-03-14T08:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd02-china-race",
+      "title": "Chinese Grand Prix - Race",
+      "round": 2,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95db999a90966e6ff0c",
+      "event_start_at": "2026-03-15T07:00:00.000Z",
+      "event_end_at": "2026-03-15T09:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd03-japan-fp1",
+      "title": "Japanese Grand Prix - Free Practice 1",
+      "round": 3,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff10",
+      "event_start_at": "2026-03-27T02:30:00.000Z",
+      "event_end_at": "2026-03-27T03:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd03-japan-fp2",
+      "title": "Japanese Grand Prix - Free Practice 2",
+      "round": 3,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff10",
+      "event_start_at": "2026-03-27T06:00:00.000Z",
+      "event_end_at": "2026-03-27T07:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd03-japan-fp3",
+      "title": "Japanese Grand Prix - Free Practice 3",
+      "round": 3,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff10",
+      "event_start_at": "2026-03-28T02:30:00.000Z",
+      "event_end_at": "2026-03-28T03:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd03-japan-qualifying",
+      "title": "Japanese Grand Prix - Qualifying",
+      "round": 3,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff10",
+      "event_start_at": "2026-03-28T06:00:00.000Z",
+      "event_end_at": "2026-03-28T07:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd03-japan-race",
+      "title": "Japanese Grand Prix - Race",
+      "round": 3,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff10",
+      "event_start_at": "2026-03-29T05:00:00.000Z",
+      "event_end_at": "2026-03-29T07:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd04-bahrain-fp1",
+      "title": "Bahrain Grand Prix - Free Practice 1",
+      "round": 4,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-04-10T11:30:00.000Z",
+      "event_end_at": "2026-04-10T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd04-bahrain-fp2",
+      "title": "Bahrain Grand Prix - Free Practice 2",
+      "round": 4,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-04-10T15:00:00.000Z",
+      "event_end_at": "2026-04-10T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd04-bahrain-fp3",
+      "title": "Bahrain Grand Prix - Free Practice 3",
+      "round": 4,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-04-11T12:30:00.000Z",
+      "event_end_at": "2026-04-11T13:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd04-bahrain-qualifying",
+      "title": "Bahrain Grand Prix - Qualifying",
+      "round": 4,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-04-11T16:00:00.000Z",
+      "event_end_at": "2026-04-11T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd04-bahrain-race",
+      "title": "Bahrain Grand Prix - Race",
+      "round": 4,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d690a",
+      "event_start_at": "2026-04-12T15:00:00.000Z",
+      "event_end_at": "2026-04-12T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd05-saudi-arabia-fp1",
+      "title": "Saudi Arabian Grand Prix - Free Practice 1",
+      "round": 5,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff14",
+      "event_start_at": "2026-04-17T13:30:00.000Z",
+      "event_end_at": "2026-04-17T14:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd05-saudi-arabia-fp2",
+      "title": "Saudi Arabian Grand Prix - Free Practice 2",
+      "round": 5,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff14",
+      "event_start_at": "2026-04-17T17:00:00.000Z",
+      "event_end_at": "2026-04-17T18:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd05-saudi-arabia-fp3",
+      "title": "Saudi Arabian Grand Prix - Free Practice 3",
+      "round": 5,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff14",
+      "event_start_at": "2026-04-18T13:30:00.000Z",
+      "event_end_at": "2026-04-18T14:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd05-saudi-arabia-qualifying",
+      "title": "Saudi Arabian Grand Prix - Qualifying",
+      "round": 5,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff14",
+      "event_start_at": "2026-04-18T17:00:00.000Z",
+      "event_end_at": "2026-04-18T18:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd05-saudi-arabia-race",
+      "title": "Saudi Arabian Grand Prix - Race",
+      "round": 5,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff14",
+      "event_start_at": "2026-04-19T17:00:00.000Z",
+      "event_end_at": "2026-04-19T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd06-miami-fp1",
+      "title": "Miami Grand Prix - Free Practice 1",
+      "round": 6,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff18",
+      "event_start_at": "2026-05-01T16:30:00.000Z",
+      "event_end_at": "2026-05-01T17:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd06-miami-sprint-qualifying",
+      "title": "Miami Grand Prix - Sprint Qualifying",
+      "round": 6,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff18",
+      "event_start_at": "2026-05-01T20:30:00.000Z",
+      "event_end_at": "2026-05-01T21:14:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd06-miami-sprint",
+      "title": "Miami Grand Prix - Sprint",
+      "round": 6,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff18",
+      "event_start_at": "2026-05-02T16:00:00.000Z",
+      "event_end_at": "2026-05-02T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd06-miami-qualifying",
+      "title": "Miami Grand Prix - Qualifying",
+      "round": 6,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff18",
+      "event_start_at": "2026-05-02T20:00:00.000Z",
+      "event_end_at": "2026-05-02T21:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd06-miami-race",
+      "title": "Miami Grand Prix - Race",
+      "round": 6,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff18",
+      "event_start_at": "2026-05-03T20:00:00.000Z",
+      "event_end_at": "2026-05-03T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd07-canada-fp1",
+      "title": "Canadian Grand Prix - Free Practice 1",
+      "round": 7,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff1c",
+      "event_start_at": "2026-05-22T16:30:00.000Z",
+      "event_end_at": "2026-05-22T17:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd07-canada-sprint-qualifying",
+      "title": "Canadian Grand Prix - Sprint Qualifying",
+      "round": 7,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff1c",
+      "event_start_at": "2026-05-22T20:30:00.000Z",
+      "event_end_at": "2026-05-22T21:14:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd07-canada-sprint",
+      "title": "Canadian Grand Prix - Sprint",
+      "round": 7,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff1c",
+      "event_start_at": "2026-05-23T16:00:00.000Z",
+      "event_end_at": "2026-05-23T17:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd07-canada-qualifying",
+      "title": "Canadian Grand Prix - Qualifying",
+      "round": 7,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff1c",
+      "event_start_at": "2026-05-23T20:00:00.000Z",
+      "event_end_at": "2026-05-23T21:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd07-canada-race",
+      "title": "Canadian Grand Prix - Race",
+      "round": 7,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff1c",
+      "event_start_at": "2026-05-24T20:00:00.000Z",
+      "event_end_at": "2026-05-24T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd08-monaco-fp1",
+      "title": "Monaco Grand Prix - Free Practice 1",
+      "round": 8,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff20",
+      "event_start_at": "2026-06-05T11:30:00.000Z",
+      "event_end_at": "2026-06-05T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd08-monaco-fp2",
+      "title": "Monaco Grand Prix - Free Practice 2",
+      "round": 8,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff20",
+      "event_start_at": "2026-06-05T15:00:00.000Z",
+      "event_end_at": "2026-06-05T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd08-monaco-fp3",
+      "title": "Monaco Grand Prix - Free Practice 3",
+      "round": 8,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff20",
+      "event_start_at": "2026-06-06T10:30:00.000Z",
+      "event_end_at": "2026-06-06T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd08-monaco-qualifying",
+      "title": "Monaco Grand Prix - Qualifying",
+      "round": 8,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff20",
+      "event_start_at": "2026-06-06T14:00:00.000Z",
+      "event_end_at": "2026-06-06T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd08-monaco-race",
+      "title": "Monaco Grand Prix - Race",
+      "round": 8,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff20",
+      "event_start_at": "2026-06-07T13:00:00.000Z",
+      "event_end_at": "2026-06-07T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd09-barcelona-catalunya-fp1",
+      "title": "Barcelona-Catalunya Grand Prix - Free Practice 1",
+      "round": 9,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-06-12T11:30:00.000Z",
+      "event_end_at": "2026-06-12T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd09-barcelona-catalunya-fp2",
+      "title": "Barcelona-Catalunya Grand Prix - Free Practice 2",
+      "round": 9,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-06-12T15:00:00.000Z",
+      "event_end_at": "2026-06-12T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd09-barcelona-catalunya-fp3",
+      "title": "Barcelona-Catalunya Grand Prix - Free Practice 3",
+      "round": 9,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-06-13T10:30:00.000Z",
+      "event_end_at": "2026-06-13T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd09-barcelona-catalunya-qualifying",
+      "title": "Barcelona-Catalunya Grand Prix - Qualifying",
+      "round": 9,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-06-13T14:00:00.000Z",
+      "event_end_at": "2026-06-13T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd09-barcelona-catalunya-race",
+      "title": "Barcelona-Catalunya Grand Prix - Race",
+      "round": 9,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a0a08aad39a0e5e360d6906",
+      "event_start_at": "2026-06-14T13:00:00.000Z",
+      "event_end_at": "2026-06-14T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd10-austria-fp1",
+      "title": "Austrian Grand Prix - Free Practice 1",
+      "round": 10,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff24",
+      "event_start_at": "2026-06-26T11:30:00.000Z",
+      "event_end_at": "2026-06-26T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd10-austria-fp2",
+      "title": "Austrian Grand Prix - Free Practice 2",
+      "round": 10,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff24",
+      "event_start_at": "2026-06-26T15:00:00.000Z",
+      "event_end_at": "2026-06-26T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd10-austria-fp3",
+      "title": "Austrian Grand Prix - Free Practice 3",
+      "round": 10,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff24",
+      "event_start_at": "2026-06-27T10:30:00.000Z",
+      "event_end_at": "2026-06-27T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd10-austria-qualifying",
+      "title": "Austrian Grand Prix - Qualifying",
+      "round": 10,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff24",
+      "event_start_at": "2026-06-27T14:00:00.000Z",
+      "event_end_at": "2026-06-27T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd10-austria-race",
+      "title": "Austrian Grand Prix - Race",
+      "round": 10,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff24",
+      "event_start_at": "2026-06-28T13:00:00.000Z",
+      "event_end_at": "2026-06-28T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd11-great-britain-fp1",
+      "title": "British Grand Prix - Free Practice 1",
+      "round": 11,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff28",
+      "event_start_at": "2026-07-03T11:30:00.000Z",
+      "event_end_at": "2026-07-03T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd11-great-britain-sprint-qualifying",
+      "title": "British Grand Prix - Sprint Qualifying",
+      "round": 11,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff28",
+      "event_start_at": "2026-07-03T15:30:00.000Z",
+      "event_end_at": "2026-07-03T16:14:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd11-great-britain-sprint",
+      "title": "British Grand Prix - Sprint",
+      "round": 11,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff28",
+      "event_start_at": "2026-07-04T11:00:00.000Z",
+      "event_end_at": "2026-07-04T12:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd11-great-britain-qualifying",
+      "title": "British Grand Prix - Qualifying",
+      "round": 11,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff28",
+      "event_start_at": "2026-07-04T15:00:00.000Z",
+      "event_end_at": "2026-07-04T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd11-great-britain-race",
+      "title": "British Grand Prix - Race",
+      "round": 11,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff28",
+      "event_start_at": "2026-07-05T14:00:00.000Z",
+      "event_end_at": "2026-07-05T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd12-belgium-fp1",
+      "title": "Belgian Grand Prix - Free Practice 1",
+      "round": 12,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff2c",
+      "event_start_at": "2026-07-17T11:30:00.000Z",
+      "event_end_at": "2026-07-17T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd12-belgium-fp2",
+      "title": "Belgian Grand Prix - Free Practice 2",
+      "round": 12,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff2c",
+      "event_start_at": "2026-07-17T15:00:00.000Z",
+      "event_end_at": "2026-07-17T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd12-belgium-fp3",
+      "title": "Belgian Grand Prix - Free Practice 3",
+      "round": 12,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff2c",
+      "event_start_at": "2026-07-18T10:30:00.000Z",
+      "event_end_at": "2026-07-18T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd12-belgium-qualifying",
+      "title": "Belgian Grand Prix - Qualifying",
+      "round": 12,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff2c",
+      "event_start_at": "2026-07-18T14:00:00.000Z",
+      "event_end_at": "2026-07-18T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd12-belgium-race",
+      "title": "Belgian Grand Prix - Race",
+      "round": 12,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff2c",
+      "event_start_at": "2026-07-19T13:00:00.000Z",
+      "event_end_at": "2026-07-19T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd13-hungary-fp1",
+      "title": "Hungarian Grand Prix - Free Practice 1",
+      "round": 13,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff30",
+      "event_start_at": "2026-07-24T11:30:00.000Z",
+      "event_end_at": "2026-07-24T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd13-hungary-fp2",
+      "title": "Hungarian Grand Prix - Free Practice 2",
+      "round": 13,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff30",
+      "event_start_at": "2026-07-24T15:00:00.000Z",
+      "event_end_at": "2026-07-24T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd13-hungary-fp3",
+      "title": "Hungarian Grand Prix - Free Practice 3",
+      "round": 13,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff30",
+      "event_start_at": "2026-07-25T10:30:00.000Z",
+      "event_end_at": "2026-07-25T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd13-hungary-qualifying",
+      "title": "Hungarian Grand Prix - Qualifying",
+      "round": 13,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff30",
+      "event_start_at": "2026-07-25T14:00:00.000Z",
+      "event_end_at": "2026-07-25T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd13-hungary-race",
+      "title": "Hungarian Grand Prix - Race",
+      "round": 13,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff30",
+      "event_start_at": "2026-07-26T13:00:00.000Z",
+      "event_end_at": "2026-07-26T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd14-netherlands-fp1",
+      "title": "Dutch Grand Prix - Free Practice 1",
+      "round": 14,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff34",
+      "event_start_at": "2026-08-21T10:30:00.000Z",
+      "event_end_at": "2026-08-21T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd14-netherlands-sprint-qualifying",
+      "title": "Dutch Grand Prix - Sprint Qualifying",
+      "round": 14,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff34",
+      "event_start_at": "2026-08-21T14:30:00.000Z",
+      "event_end_at": "2026-08-21T15:14:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd14-netherlands-sprint",
+      "title": "Dutch Grand Prix - Sprint",
+      "round": 14,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff34",
+      "event_start_at": "2026-08-22T10:00:00.000Z",
+      "event_end_at": "2026-08-22T11:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd14-netherlands-qualifying",
+      "title": "Dutch Grand Prix - Qualifying",
+      "round": 14,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff34",
+      "event_start_at": "2026-08-22T14:00:00.000Z",
+      "event_end_at": "2026-08-22T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd14-netherlands-race",
+      "title": "Dutch Grand Prix - Race",
+      "round": 14,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff34",
+      "event_start_at": "2026-08-23T13:00:00.000Z",
+      "event_end_at": "2026-08-23T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd15-italy-fp1",
+      "title": "Italian Grand Prix - Free Practice 1",
+      "round": 15,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff38",
+      "event_start_at": "2026-09-04T10:30:00.000Z",
+      "event_end_at": "2026-09-04T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd15-italy-fp2",
+      "title": "Italian Grand Prix - Free Practice 2",
+      "round": 15,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff38",
+      "event_start_at": "2026-09-04T14:00:00.000Z",
+      "event_end_at": "2026-09-04T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd15-italy-fp3",
+      "title": "Italian Grand Prix - Free Practice 3",
+      "round": 15,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff38",
+      "event_start_at": "2026-09-05T10:30:00.000Z",
+      "event_end_at": "2026-09-05T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd15-italy-qualifying",
+      "title": "Italian Grand Prix - Qualifying",
+      "round": 15,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff38",
+      "event_start_at": "2026-09-05T14:00:00.000Z",
+      "event_end_at": "2026-09-05T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd15-italy-race",
+      "title": "Italian Grand Prix - Race",
+      "round": 15,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff38",
+      "event_start_at": "2026-09-06T13:00:00.000Z",
+      "event_end_at": "2026-09-06T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd16-spain-madrid-fp1",
+      "title": "Spanish Grand Prix (Madrid) - Free Practice 1",
+      "round": 16,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff3c",
+      "event_start_at": "2026-09-11T11:30:00.000Z",
+      "event_end_at": "2026-09-11T12:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd16-spain-madrid-fp2",
+      "title": "Spanish Grand Prix (Madrid) - Free Practice 2",
+      "round": 16,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff3c",
+      "event_start_at": "2026-09-11T15:00:00.000Z",
+      "event_end_at": "2026-09-11T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd16-spain-madrid-fp3",
+      "title": "Spanish Grand Prix (Madrid) - Free Practice 3",
+      "round": 16,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff3c",
+      "event_start_at": "2026-09-12T10:30:00.000Z",
+      "event_end_at": "2026-09-12T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd16-spain-madrid-qualifying",
+      "title": "Spanish Grand Prix (Madrid) - Qualifying",
+      "round": 16,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff3c",
+      "event_start_at": "2026-09-12T14:00:00.000Z",
+      "event_end_at": "2026-09-12T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd16-spain-madrid-race",
+      "title": "Spanish Grand Prix (Madrid) - Race",
+      "round": 16,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95eb999a90966e6ff3c",
+      "event_start_at": "2026-09-13T13:00:00.000Z",
+      "event_end_at": "2026-09-13T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd17-azerbaijan-fp1",
+      "title": "Azerbaijan Grand Prix - Free Practice 1",
+      "round": 17,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff40",
+      "event_start_at": "2026-09-24T08:30:00.000Z",
+      "event_end_at": "2026-09-24T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd17-azerbaijan-fp2",
+      "title": "Azerbaijan Grand Prix - Free Practice 2",
+      "round": 17,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff40",
+      "event_start_at": "2026-09-24T12:00:00.000Z",
+      "event_end_at": "2026-09-24T13:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd17-azerbaijan-fp3",
+      "title": "Azerbaijan Grand Prix - Free Practice 3",
+      "round": 17,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff40",
+      "event_start_at": "2026-09-25T08:30:00.000Z",
+      "event_end_at": "2026-09-25T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd17-azerbaijan-qualifying",
+      "title": "Azerbaijan Grand Prix - Qualifying",
+      "round": 17,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff40",
+      "event_start_at": "2026-09-25T12:00:00.000Z",
+      "event_end_at": "2026-09-25T13:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd17-azerbaijan-race",
+      "title": "Azerbaijan Grand Prix - Race",
+      "round": 17,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff40",
+      "event_start_at": "2026-09-26T11:00:00.000Z",
+      "event_end_at": "2026-09-26T13:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd18-singapore-fp1",
+      "title": "Singapore Grand Prix - Free Practice 1",
+      "round": 18,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff44",
+      "event_start_at": "2026-10-09T08:30:00.000Z",
+      "event_end_at": "2026-10-09T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd18-singapore-sprint-qualifying",
+      "title": "Singapore Grand Prix - Sprint Qualifying",
+      "round": 18,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff44",
+      "event_start_at": "2026-10-09T12:30:00.000Z",
+      "event_end_at": "2026-10-09T13:14:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd18-singapore-sprint",
+      "title": "Singapore Grand Prix - Sprint",
+      "round": 18,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff44",
+      "event_start_at": "2026-10-10T09:00:00.000Z",
+      "event_end_at": "2026-10-10T10:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd18-singapore-qualifying",
+      "title": "Singapore Grand Prix - Qualifying",
+      "round": 18,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff44",
+      "event_start_at": "2026-10-10T13:00:00.000Z",
+      "event_end_at": "2026-10-10T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd18-singapore-race",
+      "title": "Singapore Grand Prix - Race",
+      "round": 18,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff44",
+      "event_start_at": "2026-10-11T12:00:00.000Z",
+      "event_end_at": "2026-10-11T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd19-united-states-fp1",
+      "title": "United States Grand Prix - Free Practice 1",
+      "round": 19,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff48",
+      "event_start_at": "2026-10-23T17:30:00.000Z",
+      "event_end_at": "2026-10-23T18:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd19-united-states-fp2",
+      "title": "United States Grand Prix - Free Practice 2",
+      "round": 19,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff48",
+      "event_start_at": "2026-10-23T21:00:00.000Z",
+      "event_end_at": "2026-10-23T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd19-united-states-fp3",
+      "title": "United States Grand Prix - Free Practice 3",
+      "round": 19,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff48",
+      "event_start_at": "2026-10-24T17:30:00.000Z",
+      "event_end_at": "2026-10-24T18:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd19-united-states-qualifying",
+      "title": "United States Grand Prix - Qualifying",
+      "round": 19,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff48",
+      "event_start_at": "2026-10-24T21:00:00.000Z",
+      "event_end_at": "2026-10-24T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd19-united-states-race",
+      "title": "United States Grand Prix - Race",
+      "round": 19,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff48",
+      "event_start_at": "2026-10-25T20:00:00.000Z",
+      "event_end_at": "2026-10-25T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd20-mexico-fp1",
+      "title": "Mexico City Grand Prix - Free Practice 1",
+      "round": 20,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff4c",
+      "event_start_at": "2026-10-30T18:30:00.000Z",
+      "event_end_at": "2026-10-30T19:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd20-mexico-fp2",
+      "title": "Mexico City Grand Prix - Free Practice 2",
+      "round": 20,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff4c",
+      "event_start_at": "2026-10-30T22:00:00.000Z",
+      "event_end_at": "2026-10-30T23:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd20-mexico-fp3",
+      "title": "Mexico City Grand Prix - Free Practice 3",
+      "round": 20,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff4c",
+      "event_start_at": "2026-10-31T17:30:00.000Z",
+      "event_end_at": "2026-10-31T18:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd20-mexico-qualifying",
+      "title": "Mexico City Grand Prix - Qualifying",
+      "round": 20,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff4c",
+      "event_start_at": "2026-10-31T21:00:00.000Z",
+      "event_end_at": "2026-10-31T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd20-mexico-race",
+      "title": "Mexico City Grand Prix - Race",
+      "round": 20,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff4c",
+      "event_start_at": "2026-11-01T20:00:00.000Z",
+      "event_end_at": "2026-11-01T22:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd21-brazil-fp1",
+      "title": "São Paulo Grand Prix - Free Practice 1",
+      "round": 21,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff50",
+      "event_start_at": "2026-11-06T15:30:00.000Z",
+      "event_end_at": "2026-11-06T16:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd21-brazil-fp2",
+      "title": "São Paulo Grand Prix - Free Practice 2",
+      "round": 21,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff50",
+      "event_start_at": "2026-11-06T19:00:00.000Z",
+      "event_end_at": "2026-11-06T20:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd21-brazil-fp3",
+      "title": "São Paulo Grand Prix - Free Practice 3",
+      "round": 21,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff50",
+      "event_start_at": "2026-11-07T14:30:00.000Z",
+      "event_end_at": "2026-11-07T15:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd21-brazil-qualifying",
+      "title": "São Paulo Grand Prix - Qualifying",
+      "round": 21,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff50",
+      "event_start_at": "2026-11-07T18:00:00.000Z",
+      "event_end_at": "2026-11-07T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd21-brazil-race",
+      "title": "São Paulo Grand Prix - Race",
+      "round": 21,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff50",
+      "event_start_at": "2026-11-08T17:00:00.000Z",
+      "event_end_at": "2026-11-08T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd22-las-vegas-fp1",
+      "title": "Las Vegas Grand Prix - Free Practice 1",
+      "round": 22,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff54",
+      "event_start_at": "2026-11-20T00:30:00.000Z",
+      "event_end_at": "2026-11-20T01:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd22-las-vegas-fp2",
+      "title": "Las Vegas Grand Prix - Free Practice 2",
+      "round": 22,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff54",
+      "event_start_at": "2026-11-20T04:00:00.000Z",
+      "event_end_at": "2026-11-20T05:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd22-las-vegas-fp3",
+      "title": "Las Vegas Grand Prix - Free Practice 3",
+      "round": 22,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff54",
+      "event_start_at": "2026-11-21T00:30:00.000Z",
+      "event_end_at": "2026-11-21T01:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd22-las-vegas-qualifying",
+      "title": "Las Vegas Grand Prix - Qualifying",
+      "round": 22,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff54",
+      "event_start_at": "2026-11-21T04:00:00.000Z",
+      "event_end_at": "2026-11-21T05:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd22-las-vegas-race",
+      "title": "Las Vegas Grand Prix - Race",
+      "round": 22,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff54",
+      "event_start_at": "2026-11-22T04:00:00.000Z",
+      "event_end_at": "2026-11-22T06:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd23-qatar-fp1",
+      "title": "Qatar Grand Prix - Free Practice 1",
+      "round": 23,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff58",
+      "event_start_at": "2026-11-27T13:30:00.000Z",
+      "event_end_at": "2026-11-27T14:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd23-qatar-fp2",
+      "title": "Qatar Grand Prix - Free Practice 2",
+      "round": 23,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff58",
+      "event_start_at": "2026-11-27T17:00:00.000Z",
+      "event_end_at": "2026-11-27T18:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd23-qatar-fp3",
+      "title": "Qatar Grand Prix - Free Practice 3",
+      "round": 23,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff58",
+      "event_start_at": "2026-11-28T14:30:00.000Z",
+      "event_end_at": "2026-11-28T15:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd23-qatar-qualifying",
+      "title": "Qatar Grand Prix - Qualifying",
+      "round": 23,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff58",
+      "event_start_at": "2026-11-28T18:00:00.000Z",
+      "event_end_at": "2026-11-28T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd23-qatar-race",
+      "title": "Qatar Grand Prix - Race",
+      "round": 23,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff58",
+      "event_start_at": "2026-11-29T16:00:00.000Z",
+      "event_end_at": "2026-11-29T18:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd24-abu-dhabi-fp1",
+      "title": "Abu Dhabi Grand Prix - Free Practice 1",
+      "round": 24,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff5c",
+      "event_start_at": "2026-12-04T09:30:00.000Z",
+      "event_end_at": "2026-12-04T10:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd24-abu-dhabi-fp2",
+      "title": "Abu Dhabi Grand Prix - Free Practice 2",
+      "round": 24,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff5c",
+      "event_start_at": "2026-12-04T13:00:00.000Z",
+      "event_end_at": "2026-12-04T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd24-abu-dhabi-fp3",
+      "title": "Abu Dhabi Grand Prix - Free Practice 3",
+      "round": 24,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff5c",
+      "event_start_at": "2026-12-05T10:30:00.000Z",
+      "event_end_at": "2026-12-05T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd24-abu-dhabi-qualifying",
+      "title": "Abu Dhabi Grand Prix - Qualifying",
+      "round": 24,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff5c",
+      "event_start_at": "2026-12-05T14:00:00.000Z",
+      "event_end_at": "2026-12-05T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "f1-2026-rd24-abu-dhabi-race",
+      "title": "Abu Dhabi Grand Prix - Race",
+      "round": 24,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7b",
+      "circuit_id": "6a3ed95fb999a90966e6ff5c",
+      "event_start_at": "2026-12-06T13:00:00.000Z",
+      "event_end_at": "2026-12-06T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://f1tv.formula1.com",
+        "watch_label": "Watch on F1 TV"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd01-thailand-fp1",
+      "title": "Thailand GP - Free Practice 1",
+      "round": 1,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feac",
+      "event_start_at": "2026-02-27T03:45:00.000Z",
+      "event_end_at": "2026-02-27T04:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd01-thailand-fp2",
+      "title": "Thailand GP - Free Practice 2",
+      "round": 1,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feac",
+      "event_start_at": "2026-02-27T08:00:00.000Z",
+      "event_end_at": "2026-02-27T09:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd01-thailand-qualifying",
+      "title": "Thailand GP - Qualifying",
+      "round": 1,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feac",
+      "event_start_at": "2026-02-28T03:50:00.000Z",
+      "event_end_at": "2026-02-28T04:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd01-thailand-sprint",
+      "title": "Thailand GP - Sprint",
+      "round": 1,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feac",
+      "event_start_at": "2026-02-28T08:00:00.000Z",
+      "event_end_at": "2026-02-28T08:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd01-thailand-warmup",
+      "title": "Thailand GP - Warm Up",
+      "round": 1,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feac",
+      "event_start_at": "2026-03-01T03:40:00.000Z",
+      "event_end_at": "2026-03-01T03:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd01-thailand-race",
+      "title": "Thailand GP - Race",
+      "round": 1,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feac",
+      "event_start_at": "2026-03-01T08:00:00.000Z",
+      "event_end_at": "2026-03-01T09:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd02-brazil-fp1",
+      "title": "Brazil GP - Free Practice 1",
+      "round": 2,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb0",
+      "event_start_at": "2026-03-20T13:45:00.000Z",
+      "event_end_at": "2026-03-20T14:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd02-brazil-fp2",
+      "title": "Brazil GP - Free Practice 2",
+      "round": 2,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb0",
+      "event_start_at": "2026-03-20T18:00:00.000Z",
+      "event_end_at": "2026-03-20T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd02-brazil-qualifying",
+      "title": "Brazil GP - Qualifying",
+      "round": 2,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb0",
+      "event_start_at": "2026-03-21T13:50:00.000Z",
+      "event_end_at": "2026-03-21T14:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd02-brazil-sprint",
+      "title": "Brazil GP - Sprint",
+      "round": 2,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb0",
+      "event_start_at": "2026-03-21T18:00:00.000Z",
+      "event_end_at": "2026-03-21T18:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd02-brazil-warmup",
+      "title": "Brazil GP - Warm Up",
+      "round": 2,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb0",
+      "event_start_at": "2026-03-22T13:40:00.000Z",
+      "event_end_at": "2026-03-22T13:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd02-brazil-race",
+      "title": "Brazil GP - Race",
+      "round": 2,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb0",
+      "event_start_at": "2026-03-22T18:00:00.000Z",
+      "event_end_at": "2026-03-22T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd03-americas-fp1",
+      "title": "Americas GP - Free Practice 1",
+      "round": 3,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb4",
+      "event_start_at": "2026-03-27T15:45:00.000Z",
+      "event_end_at": "2026-03-27T16:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd03-americas-fp2",
+      "title": "Americas GP - Free Practice 2",
+      "round": 3,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb4",
+      "event_start_at": "2026-03-27T20:00:00.000Z",
+      "event_end_at": "2026-03-27T21:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd03-americas-qualifying",
+      "title": "Americas GP - Qualifying",
+      "round": 3,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb4",
+      "event_start_at": "2026-03-28T15:50:00.000Z",
+      "event_end_at": "2026-03-28T16:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd03-americas-sprint",
+      "title": "Americas GP - Sprint",
+      "round": 3,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb4",
+      "event_start_at": "2026-03-28T20:00:00.000Z",
+      "event_end_at": "2026-03-28T20:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd03-americas-warmup",
+      "title": "Americas GP - Warm Up",
+      "round": 3,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb4",
+      "event_start_at": "2026-03-29T15:40:00.000Z",
+      "event_end_at": "2026-03-29T15:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd03-americas-race",
+      "title": "Americas GP - Race",
+      "round": 3,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95bb999a90966e6feb4",
+      "event_start_at": "2026-03-29T20:00:00.000Z",
+      "event_end_at": "2026-03-29T21:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd04-spain-jerez-fp1",
+      "title": "Spanish GP (Jerez) - Free Practice 1",
+      "round": 4,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6febc",
+      "event_start_at": "2026-04-24T08:45:00.000Z",
+      "event_end_at": "2026-04-24T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd04-spain-jerez-fp2",
+      "title": "Spanish GP (Jerez) - Free Practice 2",
+      "round": 4,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6febc",
+      "event_start_at": "2026-04-24T13:00:00.000Z",
+      "event_end_at": "2026-04-24T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd04-spain-jerez-qualifying",
+      "title": "Spanish GP (Jerez) - Qualifying",
+      "round": 4,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6febc",
+      "event_start_at": "2026-04-25T08:50:00.000Z",
+      "event_end_at": "2026-04-25T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd04-spain-jerez-sprint",
+      "title": "Spanish GP (Jerez) - Sprint",
+      "round": 4,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6febc",
+      "event_start_at": "2026-04-25T13:00:00.000Z",
+      "event_end_at": "2026-04-25T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd04-spain-jerez-warmup",
+      "title": "Spanish GP (Jerez) - Warm Up",
+      "round": 4,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6febc",
+      "event_start_at": "2026-04-26T08:40:00.000Z",
+      "event_end_at": "2026-04-26T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd04-spain-jerez-race",
+      "title": "Spanish GP (Jerez) - Race",
+      "round": 4,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6febc",
+      "event_start_at": "2026-04-26T13:00:00.000Z",
+      "event_end_at": "2026-04-26T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd05-france-fp1",
+      "title": "French GP - Free Practice 1",
+      "round": 5,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec0",
+      "event_start_at": "2026-05-08T08:45:00.000Z",
+      "event_end_at": "2026-05-08T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd05-france-fp2",
+      "title": "French GP - Free Practice 2",
+      "round": 5,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec0",
+      "event_start_at": "2026-05-08T13:00:00.000Z",
+      "event_end_at": "2026-05-08T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd05-france-qualifying",
+      "title": "French GP - Qualifying",
+      "round": 5,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec0",
+      "event_start_at": "2026-05-09T08:50:00.000Z",
+      "event_end_at": "2026-05-09T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd05-france-sprint",
+      "title": "French GP - Sprint",
+      "round": 5,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec0",
+      "event_start_at": "2026-05-09T13:00:00.000Z",
+      "event_end_at": "2026-05-09T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd05-france-warmup",
+      "title": "French GP - Warm Up",
+      "round": 5,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec0",
+      "event_start_at": "2026-05-10T08:40:00.000Z",
+      "event_end_at": "2026-05-10T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd05-france-race",
+      "title": "French GP - Race",
+      "round": 5,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec0",
+      "event_start_at": "2026-05-10T13:00:00.000Z",
+      "event_end_at": "2026-05-10T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd06-catalonia-fp1",
+      "title": "Catalonia GP - Free Practice 1",
+      "round": 6,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec4",
+      "event_start_at": "2026-05-15T08:45:00.000Z",
+      "event_end_at": "2026-05-15T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd06-catalonia-fp2",
+      "title": "Catalonia GP - Free Practice 2",
+      "round": 6,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec4",
+      "event_start_at": "2026-05-15T13:00:00.000Z",
+      "event_end_at": "2026-05-15T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd06-catalonia-qualifying",
+      "title": "Catalonia GP - Qualifying",
+      "round": 6,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec4",
+      "event_start_at": "2026-05-16T08:50:00.000Z",
+      "event_end_at": "2026-05-16T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd06-catalonia-sprint",
+      "title": "Catalonia GP - Sprint",
+      "round": 6,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec4",
+      "event_start_at": "2026-05-16T13:00:00.000Z",
+      "event_end_at": "2026-05-16T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd06-catalonia-warmup",
+      "title": "Catalonia GP - Warm Up",
+      "round": 6,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec4",
+      "event_start_at": "2026-05-17T08:40:00.000Z",
+      "event_end_at": "2026-05-17T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd06-catalonia-race",
+      "title": "Catalonia GP - Race",
+      "round": 6,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec4",
+      "event_start_at": "2026-05-17T13:00:00.000Z",
+      "event_end_at": "2026-05-17T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd07-italy-fp1",
+      "title": "Italian GP - Free Practice 1",
+      "round": 7,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec8",
+      "event_start_at": "2026-05-29T08:45:00.000Z",
+      "event_end_at": "2026-05-29T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd07-italy-fp2",
+      "title": "Italian GP - Free Practice 2",
+      "round": 7,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec8",
+      "event_start_at": "2026-05-29T13:00:00.000Z",
+      "event_end_at": "2026-05-29T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd07-italy-qualifying",
+      "title": "Italian GP - Qualifying",
+      "round": 7,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec8",
+      "event_start_at": "2026-05-30T08:50:00.000Z",
+      "event_end_at": "2026-05-30T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd07-italy-sprint",
+      "title": "Italian GP - Sprint",
+      "round": 7,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec8",
+      "event_start_at": "2026-05-30T13:00:00.000Z",
+      "event_end_at": "2026-05-30T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd07-italy-warmup",
+      "title": "Italian GP - Warm Up",
+      "round": 7,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec8",
+      "event_start_at": "2026-05-31T08:40:00.000Z",
+      "event_end_at": "2026-05-31T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd07-italy-race",
+      "title": "Italian GP - Race",
+      "round": 7,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fec8",
+      "event_start_at": "2026-05-31T13:00:00.000Z",
+      "event_end_at": "2026-05-31T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd08-hungary-fp1",
+      "title": "Hungarian GP - Free Practice 1",
+      "round": 8,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee8",
+      "event_start_at": "2026-06-05T08:45:00.000Z",
+      "event_end_at": "2026-06-05T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd08-hungary-fp2",
+      "title": "Hungarian GP - Free Practice 2",
+      "round": 8,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee8",
+      "event_start_at": "2026-06-05T13:00:00.000Z",
+      "event_end_at": "2026-06-05T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd08-hungary-qualifying",
+      "title": "Hungarian GP - Qualifying",
+      "round": 8,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee8",
+      "event_start_at": "2026-06-06T08:50:00.000Z",
+      "event_end_at": "2026-06-06T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd08-hungary-sprint",
+      "title": "Hungarian GP - Sprint",
+      "round": 8,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee8",
+      "event_start_at": "2026-06-06T13:00:00.000Z",
+      "event_end_at": "2026-06-06T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd08-hungary-warmup",
+      "title": "Hungarian GP - Warm Up",
+      "round": 8,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee8",
+      "event_start_at": "2026-06-07T08:40:00.000Z",
+      "event_end_at": "2026-06-07T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd08-hungary-race",
+      "title": "Hungarian GP - Race",
+      "round": 8,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee8",
+      "event_start_at": "2026-06-07T13:00:00.000Z",
+      "event_end_at": "2026-06-07T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd09-czechia-fp1",
+      "title": "Czech Republic GP - Free Practice 1",
+      "round": 9,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fecc",
+      "event_start_at": "2026-06-19T08:45:00.000Z",
+      "event_end_at": "2026-06-19T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd09-czechia-fp2",
+      "title": "Czech Republic GP - Free Practice 2",
+      "round": 9,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fecc",
+      "event_start_at": "2026-06-19T13:00:00.000Z",
+      "event_end_at": "2026-06-19T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd09-czechia-qualifying",
+      "title": "Czech Republic GP - Qualifying",
+      "round": 9,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fecc",
+      "event_start_at": "2026-06-20T08:50:00.000Z",
+      "event_end_at": "2026-06-20T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd09-czechia-sprint",
+      "title": "Czech Republic GP - Sprint",
+      "round": 9,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fecc",
+      "event_start_at": "2026-06-20T13:00:00.000Z",
+      "event_end_at": "2026-06-20T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd09-czechia-warmup",
+      "title": "Czech Republic GP - Warm Up",
+      "round": 9,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fecc",
+      "event_start_at": "2026-06-21T08:40:00.000Z",
+      "event_end_at": "2026-06-21T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd09-czechia-race",
+      "title": "Czech Republic GP - Race",
+      "round": 9,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fecc",
+      "event_start_at": "2026-06-21T13:00:00.000Z",
+      "event_end_at": "2026-06-21T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd10-netherlands-fp1",
+      "title": "Dutch TT - Free Practice 1",
+      "round": 10,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed0",
+      "event_start_at": "2026-06-26T08:45:00.000Z",
+      "event_end_at": "2026-06-26T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd10-netherlands-fp2",
+      "title": "Dutch TT - Free Practice 2",
+      "round": 10,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed0",
+      "event_start_at": "2026-06-26T13:00:00.000Z",
+      "event_end_at": "2026-06-26T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd10-netherlands-qualifying",
+      "title": "Dutch TT - Qualifying",
+      "round": 10,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed0",
+      "event_start_at": "2026-06-27T08:50:00.000Z",
+      "event_end_at": "2026-06-27T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd10-netherlands-sprint",
+      "title": "Dutch TT - Sprint",
+      "round": 10,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed0",
+      "event_start_at": "2026-06-27T13:00:00.000Z",
+      "event_end_at": "2026-06-27T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd10-netherlands-warmup",
+      "title": "Dutch TT - Warm Up",
+      "round": 10,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed0",
+      "event_start_at": "2026-06-28T08:40:00.000Z",
+      "event_end_at": "2026-06-28T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd10-netherlands-race",
+      "title": "Dutch TT - Race",
+      "round": 10,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed0",
+      "event_start_at": "2026-06-28T13:00:00.000Z",
+      "event_end_at": "2026-06-28T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd11-germany-fp1",
+      "title": "German GP - Free Practice 1",
+      "round": 11,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed4",
+      "event_start_at": "2026-07-10T08:45:00.000Z",
+      "event_end_at": "2026-07-10T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd11-germany-fp2",
+      "title": "German GP - Free Practice 2",
+      "round": 11,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed4",
+      "event_start_at": "2026-07-10T13:00:00.000Z",
+      "event_end_at": "2026-07-10T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd11-germany-qualifying",
+      "title": "German GP - Qualifying",
+      "round": 11,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed4",
+      "event_start_at": "2026-07-11T08:50:00.000Z",
+      "event_end_at": "2026-07-11T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd11-germany-sprint",
+      "title": "German GP - Sprint",
+      "round": 11,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed4",
+      "event_start_at": "2026-07-11T13:00:00.000Z",
+      "event_end_at": "2026-07-11T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd11-germany-warmup",
+      "title": "German GP - Warm Up",
+      "round": 11,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed4",
+      "event_start_at": "2026-07-12T08:40:00.000Z",
+      "event_end_at": "2026-07-12T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd11-germany-race",
+      "title": "German GP - Race",
+      "round": 11,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed4",
+      "event_start_at": "2026-07-12T13:00:00.000Z",
+      "event_end_at": "2026-07-12T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd12-great-britain-fp1",
+      "title": "British GP - Free Practice 1",
+      "round": 12,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed8",
+      "event_start_at": "2026-08-07T09:45:00.000Z",
+      "event_end_at": "2026-08-07T10:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd12-great-britain-fp2",
+      "title": "British GP - Free Practice 2",
+      "round": 12,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed8",
+      "event_start_at": "2026-08-07T14:00:00.000Z",
+      "event_end_at": "2026-08-07T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd12-great-britain-qualifying",
+      "title": "British GP - Qualifying",
+      "round": 12,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed8",
+      "event_start_at": "2026-08-08T09:50:00.000Z",
+      "event_end_at": "2026-08-08T10:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd12-great-britain-sprint",
+      "title": "British GP - Sprint",
+      "round": 12,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed8",
+      "event_start_at": "2026-08-08T14:00:00.000Z",
+      "event_end_at": "2026-08-08T14:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd12-great-britain-warmup",
+      "title": "British GP - Warm Up",
+      "round": 12,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed8",
+      "event_start_at": "2026-08-09T09:40:00.000Z",
+      "event_end_at": "2026-08-09T09:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd12-great-britain-race",
+      "title": "British GP - Race",
+      "round": 12,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fed8",
+      "event_start_at": "2026-08-09T14:00:00.000Z",
+      "event_end_at": "2026-08-09T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd13-aragon-fp1",
+      "title": "Aragon GP - Free Practice 1",
+      "round": 13,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fedc",
+      "event_start_at": "2026-08-28T08:45:00.000Z",
+      "event_end_at": "2026-08-28T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd13-aragon-fp2",
+      "title": "Aragon GP - Free Practice 2",
+      "round": 13,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fedc",
+      "event_start_at": "2026-08-28T13:00:00.000Z",
+      "event_end_at": "2026-08-28T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd13-aragon-qualifying",
+      "title": "Aragon GP - Qualifying",
+      "round": 13,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fedc",
+      "event_start_at": "2026-08-29T08:50:00.000Z",
+      "event_end_at": "2026-08-29T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd13-aragon-sprint",
+      "title": "Aragon GP - Sprint",
+      "round": 13,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fedc",
+      "event_start_at": "2026-08-29T13:00:00.000Z",
+      "event_end_at": "2026-08-29T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd13-aragon-warmup",
+      "title": "Aragon GP - Warm Up",
+      "round": 13,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fedc",
+      "event_start_at": "2026-08-30T08:40:00.000Z",
+      "event_end_at": "2026-08-30T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd13-aragon-race",
+      "title": "Aragon GP - Race",
+      "round": 13,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fedc",
+      "event_start_at": "2026-08-30T13:00:00.000Z",
+      "event_end_at": "2026-08-30T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd14-san-marino-fp1",
+      "title": "San Marino GP - Free Practice 1",
+      "round": 14,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fee0",
+      "event_start_at": "2026-09-11T08:45:00.000Z",
+      "event_end_at": "2026-09-11T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd14-san-marino-fp2",
+      "title": "San Marino GP - Free Practice 2",
+      "round": 14,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fee0",
+      "event_start_at": "2026-09-11T13:00:00.000Z",
+      "event_end_at": "2026-09-11T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd14-san-marino-qualifying",
+      "title": "San Marino GP - Qualifying",
+      "round": 14,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fee0",
+      "event_start_at": "2026-09-12T08:50:00.000Z",
+      "event_end_at": "2026-09-12T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd14-san-marino-sprint",
+      "title": "San Marino GP - Sprint",
+      "round": 14,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fee0",
+      "event_start_at": "2026-09-12T13:00:00.000Z",
+      "event_end_at": "2026-09-12T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd14-san-marino-warmup",
+      "title": "San Marino GP - Warm Up",
+      "round": 14,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fee0",
+      "event_start_at": "2026-09-13T08:40:00.000Z",
+      "event_end_at": "2026-09-13T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd14-san-marino-race",
+      "title": "San Marino GP - Race",
+      "round": 14,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6fee0",
+      "event_start_at": "2026-09-13T13:00:00.000Z",
+      "event_end_at": "2026-09-13T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd15-austria-fp1",
+      "title": "Austrian GP - Free Practice 1",
+      "round": 15,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee4",
+      "event_start_at": "2026-09-18T08:45:00.000Z",
+      "event_end_at": "2026-09-18T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd15-austria-fp2",
+      "title": "Austrian GP - Free Practice 2",
+      "round": 15,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee4",
+      "event_start_at": "2026-09-18T13:00:00.000Z",
+      "event_end_at": "2026-09-18T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd15-austria-qualifying",
+      "title": "Austrian GP - Qualifying",
+      "round": 15,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee4",
+      "event_start_at": "2026-09-19T08:50:00.000Z",
+      "event_end_at": "2026-09-19T09:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd15-austria-sprint",
+      "title": "Austrian GP - Sprint",
+      "round": 15,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee4",
+      "event_start_at": "2026-09-19T13:00:00.000Z",
+      "event_end_at": "2026-09-19T13:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd15-austria-warmup",
+      "title": "Austrian GP - Warm Up",
+      "round": 15,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee4",
+      "event_start_at": "2026-09-20T08:40:00.000Z",
+      "event_end_at": "2026-09-20T08:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd15-austria-race",
+      "title": "Austrian GP - Race",
+      "round": 15,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fee4",
+      "event_start_at": "2026-09-20T13:00:00.000Z",
+      "event_end_at": "2026-09-20T14:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd16-japan-fp1",
+      "title": "Japanese GP - Free Practice 1",
+      "round": 16,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6feec",
+      "event_start_at": "2026-10-02T01:45:00.000Z",
+      "event_end_at": "2026-10-02T02:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd16-japan-fp2",
+      "title": "Japanese GP - Free Practice 2",
+      "round": 16,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6feec",
+      "event_start_at": "2026-10-02T06:00:00.000Z",
+      "event_end_at": "2026-10-02T07:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd16-japan-qualifying",
+      "title": "Japanese GP - Qualifying",
+      "round": 16,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6feec",
+      "event_start_at": "2026-10-03T01:50:00.000Z",
+      "event_end_at": "2026-10-03T02:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd16-japan-sprint",
+      "title": "Japanese GP - Sprint",
+      "round": 16,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6feec",
+      "event_start_at": "2026-10-03T06:00:00.000Z",
+      "event_end_at": "2026-10-03T06:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd16-japan-warmup",
+      "title": "Japanese GP - Warm Up",
+      "round": 16,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6feec",
+      "event_start_at": "2026-10-04T01:40:00.000Z",
+      "event_end_at": "2026-10-04T01:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd16-japan-race",
+      "title": "Japanese GP - Race",
+      "round": 16,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6feec",
+      "event_start_at": "2026-10-04T06:00:00.000Z",
+      "event_end_at": "2026-10-04T07:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd17-indonesia-fp1",
+      "title": "Indonesia GP - Free Practice 1",
+      "round": 17,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef0",
+      "event_start_at": "2026-10-09T02:45:00.000Z",
+      "event_end_at": "2026-10-09T03:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd17-indonesia-fp2",
+      "title": "Indonesia GP - Free Practice 2",
+      "round": 17,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef0",
+      "event_start_at": "2026-10-09T07:00:00.000Z",
+      "event_end_at": "2026-10-09T08:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd17-indonesia-qualifying",
+      "title": "Indonesia GP - Qualifying",
+      "round": 17,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef0",
+      "event_start_at": "2026-10-10T02:50:00.000Z",
+      "event_end_at": "2026-10-10T03:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd17-indonesia-sprint",
+      "title": "Indonesia GP - Sprint",
+      "round": 17,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef0",
+      "event_start_at": "2026-10-10T07:00:00.000Z",
+      "event_end_at": "2026-10-10T07:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd17-indonesia-warmup",
+      "title": "Indonesia GP - Warm Up",
+      "round": 17,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef0",
+      "event_start_at": "2026-10-11T02:40:00.000Z",
+      "event_end_at": "2026-10-11T02:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd17-indonesia-race",
+      "title": "Indonesia GP - Race",
+      "round": 17,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef0",
+      "event_start_at": "2026-10-11T07:00:00.000Z",
+      "event_end_at": "2026-10-11T08:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd18-australia-fp1",
+      "title": "Australian GP - Free Practice 1",
+      "round": 18,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef4",
+      "event_start_at": "2026-10-22T23:45:00.000Z",
+      "event_end_at": "2026-10-23T00:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd18-australia-fp2",
+      "title": "Australian GP - Free Practice 2",
+      "round": 18,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef4",
+      "event_start_at": "2026-10-23T04:00:00.000Z",
+      "event_end_at": "2026-10-23T05:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd18-australia-qualifying",
+      "title": "Australian GP - Qualifying",
+      "round": 18,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef4",
+      "event_start_at": "2026-10-23T23:50:00.000Z",
+      "event_end_at": "2026-10-24T00:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd18-australia-sprint",
+      "title": "Australian GP - Sprint",
+      "round": 18,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef4",
+      "event_start_at": "2026-10-24T04:00:00.000Z",
+      "event_end_at": "2026-10-24T04:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd18-australia-warmup",
+      "title": "Australian GP - Warm Up",
+      "round": 18,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef4",
+      "event_start_at": "2026-10-24T23:40:00.000Z",
+      "event_end_at": "2026-10-24T23:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd18-australia-race",
+      "title": "Australian GP - Race",
+      "round": 18,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef4",
+      "event_start_at": "2026-10-25T04:00:00.000Z",
+      "event_end_at": "2026-10-25T05:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd19-malaysia-fp1",
+      "title": "Malaysian GP - Free Practice 1",
+      "round": 19,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef8",
+      "event_start_at": "2026-10-30T02:45:00.000Z",
+      "event_end_at": "2026-10-30T03:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd19-malaysia-fp2",
+      "title": "Malaysian GP - Free Practice 2",
+      "round": 19,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef8",
+      "event_start_at": "2026-10-30T07:00:00.000Z",
+      "event_end_at": "2026-10-30T08:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd19-malaysia-qualifying",
+      "title": "Malaysian GP - Qualifying",
+      "round": 19,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef8",
+      "event_start_at": "2026-10-31T02:50:00.000Z",
+      "event_end_at": "2026-10-31T03:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd19-malaysia-sprint",
+      "title": "Malaysian GP - Sprint",
+      "round": 19,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef8",
+      "event_start_at": "2026-10-31T07:00:00.000Z",
+      "event_end_at": "2026-10-31T07:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd19-malaysia-warmup",
+      "title": "Malaysian GP - Warm Up",
+      "round": 19,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef8",
+      "event_start_at": "2026-11-01T02:40:00.000Z",
+      "event_end_at": "2026-11-01T02:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd19-malaysia-race",
+      "title": "Malaysian GP - Race",
+      "round": 19,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fef8",
+      "event_start_at": "2026-11-01T07:00:00.000Z",
+      "event_end_at": "2026-11-01T08:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd20-qatar-fp1",
+      "title": "Qatar GP - Free Practice 1",
+      "round": 20,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6feb8",
+      "event_start_at": "2026-11-06T07:45:00.000Z",
+      "event_end_at": "2026-11-06T08:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd20-qatar-fp2",
+      "title": "Qatar GP - Free Practice 2",
+      "round": 20,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6feb8",
+      "event_start_at": "2026-11-06T12:00:00.000Z",
+      "event_end_at": "2026-11-06T13:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd20-qatar-qualifying",
+      "title": "Qatar GP - Qualifying",
+      "round": 20,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6feb8",
+      "event_start_at": "2026-11-07T07:50:00.000Z",
+      "event_end_at": "2026-11-07T08:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd20-qatar-sprint",
+      "title": "Qatar GP - Sprint",
+      "round": 20,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6feb8",
+      "event_start_at": "2026-11-07T12:00:00.000Z",
+      "event_end_at": "2026-11-07T12:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd20-qatar-warmup",
+      "title": "Qatar GP - Warm Up",
+      "round": 20,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6feb8",
+      "event_start_at": "2026-11-08T13:40:00.000Z",
+      "event_end_at": "2026-11-08T13:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd20-qatar-race",
+      "title": "Qatar GP - Race",
+      "round": 20,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95cb999a90966e6feb8",
+      "event_start_at": "2026-11-08T18:00:00.000Z",
+      "event_end_at": "2026-11-08T19:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd21-portimao-fp1",
+      "title": "Portuguese GP - Free Practice 1",
+      "round": 21,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6ff00",
+      "event_start_at": "2026-11-13T10:45:00.000Z",
+      "event_end_at": "2026-11-13T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd21-portimao-fp2",
+      "title": "Portuguese GP - Free Practice 2",
+      "round": 21,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6ff00",
+      "event_start_at": "2026-11-13T15:00:00.000Z",
+      "event_end_at": "2026-11-13T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd21-portimao-qualifying",
+      "title": "Portuguese GP - Qualifying",
+      "round": 21,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6ff00",
+      "event_start_at": "2026-11-14T10:50:00.000Z",
+      "event_end_at": "2026-11-14T11:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd21-portimao-sprint",
+      "title": "Portuguese GP - Sprint",
+      "round": 21,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6ff00",
+      "event_start_at": "2026-11-14T15:00:00.000Z",
+      "event_end_at": "2026-11-14T15:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd21-portimao-warmup",
+      "title": "Portuguese GP - Warm Up",
+      "round": 21,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6ff00",
+      "event_start_at": "2026-11-15T10:40:00.000Z",
+      "event_end_at": "2026-11-15T10:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd21-portimao-race",
+      "title": "Portuguese GP - Race",
+      "round": 21,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6ff00",
+      "event_start_at": "2026-11-15T15:00:00.000Z",
+      "event_end_at": "2026-11-15T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd22-valencia-fp1",
+      "title": "Valencia GP - Free Practice 1",
+      "round": 22,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fefc",
+      "event_start_at": "2026-11-20T09:45:00.000Z",
+      "event_end_at": "2026-11-20T10:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd22-valencia-fp2",
+      "title": "Valencia GP - Free Practice 2",
+      "round": 22,
+      "type": "practice",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fefc",
+      "event_start_at": "2026-11-20T14:00:00.000Z",
+      "event_end_at": "2026-11-20T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd22-valencia-qualifying",
+      "title": "Valencia GP - Qualifying",
+      "round": 22,
+      "type": "qualifying",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fefc",
+      "event_start_at": "2026-11-21T09:50:00.000Z",
+      "event_end_at": "2026-11-21T10:30:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd22-valencia-sprint",
+      "title": "Valencia GP - Sprint",
+      "round": 22,
+      "type": "sprint",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fefc",
+      "event_start_at": "2026-11-21T14:00:00.000Z",
+      "event_end_at": "2026-11-21T14:45:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd22-valencia-warmup",
+      "title": "Valencia GP - Warm Up",
+      "round": 22,
+      "type": "warmup",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fefc",
+      "event_start_at": "2026-11-22T09:40:00.000Z",
+      "event_end_at": "2026-11-22T09:50:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "motogp-2026-rd22-valencia-race",
+      "title": "Valencia GP - Race",
+      "round": 22,
+      "type": "race",
+      "sport_id": "6a3ed959b999a90966e6fe7d",
+      "circuit_id": "6a3ed95db999a90966e6fefc",
+      "event_start_at": "2026-11-22T14:00:00.000Z",
+      "event_end_at": "2026-11-22T15:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.motogp.com/en/video",
+        "watch_label": "Watch on MotoGP"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd01-imola",
+      "title": "6 Hours of Imola",
+      "round": 1,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1638e3f691a37410e49",
+      "event_start_at": "2026-04-17T08:15:00.000Z",
+      "event_end_at": "2026-04-19T20:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd02-spa",
+      "title": "6 Hours of Spa-Francorchamps",
+      "round": 2,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1638e3f691a37410e4c",
+      "event_start_at": "2026-05-07T09:00:00.000Z",
+      "event_end_at": "2026-05-09T20:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd03-le-mans",
+      "title": "24 Hours of Le Mans",
+      "round": 3,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1638e3f691a37410e4a",
+      "event_start_at": "2026-06-10T12:00:00.000Z",
+      "event_end_at": "2026-06-14T16:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd04-sao-paulo",
+      "title": "6 Hours of São Paulo",
+      "round": 4,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1638e3f691a37410e4d",
+      "event_start_at": "2026-07-10T12:00:00.000Z",
+      "event_end_at": "2026-07-12T23:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd05-cota",
+      "title": "Lone Star Le Mans",
+      "round": 5,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1648e3f691a37410e4e",
+      "event_start_at": "2026-09-04T14:30:00.000Z",
+      "event_end_at": "2026-09-07T01:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd06-fuji",
+      "title": "6 Hours of Fuji",
+      "round": 6,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1638e3f691a37410e4b",
+      "event_start_at": "2026-09-24T23:15:00.000Z",
+      "event_end_at": "2026-09-27T11:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd07-qatar",
+      "title": "Qatar 1812 km",
+      "round": 7,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1648e3f691a37410e4f",
+      "event_start_at": "2026-10-22T08:30:00.000Z",
+      "event_end_at": "2026-10-24T21:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    },
+    {
+      "seed_key": "wec-2026-rd08-bahrain",
+      "title": "8 Hours of Bahrain",
+      "round": 8,
+      "type": "race",
+      "sport_id": "6a3ec81d304cbb3308b3c858",
+      "circuit_id": "6a3ed1648e3f691a37410e50",
+      "event_start_at": "2026-11-05T08:00:00.000Z",
+      "event_end_at": "2026-11-07T20:00:00.000Z",
+      "links": {
+        "watch_url": "https://www.fiawec.com/en/live",
+        "watch_label": "Watch on WEC TV"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1982 @@
+[
+  {
+    "id": "motogp-2026-rd01-thailand-fp1",
+    "title": "Thailand GP - Free Practice 1",
+    "round": 1,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Chang International Circuit",
+    "event_start_at_local": "2026-02-27T10:45:00",
+    "event_end_at_local": "2026-02-27T11:30:00",
+    "timezone": "Asia/Bangkok",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd01-thailand-fp2",
+    "title": "Thailand GP - Free Practice 2",
+    "round": 1,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Chang International Circuit",
+    "event_start_at_local": "2026-02-27T15:00:00",
+    "event_end_at_local": "2026-02-27T16:00:00",
+    "timezone": "Asia/Bangkok",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd01-thailand-qualifying",
+    "title": "Thailand GP - Qualifying",
+    "round": 1,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Chang International Circuit",
+    "event_start_at_local": "2026-02-28T10:50:00",
+    "event_end_at_local": "2026-02-28T11:30:00",
+    "timezone": "Asia/Bangkok",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd01-thailand-sprint",
+    "title": "Thailand GP - Sprint",
+    "round": 1,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Chang International Circuit",
+    "event_start_at_local": "2026-02-28T15:00:00",
+    "event_end_at_local": "2026-02-28T15:45:00",
+    "timezone": "Asia/Bangkok",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd01-thailand-warmup",
+    "title": "Thailand GP - Warm Up",
+    "round": 1,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Chang International Circuit",
+    "event_start_at_local": "2026-03-01T10:40:00",
+    "event_end_at_local": "2026-03-01T10:50:00",
+    "timezone": "Asia/Bangkok",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd01-thailand-race",
+    "title": "Thailand GP - Race",
+    "round": 1,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Chang International Circuit",
+    "event_start_at_local": "2026-03-01T15:00:00",
+    "event_end_at_local": "2026-03-01T16:00:00",
+    "timezone": "Asia/Bangkok",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd02-brazil-fp1",
+    "title": "Brazil GP - Free Practice 1",
+    "round": 2,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-03-20T10:45:00",
+    "event_end_at_local": "2026-03-20T11:30:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd02-brazil-fp2",
+    "title": "Brazil GP - Free Practice 2",
+    "round": 2,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-03-20T15:00:00",
+    "event_end_at_local": "2026-03-20T16:00:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd02-brazil-qualifying",
+    "title": "Brazil GP - Qualifying",
+    "round": 2,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-03-21T10:50:00",
+    "event_end_at_local": "2026-03-21T11:30:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd02-brazil-sprint",
+    "title": "Brazil GP - Sprint",
+    "round": 2,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-03-21T15:00:00",
+    "event_end_at_local": "2026-03-21T15:45:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd02-brazil-warmup",
+    "title": "Brazil GP - Warm Up",
+    "round": 2,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-03-22T10:40:00",
+    "event_end_at_local": "2026-03-22T10:50:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd02-brazil-race",
+    "title": "Brazil GP - Race",
+    "round": 2,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-03-22T15:00:00",
+    "event_end_at_local": "2026-03-22T16:00:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd03-americas-fp1",
+    "title": "Americas GP - Free Practice 1",
+    "round": 3,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-03-27T10:45:00",
+    "event_end_at_local": "2026-03-27T11:30:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd03-americas-fp2",
+    "title": "Americas GP - Free Practice 2",
+    "round": 3,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-03-27T15:00:00",
+    "event_end_at_local": "2026-03-27T16:00:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd03-americas-qualifying",
+    "title": "Americas GP - Qualifying",
+    "round": 3,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-03-28T10:50:00",
+    "event_end_at_local": "2026-03-28T11:30:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd03-americas-sprint",
+    "title": "Americas GP - Sprint",
+    "round": 3,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-03-28T15:00:00",
+    "event_end_at_local": "2026-03-28T15:45:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd03-americas-warmup",
+    "title": "Americas GP - Warm Up",
+    "round": 3,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-03-29T10:40:00",
+    "event_end_at_local": "2026-03-29T10:50:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd03-americas-race",
+    "title": "Americas GP - Race",
+    "round": 3,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-03-29T15:00:00",
+    "event_end_at_local": "2026-03-29T16:00:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd04-spain-jerez-fp1",
+    "title": "Spanish GP (Jerez) - Free Practice 1",
+    "round": 4,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuito de Jerez-Ángel Nieto",
+    "event_start_at_local": "2026-04-24T10:45:00",
+    "event_end_at_local": "2026-04-24T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd04-spain-jerez-fp2",
+    "title": "Spanish GP (Jerez) - Free Practice 2",
+    "round": 4,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuito de Jerez-Ángel Nieto",
+    "event_start_at_local": "2026-04-24T15:00:00",
+    "event_end_at_local": "2026-04-24T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd04-spain-jerez-qualifying",
+    "title": "Spanish GP (Jerez) - Qualifying",
+    "round": 4,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Circuito de Jerez-Ángel Nieto",
+    "event_start_at_local": "2026-04-25T10:50:00",
+    "event_end_at_local": "2026-04-25T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd04-spain-jerez-sprint",
+    "title": "Spanish GP (Jerez) - Sprint",
+    "round": 4,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Circuito de Jerez-Ángel Nieto",
+    "event_start_at_local": "2026-04-25T15:00:00",
+    "event_end_at_local": "2026-04-25T15:45:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd04-spain-jerez-warmup",
+    "title": "Spanish GP (Jerez) - Warm Up",
+    "round": 4,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Circuito de Jerez-Ángel Nieto",
+    "event_start_at_local": "2026-04-26T10:40:00",
+    "event_end_at_local": "2026-04-26T10:50:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd04-spain-jerez-race",
+    "title": "Spanish GP (Jerez) - Race",
+    "round": 4,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Circuito de Jerez-Ángel Nieto",
+    "event_start_at_local": "2026-04-26T15:00:00",
+    "event_end_at_local": "2026-04-26T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd05-france-fp1",
+    "title": "French GP - Free Practice 1",
+    "round": 5,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Le Mans Bugatti Circuit",
+    "event_start_at_local": "2026-05-08T10:45:00",
+    "event_end_at_local": "2026-05-08T11:30:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd05-france-fp2",
+    "title": "French GP - Free Practice 2",
+    "round": 5,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Le Mans Bugatti Circuit",
+    "event_start_at_local": "2026-05-08T15:00:00",
+    "event_end_at_local": "2026-05-08T16:00:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd05-france-qualifying",
+    "title": "French GP - Qualifying",
+    "round": 5,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Le Mans Bugatti Circuit",
+    "event_start_at_local": "2026-05-09T10:50:00",
+    "event_end_at_local": "2026-05-09T11:30:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd05-france-sprint",
+    "title": "French GP - Sprint",
+    "round": 5,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Le Mans Bugatti Circuit",
+    "event_start_at_local": "2026-05-09T15:00:00",
+    "event_end_at_local": "2026-05-09T15:45:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd05-france-warmup",
+    "title": "French GP - Warm Up",
+    "round": 5,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Le Mans Bugatti Circuit",
+    "event_start_at_local": "2026-05-10T10:40:00",
+    "event_end_at_local": "2026-05-10T10:50:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd05-france-race",
+    "title": "French GP - Race",
+    "round": 5,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Le Mans Bugatti Circuit",
+    "event_start_at_local": "2026-05-10T15:00:00",
+    "event_end_at_local": "2026-05-10T16:00:00",
+    "timezone": "Europe/Paris",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd06-catalonia-fp1",
+    "title": "Catalonia GP - Free Practice 1",
+    "round": 6,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-05-15T10:45:00",
+    "event_end_at_local": "2026-05-15T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd06-catalonia-fp2",
+    "title": "Catalonia GP - Free Practice 2",
+    "round": 6,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-05-15T15:00:00",
+    "event_end_at_local": "2026-05-15T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd06-catalonia-qualifying",
+    "title": "Catalonia GP - Qualifying",
+    "round": 6,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-05-16T10:50:00",
+    "event_end_at_local": "2026-05-16T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd06-catalonia-sprint",
+    "title": "Catalonia GP - Sprint",
+    "round": 6,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-05-16T15:00:00",
+    "event_end_at_local": "2026-05-16T15:45:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd06-catalonia-warmup",
+    "title": "Catalonia GP - Warm Up",
+    "round": 6,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-05-17T10:40:00",
+    "event_end_at_local": "2026-05-17T10:50:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd06-catalonia-race",
+    "title": "Catalonia GP - Race",
+    "round": 6,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-05-17T15:00:00",
+    "event_end_at_local": "2026-05-17T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd07-italy-fp1",
+    "title": "Italian GP - Free Practice 1",
+    "round": 7,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Mugello Circuit",
+    "event_start_at_local": "2026-05-29T10:45:00",
+    "event_end_at_local": "2026-05-29T11:30:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd07-italy-fp2",
+    "title": "Italian GP - Free Practice 2",
+    "round": 7,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Mugello Circuit",
+    "event_start_at_local": "2026-05-29T15:00:00",
+    "event_end_at_local": "2026-05-29T16:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd07-italy-qualifying",
+    "title": "Italian GP - Qualifying",
+    "round": 7,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Mugello Circuit",
+    "event_start_at_local": "2026-05-30T10:50:00",
+    "event_end_at_local": "2026-05-30T11:30:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd07-italy-sprint",
+    "title": "Italian GP - Sprint",
+    "round": 7,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Mugello Circuit",
+    "event_start_at_local": "2026-05-30T15:00:00",
+    "event_end_at_local": "2026-05-30T15:45:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd07-italy-warmup",
+    "title": "Italian GP - Warm Up",
+    "round": 7,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Mugello Circuit",
+    "event_start_at_local": "2026-05-31T10:40:00",
+    "event_end_at_local": "2026-05-31T10:50:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd07-italy-race",
+    "title": "Italian GP - Race",
+    "round": 7,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Mugello Circuit",
+    "event_start_at_local": "2026-05-31T15:00:00",
+    "event_end_at_local": "2026-05-31T16:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd08-hungary-fp1",
+    "title": "Hungarian GP - Free Practice 1",
+    "round": 8,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Balaton Park Circuit",
+    "event_start_at_local": "2026-06-05T10:45:00",
+    "event_end_at_local": "2026-06-05T11:30:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd08-hungary-fp2",
+    "title": "Hungarian GP - Free Practice 2",
+    "round": 8,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Balaton Park Circuit",
+    "event_start_at_local": "2026-06-05T15:00:00",
+    "event_end_at_local": "2026-06-05T16:00:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd08-hungary-qualifying",
+    "title": "Hungarian GP - Qualifying",
+    "round": 8,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Balaton Park Circuit",
+    "event_start_at_local": "2026-06-06T10:50:00",
+    "event_end_at_local": "2026-06-06T11:30:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd08-hungary-sprint",
+    "title": "Hungarian GP - Sprint",
+    "round": 8,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Balaton Park Circuit",
+    "event_start_at_local": "2026-06-06T15:00:00",
+    "event_end_at_local": "2026-06-06T15:45:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd08-hungary-warmup",
+    "title": "Hungarian GP - Warm Up",
+    "round": 8,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Balaton Park Circuit",
+    "event_start_at_local": "2026-06-07T10:40:00",
+    "event_end_at_local": "2026-06-07T10:50:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd08-hungary-race",
+    "title": "Hungarian GP - Race",
+    "round": 8,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Balaton Park Circuit",
+    "event_start_at_local": "2026-06-07T15:00:00",
+    "event_end_at_local": "2026-06-07T16:00:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd09-czechia-fp1",
+    "title": "Czech Republic GP - Free Practice 1",
+    "round": 9,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Automotodrom Brno",
+    "event_start_at_local": "2026-06-19T10:45:00",
+    "event_end_at_local": "2026-06-19T11:30:00",
+    "timezone": "Europe/Prague",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd09-czechia-fp2",
+    "title": "Czech Republic GP - Free Practice 2",
+    "round": 9,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Automotodrom Brno",
+    "event_start_at_local": "2026-06-19T15:00:00",
+    "event_end_at_local": "2026-06-19T16:00:00",
+    "timezone": "Europe/Prague",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd09-czechia-qualifying",
+    "title": "Czech Republic GP - Qualifying",
+    "round": 9,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Automotodrom Brno",
+    "event_start_at_local": "2026-06-20T10:50:00",
+    "event_end_at_local": "2026-06-20T11:30:00",
+    "timezone": "Europe/Prague",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd09-czechia-sprint",
+    "title": "Czech Republic GP - Sprint",
+    "round": 9,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Automotodrom Brno",
+    "event_start_at_local": "2026-06-20T15:00:00",
+    "event_end_at_local": "2026-06-20T15:45:00",
+    "timezone": "Europe/Prague",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd09-czechia-warmup",
+    "title": "Czech Republic GP - Warm Up",
+    "round": 9,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Automotodrom Brno",
+    "event_start_at_local": "2026-06-21T10:40:00",
+    "event_end_at_local": "2026-06-21T10:50:00",
+    "timezone": "Europe/Prague",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd09-czechia-race",
+    "title": "Czech Republic GP - Race",
+    "round": 9,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Automotodrom Brno",
+    "event_start_at_local": "2026-06-21T15:00:00",
+    "event_end_at_local": "2026-06-21T16:00:00",
+    "timezone": "Europe/Prague",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd10-netherlands-fp1",
+    "title": "Dutch TT - Free Practice 1",
+    "round": 10,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "TT Circuit Assen",
+    "event_start_at_local": "2026-06-26T10:45:00",
+    "event_end_at_local": "2026-06-26T11:30:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd10-netherlands-fp2",
+    "title": "Dutch TT - Free Practice 2",
+    "round": 10,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "TT Circuit Assen",
+    "event_start_at_local": "2026-06-26T15:00:00",
+    "event_end_at_local": "2026-06-26T16:00:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd10-netherlands-qualifying",
+    "title": "Dutch TT - Qualifying",
+    "round": 10,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "TT Circuit Assen",
+    "event_start_at_local": "2026-06-27T10:50:00",
+    "event_end_at_local": "2026-06-27T11:30:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd10-netherlands-sprint",
+    "title": "Dutch TT - Sprint",
+    "round": 10,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "TT Circuit Assen",
+    "event_start_at_local": "2026-06-27T15:00:00",
+    "event_end_at_local": "2026-06-27T15:45:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd10-netherlands-warmup",
+    "title": "Dutch TT - Warm Up",
+    "round": 10,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "TT Circuit Assen",
+    "event_start_at_local": "2026-06-28T10:40:00",
+    "event_end_at_local": "2026-06-28T10:50:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd10-netherlands-race",
+    "title": "Dutch TT - Race",
+    "round": 10,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "TT Circuit Assen",
+    "event_start_at_local": "2026-06-28T15:00:00",
+    "event_end_at_local": "2026-06-28T16:00:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd11-germany-fp1",
+    "title": "German GP - Free Practice 1",
+    "round": 11,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Sachsenring",
+    "event_start_at_local": "2026-07-10T10:45:00",
+    "event_end_at_local": "2026-07-10T11:30:00",
+    "timezone": "Europe/Berlin",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd11-germany-fp2",
+    "title": "German GP - Free Practice 2",
+    "round": 11,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Sachsenring",
+    "event_start_at_local": "2026-07-10T15:00:00",
+    "event_end_at_local": "2026-07-10T16:00:00",
+    "timezone": "Europe/Berlin",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd11-germany-qualifying",
+    "title": "German GP - Qualifying",
+    "round": 11,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Sachsenring",
+    "event_start_at_local": "2026-07-11T10:50:00",
+    "event_end_at_local": "2026-07-11T11:30:00",
+    "timezone": "Europe/Berlin",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd11-germany-sprint",
+    "title": "German GP - Sprint",
+    "round": 11,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Sachsenring",
+    "event_start_at_local": "2026-07-11T15:00:00",
+    "event_end_at_local": "2026-07-11T15:45:00",
+    "timezone": "Europe/Berlin",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd11-germany-warmup",
+    "title": "German GP - Warm Up",
+    "round": 11,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Sachsenring",
+    "event_start_at_local": "2026-07-12T10:40:00",
+    "event_end_at_local": "2026-07-12T10:50:00",
+    "timezone": "Europe/Berlin",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd11-germany-race",
+    "title": "German GP - Race",
+    "round": 11,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Sachsenring",
+    "event_start_at_local": "2026-07-12T15:00:00",
+    "event_end_at_local": "2026-07-12T16:00:00",
+    "timezone": "Europe/Berlin",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd12-great-britain-fp1",
+    "title": "British GP - Free Practice 1",
+    "round": 12,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-08-07T10:45:00",
+    "event_end_at_local": "2026-08-07T11:30:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd12-great-britain-fp2",
+    "title": "British GP - Free Practice 2",
+    "round": 12,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-08-07T15:00:00",
+    "event_end_at_local": "2026-08-07T16:00:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd12-great-britain-qualifying",
+    "title": "British GP - Qualifying",
+    "round": 12,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-08-08T10:50:00",
+    "event_end_at_local": "2026-08-08T11:30:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd12-great-britain-sprint",
+    "title": "British GP - Sprint",
+    "round": 12,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-08-08T15:00:00",
+    "event_end_at_local": "2026-08-08T15:45:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd12-great-britain-warmup",
+    "title": "British GP - Warm Up",
+    "round": 12,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-08-09T10:40:00",
+    "event_end_at_local": "2026-08-09T10:50:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd12-great-britain-race",
+    "title": "British GP - Race",
+    "round": 12,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-08-09T15:00:00",
+    "event_end_at_local": "2026-08-09T16:00:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd13-aragon-fp1",
+    "title": "Aragon GP - Free Practice 1",
+    "round": 13,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "MotorLand Aragón",
+    "event_start_at_local": "2026-08-28T10:45:00",
+    "event_end_at_local": "2026-08-28T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd13-aragon-fp2",
+    "title": "Aragon GP - Free Practice 2",
+    "round": 13,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "MotorLand Aragón",
+    "event_start_at_local": "2026-08-28T15:00:00",
+    "event_end_at_local": "2026-08-28T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd13-aragon-qualifying",
+    "title": "Aragon GP - Qualifying",
+    "round": 13,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "MotorLand Aragón",
+    "event_start_at_local": "2026-08-29T10:50:00",
+    "event_end_at_local": "2026-08-29T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd13-aragon-sprint",
+    "title": "Aragon GP - Sprint",
+    "round": 13,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "MotorLand Aragón",
+    "event_start_at_local": "2026-08-29T15:00:00",
+    "event_end_at_local": "2026-08-29T15:45:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd13-aragon-warmup",
+    "title": "Aragon GP - Warm Up",
+    "round": 13,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "MotorLand Aragón",
+    "event_start_at_local": "2026-08-30T10:40:00",
+    "event_end_at_local": "2026-08-30T10:50:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd13-aragon-race",
+    "title": "Aragon GP - Race",
+    "round": 13,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "MotorLand Aragón",
+    "event_start_at_local": "2026-08-30T15:00:00",
+    "event_end_at_local": "2026-08-30T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd14-san-marino-fp1",
+    "title": "San Marino GP - Free Practice 1",
+    "round": 14,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Misano World Circuit Marco Simoncelli",
+    "event_start_at_local": "2026-09-11T10:45:00",
+    "event_end_at_local": "2026-09-11T11:30:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd14-san-marino-fp2",
+    "title": "San Marino GP - Free Practice 2",
+    "round": 14,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Misano World Circuit Marco Simoncelli",
+    "event_start_at_local": "2026-09-11T15:00:00",
+    "event_end_at_local": "2026-09-11T16:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd14-san-marino-qualifying",
+    "title": "San Marino GP - Qualifying",
+    "round": 14,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Misano World Circuit Marco Simoncelli",
+    "event_start_at_local": "2026-09-12T10:50:00",
+    "event_end_at_local": "2026-09-12T11:30:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd14-san-marino-sprint",
+    "title": "San Marino GP - Sprint",
+    "round": 14,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Misano World Circuit Marco Simoncelli",
+    "event_start_at_local": "2026-09-12T15:00:00",
+    "event_end_at_local": "2026-09-12T15:45:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd14-san-marino-warmup",
+    "title": "San Marino GP - Warm Up",
+    "round": 14,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Misano World Circuit Marco Simoncelli",
+    "event_start_at_local": "2026-09-13T10:40:00",
+    "event_end_at_local": "2026-09-13T10:50:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd14-san-marino-race",
+    "title": "San Marino GP - Race",
+    "round": 14,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Misano World Circuit Marco Simoncelli",
+    "event_start_at_local": "2026-09-13T15:00:00",
+    "event_end_at_local": "2026-09-13T16:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd15-austria-fp1",
+    "title": "Austrian GP - Free Practice 1",
+    "round": 15,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-09-18T10:45:00",
+    "event_end_at_local": "2026-09-18T11:30:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd15-austria-fp2",
+    "title": "Austrian GP - Free Practice 2",
+    "round": 15,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-09-18T15:00:00",
+    "event_end_at_local": "2026-09-18T16:00:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd15-austria-qualifying",
+    "title": "Austrian GP - Qualifying",
+    "round": 15,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-09-19T10:50:00",
+    "event_end_at_local": "2026-09-19T11:30:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd15-austria-sprint",
+    "title": "Austrian GP - Sprint",
+    "round": 15,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-09-19T15:00:00",
+    "event_end_at_local": "2026-09-19T15:45:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd15-austria-warmup",
+    "title": "Austrian GP - Warm Up",
+    "round": 15,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-09-20T10:40:00",
+    "event_end_at_local": "2026-09-20T10:50:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd15-austria-race",
+    "title": "Austrian GP - Race",
+    "round": 15,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-09-20T15:00:00",
+    "event_end_at_local": "2026-09-20T16:00:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd16-japan-fp1",
+    "title": "Japanese GP - Free Practice 1",
+    "round": 16,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Twin Ring Motegi",
+    "event_start_at_local": "2026-10-02T10:45:00",
+    "event_end_at_local": "2026-10-02T11:30:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd16-japan-fp2",
+    "title": "Japanese GP - Free Practice 2",
+    "round": 16,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Twin Ring Motegi",
+    "event_start_at_local": "2026-10-02T15:00:00",
+    "event_end_at_local": "2026-10-02T16:00:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd16-japan-qualifying",
+    "title": "Japanese GP - Qualifying",
+    "round": 16,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Twin Ring Motegi",
+    "event_start_at_local": "2026-10-03T10:50:00",
+    "event_end_at_local": "2026-10-03T11:30:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd16-japan-sprint",
+    "title": "Japanese GP - Sprint",
+    "round": 16,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Twin Ring Motegi",
+    "event_start_at_local": "2026-10-03T15:00:00",
+    "event_end_at_local": "2026-10-03T15:45:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd16-japan-warmup",
+    "title": "Japanese GP - Warm Up",
+    "round": 16,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Twin Ring Motegi",
+    "event_start_at_local": "2026-10-04T10:40:00",
+    "event_end_at_local": "2026-10-04T10:50:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd16-japan-race",
+    "title": "Japanese GP - Race",
+    "round": 16,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Twin Ring Motegi",
+    "event_start_at_local": "2026-10-04T15:00:00",
+    "event_end_at_local": "2026-10-04T16:00:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd17-indonesia-fp1",
+    "title": "Indonesia GP - Free Practice 1",
+    "round": 17,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Pertamina Mandalika International Street Circuit",
+    "event_start_at_local": "2026-10-09T10:45:00",
+    "event_end_at_local": "2026-10-09T11:30:00",
+    "timezone": "Asia/Makassar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd17-indonesia-fp2",
+    "title": "Indonesia GP - Free Practice 2",
+    "round": 17,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Pertamina Mandalika International Street Circuit",
+    "event_start_at_local": "2026-10-09T15:00:00",
+    "event_end_at_local": "2026-10-09T16:00:00",
+    "timezone": "Asia/Makassar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd17-indonesia-qualifying",
+    "title": "Indonesia GP - Qualifying",
+    "round": 17,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Pertamina Mandalika International Street Circuit",
+    "event_start_at_local": "2026-10-10T10:50:00",
+    "event_end_at_local": "2026-10-10T11:30:00",
+    "timezone": "Asia/Makassar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd17-indonesia-sprint",
+    "title": "Indonesia GP - Sprint",
+    "round": 17,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Pertamina Mandalika International Street Circuit",
+    "event_start_at_local": "2026-10-10T15:00:00",
+    "event_end_at_local": "2026-10-10T15:45:00",
+    "timezone": "Asia/Makassar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd17-indonesia-warmup",
+    "title": "Indonesia GP - Warm Up",
+    "round": 17,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Pertamina Mandalika International Street Circuit",
+    "event_start_at_local": "2026-10-11T10:40:00",
+    "event_end_at_local": "2026-10-11T10:50:00",
+    "timezone": "Asia/Makassar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd17-indonesia-race",
+    "title": "Indonesia GP - Race",
+    "round": 17,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Pertamina Mandalika International Street Circuit",
+    "event_start_at_local": "2026-10-11T15:00:00",
+    "event_end_at_local": "2026-10-11T16:00:00",
+    "timezone": "Asia/Makassar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd18-australia-fp1",
+    "title": "Australian GP - Free Practice 1",
+    "round": 18,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Phillip Island Grand Prix Circuit",
+    "event_start_at_local": "2026-10-23T10:45:00",
+    "event_end_at_local": "2026-10-23T11:30:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd18-australia-fp2",
+    "title": "Australian GP - Free Practice 2",
+    "round": 18,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Phillip Island Grand Prix Circuit",
+    "event_start_at_local": "2026-10-23T15:00:00",
+    "event_end_at_local": "2026-10-23T16:00:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd18-australia-qualifying",
+    "title": "Australian GP - Qualifying",
+    "round": 18,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Phillip Island Grand Prix Circuit",
+    "event_start_at_local": "2026-10-24T10:50:00",
+    "event_end_at_local": "2026-10-24T11:30:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd18-australia-sprint",
+    "title": "Australian GP - Sprint",
+    "round": 18,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Phillip Island Grand Prix Circuit",
+    "event_start_at_local": "2026-10-24T15:00:00",
+    "event_end_at_local": "2026-10-24T15:45:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd18-australia-warmup",
+    "title": "Australian GP - Warm Up",
+    "round": 18,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Phillip Island Grand Prix Circuit",
+    "event_start_at_local": "2026-10-25T10:40:00",
+    "event_end_at_local": "2026-10-25T10:50:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd18-australia-race",
+    "title": "Australian GP - Race",
+    "round": 18,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Phillip Island Grand Prix Circuit",
+    "event_start_at_local": "2026-10-25T15:00:00",
+    "event_end_at_local": "2026-10-25T16:00:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd19-malaysia-fp1",
+    "title": "Malaysian GP - Free Practice 1",
+    "round": 19,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Sepang International Circuit",
+    "event_start_at_local": "2026-10-30T10:45:00",
+    "event_end_at_local": "2026-10-30T11:30:00",
+    "timezone": "Asia/Kuala_Lumpur",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd19-malaysia-fp2",
+    "title": "Malaysian GP - Free Practice 2",
+    "round": 19,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Sepang International Circuit",
+    "event_start_at_local": "2026-10-30T15:00:00",
+    "event_end_at_local": "2026-10-30T16:00:00",
+    "timezone": "Asia/Kuala_Lumpur",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd19-malaysia-qualifying",
+    "title": "Malaysian GP - Qualifying",
+    "round": 19,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Sepang International Circuit",
+    "event_start_at_local": "2026-10-31T10:50:00",
+    "event_end_at_local": "2026-10-31T11:30:00",
+    "timezone": "Asia/Kuala_Lumpur",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd19-malaysia-sprint",
+    "title": "Malaysian GP - Sprint",
+    "round": 19,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Sepang International Circuit",
+    "event_start_at_local": "2026-10-31T15:00:00",
+    "event_end_at_local": "2026-10-31T15:45:00",
+    "timezone": "Asia/Kuala_Lumpur",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd19-malaysia-warmup",
+    "title": "Malaysian GP - Warm Up",
+    "round": 19,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Sepang International Circuit",
+    "event_start_at_local": "2026-11-01T10:40:00",
+    "event_end_at_local": "2026-11-01T10:50:00",
+    "timezone": "Asia/Kuala_Lumpur",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd19-malaysia-race",
+    "title": "Malaysian GP - Race",
+    "round": 19,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Sepang International Circuit",
+    "event_start_at_local": "2026-11-01T15:00:00",
+    "event_end_at_local": "2026-11-01T16:00:00",
+    "timezone": "Asia/Kuala_Lumpur",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd20-qatar-fp1",
+    "title": "Qatar GP - Free Practice 1",
+    "round": 20,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Losail International Circuit",
+    "event_start_at_local": "2026-11-06T10:45:00",
+    "event_end_at_local": "2026-11-06T11:30:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd20-qatar-fp2",
+    "title": "Qatar GP - Free Practice 2",
+    "round": 20,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Losail International Circuit",
+    "event_start_at_local": "2026-11-06T15:00:00",
+    "event_end_at_local": "2026-11-06T16:00:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd20-qatar-qualifying",
+    "title": "Qatar GP - Qualifying",
+    "round": 20,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Losail International Circuit",
+    "event_start_at_local": "2026-11-07T10:50:00",
+    "event_end_at_local": "2026-11-07T11:30:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd20-qatar-sprint",
+    "title": "Qatar GP - Sprint",
+    "round": 20,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Losail International Circuit",
+    "event_start_at_local": "2026-11-07T15:00:00",
+    "event_end_at_local": "2026-11-07T15:45:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd20-qatar-warmup",
+    "title": "Qatar GP - Warm Up",
+    "round": 20,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Losail International Circuit",
+    "event_start_at_local": "2026-11-08T16:40:00",
+    "event_end_at_local": "2026-11-08T16:50:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd20-qatar-race",
+    "title": "Qatar GP - Race",
+    "round": 20,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Losail International Circuit",
+    "event_start_at_local": "2026-11-08T21:00:00",
+    "event_end_at_local": "2026-11-08T22:00:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd21-portimao-fp1",
+    "title": "Portuguese GP - Free Practice 1",
+    "round": 21,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo Internacional do Algarve",
+    "event_start_at_local": "2026-11-13T10:45:00",
+    "event_end_at_local": "2026-11-13T11:30:00",
+    "timezone": "Europe/Lisbon",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd21-portimao-fp2",
+    "title": "Portuguese GP - Free Practice 2",
+    "round": 21,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo Internacional do Algarve",
+    "event_start_at_local": "2026-11-13T15:00:00",
+    "event_end_at_local": "2026-11-13T16:00:00",
+    "timezone": "Europe/Lisbon",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd21-portimao-qualifying",
+    "title": "Portuguese GP - Qualifying",
+    "round": 21,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo Internacional do Algarve",
+    "event_start_at_local": "2026-11-14T10:50:00",
+    "event_end_at_local": "2026-11-14T11:30:00",
+    "timezone": "Europe/Lisbon",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd21-portimao-sprint",
+    "title": "Portuguese GP - Sprint",
+    "round": 21,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo Internacional do Algarve",
+    "event_start_at_local": "2026-11-14T15:00:00",
+    "event_end_at_local": "2026-11-14T15:45:00",
+    "timezone": "Europe/Lisbon",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd21-portimao-warmup",
+    "title": "Portuguese GP - Warm Up",
+    "round": 21,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo Internacional do Algarve",
+    "event_start_at_local": "2026-11-15T10:40:00",
+    "event_end_at_local": "2026-11-15T10:50:00",
+    "timezone": "Europe/Lisbon",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd21-portimao-race",
+    "title": "Portuguese GP - Race",
+    "round": 21,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Autódromo Internacional do Algarve",
+    "event_start_at_local": "2026-11-15T15:00:00",
+    "event_end_at_local": "2026-11-15T16:00:00",
+    "timezone": "Europe/Lisbon",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd22-valencia-fp1",
+    "title": "Valencia GP - Free Practice 1",
+    "round": 22,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit Ricardo Tormo",
+    "event_start_at_local": "2026-11-20T10:45:00",
+    "event_end_at_local": "2026-11-20T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd22-valencia-fp2",
+    "title": "Valencia GP - Free Practice 2",
+    "round": 22,
+    "type": "practice",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit Ricardo Tormo",
+    "event_start_at_local": "2026-11-20T15:00:00",
+    "event_end_at_local": "2026-11-20T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd22-valencia-qualifying",
+    "title": "Valencia GP - Qualifying",
+    "round": 22,
+    "type": "qualifying",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit Ricardo Tormo",
+    "event_start_at_local": "2026-11-21T10:50:00",
+    "event_end_at_local": "2026-11-21T11:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd22-valencia-sprint",
+    "title": "Valencia GP - Sprint",
+    "round": 22,
+    "type": "sprint",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit Ricardo Tormo",
+    "event_start_at_local": "2026-11-21T15:00:00",
+    "event_end_at_local": "2026-11-21T15:45:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd22-valencia-warmup",
+    "title": "Valencia GP - Warm Up",
+    "round": 22,
+    "type": "warmup",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit Ricardo Tormo",
+    "event_start_at_local": "2026-11-22T10:40:00",
+    "event_end_at_local": "2026-11-22T10:50:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  },
+  {
+    "id": "motogp-2026-rd22-valencia-race",
+    "title": "Valencia GP - Race",
+    "round": 22,
+    "type": "race",
+    "sport_type": "motogp",
+    "circuit_name": "Circuit Ricardo Tormo",
+    "event_start_at_local": "2026-11-22T15:00:00",
+    "event_end_at_local": "2026-11-22T16:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://www.motogp.com/en/video",
+      "watch_label": "Watch on MotoGP"
+    }
+  }
+]

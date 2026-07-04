@@ -49,7 +49,7 @@ export async function PUT(request: NextRequest) {
     const document = await DriverLeaderboardModel.findByIdAndUpdate(
       id,
       { "stats.points": nextPoints },
-      { new: true, runValidators: true }
+      { returnDocument: "after", runValidators: true }
     )
       .populate([
         { path: "driver_id", select: "name image" },

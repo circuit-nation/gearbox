@@ -1,0 +1,1967 @@
+[
+  {
+    "id": "f1-2026-testing-barcelona-day1",
+    "title": "Pre-Season Testing Barcelona - Day 1",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-01-26T09:00:00",
+    "event_end_at_local": "2026-01-26T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-barcelona-day2",
+    "title": "Pre-Season Testing Barcelona - Day 2",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-01-27T09:00:00",
+    "event_end_at_local": "2026-01-27T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-barcelona-day3",
+    "title": "Pre-Season Testing Barcelona - Day 3",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-01-28T09:00:00",
+    "event_end_at_local": "2026-01-28T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-barcelona-day4",
+    "title": "Pre-Season Testing Barcelona - Day 4",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-01-29T09:00:00",
+    "event_end_at_local": "2026-01-29T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-barcelona-day5",
+    "title": "Pre-Season Testing Barcelona - Day 5",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-01-30T09:00:00",
+    "event_end_at_local": "2026-01-30T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-bahrain-1-day1",
+    "title": "Pre-Season Testing 1 - Day 1",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-02-11T03:00:00",
+    "event_end_at_local": "2026-02-12T03:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-bahrain-1-day2",
+    "title": "Pre-Season Testing 1 - Day 2",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-02-12T03:00:00",
+    "event_end_at_local": "2026-02-13T03:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-bahrain-1-day3",
+    "title": "Pre-Season Testing 1 - Day 3",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-02-13T03:00:00",
+    "event_end_at_local": "2026-02-14T03:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-bahrain-2-day1",
+    "title": "Pre-Season Testing 2 - Day 1",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-02-18T03:00:00",
+    "event_end_at_local": "2026-02-19T03:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-bahrain-2-day2",
+    "title": "Pre-Season Testing 2 - Day 2",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-02-19T03:00:00",
+    "event_end_at_local": "2026-02-20T03:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-testing-bahrain-2-day3",
+    "title": "Pre-Season Testing 2 - Day 3",
+    "round": 0,
+    "type": "test",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-02-20T03:00:00",
+    "event_end_at_local": "2026-02-21T03:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd01-australia-fp1",
+    "title": "Australian Grand Prix - Free Practice 1",
+    "round": 1,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Albert Park Circuit",
+    "event_start_at_local": "2026-03-06T12:30:00",
+    "event_end_at_local": "2026-03-06T13:30:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd01-australia-fp2",
+    "title": "Australian Grand Prix - Free Practice 2",
+    "round": 1,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Albert Park Circuit",
+    "event_start_at_local": "2026-03-06T16:00:00",
+    "event_end_at_local": "2026-03-06T17:00:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd01-australia-fp3",
+    "title": "Australian Grand Prix - Free Practice 3",
+    "round": 1,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Albert Park Circuit",
+    "event_start_at_local": "2026-03-07T12:30:00",
+    "event_end_at_local": "2026-03-07T13:30:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd01-australia-qualifying",
+    "title": "Australian Grand Prix - Qualifying",
+    "round": 1,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Albert Park Circuit",
+    "event_start_at_local": "2026-03-07T16:00:00",
+    "event_end_at_local": "2026-03-07T17:00:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd01-australia-race",
+    "title": "Australian Grand Prix - Race",
+    "round": 1,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Albert Park Circuit",
+    "event_start_at_local": "2026-03-08T15:00:00",
+    "event_end_at_local": "2026-03-08T17:00:00",
+    "timezone": "Australia/Melbourne",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd02-china-fp1",
+    "title": "Chinese Grand Prix - Free Practice 1",
+    "round": 2,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Shanghai International Circuit",
+    "event_start_at_local": "2026-03-13T11:30:00",
+    "event_end_at_local": "2026-03-13T12:30:00",
+    "timezone": "Asia/Shanghai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd02-china-sprint-qualifying",
+    "title": "Chinese Grand Prix - Sprint Qualifying",
+    "round": 2,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Shanghai International Circuit",
+    "event_start_at_local": "2026-03-13T15:30:00",
+    "event_end_at_local": "2026-03-13T16:14:00",
+    "timezone": "Asia/Shanghai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd02-china-sprint",
+    "title": "Chinese Grand Prix - Sprint",
+    "round": 2,
+    "type": "sprint",
+    "sport_type": "formula",
+    "circuit_name": "Shanghai International Circuit",
+    "event_start_at_local": "2026-03-14T11:00:00",
+    "event_end_at_local": "2026-03-14T12:00:00",
+    "timezone": "Asia/Shanghai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd02-china-qualifying",
+    "title": "Chinese Grand Prix - Qualifying",
+    "round": 2,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Shanghai International Circuit",
+    "event_start_at_local": "2026-03-14T15:00:00",
+    "event_end_at_local": "2026-03-14T16:00:00",
+    "timezone": "Asia/Shanghai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd02-china-race",
+    "title": "Chinese Grand Prix - Race",
+    "round": 2,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Shanghai International Circuit",
+    "event_start_at_local": "2026-03-15T15:00:00",
+    "event_end_at_local": "2026-03-15T17:00:00",
+    "timezone": "Asia/Shanghai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd03-japan-fp1",
+    "title": "Japanese Grand Prix - Free Practice 1",
+    "round": 3,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Suzuka International Racing Course",
+    "event_start_at_local": "2026-03-27T11:30:00",
+    "event_end_at_local": "2026-03-27T12:30:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd03-japan-fp2",
+    "title": "Japanese Grand Prix - Free Practice 2",
+    "round": 3,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Suzuka International Racing Course",
+    "event_start_at_local": "2026-03-27T15:00:00",
+    "event_end_at_local": "2026-03-27T16:00:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd03-japan-fp3",
+    "title": "Japanese Grand Prix - Free Practice 3",
+    "round": 3,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Suzuka International Racing Course",
+    "event_start_at_local": "2026-03-28T11:30:00",
+    "event_end_at_local": "2026-03-28T12:30:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd03-japan-qualifying",
+    "title": "Japanese Grand Prix - Qualifying",
+    "round": 3,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Suzuka International Racing Course",
+    "event_start_at_local": "2026-03-28T15:00:00",
+    "event_end_at_local": "2026-03-28T16:00:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd03-japan-race",
+    "title": "Japanese Grand Prix - Race",
+    "round": 3,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Suzuka International Racing Course",
+    "event_start_at_local": "2026-03-29T14:00:00",
+    "event_end_at_local": "2026-03-29T16:00:00",
+    "timezone": "Asia/Tokyo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd04-bahrain-fp1",
+    "title": "Bahrain Grand Prix - Free Practice 1",
+    "round": 4,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-04-10T14:30:00",
+    "event_end_at_local": "2026-04-10T15:30:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd04-bahrain-fp2",
+    "title": "Bahrain Grand Prix - Free Practice 2",
+    "round": 4,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-04-10T18:00:00",
+    "event_end_at_local": "2026-04-10T19:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd04-bahrain-fp3",
+    "title": "Bahrain Grand Prix - Free Practice 3",
+    "round": 4,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-04-11T15:30:00",
+    "event_end_at_local": "2026-04-11T16:30:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd04-bahrain-qualifying",
+    "title": "Bahrain Grand Prix - Qualifying",
+    "round": 4,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-04-11T19:00:00",
+    "event_end_at_local": "2026-04-11T20:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd04-bahrain-race",
+    "title": "Bahrain Grand Prix - Race",
+    "round": 4,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Bahrain International Circuit",
+    "event_start_at_local": "2026-04-12T18:00:00",
+    "event_end_at_local": "2026-04-12T20:00:00",
+    "timezone": "Asia/Bahrain",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd05-saudi-arabia-fp1",
+    "title": "Saudi Arabian Grand Prix - Free Practice 1",
+    "round": 5,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Jeddah Corniche Circuit",
+    "event_start_at_local": "2026-04-17T16:30:00",
+    "event_end_at_local": "2026-04-17T17:30:00",
+    "timezone": "Asia/Riyadh",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd05-saudi-arabia-fp2",
+    "title": "Saudi Arabian Grand Prix - Free Practice 2",
+    "round": 5,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Jeddah Corniche Circuit",
+    "event_start_at_local": "2026-04-17T20:00:00",
+    "event_end_at_local": "2026-04-17T21:00:00",
+    "timezone": "Asia/Riyadh",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd05-saudi-arabia-fp3",
+    "title": "Saudi Arabian Grand Prix - Free Practice 3",
+    "round": 5,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Jeddah Corniche Circuit",
+    "event_start_at_local": "2026-04-18T16:30:00",
+    "event_end_at_local": "2026-04-18T17:30:00",
+    "timezone": "Asia/Riyadh",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd05-saudi-arabia-qualifying",
+    "title": "Saudi Arabian Grand Prix - Qualifying",
+    "round": 5,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Jeddah Corniche Circuit",
+    "event_start_at_local": "2026-04-18T20:00:00",
+    "event_end_at_local": "2026-04-18T21:00:00",
+    "timezone": "Asia/Riyadh",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd05-saudi-arabia-race",
+    "title": "Saudi Arabian Grand Prix - Race",
+    "round": 5,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Jeddah Corniche Circuit",
+    "event_start_at_local": "2026-04-19T20:00:00",
+    "event_end_at_local": "2026-04-19T22:00:00",
+    "timezone": "Asia/Riyadh",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd06-miami-fp1",
+    "title": "Miami Grand Prix - Free Practice 1",
+    "round": 6,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Miami International Autodrome",
+    "event_start_at_local": "2026-05-01T12:30:00",
+    "event_end_at_local": "2026-05-01T13:30:00",
+    "timezone": "America/New_York",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd06-miami-sprint-qualifying",
+    "title": "Miami Grand Prix - Sprint Qualifying",
+    "round": 6,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Miami International Autodrome",
+    "event_start_at_local": "2026-05-01T16:30:00",
+    "event_end_at_local": "2026-05-01T17:14:00",
+    "timezone": "America/New_York",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd06-miami-sprint",
+    "title": "Miami Grand Prix - Sprint",
+    "round": 6,
+    "type": "sprint",
+    "sport_type": "formula",
+    "circuit_name": "Miami International Autodrome",
+    "event_start_at_local": "2026-05-02T12:00:00",
+    "event_end_at_local": "2026-05-02T13:00:00",
+    "timezone": "America/New_York",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd06-miami-qualifying",
+    "title": "Miami Grand Prix - Qualifying",
+    "round": 6,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Miami International Autodrome",
+    "event_start_at_local": "2026-05-02T16:00:00",
+    "event_end_at_local": "2026-05-02T17:00:00",
+    "timezone": "America/New_York",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd06-miami-race",
+    "title": "Miami Grand Prix - Race",
+    "round": 6,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Miami International Autodrome",
+    "event_start_at_local": "2026-05-03T16:00:00",
+    "event_end_at_local": "2026-05-03T18:00:00",
+    "timezone": "America/New_York",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd07-canada-fp1",
+    "title": "Canadian Grand Prix - Free Practice 1",
+    "round": 7,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Gilles Villeneuve",
+    "event_start_at_local": "2026-05-22T12:30:00",
+    "event_end_at_local": "2026-05-22T13:30:00",
+    "timezone": "America/Toronto",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd07-canada-sprint-qualifying",
+    "title": "Canadian Grand Prix - Sprint Qualifying",
+    "round": 7,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Gilles Villeneuve",
+    "event_start_at_local": "2026-05-22T16:30:00",
+    "event_end_at_local": "2026-05-22T17:14:00",
+    "timezone": "America/Toronto",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd07-canada-sprint",
+    "title": "Canadian Grand Prix - Sprint",
+    "round": 7,
+    "type": "sprint",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Gilles Villeneuve",
+    "event_start_at_local": "2026-05-23T12:00:00",
+    "event_end_at_local": "2026-05-23T13:00:00",
+    "timezone": "America/Toronto",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd07-canada-qualifying",
+    "title": "Canadian Grand Prix - Qualifying",
+    "round": 7,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Gilles Villeneuve",
+    "event_start_at_local": "2026-05-23T16:00:00",
+    "event_end_at_local": "2026-05-23T17:00:00",
+    "timezone": "America/Toronto",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd07-canada-race",
+    "title": "Canadian Grand Prix - Race",
+    "round": 7,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Gilles Villeneuve",
+    "event_start_at_local": "2026-05-24T16:00:00",
+    "event_end_at_local": "2026-05-24T18:00:00",
+    "timezone": "America/Toronto",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd08-monaco-fp1",
+    "title": "Monaco Grand Prix - Free Practice 1",
+    "round": 8,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Monaco",
+    "event_start_at_local": "2026-06-05T13:30:00",
+    "event_end_at_local": "2026-06-05T14:30:00",
+    "timezone": "Europe/Monaco",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd08-monaco-fp2",
+    "title": "Monaco Grand Prix - Free Practice 2",
+    "round": 8,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Monaco",
+    "event_start_at_local": "2026-06-05T17:00:00",
+    "event_end_at_local": "2026-06-05T18:00:00",
+    "timezone": "Europe/Monaco",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd08-monaco-fp3",
+    "title": "Monaco Grand Prix - Free Practice 3",
+    "round": 8,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Monaco",
+    "event_start_at_local": "2026-06-06T12:30:00",
+    "event_end_at_local": "2026-06-06T13:30:00",
+    "timezone": "Europe/Monaco",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd08-monaco-qualifying",
+    "title": "Monaco Grand Prix - Qualifying",
+    "round": 8,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Monaco",
+    "event_start_at_local": "2026-06-06T16:00:00",
+    "event_end_at_local": "2026-06-06T17:00:00",
+    "timezone": "Europe/Monaco",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd08-monaco-race",
+    "title": "Monaco Grand Prix - Race",
+    "round": 8,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Monaco",
+    "event_start_at_local": "2026-06-07T15:00:00",
+    "event_end_at_local": "2026-06-07T17:00:00",
+    "timezone": "Europe/Monaco",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd09-barcelona-catalunya-fp1",
+    "title": "Barcelona-Catalunya Grand Prix - Free Practice 1",
+    "round": 9,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-06-12T13:30:00",
+    "event_end_at_local": "2026-06-12T14:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd09-barcelona-catalunya-fp2",
+    "title": "Barcelona-Catalunya Grand Prix - Free Practice 2",
+    "round": 9,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-06-12T17:00:00",
+    "event_end_at_local": "2026-06-12T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd09-barcelona-catalunya-fp3",
+    "title": "Barcelona-Catalunya Grand Prix - Free Practice 3",
+    "round": 9,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-06-13T12:30:00",
+    "event_end_at_local": "2026-06-13T13:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd09-barcelona-catalunya-qualifying",
+    "title": "Barcelona-Catalunya Grand Prix - Qualifying",
+    "round": 9,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-06-13T16:00:00",
+    "event_end_at_local": "2026-06-13T17:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd09-barcelona-catalunya-race",
+    "title": "Barcelona-Catalunya Grand Prix - Race",
+    "round": 9,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Barcelona-Catalunya",
+    "event_start_at_local": "2026-06-14T15:00:00",
+    "event_end_at_local": "2026-06-14T17:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd10-austria-fp1",
+    "title": "Austrian Grand Prix - Free Practice 1",
+    "round": 10,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-06-26T13:30:00",
+    "event_end_at_local": "2026-06-26T14:30:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd10-austria-fp2",
+    "title": "Austrian Grand Prix - Free Practice 2",
+    "round": 10,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-06-26T17:00:00",
+    "event_end_at_local": "2026-06-26T18:00:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd10-austria-fp3",
+    "title": "Austrian Grand Prix - Free Practice 3",
+    "round": 10,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-06-27T12:30:00",
+    "event_end_at_local": "2026-06-27T13:30:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd10-austria-qualifying",
+    "title": "Austrian Grand Prix - Qualifying",
+    "round": 10,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-06-27T16:00:00",
+    "event_end_at_local": "2026-06-27T17:00:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd10-austria-race",
+    "title": "Austrian Grand Prix - Race",
+    "round": 10,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Red Bull Ring",
+    "event_start_at_local": "2026-06-28T15:00:00",
+    "event_end_at_local": "2026-06-28T17:00:00",
+    "timezone": "Europe/Vienna",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd11-great-britain-fp1",
+    "title": "British Grand Prix - Free Practice 1",
+    "round": 11,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-07-03T12:30:00",
+    "event_end_at_local": "2026-07-03T13:30:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd11-great-britain-sprint-qualifying",
+    "title": "British Grand Prix - Sprint Qualifying",
+    "round": 11,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-07-03T16:30:00",
+    "event_end_at_local": "2026-07-03T17:14:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd11-great-britain-sprint",
+    "title": "British Grand Prix - Sprint",
+    "round": 11,
+    "type": "sprint",
+    "sport_type": "formula",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-07-04T12:00:00",
+    "event_end_at_local": "2026-07-04T13:00:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd11-great-britain-qualifying",
+    "title": "British Grand Prix - Qualifying",
+    "round": 11,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-07-04T16:00:00",
+    "event_end_at_local": "2026-07-04T17:00:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd11-great-britain-race",
+    "title": "British Grand Prix - Race",
+    "round": 11,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Silverstone Circuit",
+    "event_start_at_local": "2026-07-05T15:00:00",
+    "event_end_at_local": "2026-07-05T17:00:00",
+    "timezone": "Europe/London",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd12-belgium-fp1",
+    "title": "Belgian Grand Prix - Free Practice 1",
+    "round": 12,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Spa-Francorchamps",
+    "event_start_at_local": "2026-07-17T13:30:00",
+    "event_end_at_local": "2026-07-17T14:30:00",
+    "timezone": "Europe/Brussels",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd12-belgium-fp2",
+    "title": "Belgian Grand Prix - Free Practice 2",
+    "round": 12,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Spa-Francorchamps",
+    "event_start_at_local": "2026-07-17T17:00:00",
+    "event_end_at_local": "2026-07-17T18:00:00",
+    "timezone": "Europe/Brussels",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd12-belgium-fp3",
+    "title": "Belgian Grand Prix - Free Practice 3",
+    "round": 12,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Spa-Francorchamps",
+    "event_start_at_local": "2026-07-18T12:30:00",
+    "event_end_at_local": "2026-07-18T13:30:00",
+    "timezone": "Europe/Brussels",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd12-belgium-qualifying",
+    "title": "Belgian Grand Prix - Qualifying",
+    "round": 12,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Spa-Francorchamps",
+    "event_start_at_local": "2026-07-18T16:00:00",
+    "event_end_at_local": "2026-07-18T17:00:00",
+    "timezone": "Europe/Brussels",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd12-belgium-race",
+    "title": "Belgian Grand Prix - Race",
+    "round": 12,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Circuit de Spa-Francorchamps",
+    "event_start_at_local": "2026-07-19T15:00:00",
+    "event_end_at_local": "2026-07-19T17:00:00",
+    "timezone": "Europe/Brussels",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd13-hungary-fp1",
+    "title": "Hungarian Grand Prix - Free Practice 1",
+    "round": 13,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Hungaroring",
+    "event_start_at_local": "2026-07-24T13:30:00",
+    "event_end_at_local": "2026-07-24T14:30:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd13-hungary-fp2",
+    "title": "Hungarian Grand Prix - Free Practice 2",
+    "round": 13,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Hungaroring",
+    "event_start_at_local": "2026-07-24T17:00:00",
+    "event_end_at_local": "2026-07-24T18:00:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd13-hungary-fp3",
+    "title": "Hungarian Grand Prix - Free Practice 3",
+    "round": 13,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Hungaroring",
+    "event_start_at_local": "2026-07-25T12:30:00",
+    "event_end_at_local": "2026-07-25T13:30:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd13-hungary-qualifying",
+    "title": "Hungarian Grand Prix - Qualifying",
+    "round": 13,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Hungaroring",
+    "event_start_at_local": "2026-07-25T16:00:00",
+    "event_end_at_local": "2026-07-25T17:00:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd13-hungary-race",
+    "title": "Hungarian Grand Prix - Race",
+    "round": 13,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Hungaroring",
+    "event_start_at_local": "2026-07-26T15:00:00",
+    "event_end_at_local": "2026-07-26T17:00:00",
+    "timezone": "Europe/Budapest",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd14-netherlands-fp1",
+    "title": "Dutch Grand Prix - Free Practice 1",
+    "round": 14,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Zandvoort",
+    "event_start_at_local": "2026-08-21T12:30:00",
+    "event_end_at_local": "2026-08-21T13:30:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd14-netherlands-sprint-qualifying",
+    "title": "Dutch Grand Prix - Sprint Qualifying",
+    "round": 14,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Zandvoort",
+    "event_start_at_local": "2026-08-21T16:30:00",
+    "event_end_at_local": "2026-08-21T17:14:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd14-netherlands-sprint",
+    "title": "Dutch Grand Prix - Sprint",
+    "round": 14,
+    "type": "sprint",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Zandvoort",
+    "event_start_at_local": "2026-08-22T12:00:00",
+    "event_end_at_local": "2026-08-22T13:00:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd14-netherlands-qualifying",
+    "title": "Dutch Grand Prix - Qualifying",
+    "round": 14,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Zandvoort",
+    "event_start_at_local": "2026-08-22T16:00:00",
+    "event_end_at_local": "2026-08-22T17:00:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd14-netherlands-race",
+    "title": "Dutch Grand Prix - Race",
+    "round": 14,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Circuit Zandvoort",
+    "event_start_at_local": "2026-08-23T15:00:00",
+    "event_end_at_local": "2026-08-23T17:00:00",
+    "timezone": "Europe/Amsterdam",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd15-italy-fp1",
+    "title": "Italian Grand Prix - Free Practice 1",
+    "round": 15,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autodromo Nazionale di Monza",
+    "event_start_at_local": "2026-09-04T12:30:00",
+    "event_end_at_local": "2026-09-04T13:30:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd15-italy-fp2",
+    "title": "Italian Grand Prix - Free Practice 2",
+    "round": 15,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autodromo Nazionale di Monza",
+    "event_start_at_local": "2026-09-04T16:00:00",
+    "event_end_at_local": "2026-09-04T17:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd15-italy-fp3",
+    "title": "Italian Grand Prix - Free Practice 3",
+    "round": 15,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autodromo Nazionale di Monza",
+    "event_start_at_local": "2026-09-05T12:30:00",
+    "event_end_at_local": "2026-09-05T13:30:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd15-italy-qualifying",
+    "title": "Italian Grand Prix - Qualifying",
+    "round": 15,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Autodromo Nazionale di Monza",
+    "event_start_at_local": "2026-09-05T16:00:00",
+    "event_end_at_local": "2026-09-05T17:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd15-italy-race",
+    "title": "Italian Grand Prix - Race",
+    "round": 15,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Autodromo Nazionale di Monza",
+    "event_start_at_local": "2026-09-06T15:00:00",
+    "event_end_at_local": "2026-09-06T17:00:00",
+    "timezone": "Europe/Rome",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd16-spain-madrid-fp1",
+    "title": "Spanish Grand Prix (Madrid) - Free Practice 1",
+    "round": 16,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Madrid Street Circuit (IFEMA)",
+    "event_start_at_local": "2026-09-11T13:30:00",
+    "event_end_at_local": "2026-09-11T14:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd16-spain-madrid-fp2",
+    "title": "Spanish Grand Prix (Madrid) - Free Practice 2",
+    "round": 16,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Madrid Street Circuit (IFEMA)",
+    "event_start_at_local": "2026-09-11T17:00:00",
+    "event_end_at_local": "2026-09-11T18:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd16-spain-madrid-fp3",
+    "title": "Spanish Grand Prix (Madrid) - Free Practice 3",
+    "round": 16,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Madrid Street Circuit (IFEMA)",
+    "event_start_at_local": "2026-09-12T12:30:00",
+    "event_end_at_local": "2026-09-12T13:30:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd16-spain-madrid-qualifying",
+    "title": "Spanish Grand Prix (Madrid) - Qualifying",
+    "round": 16,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Madrid Street Circuit (IFEMA)",
+    "event_start_at_local": "2026-09-12T16:00:00",
+    "event_end_at_local": "2026-09-12T17:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd16-spain-madrid-race",
+    "title": "Spanish Grand Prix (Madrid) - Race",
+    "round": 16,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Madrid Street Circuit (IFEMA)",
+    "event_start_at_local": "2026-09-13T15:00:00",
+    "event_end_at_local": "2026-09-13T17:00:00",
+    "timezone": "Europe/Madrid",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd17-azerbaijan-fp1",
+    "title": "Azerbaijan Grand Prix - Free Practice 1",
+    "round": 17,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Baku City Circuit",
+    "event_start_at_local": "2026-09-24T12:30:00",
+    "event_end_at_local": "2026-09-24T13:30:00",
+    "timezone": "Asia/Baku",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd17-azerbaijan-fp2",
+    "title": "Azerbaijan Grand Prix - Free Practice 2",
+    "round": 17,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Baku City Circuit",
+    "event_start_at_local": "2026-09-24T16:00:00",
+    "event_end_at_local": "2026-09-24T17:00:00",
+    "timezone": "Asia/Baku",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd17-azerbaijan-fp3",
+    "title": "Azerbaijan Grand Prix - Free Practice 3",
+    "round": 17,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Baku City Circuit",
+    "event_start_at_local": "2026-09-25T12:30:00",
+    "event_end_at_local": "2026-09-25T13:30:00",
+    "timezone": "Asia/Baku",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd17-azerbaijan-qualifying",
+    "title": "Azerbaijan Grand Prix - Qualifying",
+    "round": 17,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Baku City Circuit",
+    "event_start_at_local": "2026-09-25T16:00:00",
+    "event_end_at_local": "2026-09-25T17:00:00",
+    "timezone": "Asia/Baku",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd17-azerbaijan-race",
+    "title": "Azerbaijan Grand Prix - Race",
+    "round": 17,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Baku City Circuit",
+    "event_start_at_local": "2026-09-26T15:00:00",
+    "event_end_at_local": "2026-09-26T17:00:00",
+    "timezone": "Asia/Baku",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd18-singapore-fp1",
+    "title": "Singapore Grand Prix - Free Practice 1",
+    "round": 18,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Marina Bay Street Circuit",
+    "event_start_at_local": "2026-10-09T16:30:00",
+    "event_end_at_local": "2026-10-09T17:30:00",
+    "timezone": "Asia/Singapore",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd18-singapore-sprint-qualifying",
+    "title": "Singapore Grand Prix - Sprint Qualifying",
+    "round": 18,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Marina Bay Street Circuit",
+    "event_start_at_local": "2026-10-09T20:30:00",
+    "event_end_at_local": "2026-10-09T21:14:00",
+    "timezone": "Asia/Singapore",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd18-singapore-sprint",
+    "title": "Singapore Grand Prix - Sprint",
+    "round": 18,
+    "type": "sprint",
+    "sport_type": "formula",
+    "circuit_name": "Marina Bay Street Circuit",
+    "event_start_at_local": "2026-10-10T17:00:00",
+    "event_end_at_local": "2026-10-10T18:00:00",
+    "timezone": "Asia/Singapore",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd18-singapore-qualifying",
+    "title": "Singapore Grand Prix - Qualifying",
+    "round": 18,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Marina Bay Street Circuit",
+    "event_start_at_local": "2026-10-10T21:00:00",
+    "event_end_at_local": "2026-10-10T22:00:00",
+    "timezone": "Asia/Singapore",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd18-singapore-race",
+    "title": "Singapore Grand Prix - Race",
+    "round": 18,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Marina Bay Street Circuit",
+    "event_start_at_local": "2026-10-11T20:00:00",
+    "event_end_at_local": "2026-10-11T22:00:00",
+    "timezone": "Asia/Singapore",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd19-united-states-fp1",
+    "title": "United States Grand Prix - Free Practice 1",
+    "round": 19,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-10-23T12:30:00",
+    "event_end_at_local": "2026-10-23T13:30:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd19-united-states-fp2",
+    "title": "United States Grand Prix - Free Practice 2",
+    "round": 19,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-10-23T16:00:00",
+    "event_end_at_local": "2026-10-23T17:00:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd19-united-states-fp3",
+    "title": "United States Grand Prix - Free Practice 3",
+    "round": 19,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-10-24T12:30:00",
+    "event_end_at_local": "2026-10-24T13:30:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd19-united-states-qualifying",
+    "title": "United States Grand Prix - Qualifying",
+    "round": 19,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-10-24T16:00:00",
+    "event_end_at_local": "2026-10-24T17:00:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd19-united-states-race",
+    "title": "United States Grand Prix - Race",
+    "round": 19,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Circuit of the Americas",
+    "event_start_at_local": "2026-10-25T15:00:00",
+    "event_end_at_local": "2026-10-25T17:00:00",
+    "timezone": "America/Chicago",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd20-mexico-fp1",
+    "title": "Mexico City Grand Prix - Free Practice 1",
+    "round": 20,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo Hermanos Rodríguez",
+    "event_start_at_local": "2026-10-30T12:30:00",
+    "event_end_at_local": "2026-10-30T13:30:00",
+    "timezone": "America/Mexico_City",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd20-mexico-fp2",
+    "title": "Mexico City Grand Prix - Free Practice 2",
+    "round": 20,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo Hermanos Rodríguez",
+    "event_start_at_local": "2026-10-30T16:00:00",
+    "event_end_at_local": "2026-10-30T17:00:00",
+    "timezone": "America/Mexico_City",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd20-mexico-fp3",
+    "title": "Mexico City Grand Prix - Free Practice 3",
+    "round": 20,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo Hermanos Rodríguez",
+    "event_start_at_local": "2026-10-31T11:30:00",
+    "event_end_at_local": "2026-10-31T12:30:00",
+    "timezone": "America/Mexico_City",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd20-mexico-qualifying",
+    "title": "Mexico City Grand Prix - Qualifying",
+    "round": 20,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo Hermanos Rodríguez",
+    "event_start_at_local": "2026-10-31T15:00:00",
+    "event_end_at_local": "2026-10-31T16:00:00",
+    "timezone": "America/Mexico_City",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd20-mexico-race",
+    "title": "Mexico City Grand Prix - Race",
+    "round": 20,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo Hermanos Rodríguez",
+    "event_start_at_local": "2026-11-01T14:00:00",
+    "event_end_at_local": "2026-11-01T16:00:00",
+    "timezone": "America/Mexico_City",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd21-brazil-fp1",
+    "title": "São Paulo Grand Prix - Free Practice 1",
+    "round": 21,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-11-06T12:30:00",
+    "event_end_at_local": "2026-11-06T13:30:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd21-brazil-fp2",
+    "title": "São Paulo Grand Prix - Free Practice 2",
+    "round": 21,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-11-06T16:00:00",
+    "event_end_at_local": "2026-11-06T17:00:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd21-brazil-fp3",
+    "title": "São Paulo Grand Prix - Free Practice 3",
+    "round": 21,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-11-07T11:30:00",
+    "event_end_at_local": "2026-11-07T12:30:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd21-brazil-qualifying",
+    "title": "São Paulo Grand Prix - Qualifying",
+    "round": 21,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-11-07T15:00:00",
+    "event_end_at_local": "2026-11-07T16:00:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd21-brazil-race",
+    "title": "São Paulo Grand Prix - Race",
+    "round": 21,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Autódromo José Carlos Pace",
+    "event_start_at_local": "2026-11-08T14:00:00",
+    "event_end_at_local": "2026-11-08T16:00:00",
+    "timezone": "America/Sao_Paulo",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd22-las-vegas-fp1",
+    "title": "Las Vegas Grand Prix - Free Practice 1",
+    "round": 22,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Las Vegas Street Circuit",
+    "event_start_at_local": "2026-11-19T16:30:00",
+    "event_end_at_local": "2026-11-19T17:30:00",
+    "timezone": "America/Los_Angeles",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd22-las-vegas-fp2",
+    "title": "Las Vegas Grand Prix - Free Practice 2",
+    "round": 22,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Las Vegas Street Circuit",
+    "event_start_at_local": "2026-11-19T20:00:00",
+    "event_end_at_local": "2026-11-19T21:00:00",
+    "timezone": "America/Los_Angeles",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd22-las-vegas-fp3",
+    "title": "Las Vegas Grand Prix - Free Practice 3",
+    "round": 22,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Las Vegas Street Circuit",
+    "event_start_at_local": "2026-11-20T16:30:00",
+    "event_end_at_local": "2026-11-20T17:30:00",
+    "timezone": "America/Los_Angeles",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd22-las-vegas-qualifying",
+    "title": "Las Vegas Grand Prix - Qualifying",
+    "round": 22,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Las Vegas Street Circuit",
+    "event_start_at_local": "2026-11-20T20:00:00",
+    "event_end_at_local": "2026-11-20T21:00:00",
+    "timezone": "America/Los_Angeles",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd22-las-vegas-race",
+    "title": "Las Vegas Grand Prix - Race",
+    "round": 22,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Las Vegas Street Circuit",
+    "event_start_at_local": "2026-11-21T20:00:00",
+    "event_end_at_local": "2026-11-21T22:00:00",
+    "timezone": "America/Los_Angeles",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd23-qatar-fp1",
+    "title": "Qatar Grand Prix - Free Practice 1",
+    "round": 23,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Lusail International Circuit",
+    "event_start_at_local": "2026-11-27T16:30:00",
+    "event_end_at_local": "2026-11-27T17:30:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd23-qatar-fp2",
+    "title": "Qatar Grand Prix - Free Practice 2",
+    "round": 23,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Lusail International Circuit",
+    "event_start_at_local": "2026-11-27T20:00:00",
+    "event_end_at_local": "2026-11-27T21:00:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd23-qatar-fp3",
+    "title": "Qatar Grand Prix - Free Practice 3",
+    "round": 23,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Lusail International Circuit",
+    "event_start_at_local": "2026-11-28T17:30:00",
+    "event_end_at_local": "2026-11-28T18:30:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd23-qatar-qualifying",
+    "title": "Qatar Grand Prix - Qualifying",
+    "round": 23,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Lusail International Circuit",
+    "event_start_at_local": "2026-11-28T21:00:00",
+    "event_end_at_local": "2026-11-28T22:00:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd23-qatar-race",
+    "title": "Qatar Grand Prix - Race",
+    "round": 23,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Lusail International Circuit",
+    "event_start_at_local": "2026-11-29T19:00:00",
+    "event_end_at_local": "2026-11-29T21:00:00",
+    "timezone": "Asia/Qatar",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd24-abu-dhabi-fp1",
+    "title": "Abu Dhabi Grand Prix - Free Practice 1",
+    "round": 24,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Yas Marina Circuit",
+    "event_start_at_local": "2026-12-04T13:30:00",
+    "event_end_at_local": "2026-12-04T14:30:00",
+    "timezone": "Asia/Dubai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd24-abu-dhabi-fp2",
+    "title": "Abu Dhabi Grand Prix - Free Practice 2",
+    "round": 24,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Yas Marina Circuit",
+    "event_start_at_local": "2026-12-04T17:00:00",
+    "event_end_at_local": "2026-12-04T18:00:00",
+    "timezone": "Asia/Dubai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd24-abu-dhabi-fp3",
+    "title": "Abu Dhabi Grand Prix - Free Practice 3",
+    "round": 24,
+    "type": "practice",
+    "sport_type": "formula",
+    "circuit_name": "Yas Marina Circuit",
+    "event_start_at_local": "2026-12-05T14:30:00",
+    "event_end_at_local": "2026-12-05T15:30:00",
+    "timezone": "Asia/Dubai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd24-abu-dhabi-qualifying",
+    "title": "Abu Dhabi Grand Prix - Qualifying",
+    "round": 24,
+    "type": "qualifying",
+    "sport_type": "formula",
+    "circuit_name": "Yas Marina Circuit",
+    "event_start_at_local": "2026-12-05T18:00:00",
+    "event_end_at_local": "2026-12-05T19:00:00",
+    "timezone": "Asia/Dubai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  },
+  {
+    "id": "f1-2026-rd24-abu-dhabi-race",
+    "title": "Abu Dhabi Grand Prix - Race",
+    "round": 24,
+    "type": "race",
+    "sport_type": "formula",
+    "circuit_name": "Yas Marina Circuit",
+    "event_start_at_local": "2026-12-06T17:00:00",
+    "event_end_at_local": "2026-12-06T19:00:00",
+    "timezone": "Asia/Dubai",
+    "links": {
+      "watch_url": "https://f1tv.formula1.com",
+      "watch_label": "Watch on F1 TV"
+    }
+  }
+]

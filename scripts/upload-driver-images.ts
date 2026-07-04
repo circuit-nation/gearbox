@@ -24,7 +24,6 @@ import {
   isAllowedMimeTypeForExtension,
   normalizeExtension,
 } from "@/lib/image-upload";
-import { tierNationAdminFetch } from "@/lib/tier-nation/api";
 import type { AdminEntityInput, AdminEntitiesBody } from "@/lib/tier-nation/types";
 
 config({ path: path.resolve(process.cwd(), ".env") });
@@ -189,7 +188,27 @@ async function uploadFile(
   );
 }
 
+function assertTierNationEnv() {
+  const missing = [
+    "TIER_NATION_API_BASE_URL",
+    "TIER_NATION_ADMIN_USERNAME",
+    "TIER_NATION_ADMIN_PASSWORD",
+  ].filter((key) => !process.env[key]?.trim());
+
+  if (missing.length) {
+    throw new Error(
+      `Missing Tier Nation env in .env / .env.local: ${missing.join(", ")}. ` +
+        "Example: TIER_NATION_API_BASE_URL=http://localhost:8080/api/v1"
+    );
+  }
+}
+
 async function createTierNationEntities(entities: AdminEntityInput[], dryRun: boolean) {
+  assertTierNationEnv();
+
+  // Dynamic import so `@/config/config` reads process.env after dotenv ran above.
+  const { tierNationAdminFetch } = await import("@/lib/tier-nation/api");
+
   const batchSize = 20;
   for (let i = 0; i < entities.length; i += batchSize) {
     const batch = entities.slice(i, i + batchSize);

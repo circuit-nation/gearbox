@@ -4,6 +4,8 @@ const EventLinksSchema = new Schema(
   {
     instagram: String,
     youtube: String,
+    watch_url: String,
+    watch_label: String,
     discord: String,
     x: String,
     sources: [String],
@@ -89,6 +91,7 @@ const DriverSchema = new Schema(
 
 const EventSchema = new Schema(
   {
+    seed_key: { type: String, sparse: true, unique: true },
     title: { type: String, required: true },
     round: { type: Number, required: true },
     type: { type: String, required: true },

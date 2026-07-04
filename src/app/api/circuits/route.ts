@@ -101,7 +101,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const document = await CircuitModel.findByIdAndUpdate(id, parsed.data, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     }).lean();
 

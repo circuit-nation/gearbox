@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/select";
 
 type SportOption = { _id: string; name: string };
-type TeamOption = { _id: string; name: string };
+type TeamOption = { _id: string; name: string; sport_id: string };
 
 type DriversFiltersProps = {
   filterName: string;
@@ -32,6 +32,10 @@ export function DriversFilters({
   onFilterSportChange,
   onFilterTeamChange,
 }: DriversFiltersProps) {
+  const filteredTeams = filterSport
+    ? (teams?.filter((team) => team.sport_id === filterSport) ?? [])
+    : (teams ?? []);
+
   return (
     <div className="flex flex-wrap items-end gap-4">
       <div className="min-w-[200px] flex-1">
@@ -73,7 +77,7 @@ export function DriversFilters({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All teams</SelectItem>
-            {teams?.map((team) => (
+            {filteredTeams.map((team) => (
               <SelectItem key={team._id} value={team._id}>
                 {team.name}
               </SelectItem>

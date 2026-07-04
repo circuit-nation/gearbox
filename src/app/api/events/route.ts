@@ -159,7 +159,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const document = await EventModel.findByIdAndUpdate(id, updateData, {
-      new: true,
+      returnDocument: "after",
       runValidators: true,
     })
       .populate("links_id")

@@ -33,6 +33,8 @@ export interface EventLinks {
   _id: string;
   instagram?: string;
   youtube?: string;
+  watch_url?: string;
+  watch_label?: string;
   discord?: string;
   x?: string;
   sources?: string[];
@@ -80,6 +82,7 @@ export interface Driver {
 
 export interface Event {
   _id: string;
+  seed_key?: string;
   title: string;
   round: number;
   type: EventType;
